@@ -1,0 +1,118 @@
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 80px auto 80px;
+    grid-template-areas: 
+        "header header header"
+        "left center right"
+        "footer footer footer";
+}
+
+/* Header */
+header {
+    grid-area: header;
+    background-color: #3498db;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Menu Bar */
+#menu-bar {
+    display: flex;
+    align-items: center;
+}
+
+/* Menu Bar Links */
+#menu-bar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+/* Search Form */
+form {
+    display: flex;
+    align-items: center;
+}
+
+/* Search Input */
+form input[type="text"] {
+    background-color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+/* Search Button */
+form button[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Main */
+main {
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+/* Left Section */
+.left-section {
+    grid-area: left;
+    background-color: #e74c3c;
+}
+
+/* Center Section */
+.center-section {
+    grid-area: center;
+    background-color: #f1c40f;
+}
+
+/* Right Section */
+.right-section {
+    grid-area: right;
+    background-color: #16a085;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background-color: #34495e;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Footer Top */
+.footer-top {
+    display: flex;
+    align-items: center;
+}
+
+/* Footer Links */
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+/* Footer Icons */
+.footer-icons a {
+    color: white;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* Footer Company Name */
+.footer-company-name {
+    margin: 0;
+}
