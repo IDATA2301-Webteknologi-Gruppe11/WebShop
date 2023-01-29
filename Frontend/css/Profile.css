@@ -1,7 +1,6 @@
 body{
     font-family: Poppins;
     margin: 0;
-    /* background-color: rgb(45, 45, 53); */
 }
 
 /* Structure of main grid */
@@ -13,33 +12,41 @@ body{
 
 header{
     color: white;
-    padding: 20px;
     align-items: center;
     background-color: rgb(45, 45, 53);
+    padding: 30px 0px;
 }
 
-header h1{
-    grid-column: 3 / span 3;
-    font-size: 50px;
+header #title{
+    grid-column: 2 / span 3;
+    font-size: 60px;
+    margin: 5px;
 }
 
-header nav{
+header .option-nav{
     grid-column: span 5;
-    justify-self: end;
+    /* justify-self: end; */
 }
 
-header nav a{
+header .option-nav a{
     color: white;
     text-decoration: none;
-    padding: 40px;
-    font-size: 25px;
+    padding: 0px 20px;
+    font-size: 20px;
+}
+
+header .icon-nav a{
+    grid-column: 10 / span 12;
+    color: white;
+    text-decoration: none;
+    padding: 0px 10px;
+    font-size: 20px;
 }
 
 main{
-    color: white;
-    max-width: 1200px;
-    margin:  60px auto;
+    margin: 60px auto;
     padding: 20px;
+    max-width: 1920px;
 }
 
 main #myprofile{
@@ -54,7 +61,12 @@ main .cards{
     color: black;
     border-radius: 6px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.20);
+}
 
+
+main .list li{
+
+    display: inline;
 }
 
 
