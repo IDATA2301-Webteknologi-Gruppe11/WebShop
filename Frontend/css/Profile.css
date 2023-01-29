@@ -1,0 +1,68 @@
+body{
+    font-family: Poppins;
+    margin: 0;
+    /* background-color: rgb(45, 45, 53); */
+}
+
+/* Structure of main grid */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+}
+
+header{
+    color: white;
+    padding: 20px;
+    align-items: center;
+    background-color: rgb(45, 45, 53);
+}
+
+header h1{
+    grid-column: 3 / span 3;
+    font-size: 50px;
+}
+
+header nav{
+    grid-column: span 5;
+    justify-self: end;
+}
+
+header nav a{
+    color: white;
+    text-decoration: none;
+    padding: 40px;
+    font-size: 25px;
+}
+
+main{
+    color: white;
+    max-width: 1200px;
+    margin:  60px auto;
+    padding: 20px;
+}
+
+main #myprofile{
+    grid-column: span 12;
+}
+
+main .cards{
+    padding: 10px 20px;
+    font-size: 20px;
+    grid-column: span 4;
+    background: #FFF;
+    color: black;
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.20);
+
+}
+
+
+
+
+
+
+
+
+
+
