@@ -11,7 +11,49 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.grid {
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+}
+
+header{
+    color: white;
+    align-items: center;
+    background-color: #051622;
+    padding: 30px 0px;
+}
+
+header #title{
+    grid-column: 2 / span 2;
+    font-size: 60px;
+    margin: 5px;
+}
+
+header .option-nav{
+    grid-column: 4 / span 6;
+    /* justify-self: end; */
+    margin-left: 175px;
+}
+
+header .option-nav a{
+    /* grid-column: 2 / span 4; */
+    color: white;
+    text-decoration: none;
+    padding: 0px 20px;
+
+    font-size: 20px;
+}
+
+header .icon-nav a{
+    /* grid-column: 10 / span 12; */
+    color: white;
+    text-decoration: none;
+    padding: 0px 10px;
+    font-size: 20px;
+}
+
+.icon_footer{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 5px;
@@ -161,4 +203,15 @@ button[class*=btn] {
     padding-top: 20px;
     padding-left: 30px;
     position: relative;
+}
+
+footer {
+    color: white;
+    background-color: #051622;
+    padding: 30px 0px;
+    font-size: 40px;
+}
+
+footer .footer_nav{
+    align-self: center;
 }

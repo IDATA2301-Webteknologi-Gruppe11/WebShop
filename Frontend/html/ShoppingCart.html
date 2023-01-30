@@ -6,13 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Shopping Cart</title>
 
-    <link rel="stylesheet" href="../css/cart.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="../css/Cart.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
+    <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <h1>INSERT HEADER</h1>
+    <header class="grid">
+
+        <h1 id="title">ProFlex</h1>
+        <nav class="option-nav">
+            <a href="#">Home</a>
+            <a href="ProductPage.html">Products</a>
+            <a href="#">Wishlist</a>
+            <a href="#">About</a>
+            <form id="search">
+                <input type="text" placeholder="Search..." />
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </nav>
+        <nav class="icon-nav">
+            <a href="#"><i class="fa-solid fa-cart-flatbed"></i></a>
+            <a href="#"><i class="fa-regular fa-heart"></i></a>
+            <a href="#"><i class="fa-regular fa-user"></i></a>
+        </nav>
+    </header>
     <main class="grid">
         <div class="shopping-cart">
             <!-- Title -->
@@ -128,5 +147,11 @@
         </button>
     </div>
 
-    <h2>INSERT FOOTER</h2>
+    <footer class="grid">
+        <nav class="footer_nav">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </nav>
+    </footer>
 </body>
