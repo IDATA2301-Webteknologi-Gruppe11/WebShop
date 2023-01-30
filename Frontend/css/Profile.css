@@ -1,0 +1,105 @@
+body{
+    font-family: Poppins;
+    margin: 0;
+}
+
+/* Structure of main grid */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+}
+
+header{
+    color: white;
+    align-items: center;
+    background-color: #051622;
+    padding: 30px 0px;
+}
+
+header #title{
+    grid-column: 2 / span 2;
+    font-size: 60px;
+    margin: 5px;
+}
+
+header .option-nav{
+    grid-column: 4 / span 6;
+    /* justify-self: end; */
+    margin-left: 175px;
+}
+
+header .option-nav a{
+    /* grid-column: 2 / span 4; */
+    color: white;
+    text-decoration: none;
+    padding: 0px 20px;
+
+    font-size: 20px;
+}
+
+header .icon-nav a{
+    /* grid-column: 10 / span 12; */
+    color: white;
+    text-decoration: none;
+    padding: 0px 10px;
+    font-size: 20px;
+}
+
+main{
+    margin: 60px auto;
+    padding: 20px;
+    max-width: 1920px;
+}
+
+main #myprofile{
+    grid-column: span 12;
+}
+
+main .cards{
+    padding: 10px 20px;
+    font-size: 20px;
+    grid-column: span 4;
+    background: #FFF;
+    color: black;
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.20);
+}
+
+main .list li{
+    display: inline;
+    padding: 0px 20px;
+}
+
+/* Search form */
+#search{
+    display: inline;
+}
+
+/* Search Input */
+form input[type="text"] {
+    background-color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+/* Search Button */
+form button[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
