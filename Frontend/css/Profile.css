@@ -7,68 +7,74 @@ body{
 .grid{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 30px;
+    gap: 10px;
 }
 
 header{
     color: white;
     align-items: center;
     background-color: #051622;
-    padding: 30px 0px;
 }
 
-header #title{
+header h1{
     grid-column: 2 / span 2;
     font-size: 60px;
     margin: 5px;
+    text-align: center;
 }
 
 header .option-nav{
-    grid-column: 4 / span 6;
-    /* justify-self: end; */
-    margin-left: 175px;
+    grid-column: 5 / span 4;
+    text-align: center;
 }
 
 header .option-nav a{
-    /* grid-column: 2 / span 4; */
     color: white;
     text-decoration: none;
-    padding: 0px 20px;
+    padding: 0px 50px;
+    font-size: 25px;
+}
 
-    font-size: 20px;
+header .icon-nav{
+    grid-column: 10 / span 2;
+    text-align: center;
 }
 
 header .icon-nav a{
-    /* grid-column: 10 / span 12; */
     color: white;
     text-decoration: none;
-    padding: 0px 10px;
-    font-size: 20px;
+    padding: 0px 20px;
+    font-size: 25px;
 }
 
 main{
-    margin: 60px auto;
-    padding: 20px;
-    max-width: 1920px;
-}
-
-main #myprofile{
-    grid-column: span 12;
+    margin: 60px auto; /* Margin from header to cards */
+    padding: 30px;
+    /* max-width: 1920px; */
 }
 
 main .cards{
-    padding: 10px 20px;
     font-size: 20px;
     grid-column: span 4;
     background: #FFF;
     color: black;
     border-radius: 6px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.20);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.30);
 }
 
-main .list li{
+main .cards h2{
+    margin-left: 20px;
+    padding: 0px 0px 20px 0px;
+}
+
+main .ongoing-order-list p{
     display: inline;
-    padding: 0px 20px;
+    margin-left: 20px;
+    padding: 0px 150px 0px 0px;
+}
+
+main .profile-detail-list p{
+    margin-left: 20px;
 }
 
 /* Search form */
@@ -95,11 +101,46 @@ form button[type="submit"] {
     cursor: pointer;
 }
 
+footer{
+    background-color: #051622;
+}
 
+footer h2{
+    display: inline;
+    grid-column: 6 / span 2;
+    /* margin: auto; */
+    color: white;
+    text-align: center;
+    font-weight: 500;
+}
 
+footer h3{
+    display: inline;
+    grid-column: 5 / span 4;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+}
 
+footer .footer-nav{
+    grid-column: 5 / span 4;
+    text-align: center;
+}
 
+footer .footer-nav a{
+    padding: 0px 50px;
+    color: white;
+    font-size: 50px;
+}
 
+footer .icon-nav{
+    grid-column: 3 / span 8;
+    text-align: center;
+}
 
-
-
+footer .icon-nav a{
+    padding: 0px 50px;
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+}

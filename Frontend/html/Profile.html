@@ -8,12 +8,7 @@
     <link rel="stylesheet" href="../css/Profile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapxis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <!-- Fontawesome kit link MIKKEL -->
     <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
@@ -21,12 +16,10 @@
 
 <body>
     <header class="grid">
-
         <h1 id="title">ProFlex</h1>
         <nav class="option-nav">
             <a href="#">Home</a>
             <a href="ProductPage.html">Products</a>
-            <a href="#">Wishlist</a>
             <a href="#">About</a>
             <form id="search">
                 <input type="text" placeholder="Search..." />
@@ -42,23 +35,44 @@
     <main class="grid">   
           <div class="cards">
             <h2>Ongoing orders</h2>
-            <ul class="list">
-                <li>Order number</li>
-                <li>Products</li>
-                <li>Date</li>
-            </ul>
-          </div>
+            <nav class="ongoing-order-list">
+                <p>Order history</p>
+                <p>Products</p>
+                <p>Date</p> 
+            </div>
           <div class="cards">
             <h2>Order history</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, unde!.</p>
+            <p></p>
           </div>
           <div class="cards">
             <h2>Profile details</h2>
-            <p>Username</p>
-            <p>Email</p>
-            <p>Change password</p>
-            <p>Payment method</p>
+            <nav class="profile-detail-list">
+                <p>Username</p>
+                <p>Email</p>
+                <p>Change password</p>
+                <p>Payment method</p>
+            </nav>
           </div>
     </main>
+    <footer class="grid">
+        <h2>Follow us on</h2>
+        <nav class="footer-nav"> 
+            <a href="#"><i class="fa-brands fa-facebook"></i></a> 
+            <a href="#"><i class="fa-brands fa-twitter"></i></a> 
+            <a href="#"><i class="fa-brands fa-youtube"></i></a> 
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a> 
+        </nav>
+        <h2>Contact us on</h2>
+        <nav class="icon-nav">
+            <a href="#"><i class="fa-solid fa-phone"></i> +47 99 99 99 99</a>     
+            <a href="#"><i class="fa-solid fa-envelope"></i> email@proflex.com</a> 
+            <a href="#"><i class="fa-solid fa-location-pin"></i> Larsgårdsvegen 2, 6003 Ålesund </a>  
+        </nav>
+        <h3>*This website is a result of a university group project,
+             performed in the course IDATA2301 Web technologies, 
+             at NTNU.All the information provided here is a result of imagination. 
+             Any resemblance with real companies or products is a coincidence.
+        </h3>
+    </footer>
 </body>
 </html>
