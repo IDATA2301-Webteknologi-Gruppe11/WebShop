@@ -24,13 +24,10 @@ header #title{
 }
 
 header .option-nav{
-    grid-column: 4 / span 6;
-    /* justify-self: end; */
-    margin-left: 175px;
+    grid-column: 4 / span 5;
 }
 
 header .option-nav a{
-    /* grid-column: 2 / span 4; */
     color: white;
     text-decoration: none;
     padding: 0px 20px;
@@ -38,8 +35,10 @@ header .option-nav a{
     font-size: 20px;
 }
 
+header.icon-nav{
+}
+
 header .icon-nav a{
-    /* grid-column: 10 / span 12; */
     color: white;
     text-decoration: none;
     padding: 0px 10px;
