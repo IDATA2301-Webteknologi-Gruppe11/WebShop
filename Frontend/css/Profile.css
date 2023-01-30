@@ -40,6 +40,9 @@ header .icon-nav{
     text-align: center;
 }
 
+header.icon-nav{
+}
+
 header .icon-nav a{
     color: white;
     text-decoration: none;
