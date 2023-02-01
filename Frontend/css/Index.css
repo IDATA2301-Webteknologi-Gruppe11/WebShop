@@ -63,24 +63,6 @@ main {
     grid-template-columns: 1fr 2fr 1fr;
 }
 
-/* Left Section */
-.left-section {
-    grid-area: left;
-    background-color: #e74c3c;
-}
-
-/* Center Section */
-.center-section {
-    grid-area: center;
-    background-color: #f1c40f;
-}
-
-/* Right Section */
-.right-section {
-    grid-area: right;
-    background-color: #16a085;
-}
-
 /* Footer */
 footer {
     grid-area: footer;
@@ -102,14 +84,16 @@ footer {
 .footer-links a {
     color: white;
     text-decoration: none;
-    margin-right: 20px;
+    margin: auto 75px;
+    margin-right: 30px;
 }
 
 /* Footer Icons */
 .footer-icons a {
     color: white;
     font-size: 20px;
-    margin-right: 10px;
+    margin: auto 75px;
+    margin-right: 30px;
 }
 
 /* Footer Company Name */
