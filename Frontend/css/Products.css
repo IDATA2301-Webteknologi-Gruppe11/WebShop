@@ -32,11 +32,11 @@ input {
     border-radius:  40px;
     width: 275px;
     height: 25px;
-    text-align: center;
     background-image: url(../images/search-icon.png);
-    background-position: 230px 50%;
+    background-position: 10px 50%;
     background-repeat: no-repeat;
     background-size: 15px 15px;
+    padding-left: 30px;
 }
 
 ::placeholder {
