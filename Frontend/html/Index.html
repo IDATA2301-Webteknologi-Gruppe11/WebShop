@@ -3,86 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <title>ProFlex</title>
-    <link rel="stylesheet" type="text/css" href="../css/Index.css" />
-    <link rel="stylesheet" href="../css/Profile.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../css/Profile.css" />
+    <link rel="stylesheet" href="../css/Index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapxis.com/css2?family=Roboto:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Fontawesome kit link MIKKEL -->
     <script
       src="https://kit.fontawesome.com/0a8856d0a6.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
-    <header class="grid">
-        <h1 id="title">ProFlex</h1>
-        <nav class="option-nav">
-            <a href="#">Home</a>
-            <a href="ProductPage.html">Products</a>
-            <a href="#">About</a>
-            <form id="search">
-                <input type="text" placeholder="Search..." />
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </nav>
-        <nav class="icon-nav">
-            <a href="#"><i class="fa-solid fa-cart-flatbed"></i></a>
-            <a href="#"><i class="fa-regular fa-heart"></i></a>
-            <a href="#"><i class="fa-regular fa-user"></i></a>
-        </nav>
-    </header>
+    <section class="header">
+      <nav>
+        <a href="index.html"
+          ><img src="../images/proflexlogo-removebg-preview.png" alt=""
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onClick="hideMenu()"></i>
+          <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="">PRODUCTS</a></li>
+            <li><a href="">ABOUT</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
 
-    <main>
-      <div>
-        <h1>Innovative IT Solution</h1>
-        <h1>that support your</h1>
-        <h1>success</h1>
+      <div class="text-box">
+        <h1>Innovative IT Solutions which supports your success.</h1>
       </div>
-      <div>
-        
-      </div>
-    </main>
+    </section>
+
+    <section>
+        <h1></h1>
+    </section>
 
     <footer class="grid">
-        <h2>Follow us on</h2>
-        <nav class="footer-nav"> 
-            <a href="#"><i class="fa-brands fa-facebook"></i></a> 
-            <a href="#"><i class="fa-brands fa-twitter"></i></a> 
-            <a href="#"><i class="fa-brands fa-youtube"></i></a> 
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a> 
-        </nav>
-        <h2>Contact us on</h2>
-        <nav class="icon-nav">
-            <a href="#"><i class="fa-solid fa-phone"></i> +47 99 99 99 99</a>     
-            <a href="#"><i class="fa-solid fa-envelope"></i> email@proflex.com</a> 
-            <a href="#"><i class="fa-solid fa-location-pin"></i> Larsgårdsvegen 2, 6003 Ålesund </a>  
-        </nav>
-        <h3>*This website is a result of a university group project,
-             performed in the course IDATA2301 Web technologies, 
-             at NTNU.All the information provided here is a result of imagination. 
-             Any resemblance with real companies or products is a coincidence.
-        </h3>
+      <h2 class="Follow-us-on">Follow us on</h2>
+      <nav class="footer-nav-flex">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      </nav>
+      <h2 class="Contact-us-on">Contact us on</h2>
+      <nav class="icon-nav">
+        <a href="#"><i class="fa-solid fa-phone"></i> +47 99 99 99 99</a>
+        <a href="#"><i class="fa-solid fa-envelope"></i> email@proflex.com</a>
+        <a href="#"
+          ><i class="fa-solid fa-location-pin"></i> Larsgårdsvegen 2, 6003
+          Ålesund
+        </a>
+      </nav>
+      <h3>
+        *This website is a result of a university group project, performed in
+        the course IDATA2301 Web technologies, at NTNU.All the information
+        provided here is a result of imagination. Any resemblance with real
+        companies or products is a coincidence.
+      </h3>
     </footer>
+    <script>
+        var navLink = document.getElementById("navLink");
+
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+    </script>
   </body>
 </html>
