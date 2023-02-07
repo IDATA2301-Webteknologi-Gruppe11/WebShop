@@ -811,7 +811,7 @@ footer {
 }
 
 .Follow-us-on {
-    color: black;
+    color: white;
     font-family: sans-serif;
     margin-top: 50px;
     text-align: center;
@@ -828,7 +828,7 @@ footer {
 }
 
 .footer-nav-flex a {
-    color: black;
+    color: white;
 }
 
 .grid {
@@ -837,10 +837,11 @@ footer {
     grid-gap: 20px;
     place-items: center;
     text-align: center;
+    background-color: #0067b8;
 }
 
 .Contact-us-on {
-    color: black;
+    color: white;
     font-family: sans-serif;
     text-align: center;
     font-size: 200%;
@@ -854,6 +855,7 @@ footer .icon-nav a{
     text-decoration: none;
     font-family: sans-serif;
     font-weight: bold;
+    color: white;
 }
 
 h3 {
@@ -861,6 +863,7 @@ h3 {
     font-size: 130%;
     grid-gap: 10px;
     width: 60%;
+    color: white;
 }
 
 @font-face {
