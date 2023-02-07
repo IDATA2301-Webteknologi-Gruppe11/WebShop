@@ -53,7 +53,7 @@ nav img {
 }
 
 .text-box {
-    width:  70%;
+    max-width:  70%;
     color: #111;
     position: absolute;
     top: 20%;
@@ -63,7 +63,7 @@ nav img {
 }
 
 .text-box h1 {
-    font-size: 110px;
+    font-size: 96px;
 }
 
 nav .fa {
@@ -97,6 +97,34 @@ nav .fa {
         padding: 30px;
     }
 }
+
+.body div img {
+    max-width: 100%;
+    height: auto;
+  }
+
+h3 {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+
+.row {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 20%;
+    margin-bottom: 10%;
+    display:block;
+}
+
+
+
 
 footer{
     background-color: #051622;
