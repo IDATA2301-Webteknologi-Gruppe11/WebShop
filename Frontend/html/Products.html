@@ -5,40 +5,45 @@
     <title>Products</title>
     <link href="../css/Products.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
+    <script src="../resources/jquery-3.6.3.js"></script>
 </head>
 <body>
 <div class="grid-container">
     <div class="grid-item-1">
-        <div class="flex-topbar">
-            <div class="flex-logo">
-                <img src="../images/proflexlogo.png" alt="Image" width="156" height="60" class="logoimage">
+        <header>
+            <div class="flex-topbar">
+                <div class="flex-1">
+                    <div class="flex-logo">
+                        <img src="../images/proflexlogo.png" alt="Image" width="156" height="60" class="logoimage">
+                    </div>
+                </div>
+                <div class="flex-2">
+                    <nav class="flex-home">
+                        <a class="home" href="Index.html">Home</a>
+                    </nav>
+                    <nav class="flex-product">
+                        <a class="product" href="Products.html">Product</a>
+                    </nav>
+                    <nav class="flex-support">
+                        <a class="support" href="¤">About</a>
+                    </nav>
+                </div>
+                <div class="flex-3">
+                    <div class="flex-searchbar">
+                        <form id="search-form">
+                            <input type="text" id="search-input" placeholder="Search">
+                        </form>
+                    </div>
+                    <nav class="flex-shopingcart">
+                        <a href="ShoppingCart.html"><i class="fa-solid fa-cart-flatbed"></i></a>
+                    </nav>
+                    <nav class="flex-profile">
+                        <a href="Profile.html"><i class="fa-regular fa-user"></i></a>
+                    </nav>
+                </div>
             </div>
-            <nav class="flex-home">
-                <a class="home" href="Index.html"><i>Home</i></a>
-            </nav>
-            <nav class="flex-product">
-                <a class="product" href="Products.html"><i>Product</i></a>
-            </nav>
-            <nav class="flex-support">
-                <a class="support" href="¤"><i>Support</i></a>
-            </nav>
-            <div class="flex-searchbar">
-                <form id="form">
-                    <input type="search" id="query" name="q" placeholder="Search...">
-                </form>
-            </div>
-            <nav class="flex-shopingcart">
-                <a href="ShoppingCart.html"><i class="fa-solid fa-cart-flatbed"></i></a>
-            </nav>
-            <nav class="flex-hearth">
-                <a href="#"><i class="fa-regular fa-heart"></i></a>
-            </nav>
-            <nav class="flex-profile">
-                <a href="Profile.html"><i class="fa-regular fa-user"></i></a>
-            </nav>
-        </div>
+        </header>
     </div>
-    <div class="grid-item-1_5"></div>
     <div class="grid-item-2">
         <h1>PRODUCTS</h1>
     </div>
@@ -312,7 +317,6 @@
             </div>
         </div>
     </div>
-    <div class="grid-item-35"></div>
 </div>
 <footer class="grid">
     <h2 class="Follow-us-on">Follow us on</h2>

@@ -9,7 +9,38 @@
 .flex-topbar {
     display: flex;
     align-items: center;
-    gap: 75px;
+    justify-content: space-between;
+}
+
+.flex-1 {
+    flex: 1;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.flex-2 {
+    display: flex;
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    gap: 5%;
+}
+
+.flex-3 {
+    display: flex;
+    flex: 1;
+    text-align: right;
+    justify-content: right;
+    gap: 5%;
+    margin-right: 10px;
+
+}
+
+header {
+    color: black;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 1px 0px 0px #c5c5c5;
 }
 
 .home{
@@ -84,30 +115,29 @@
     transform-origin: bottom left;
 }
 
-input {
-    border-radius:  40px;
-    width: 275px;
-    height: 25px;
-    background-image: url(../images/search-icon.png);
-    background-position: 10px 50%;
-    background-repeat: no-repeat;
-    background-size: 15px 15px;
-    padding-left: 30px;
+#search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    background-color: #f7f7f7;
+    border: 1px solid #e6e6e6;
+    border-radius: 20px;
+    padding: 0 20px;
 }
 
-::placeholder {
-    color: #000000;
-    opacity: 0.7;
+#search-input {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
 
 .flex-shopingcart a {
-    color: black;
-    text-decoration: none;
-    padding: 0px 20px;
-    font-size: 25px;
-}
-
-.flex-hearth a{
     color: black;
     text-decoration: none;
     padding: 0px 20px;
@@ -123,15 +153,7 @@ input {
 
 .grid-item-1 {
     font-family: sans-serif;
-}
-
-.grid-item-1_5 {
-    content: "";
     width: 100%;
-    height: 1px;
-    background-color: gray;
-    display: block;
-    margin-top: -60px;
 }
 
 h1{
@@ -543,15 +565,6 @@ body {
     box-shadow: none;
 }
 
-.grid-item-35 {
-    margin-top: 100px;
-    content: "";
-    width: 100%;
-    height: 1px;
-    background-color: gray;
-    display: block;
-}
-
 .Product-Flex-1 {
     display: flex;
     align-items: center;
@@ -862,10 +875,6 @@ body {
     margin-top: 50px;
 }
 
-footer {
-    background-color: white;
-}
-
 .Follow-us-on {
     color: white;
     font-family: sans-serif;
@@ -894,6 +903,7 @@ footer {
     place-items: center;
     text-align: center;
     background-color: #0067b8;
+    margin-top: 100px;
 }
 
 .Contact-us-on {
