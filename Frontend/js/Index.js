@@ -1,3 +1,8 @@
-// Search Form Submit Event
-const searchForm = document.querySelector("form");
-searchForm.addEvent
+var navLink = document.getElementById("navLinks");
+
+function showMenu() {
+  navLinks.style.right = "0";
+}
+function hideMenu() {
+  navLinks.style.right = "-200px";
+}

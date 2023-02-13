@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="../js/Index.js"></script>
     <script
       src="https://kit.fontawesome.com/0a8856d0a6.js"
       crossorigin="anonymous"
@@ -19,14 +20,36 @@
     <section class="header">
       <nav>
         <a href="index.html"
-          ><img src="../images/proflexlogo-removebg-preview.png" alt=""
+          ><img src="../images/proflexlogo-removebg-preview.png"
         /></a>
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onClick="hideMenu()"></i>
           <ul>
-            <li><a href="">HOME</a></li>
-            <li><a href="Products.html">PRODUCTS</a></li>
-            <li><a href="">ABOUT</a></li>
+            <div class="ul1">
+              <li><a href="Index.html">HOME</a></li>
+              <li><a href="Products.html">PRODUCTS</a></li>
+              <li><a href="">ABOUT</a></li>
+            </div>
+            <div class="ul2">
+              <li>
+                <form>
+                  <label for="search">Search</label>
+                  <input id="search" type="search" pattern=".*\S.*" required />
+                  <span class="caret"></span>
+                </form>
+              </li>
+              <li>
+                <a href="ShoppingCart.html"
+                  ><i class="fa-solid fa-cart-flatbed"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-regular fa-heart"></i></a>
+              </li>
+              <li>
+                <a href="Profile.html"><i class="fa-regular fa-user"></i></a>
+              </li>
+            </div>
           </ul>
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -94,15 +117,5 @@
         companies or products is a coincidence.
       </h3>
     </footer>
-    <script>
-      var navLink = document.getElementById("navLink");
-
-      function showMenu() {
-        navLinks.style.right = "0";
-      }
-      function hideMenu() {
-        navLinks.style.right = "-200px";
-      }
-    </script>
   </body>
 </html>

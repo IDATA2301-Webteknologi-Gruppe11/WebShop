@@ -24,15 +24,23 @@ nav img {
 
 .nav-links {
     flex: 1;
+}
+
+.ul1 {
     text-align: center;
 }
 
-.nav-links ul li {
+.ul2 {
+    text-align: right;
+}
+
+.nav-links ul li{
     list-style: none;
     display: inline-block;
     padding: 8px 12px;
-    position: relative;
+    vertical-align: middle;
 }
+
 
 .nav-links ul li a {
     color: #111;
@@ -99,8 +107,9 @@ nav .fa {
 }
 
 .body div img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    margin-top: 10%;
   }
 
 h3 {
