@@ -11,12 +11,12 @@ import java.util.List;
  */
 public class ProductList {
 
-    private final Product onlineSchedulingSoftware = new OnlineSchedulingSoftwareProduct();
-    private final Product legalSolutions = new LegalSolutionsProduct();
-    private final Product proFlexAccountingSolutions = new ProFlexAccountingSolutionsProduct();
-    private final Product proFlexBPASolutions = new ProFlexBPASolutionsProduct();
-    private final Product proFlexFinancialAdvisor = new ProFlexFinancialAdvisorProProduct();
-    private final Product proFlexTaxSolutions = new ProFlexTaxSolutionsProduct();
+    private final Product onlineSchedulingSoftware = new Product("Online Scheduling Software", 1, 2000, "planning, scheduling");
+    private final Product legalSolutions = new Product("Proflex BPA Solutions", 2, 5000, "automation, processes");
+    private final Product proFlexAccountingSolutions = new Product("ProFlex Tax Solutions", 3, 200, "tax, legal, accounting");
+    private final Product proFlexBPASolutions = new Product(" ProFlex Accounting Solutions", 4, 500, "accounting, legal, tax, finance");
+    private final Product proFlexFinancialAdvisor = new Product("Legal Solutions", 5, 9999, "legal");
+    private final Product proFlexTaxSolutions = new Product("ProFlex Financial Advisor Pro", 6, 6667, "finance, planning");
     private final List<Product> productList = new ArrayList<>();
 
     public ProductList() {

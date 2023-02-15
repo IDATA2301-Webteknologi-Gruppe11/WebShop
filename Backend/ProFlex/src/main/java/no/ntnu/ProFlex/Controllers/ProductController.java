@@ -82,10 +82,11 @@ public class ProductController {
             @Parameter(name = "product", description = "The product that is created", required = true, in = ParameterIn.PATH)
             @RequestBody Product product) {
         this.productList.addProduct(product);
-        if (this.productList.getProducts().get(this.productList.getProducts().size() - 1).getId() == product.getId()) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(product);
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Product creation failed.");
+        if(this.productList.checkIfIdIsInTheProductList(product.getId())) {
+            return ResponseEntity.status(HttpStatus.CREATED).build();
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
 
