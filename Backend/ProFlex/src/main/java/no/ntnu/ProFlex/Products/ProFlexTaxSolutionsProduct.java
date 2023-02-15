@@ -1,4 +1,4 @@
-package no.ntnu.proflex.products;
+package no.ntnu.ProFlex.Products;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

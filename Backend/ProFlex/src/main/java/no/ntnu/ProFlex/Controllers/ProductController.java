@@ -1,10 +1,10 @@
-package no.ntnu.proflex.controllers;
+package no.ntnu.ProFlex.Controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
-import no.ntnu.proflex.products.Product;
-import no.ntnu.proflex.products.ProductList;
+import no.ntnu.ProFlex.Products.Product;
+import no.ntnu.ProFlex.Products.ProductList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -92,75 +92,27 @@ public class ProductController {
     /**
      * Update the name of a product form a given ID.
      * @param id the ID of the product.
-     * @param name new name of the product.
+     * @param product new name of the product.
      * @return the http status of the operation.
      */
     @Operation(summary = "Update product name", description = "Update the name of a given product in the product list")
     @PutMapping("/products/{id}")
-    public ResponseEntity<Product> UpdateProductName(
+    public ResponseEntity<Product> UpdateProduct(
             @Parameter(name = "id", description = "ID of the product to update", required = true, in = ParameterIn.PATH)
             @PathVariable int id,
-            @Parameter(name = "name", description = "New name for the product", required = true)
-            @PathVariable String name) {
-        Product product = this.productList.getProductFromAGivenID(id);
-        String oldName = product.getName();
-        product.setName(name);
-        if(product.getName().equals(oldName)) {
-            return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
-        }
-        else {
-            return ResponseEntity.ok(product);
-        }
-    }
-
-    /**
-     * Update the price of a product form a given ID
-     * @param id the ID of the product.
-     * @param price new price for the product.
-     * @return http status of the operation.
-     */
-    @Operation(summary = "Update product price", description = "Update the price of a given product in the product list")
-    @PutMapping("/products/{id}")
-    public ResponseEntity<Product> UpdateProductPrice(
-            @Parameter(name = "id", description = "ID of the product to update", required = true, in = ParameterIn.PATH)
-            @PathVariable int id,
-            @Parameter(name = "price", description = "New price for the product", required = true)
-            @PathVariable int price) {
-        Product product = this.productList.getProductFromAGivenID(id);
-        int oldPrice = product.getPrice();
-        product.setPrice(price);
-        if (product.getPrice() == oldPrice) {
-            return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
-        } else {
-            return ResponseEntity.ok(product);
-        }
-    }
-
-    /**
-     * Update the description of a product from a given id.
-     * @param id the id of the product.
-     * @param description the new description.
-     * @return http status of the operation.
-     */
-    @Operation(summary = "Update product description", description = "Update the description of a given product in the product list")
-    @PutMapping("/products/{id}")
-    public ResponseEntity<Product> UpdateProductDescription(
-            @Parameter(name = "id", description = "ID of the product to update", required = true, in = ParameterIn.PATH)
-            @PathVariable int id,
-            @Parameter(name = "description", description = "New description for the product", required = true)
-            @PathVariable String description) {
-        Product product = this.productList.getProductFromAGivenID(id);
-        String oldDescription = product.getDescription();
-        product.setDescription(description);
-        if(this.productList.checkIfIdIsInTheProductList(id)) {
-            this.productList.deleteProduct(id);
+            @Parameter(name = "product", description = "The new product that you want the old one to change to", required = true)
+            @PathVariable Product product) {
+        Product oldProduct = this.productList.getProductFromAGivenID(id);
+        if(productList.checkIfIdIsInTheProductList(id)) {
+            this.productList.getProductFromAGivenID(id).setProduct(product);
         }
         else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        if (product.getDescription().equals(oldDescription)) {
+        if(oldProduct.equals(this.getProductFromAGiveID(id))) {
             return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
-        } else {
+        }
+        else {
             return ResponseEntity.ok(product);
         }
     }

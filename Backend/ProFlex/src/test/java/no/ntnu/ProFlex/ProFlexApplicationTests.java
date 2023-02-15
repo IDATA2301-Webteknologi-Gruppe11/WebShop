@@ -1,4 +1,4 @@
-package no.ntnu.proflex;
+package no.ntnu.ProFlex;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

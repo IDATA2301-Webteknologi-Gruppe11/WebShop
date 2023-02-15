@@ -1,6 +1,6 @@
-package no.ntnu.proflex;
+package no.ntnu.ProFlex;
 
-import no.ntnu.proflex.products.ProductList;
+import no.ntnu.ProFlex.Products.ProductList;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -68,7 +68,7 @@ class TestProductList {
         ProductList productList = new ProductList();
         assertEquals(productList.getProducts().size(), 0);
         productList.addProduct(new TestProductForTesting("test", 4, 4, "testtest"));
-        
+
         assertEquals(productList.getProducts().size(), 1);
         assertEquals(productList.getProducts().get(0).getName(), "test");
         assertEquals(productList.getProducts().get(0).getId(), 4);

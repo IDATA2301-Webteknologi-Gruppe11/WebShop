@@ -1,8 +1,8 @@
-package no.ntnu.proflex.products;
+package no.ntnu.ProFlex.Products;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.GeneratedValue;
 import nonapi.io.github.classgraph.json.Id;
 
 
@@ -14,7 +14,7 @@ import nonapi.io.github.classgraph.json.Id;
  * @version 1.0
  */
 @Schema(description = "Represent a product that is added to a product list", title = "A product")
-@Entity
+//@Entity
 public abstract class Product {
 
     @Schema(description = "The name of the product")
@@ -22,7 +22,7 @@ public abstract class Product {
 
     @Schema(description = "A unique integer for the product")
     @Id
-    @GeneratedValue
+    //@GeneratedValue
     private int id;
 
     @Schema(description = "The price of a product")
@@ -136,6 +136,17 @@ public abstract class Product {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * Update the hole product to a new product.
+     * @param product the new product.
+     */
+    public void setProduct(Product product) {
+        this.name = product.getName();
+        this.id = product.getId();
+        this.price = product.getPrice();
+        this.description = product.getDescription();
     }
 
     @Override

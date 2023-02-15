@@ -1,4 +1,4 @@
-package no.ntnu.proflex;
+package no.ntnu.ProFlex;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

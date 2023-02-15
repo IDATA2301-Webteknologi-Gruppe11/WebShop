@@ -1,4 +1,4 @@
-package no.ntnu.proflex.controllers;
+package no.ntnu.ProFlex.Controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 

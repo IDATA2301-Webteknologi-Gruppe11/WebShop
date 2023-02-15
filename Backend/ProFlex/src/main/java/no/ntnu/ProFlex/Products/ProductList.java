@@ -1,4 +1,4 @@
-package no.ntnu.proflex.products;
+package no.ntnu.ProFlex.Products;
 
 import java.util.ArrayList;
 import java.util.List;
