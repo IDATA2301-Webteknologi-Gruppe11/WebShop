@@ -1,10 +1,10 @@
-package no.ntnu.ProFlex.Controllers;
+package no.ntnu.proflex.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
-import no.ntnu.ProFlex.Products.Product;
-import no.ntnu.ProFlex.Products.ProductList;
+import no.ntnu.proflex.products.Product;
+import no.ntnu.proflex.products.ProductList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -39,6 +39,7 @@ public class ProductController {
      */
     private void initialize() {
         this.productList = new ProductList();
+        this.productList.initialize();
     }
 
     /**
