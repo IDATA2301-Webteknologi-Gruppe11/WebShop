@@ -11,13 +11,13 @@ import java.util.List;
  */
 public class ProductList {
 
-    private Product onlineSchedulingSoftware = new OnlineSchedulingSoftwareProduct();
-    private Product legalSolutions = new LegalSolutionsProduct();
-    private Product proFlexAccountingSolutions = new ProFlexAccountingSolutionsProduct();
-    private Product proFlexBPASolutions = new ProflexBPASolutionsProduct();
-    private Product proFlexFinancialAdvisor = new OnlineSchedulingSoftwareProduct();
-    private Product proFlexTaxSolutions = new ProFlexTaxSolutionsProduct();
-    private List<Product> productList = new ArrayList<>();
+    private final Product onlineSchedulingSoftware = new OnlineSchedulingSoftwareProduct();
+    private final Product legalSolutions = new LegalSolutionsProduct();
+    private final Product proFlexAccountingSolutions = new ProFlexAccountingSolutionsProduct();
+    private final Product proFlexBPASolutions = new ProFlexBPASolutionsProduct();
+    private final Product proFlexFinancialAdvisor = new OnlineSchedulingSoftwareProduct();
+    private final Product proFlexTaxSolutions = new ProFlexTaxSolutionsProduct();
+    private final List<Product> productList = new ArrayList<>();
 
     public ProductList() {
         initialize();

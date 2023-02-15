@@ -1,9 +1,6 @@
 package no.ntnu.ProFlex;
 
-import no.ntnu.ProFlex.Products.OnlineSchedulingSoftwareProduct;
-import no.ntnu.ProFlex.Products.Product;
 import no.ntnu.ProFlex.Products.ProductList;
-import no.ntnu.ProFlex.Products.ProflexBPASolutionsProduct;
 
 public class Main {
     public static void main(String args[]) {

@@ -1,11 +1,14 @@
 package no.ntnu.ProFlex.Products;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
  * Legal Online Scheduling Software Product.
  *
  * @author Ole Kristian Dvergsdal
  * @version 1.0
  */
+@Schema(description = "A product", title = "Online Scheduling Software")
 public class OnlineSchedulingSoftwareProduct extends Product {
 
     /**

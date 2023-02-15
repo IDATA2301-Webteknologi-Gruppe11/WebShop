@@ -1,6 +1,10 @@
 package no.ntnu.ProFlex.Products;
 
-import no.ntnu.ProFlex.Controllers.ProFlexController;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import nonapi.io.github.classgraph.json.Id;
+
 
 /**
  * This class represent product.
@@ -9,12 +13,22 @@ import no.ntnu.ProFlex.Controllers.ProFlexController;
  * @author Ole Kristian Dvergsdal
  * @version 1.0
  */
+@Schema(description = "Represent a product that is added to a product list", title = "A product")
+@Entity
 public abstract class Product {
 
+    @Schema(description = "The name of the product")
     private String name;
+
+    @Schema(description = "A unique integer for the product")
+    @Id
+    @GeneratedValue
     private int id;
+
+    @Schema(description = "The price of a product")
     private int price;
-    //TODO check what to do with description. How tho make it work with categories
+
+    @Schema(description = "The description of a product, use for what category the product belong to")
     private String description;
 
 
@@ -123,21 +137,6 @@ public abstract class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-
-//    /**
-//     * Checks if the ID already exists
-//     * @param id the id to check
-//     * @return ture or false depending on if the id exist or not. True if exists and false if not.
-//     */
-//    private boolean checkhIfIdIsInProductList(int id) {
-//        boolean idFound = false;
-//        for(int i = 0; i < proFlexController.getProductList().getAllIdFromProductList().size(); i++) {
-//            if(id == proFlexController.getProductList().getAllIdFromProductList().get(i)) {
-//                idFound = true;
-//            }
-//        }
-//        return idFound;
-//    }
 
     @Override
     public String toString() {

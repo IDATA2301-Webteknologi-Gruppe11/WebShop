@@ -1,11 +1,14 @@
 package no.ntnu.ProFlex.Products;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
  * Legal ProFlex Accounting Solutions Product.
  *
  * @author Ole Kristian Dvergsdal
  * @version 1.0
  */
+@Schema(description = "A product", title = "Pro Flex Accounting Solutions")
 public class ProFlexAccountingSolutionsProduct extends Product {
 
     /**

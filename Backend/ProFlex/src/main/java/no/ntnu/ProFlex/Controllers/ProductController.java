@@ -5,6 +5,8 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import no.ntnu.ProFlex.Products.Product;
 import no.ntnu.ProFlex.Products.ProductList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +25,7 @@ public class ProductController {
     private ProductList productList;
 
     //Controller
-    private ProFlexController proFlexController;
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
     /**
      * Starts the Product Controller.
@@ -40,18 +42,6 @@ public class ProductController {
     }
 
     /**
-     * Sets the productList to the product list in the main controller class ProFlexController
-     * @param productList the product list form the main product class.
-     */
-    public void setProductList(ProductList productList) {
-        this.productList = productList;
-    }
-
-    public void setProFlexController(ProFlexController proFlexController) {
-        this.proFlexController = proFlexController;
-    }
-
-    /**
      * Returns all the products.
      * @return all products
      */
@@ -59,7 +49,7 @@ public class ProductController {
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getProducts() {
         if(this.productList.getProducts().isEmpty() || this.productList == null) {
-            return new ResponseEntity<List<Product>>(HttpStatus.NOT_FOUND); //TODO do we need to respond with not found if there is no objects in the prduct list?
+            return new ResponseEntity<List<Product>>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<List<Product>>(this.productList.getProducts(), HttpStatus.OK);
     }
