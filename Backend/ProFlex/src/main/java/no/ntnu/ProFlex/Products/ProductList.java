@@ -77,4 +77,31 @@ public class ProductList {
     public void addProduct(Product product) {
         this.productList.add(product);
     }
+
+    /**
+     * Removes a product form the product list form a given ID.
+     * @param id the ID of the product you want to remove from the product list.
+     */
+    public void deleteProduct(int id) {
+        for(int i = 0; i < this.productList.size(); i++) {
+            if(this.productList.get(i).getId() == id) {
+                this.productList.remove(this.productList.get(i));
+            }
+        }
+    }
+
+    /**
+     * Checks if the ID of a product is in the product list.
+     * @param id the ID of the product.
+     * @return boolean statement, true if found, false if not.
+     */
+    public boolean checkIfIdIsInTheProductList(int id) {
+        boolean idFound = false;
+        for(int i = 0; i < this.productList.size(); i++ ) {
+            if(this.productList.get(i).getId() == id) {
+                idFound = true;
+            }
+        }
+        return idFound;
+    }
 }
