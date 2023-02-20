@@ -1,25 +1,31 @@
-body{
+/* Set rules */
+*{
     font-family: Poppins;
+    font-size: 62.5%; 
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
-/* Structure of main grid */
+/* Structure of grid grid */
 .grid{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 10px;
+    gap: 1rem;
 }
 
+/* Header structure */
 header{
-    color: white;
+    color: black; /* Set default text color */
     align-items: center;
-    background-color: #051622;
+    background-color: white;
+    box-shadow: 0rem 0.1rem 0rem 0rem grey; /* X-offset, 
+                                        Y-offset, spread radius and color */
 }
 
-header h1{
+header #title{
     grid-column: 2 / span 2;
-    font-size: 60px;
-    margin: 5px;
+    font-size: 4rem;
     text-align: center;
 }
 
@@ -29,10 +35,27 @@ header .option-nav{
 }
 
 header .option-nav a{
-    color: white;
+    color: black;
     text-decoration: none;
-    padding: 0px 50px;
-    font-size: 25px;
+    padding: 0rem 1rem; /* Top&bot, left&right */
+    font-size: 2.5rem;
+    display: inline;
+}
+
+header .option-nav #search-form{
+    display: inline;
+}
+
+header .option-nav form #input-text{
+    font-size: 1.8rem;
+    border: 0.2rem solid black;
+    width: 20rem;
+}
+
+header .option-nav form #submit-button{
+    height: 4rem;
+    width: 6rem;
+    text-align: center;
 }
 
 header .icon-nav{
@@ -40,16 +63,14 @@ header .icon-nav{
     text-align: center;
 }
 
-header.icon-nav{
-}
-
 header .icon-nav a{
-    color: white;
+    color: black;
     text-decoration: none;
-    padding: 0px 20px;
-    font-size: 25px;
+    padding: 0px 2rem;
+    font-size: 2.5rem;
 }
 
+/* Main structure */
 main{
     margin: 60px auto; /* Margin from header to cards */
     padding: 30px;
@@ -57,7 +78,7 @@ main{
 }
 
 main .cards{
-    font-size: 20px;
+    font-size: 3.5rem;
     grid-column: span 4;
     background: #FFF;
     color: black;
@@ -78,6 +99,7 @@ main .ongoing-order-list p{
 
 main .profile-detail-list p{
     margin-left: 20px;
+    font-size: 2rem;
 }
 
 /* Search form */
@@ -96,7 +118,7 @@ form input[type="text"] {
 
 /* Search Button */
 form button[type="submit"] {
-    background-color: #3498db;
+    background-color: #0067B8;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -104,25 +126,28 @@ form button[type="submit"] {
     cursor: pointer;
 }
 
+/* Footer structure */
 footer{
-    background-color: #051622;
+    background-color: #0067B8;
 }
 
 footer h2{
     display: inline;
     grid-column: 6 / span 2;
-    /* margin: auto; */
+    margin: 5px;
     color: white;
     text-align: center;
     font-weight: 500;
+    font-size: 2rem;
 }
 
 footer h3{
     display: inline;
-    grid-column: 5 / span 4;
+    grid-column: 4 / span 6;
     color: white;
     text-align: center;
     font-weight: 500;
+    font-size: 1rem;
 }
 
 footer .footer-nav{
@@ -131,9 +156,10 @@ footer .footer-nav{
 }
 
 footer .footer-nav a{
+    margin: 0;
     padding: 0px 50px;
     color: white;
-    font-size: 50px;
+    font-size: 5rem;
 }
 
 footer .icon-nav{
