@@ -1,75 +1,136 @@
-h1 {
-    color: #000000;
-
-    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
-    font-weight: lighter;
-    font-size: 700%;
-
-    position: absolute;
-    top: 9%;
-    left: 43%;
-    transform: translate(-9%, -43%);
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 30px;
+    place-items: center;
+    text-align: center;
 }
 
-.heading1 {
-    color: #000000;
-
-    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
-    font-weight: lighter;
-    font-size: xxx-large;
-
-    position: absolute;
-    top: 30%;
-    left: 49%;
-    transform: translate(-30%, -49%);
+.flex-topbar {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 75px;
 }
 
-body {
-    background-color: #FFFFFF;
-    overflow-scrolling: auto;
+.home{
+    text-decoration: none;
+    color: black;
 }
 
-.main_info {
+.product {
+    text-decoration: none;
+    color: black;
+}
+
+.support {
+    text-decoration: none;
+    color: black;
+}
+
+input {
+    border-radius:  40px;
+    width: 275px;
+    height: 25px;
+    text-align: center;
+    background-image: url(../images/search-icon.png);
+    background-position: 230px 50%;
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+}
+
+::placeholder {
     color: #000000;
-    font-size: 130% ;
-    line-height: 150%;
+    opacity: 0.7;
+}
+
+.flex-shopingcart a {
+    color: black;
+    text-decoration: none;
+    padding: 0px 20px;
+    font-size: 25px;
+}
+
+.flex-hearth a{
+    color: black;
+    text-decoration: none;
+    padding: 0px 20px;
+    font-size: 25px;
+}
+
+.flex-profile a {
+    color: black;
+    text-decoration: none;
+    padding: 0px 20px;
+    font-size: 25px;
+}
+
+.grid-item-1 {
     font-family: sans-serif;
 }
 
-p.By {
+.grid-item-1_5 {
+    content: "";
+    width: 75%;
+    height: 1px;
+    background-color: gray;
+    display: block;
+    margin-top: -20px;
+}
+
+h1{
+    font-weight: normal;
+    color: #000000;
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    font-size: 700%;
+}
+
+.grid-item-3 {
+    text-align: center;
+    margin-top: 300px;
+}
+
+.Online-Scheduling-Software {
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    font-weight: lighter;
+    font-size: 400%;
+    text-shadow: 2px 2px 2px gray;
+
+}
+
+.grid-item-5 {
+    font-family: sans-serif;
+    font-size: 130%;
+    grid-gap: 10px;
+    width: 70%;
+}
+
+.grid-Buy-Price-Button-Online-Scheduling {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+}
+
+.Buy-Online-scheduling {
     color: #000000;
     font-family: sans-serif;
     font-size: 250%;
-
-    position: absolute;
-    top: 88%;
-    left: 37%;
+    margin: 5px 0;
+    padding: 0;
 }
 
-.main_text {
-    max-width: 70%;
-    position: absolute;
-    top: 68%;
-    left: 20%;
-}
-
-.Price {
-
+.From-2000kr {
     color:#000000;
     font-family: sans-serif;
-
-    position: absolute;
-    top: 96%;
-    left: 40%;
+    margin: 5px 0;
+    padding: 0;
 }
 
-.image {
-    position: absolute;
-    top: 43%;
-    left: 50%;
-}
-
-.button {
+.Add-To-Cart-Button-Online-Scheduling {
+    width: 250px;
     background-color: #0067b8;
     color: #FFFFFF;
     font-size: 150%;
@@ -78,36 +139,731 @@ p.By {
     border-radius: 15px;
     box-shadow: 2px 2px 2px 2px #000000;
     font-family: BrandonGrotesqueWeb-Thin, sans-serif;
-
-    position: absolute;
-    top: 93%;
-    left: 58%;
+    transition: transform 0.1s;
 }
 
-.white_line {
+.Add-To-Cart-Button-Online-Scheduling:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.grid-item-7 {
+    margin-top: 60px;
     content: "";
     width: 100%;
-    height: 15px;
-    background-color: #000000;
+    height: 5px;
+    background-color: gray;
     display: block;
-
-    position: absolute;
-    top: 110%;
 }
 
-.heading2 {
-    color: #000000;
-
+.Proflex-BPA-Solutions {
+    padding: 60px;
     font-family: BrandonGrotesqueWeb-Thin, sans-serif;
     font-weight: lighter;
-    font-size: xxx-large;
+    font-size: 400%;
+    text-shadow: 2px 2px 2px gray;
+}
 
-    position: absolute;
-    top: 120%;
-    left: 43%;
+.grid-item-10{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 130%;
+    grid-gap: 10px;
+    width: 70%;
+}
+
+.grid-Buy-Price-Button-Proflex {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+}
+
+.Buy-Proflex-BPA-Solutions {
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 250%;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.From-5000kr {
+    color:#000000;
+    font-family: sans-serif;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.Add-To-Cart-Button-Proflex-BPA-Solutions {
+    width: 250px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 150%;
+    padding: 5px 40px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    transition: transform 0.1s;
+}
+
+.Add-To-Cart-Button-Proflex-BPA-Solutions:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.grid-item-12 {
+    margin-top: 60px;
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: gray;
+    display: block;
+}
+
+.ProFlex-Tax-Solutions {
+    padding: 60px;
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    font-weight: lighter;
+    font-size: 400%;
+    text-shadow: 2px 2px 2px gray;
+}
+
+.grid-item-15 {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 130%;
+    grid-gap: 10px;
+    width: 70%;
+}
+
+.grid-Buy-Price-Button-Proflex-Tax-Solution {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+}
+
+.Buy-Proflex-Tax-Solutions {
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 250%;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.From-200kr {
+    color:#000000;
+    font-family: sans-serif;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.Add-To-Cart-Button-Proflex-Tax-Solutions {
+    width: 250px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 150%;
+    padding: 5px 40px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    transition: transform 0.1s;
+}
+
+.Add-To-Cart-Button-Proflex-Tax-Solutions:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.grid-item-17 {
+    margin-top: 60px;
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: gray;
+    display: block;
+}
+
+.ProFlex-Account-Solutions {
+    padding: 60px;
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    font-weight: lighter;
+    font-size: 400%;
+    text-shadow: 2px 2px 2px gray;
+}
+
+.grid-item-24 {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 130%;
+    grid-gap: 10px;
+    width: 70%;
+}
+
+.grid-Buy-Price-Button-Proflex-Account-Solutions {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+}
+
+.Buy-Proflex-Account-Solutions {
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 250%;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.From-500kr {
+    color:#000000;
+    font-family: sans-serif;
+    margin: 5px 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FFFFFF;
+    overflow-scrolling: auto;
+}
+
+.Add-To-Cart-Button-Proflex-Account-Solutions {
+    width: 250px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 150%;
+    padding: 5px 40px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    transition: transform 0.1s;
+}
+
+.Add-To-Cart-Button-Proflex-Account-Solutions:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.grid-item-25_5 {
+    margin-top: 60px;
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: gray;
+    display: block;
+}
+
+.Legal-Solution {
+    padding: 60px;
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    font-weight: lighter;
+    font-size: 400%;
+    text-shadow: 2px 2px 2px gray;
+}
+
+.grid-item-28 {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 130%;
+    grid-gap: 10px;
+    width: 70%;
+}
+
+.grid-Buy-Price-Button-Legal-Solutions {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+}
+
+.Buy-Legal-Solutions {
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 250%;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.From-9999kr {
+    color:#000000;
+    font-family: sans-serif;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.Add-To-Cart-Button-Legal-Solutions {
+    width: 250px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 150%;
+    padding: 5px 40px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    transition: transform 0.1s;
+}
+
+.Add-To-Cart-Button-Legal-Solutions:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.grid-item-30 {
+    margin-top: 60px;
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: gray;
+    display: block;
+}
+
+.ProFlex-Financial-Advisor-Pro {
+    padding: 60px;
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    font-weight: lighter;
+    font-size: 400%;
+    text-shadow: 2px 2px 2px gray;
+}
+
+.grid-item-33 {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 130%;
+    grid-gap: 10px;
+    width: 70%;
+}
+
+.grid-Buy-Price-Button-ProFlex-Financial-Advisor-Pro {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 0px;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+}
+
+.Buy-ProFlex-Financial-Advisor-Pro {
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 250%;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.From-6667kr {
+    color:#000000;
+    font-family: sans-serif;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.Add-To-Cart-Button-ProFlex-Financial-Advisor-Pro {
+    width: 250px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 150%;
+    padding: 5px 40px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px 2px #000000;
+    font-family: BrandonGrotesqueWeb-Thin, sans-serif;
+    transition: transform 0.1s;
+}
+
+.Add-To-Cart-Button-ProFlex-Financial-Advisor-Pro:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.grid-item-35 {
+    margin-top: 100px;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    display: block;
+}
+
+.Product-Flex-1 {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 75px;
+}
+
+.Product-Flex-2 {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 75px;
+}
+
+.Product-Flex-Info-1 {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 75px;
+    margin-left: 70px;
+}
+
+.Product-Flex-Info-2 {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 75px;
+    margin-left: 70px;
+}
+
+.Title-item-1 {
+    font-family: sans-serif;
+    font-weight: Bold;
+    font-size: 180%;
+    margin-top: -20px;
+}
+
+.Button-Buy-Item-1 {
+    width: 60px;
+    height: 30px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 100%;
+    border: none;
+    border-radius: 70px;
+    font-family: sans-serif;
+    margin-top: 10px;
+}
+
+.Category-item-1 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 120%;
+    margin-top: -25px;
+}
+
+.Price-item-1 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 80%;
+    margin-top: 40px;
+}
+
+.Learn-more-item-1 {
+    text-decoration: none;
+    color: #0067b8;
+}
+
+.line-item-1 {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    display: block;
+}
+
+.Title-item-2 {
+    font-family: sans-serif;
+    font-weight: Bold;
+    font-size: 180%;
+    margin-top: -20px;
+}
+
+.Button-Buy-Item-2 {
+    width: 60px;
+    height: 30px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 100%;
+    border: none;
+    border-radius: 70px;
+    font-family: sans-serif;
+    margin-top: 10px;
+}
+
+.Category-item-2 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 120%;
+    margin-top: -25px;
+}
+
+.Price-item-2 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 80%;
+    margin-top: 40px;
+}
+
+.Learn-more-item-2 {
+    text-decoration: none;
+    color: #0067b8;
+}
+
+.line-item-2 {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    display: block;
+}
+
+.Title-item-3 {
+    font-family: sans-serif;
+    font-weight: Bold;
+    font-size: 180%;
+    margin-top: -20px;
+}
+
+.Button-Buy-Item-3 {
+    width: 60px;
+    height: 30px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 100%;
+    border: none;
+    border-radius: 70px;
+    font-family: sans-serif;
+    margin-top: 10px;
+}
+
+.Category-item-3 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 120%;
+    margin-top: -25px;
+}
+
+.Price-item-3 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 80%;
+    margin-top: 40px;
+}
+
+.Learn-more-item-3 {
+    text-decoration: none;
+    color: #0067b8;
+}
+
+.line-item-3 {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    display: block;
+}
+
+.Title-item-4 {
+    font-family: sans-serif;
+    font-weight: Bold;
+    font-size: 180%;
+    margin-top: -20px;
+}
+
+.Button-Buy-Item-4 {
+    width: 60px;
+    height: 30px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 100%;
+    border: none;
+    border-radius: 70px;
+    font-family: sans-serif;
+    margin-top: 10px;
+}
+
+.Category-item-4 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 120%;
+    margin-top: -25px;
+}
+
+.Price-item-4 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 80%;
+    margin-top: 40px;
+}
+
+.Learn-more-item-4 {
+    text-decoration: none;
+    color: #0067b8;
+}
+
+.line-item-4 {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    display: block;
+}
+
+.Title-item-5 {
+    font-family: sans-serif;
+    font-weight: Bold;
+    font-size: 180%;
+    margin-top: -20px;
+}
+
+.Button-Buy-Item-5 {
+    width: 60px;
+    height: 30px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 100%;
+    border: none;
+    border-radius: 70px;
+    font-family: sans-serif;
+    margin-top: 10px;
+}
+
+.Category-item-5 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 120%;
+    margin-top: -25px;
+}
+
+.Price-item-5 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 80%;
+    margin-top: 40px;
+}
+
+.Learn-more-item-5 {
+    text-decoration: none;
+    color: #0067b8;
+}
+
+.line-item-5 {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    display: block;
+}
+
+.Title-item-6 {
+    font-family: sans-serif;
+    font-weight: Bold;
+    font-size: 180%;
+    margin-top: -20px;
+}
+
+.Button-Buy-Item-6 {
+    width: 60px;
+    height: 30px;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    font-size: 100%;
+    border: none;
+    border-radius: 70px;
+    font-family: sans-serif;
+    margin-top: 10px;
+}
+
+.Category-item-6 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 120%;
+    margin-top: -25px;
+}
+
+.Price-item-6 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 80%;
+    margin-top: 40px;
+}
+
+.Learn-more-item-6 {
+    text-decoration: none;
+    color: #0067b8;
+}
+
+.line-item-6 {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    display: block;
+}
+
+.grid-item-37 {
+    margin-top: 50px;
+}
+
+footer {
+    background-color: white;
+}
+
+.Follow-us-on {
+    color: black;
+    font-family: sans-serif;
+    margin-top: 50px;
+    text-align: center;
+    font-size: 250%;
+    font-weight: bold;
+}
+
+.footer-nav-flex {
+    display: flex;
+    margin-top: 15px;
+    gap: 100px;
+    text-align: center;
+    font-size: 400%;
+}
+
+.footer-nav-flex a {
+    color: black;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 20px;
+    place-items: center;
+    text-align: center;
+}
+
+.Contact-us-on {
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+}
+
+footer .icon-nav a{
+    padding: 0px 50px;
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: sans-serif;
+    font-size: 130%;
+    grid-gap: 10px;
+    width: 60%;
 }
 
 @font-face {
     font-family: "BrandonGrotesqueWeb-Thin";
-    src: url("../Fonts/Raleway-Thin.ttf");
+    src: url("../fonts/Raleway-Thin.ttf")
 }

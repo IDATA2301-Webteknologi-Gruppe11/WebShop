@@ -3,57 +3,119 @@
   <head>
     <meta charset="UTF-8" />
     <title>ProFlex</title>
-    <title>ProFlex</title>
-    <link rel="stylesheet" type="text/css" href="../css/Index.css" />
+    <link rel="stylesheet" href="../css/Index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
+    <script src="../js/Index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/0a8856d0a6.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div class="grid-container">
-      <header>
-        <nav id="menu-bar">
-          <a href="#home"><i class="fas fa-home"></i></a>
-          <a href="#products"><i class="fas fa-box"></i></a>
-          <a href="#contact"><i class="fas fa-address-card"></i></a>
-          <form>
-            <input type="text" placeholder="Search..." />
-            <button type="submit"><i class="fas fa-search"></i></button>
-          </form>
-        </nav>
-      </header>
-      <main>
-        <section class="left-section"></section>
-        <section class="center-section"></section>
-        <section class="right-section"></section>
-      </main>
-      <footer class="footer-distributed">
-        <div class="footer-top">
-          <p class="footer-links">
-            <a href="about-us.html">About Us</a>
-            <a href="PHP/contact-us.php">Contact Us</a>
-          </p>
+    <section class="header">
+      <nav>
+        <a href="index.html"
+          ><img src="../images/proflexlogo-removebg-preview.png"
+        /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onClick="hideMenu()"></i>
+          <ul>
+            <div class="ul1">
+              <li><a href="Index.html">HOME</a></li>
+              <li><a href="Products.html">PRODUCTS</a></li>
+              <li><a href="">ABOUT</a></li>
+            </div>
+            <div class="ul2">
+              <li>
+                <form>
+                  <label for="search">Search</label>
+                  <input id="search" type="search" pattern=".*\S.*" required />
+                  <span class="caret"></span>
+                </form>
+              </li>
+              <li>
+                <a href="ShoppingCart.html"
+                  ><i class="fa-solid fa-cart-flatbed"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa-regular fa-heart"></i></a>
+              </li>
+              <li>
+                <a href="Profile.html"><i class="fa-regular fa-user"></i></a>
+              </li>
+            </div>
+          </ul>
         </div>
-        <div class="footer-icons">
-          <a href="https://www.facebook.com/"
-            ><i class="fab fa-facebook"></i
-          ></a>
-          <a href="https://www.instagram.com/"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a href="https://www.linkedin.com/"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a href="https://github.com/sn2606/TravelLog"
-            ><i class="fab fa-github"></i
-          ></a>
-        </div>
-        <hr />
-        <p class="footer-company-name">
-          <strong>ProFlex &copy; 2023</strong>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+
+      <div class="text-box">
+        <h1>Innovative IT Solutions which supports your success.</h1>
+      </div>
+    </section>
+
+    <section class="body">
+      <div>
+        <img src="../images/Modern-Software-Development.jpg" />
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="row">
+        <h3>Stephanie Smith, age 32.</h3>
+        <p>
+          "Proflex Solutions has enabled us to streamline our operations and
+          save time. Their products are easy to use and their customer service
+          is top-notch. I would highly recommend them to any business looking to
+          improve their workflow and maximize their efficiency."
         </p>
-      </footer>
-    </div>
+        <h3>Jason White, age 45.</h3>
+        <p>
+          "We were looking for a reliable and cost-effective solution to our
+          business needs and Proflex Solutions delivered. Their products are
+          intuitive and user-friendly, and their customer service is always
+          helpful and knowledgeable. We are very satisfied with our experience
+          with Proflex Solutions."
+        </p>
+        <h3>Rachel Brown, Age 28</h3>
+        <p>
+          "Proflex Solutions has been a great partner for our business. They
+          have provided us with the tools and resources we need to succeed.
+          Their products are reliable and their customer service is top-notch.
+          We are very pleased with our experience with ProflexSolutions."
+        </p>
+      </div>
+    </section>
+
+    <footer class="grid">
+      <h2 class="Follow-us-on">Follow us on</h2>
+      <nav class="footer-nav-flex">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      </nav>
+      <h2 class="Contact-us-on">Contact us on</h2>
+      <nav class="icon-nav">
+        <a href="#"><i class="fa-solid fa-phone"></i> +47 99 99 99 99</a>
+        <a href="#"><i class="fa-solid fa-envelope"></i> email@proflex.com</a>
+        <a href="#"
+          ><i class="fa-solid fa-location-pin"></i> Larsgårdsvegen 2, 6003
+          Ålesund
+        </a>
+      </nav>
+      <h3>
+        *This website is a result of a university group project, performed in
+        the course IDATA2301 Web technologies, at NTNU.All the information
+        provided here is a result of imagination. Any resemblance with real
+        companies or products is a coincidence.
+      </h3>
+    </footer>
   </body>
 </html>
