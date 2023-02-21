@@ -1,4 +1,5 @@
-package no.ntnu.ProFlex;
+package no.ntnu.ProFlex.Controllers;
+
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,13 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProFlexController {
 
-    public void proFlexController() {
-        initializeData();
-    }
-
     /**
-     * Initilize data that is used in the controller.
+     * Starts the proFlexController
      */
-    private void initializeData() {
+    public void proFlexController() {
+
     }
 }
