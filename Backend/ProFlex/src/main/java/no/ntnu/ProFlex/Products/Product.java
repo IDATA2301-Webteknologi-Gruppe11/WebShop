@@ -1,6 +1,8 @@
 package no.ntnu.ProFlex.Products;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import nonapi.io.github.classgraph.json.Id;
 
 
@@ -12,7 +14,7 @@ import nonapi.io.github.classgraph.json.Id;
  * @version 1.0
  */
 @Schema(description = "Represent a product that is added to a product list", title = "A product")
-//@Entity
+@Entity
 public class Product {
 
     @Schema(description = "The name of the product")
@@ -20,7 +22,7 @@ public class Product {
 
     @Schema(description = "A unique integer for the product")
     @Id
-    //@GeneratedValue
+    @GeneratedValue
     private int id;
 
     @Schema(description = "The price of a product")
