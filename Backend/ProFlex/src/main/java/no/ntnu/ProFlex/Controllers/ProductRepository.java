@@ -1,7 +1,7 @@
 package no.ntnu.ProFlex.Controllers;
 
 import no.ntnu.ProFlex.Products.Product;
-//import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  * Repository for products
@@ -9,6 +9,6 @@ import no.ntnu.ProFlex.Products.Product;
  * @author Ole Kristian
  * @version 1.0
  */
-//public interface ProductRepository extends CrudRepository<Product, Integer> {
-//
-//}
+public interface ProductRepository extends CrudRepository<Product, Integer> {
+
+}
