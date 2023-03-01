@@ -1,12 +1,8 @@
-package no.ntnu.ProFlex.entities;
+package no.ntnu.ProFlex.models;
 
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import jdk.jfr.Description;
-import jdk.jfr.Enabled;
 
-import javax.swing.*;
 import java.util.Date;
 import java.util.logging.Logger;
 

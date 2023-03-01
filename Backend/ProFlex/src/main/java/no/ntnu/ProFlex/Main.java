@@ -1,6 +1,6 @@
 package no.ntnu.ProFlex;
 
-import no.ntnu.ProFlex.entities.User;
+import no.ntnu.ProFlex.models.User;
 
 public class Main {
     public static void main(String args[]) {

@@ -1,4 +1,4 @@
-package no.ntnu.ProFlex.entities;
+package no.ntnu.ProFlex.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;

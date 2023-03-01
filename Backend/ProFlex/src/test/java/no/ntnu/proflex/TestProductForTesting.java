@@ -1,6 +1,6 @@
 package no.ntnu.ProFlex;
 
-import no.ntnu.ProFlex.Products.Product;
+import no.ntnu.ProFlex.models.Product;
 
 public class TestProductForTesting extends Product {
 

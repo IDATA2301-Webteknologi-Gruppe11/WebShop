@@ -1,11 +1,10 @@
-package no.ntnu.ProFlex.Products;
+package no.ntnu.ProFlex.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import no.ntnu.ProFlex.entities.Category;
 import nonapi.io.github.classgraph.json.Id;
 
 import java.util.HashSet;
@@ -49,7 +48,7 @@ public class Product {
      * @param price of the product.
      * @param description describe the product/what categories it belongs to.
      */
-    protected Product(String name, int id, int price, String description) throws IllegalArgumentException {
+    public Product(String name, int id, int price, String description) throws IllegalArgumentException {
 
         //Checks name is valid.
         if(name.isEmpty()) {

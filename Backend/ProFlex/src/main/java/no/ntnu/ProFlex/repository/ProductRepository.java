@@ -1,6 +1,6 @@
-package no.ntnu.ProFlex.Controllers;
+package no.ntnu.ProFlex.repository;
 
-import no.ntnu.ProFlex.Products.Product;
+import no.ntnu.ProFlex.models.Product;
 import org.springframework.data.repository.CrudRepository;
 
 /**
