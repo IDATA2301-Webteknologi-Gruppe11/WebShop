@@ -25,7 +25,7 @@ public class ProductController {
     private ProductList productList;
 
     //Controller
-    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class); //TODO Fiks Logger
 
     /**
      * Starts the Product Controller.

@@ -3,8 +3,13 @@ package no.ntnu.ProFlex.Products;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import no.ntnu.ProFlex.entities.Category;
 import nonapi.io.github.classgraph.json.Id;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -32,6 +37,9 @@ public class Product {
 
     @Schema(description = "The description of a product, use for what category the product belong to")
     private String description;
+
+    @ManyToMany
+    private Set<Category> categories = new HashSet<>();
 
 
     /**

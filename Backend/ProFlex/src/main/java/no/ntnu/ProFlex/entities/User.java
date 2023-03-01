@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import java.util.logging.Logger;
 
 /**
@@ -25,22 +26,25 @@ public class User {
     private int uid;
 
     @Schema(description = "The username for the user.")
+    @NotNull
     private String uname;
 
     @Schema(description = "The email for the user.")
+    @NotNull
     private String email;
 
     @Schema(description = "The password for the user.")
+    @NotNull
     private String password;
 
     private static final Logger LOGGER = Logger.getLogger(User.class.getName());
-    private static final String LOGGER_STRING_WARNING = "Caught Illegal Argument Exception: ";
+    private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
 
     /**
      * Constructor for user.
      * This constructor take parameters.
      * @param uid unique id for the user.
-     * @param uname the username for the user.
+     * @param uname the username for the user. //TODO Betre dokumentasjon
      * @param email the email for the user.
      * @param password the password for the user.
      */
@@ -52,15 +56,18 @@ public class User {
             this.password = stringChecker(password, "Password");
         }
         catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(LOGGER_STRING_WARNING + illegalArgumentException.getMessage());
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 
     /**
      * Checks if the string is valid.
      * Checks for that the string isn't empty and null.
+     * If it is an Illegal Argument Exception is thrown.
+     * If it is valid it returns the string.
      * @param string that wants to be checked.
      * @param prefiks the name of the string.
+     * @return string.
      */
     private String stringChecker(String string, String prefiks) {
         if(string.isEmpty() || string == null) {
@@ -119,7 +126,7 @@ public class User {
             this.uname = stringChecker(uname, "uname");
         }
         catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(LOGGER_STRING_WARNING + illegalArgumentException.getMessage());
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 
@@ -132,7 +139,7 @@ public class User {
             this.email = stringChecker(email, "email");
         }
         catch (IllegalArgumentException illegalArgumentException){
-            LOGGER.warning(LOGGER_STRING_WARNING + illegalArgumentException.getMessage());
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 
@@ -145,7 +152,7 @@ public class User {
             this.password = stringChecker(password, "password");
         }
         catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(LOGGER_STRING_WARNING + illegalArgumentException.getMessage());
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 
