@@ -1,14 +1,12 @@
 package no.ntnu.ProFlex.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import nonapi.io.github.classgraph.json.Id;
-
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Logger;
 
 
 /**
@@ -24,6 +22,8 @@ import java.util.Set;
 public class Product {
 
     @Schema(description = "The name of the product")
+    @NotNull
+    @Column(nullable = false)
     private String name;
 
     @Schema(description = "A unique integer for the product")
@@ -32,59 +32,74 @@ public class Product {
     private int id;
 
     @Schema(description = "The price of a product")
+    @NotNull
+    @Column(nullable = false)
     private int price;
 
-    @Schema(description = "The description of a product, use for what category the product belong to")
-    private String description;
-
     @ManyToMany
+    @NotNull
+    @Column(nullable = false)
     private Set<Category> categories = new HashSet<>();
+
+    private static final Logger LOGGER = Logger.getLogger(Product.class.getName());
+    private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
 
 
     /**
      * Creates a product
+     *
      * @param name of the product
      * @param id unique identifier for the product. Can't have the same id as any other products.
      * @param price of the product.
-     * @param description describe the product/what categories it belongs to.
      */
-    public Product(String name, int id, int price, String description) throws IllegalArgumentException {
-
-        //Checks name is valid.
-        if(name.isEmpty()) {
-            throw new IllegalArgumentException("Invalid Value.");
+    public Product(String name, int id, int price) throws IllegalArgumentException {
+        try {
+            this.name = stringChecker(name, "name");
+            this.id = integerChecker(id, "id");
+            this.price = integerChecker(price, "price");
         }
-        else {
-            this.name = name;
-        }
-
-        //Checks id is valid.
-        if(id < 0 ) {
-            throw new IllegalArgumentException("Invalid value");
-        }
-        else {
-            this.id = id;
-        }
-
-        //Checks price is valid.
-        if(price < 0) {
-            throw new IllegalArgumentException("Invalid value");
-        }
-        else {
-            this.price = price;
-        }
-
-        //Checks description is valid.
-        if(description.isEmpty()) {
-            throw new IllegalArgumentException("Invalid Value");
-        }
-        else {
-            this.description = description;
+        catch (IllegalArgumentException illegalArgumentException) {
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 
     /**
+     * Checks a given integer.
+     * The number can not be zero or below.
+     * If the integer is not valid an Illegal Argument Exception is thrown.
+     * If the integer is valid it returns the integer.
+     *
+     * @param n the integer tha you want to check.
+     * @param prefiks the name of the integer.
+     * @return the string
+     */
+    private int integerChecker(int n, String prefiks) {
+        if(n < 0) {
+            throw new IllegalArgumentException("The integer " + prefiks + " cant be below 0");
+        }
+        return n;
+    }
+
+    /**
+     * Checks if the string is valid.
+     * Checks for that the string isn't empty and null.
+     * If it is an Illegal Argument Exception is thrown.
+     * If it is valid it returns the string.
+     *
+     * @param string that wants to be checked.
+     * @param prefis the name of the string.
+     * @return string.
+     */
+    private String stringChecker(String string, String prefis) {
+        if(string.isEmpty() || string == null) {
+            throw new IllegalArgumentException("The String: " + prefis + " can not be empty or null.");
+        }
+        return string;
+    }
+
+    /**
      * Returns the name of the product.
+     *
      * @return ID.
      */
     public String getName() {
@@ -93,6 +108,7 @@ public class Product {
 
     /**
      * Returns the ID of the products
+     *
      * @return ID.
      */
     public int getId() {
@@ -101,6 +117,7 @@ public class Product {
 
     /**
      * Returns the price of the products
+     *
      * @return prices.
      */
     public int getPrice() {
@@ -108,54 +125,56 @@ public class Product {
     }
 
     /**
-     * Returns the description of the product
-     * @return description.
-     */
-    public String getDescription() {
-        return this.description;
-    }
-
-    /**
      * Sets the name of a product.
+     *
      * @param name the name for the product.
      */
     public void setName(String name) {
-        this.name = name;
+        try {
+            this.name = stringChecker(name, "name");
+        }
+        catch (IllegalArgumentException illegalArgumentException) {
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
+        }
     }
 
     /**
      * Sets the ID of a product
+     *
      * @param id the ID number for the product.
      */
     public void setId(int id) {
-        this.id = id;
+        try {
+            this.id = integerChecker(id, "id");
+        }
+        catch (IllegalArgumentException illegalArgumentException) {
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
+        }
     }
 
     /**
      * Sets the price for the product.
+     *
      * @param price a price number for the product.
      */
     public void setPrice(int price) {
-        this.price = price;
-    }
-
-    /**
-     * Sets the description of product.
-     * @param description explains the product.
-     */
-    public void setDescription(String description) {
-        this.description = description;
+        try {
+            this.price = integerChecker(price, "price");
+        }
+        catch (IllegalArgumentException illegalArgumentException) {
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
+        }
     }
 
     /**
      * Update the hole product to a new product.
+     * 
      * @param product the new product.
      */
     public void setProduct(Product product) {
         this.name = product.getName();
         this.id = product.getId();
         this.price = product.getPrice();
-        this.description = product.getDescription();
     }
 
     @Override
@@ -164,7 +183,6 @@ public class Product {
                 "name='" + name + '\'' +
                 ", id=" + id +
                 ", price=" + price +
-                ", description='" + description + '\'' +
                 '}';
     }
 }

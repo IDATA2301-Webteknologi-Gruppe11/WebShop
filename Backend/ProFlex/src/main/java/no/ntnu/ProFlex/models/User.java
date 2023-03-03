@@ -1,10 +1,7 @@
 package no.ntnu.ProFlex.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.util.logging.Logger;
 
@@ -27,14 +24,17 @@ public class User {
 
     @Schema(description = "The username for the user.")
     @NotNull
+    @Column(nullable = false)
     private String uname;
 
     @Schema(description = "The email for the user.")
     @NotNull
+    @Column(nullable = false)
     private String email;
 
     @Schema(description = "The password for the user.")
     @NotNull
+    @Column(nullable = false)
     private String password;
 
     private static final Logger LOGGER = Logger.getLogger(User.class.getName());
@@ -108,7 +108,6 @@ public class User {
         return password;
     }
 
-    //TODO sjekke om man skal kunne sette ny id.
     /**
      * Setts the uid
      * @param uid A integer that you want the uid to be.

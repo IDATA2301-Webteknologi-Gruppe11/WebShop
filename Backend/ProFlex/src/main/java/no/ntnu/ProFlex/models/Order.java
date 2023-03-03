@@ -2,8 +2,11 @@ package no.ntnu.ProFlex.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Logger;
 
 /**
@@ -19,17 +22,28 @@ public class Order {
 
     @Schema
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int oid;
 
-    @Schema(description = "The user that plaste the order.") //TODO leg til som foren key.
+    @Schema(description = "The user that plaste the order.")
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name ="uid", nullable = false)
     private User user;
 
-    @Schema(description = "The date when the order was plaste")
+    @Schema(description = "The date when the order was placed.")
+    @NotNull
+    @Column(nullable = false)
     private Date date;
 
+    @Schema(description = "Many to many relations shit with products.")
+    @ManyToMany
+    @NotNull
+    @Column(nullable = false)
+    private Set<Product> products = new HashSet<>();
+
     private static final Logger LOGGER = Logger.getLogger(Order.class.getName());
-    private static final String EXCEPTION_WARNING_MASSAGE = "Caught and Illegal Argument Exception: ";
+    private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
 
     /**
      * Create an instans of order.
@@ -44,17 +58,18 @@ public class Order {
             this.date = date;
         }
         catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(EXCEPTION_WARNING_MASSAGE + illegalArgumentException.getMessage());
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 
     /**
      * Checks a given integer.
-     * Checks if the ingteger is below 0 or not.
-     * If the integer is not
-     * @param n
-     * @param prefiks
-     * @return
+     * The number can not be zero or below.
+     * If the integer is not valid an Illegal Argument Exception is thrown.
+     * If the integer is valid it returns the integer.
+     * @param n the integer tha you want to check.
+     * @param prefiks the name of the integer.
+     * @return the string
      */
     private int integerChecker(int n, String prefiks) {
         if(n < 0) {
@@ -80,7 +95,7 @@ public class Order {
             this.oid = integerChecker(oid, "oid");
         }
         catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(EXCEPTION_WARNING_MASSAGE + illegalArgumentException.getMessage());
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 

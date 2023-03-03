@@ -4,6 +4,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Logger;
 
 /**
@@ -25,12 +27,22 @@ public class Category {
     private int cid;
 
     @Schema(description = "The name of the category.")
-    @Column(nullable = false) //TODO trenger eg å ha kode som som sjekker om det er null eller ikkje når man bruker notasjoner. Høre med girtz.
     @NotNull
+    @Column(nullable = false)
     private String cname;
 
+    @ManyToMany
+    @NotNull
+    @Column(nullable = false)
+    private Set<Product> products = new HashSet<>();
+
+    @ManyToMany
+    @NotNull
+    @Column(nullable = false)
+    private Set<Order> orders = new HashSet<>();
+
     private static final Logger LOGGER = Logger.getLogger(Category.class.getName());
-    private static final String EXCEPTION_WARNING_MASSAGE = "Caught and Illegal Argument Exception: ";
+    private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
 
     /**
      * Crates and object of category.
@@ -43,7 +55,7 @@ public class Category {
             this.cname = stringCheker(cname, "cname");
         }
         catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(EXCEPTION_WARNING_MASSAGE + illegalArgumentException.getMessage());
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 
@@ -64,13 +76,13 @@ public class Category {
     }
 
     /**
-     * Checks a given string.
-     * The string can not be empty or null.
-     * If the string is not valid an Illegal Argument Exception is thrown.
-     * If the string is valid it returns the string.
-     * @param string the string that you want to check.
+     * Checks if the string is valid.
+     * Checks for that the string isn't empty and null.
+     * If it is an Illegal Argument Exception is thrown.
+     * If it is valid it returns the string.
+     * @param string that wants to be checked.
      * @param prefiks the name of the string.
-     * @return the string
+     * @return string.
      */
     private String stringCheker(String string, String prefiks) {
         if(string.isEmpty() || string == null) {
@@ -104,7 +116,7 @@ public class Category {
             this.cname = stringCheker(cname, "cname");
         }
         catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(EXCEPTION_WARNING_MASSAGE + illegalArgumentException.getMessage());
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 
@@ -118,7 +130,7 @@ public class Category {
             this.cid = integerChecker(cid, "cid");
         }
         catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(EXCEPTION_WARNING_MASSAGE + illegalArgumentException.getMessage());
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 
