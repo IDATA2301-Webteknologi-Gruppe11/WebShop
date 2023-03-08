@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Profile</title>
-    <link rel="stylesheet" href="../css/Profile.css">
+    <link rel="stylesheet" href="../../resources/static/Profile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap" rel="stylesheet">
@@ -15,25 +15,8 @@
     <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
 </head>
 
-<header class="grid-container">
-    <h1 id="header-title">ProFlex</h1>
-        <!-- Middle option navigation bar -->
-    <nav class="option-nav">
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">About</a>
-        <form id="search-form">
-            <input id="input-text"type="text" placeholder="     Search..." />
-            <button id="submit-button" type="submit"><i class="fas fa-search"></i></button>
-        </form>
-    </nav>
-        <!-- Right option icon navigation bar -->
-    <nav class="icon-nav">
-        <a href="#"><i class="fa-solid fa-cart-flatbed"></i></a>
-        <a href="#"><i class="fa-regular fa-heart"></i></a>
-        <a href="#"><i class="fa-regular fa-user"></i></a>
-    </nav>
-</header>
+<header th:replace="fragments/header-example.html :: header"></header>
+
 
 <body>
     <main class="flexbox-container">
@@ -60,12 +43,6 @@
             </nav>
         </div>  
     </main>
-
-
-
-
-
-
 
     <footer class="grid-container">
         <nav class="icon-nav">
