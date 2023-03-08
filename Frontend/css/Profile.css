@@ -211,3 +211,14 @@ footer .icon-nav a{
     border-radius: 3rem;
     box-shadow: none;
 }
+
+/* ??? */
+@media (max-width: 60rem) {
+    .flexbox-container{
+        flex: 40rem;
+    }
+
+    .cards{
+        align-items: center;
+    }
+}
