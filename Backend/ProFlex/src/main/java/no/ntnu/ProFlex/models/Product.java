@@ -23,23 +23,36 @@ public class Product {
 
     @Schema(description = "The name of the product")
     @NotNull
-    @Column(nullable = false)
+    @Column(nullable = false, name = "name")
     private String name;
 
     @Schema(description = "A unique integer for the product")
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private int id;
 
     @Schema(description = "The price of a product")
     @NotNull
-    @Column(nullable = false)
+    @Column(nullable = false, name = "price")
     private int price;
 
     @ManyToMany
     @NotNull
     @Column(nullable = false)
     private Set<Category> categories = new HashSet<>();
+
+    @Schema(description = "Description of the product")
+    @NotNull
+    @Column(nullable = false, name = "description")
+    private String description;
+
+    @Schema(description = "Contain image of the product")
+    @NotNull
+    @Column(nullable = false, name = "image")
+    private byte[] image;
+
+
 
     private static final Logger LOGGER = Logger.getLogger(Product.class.getName());
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
@@ -52,11 +65,13 @@ public class Product {
      * @param id unique identifier for the product. Can't have the same id as any other products.
      * @param price of the product.
      */
-    public Product(String name, int id, int price) throws IllegalArgumentException {
+    public Product(String name, int id, int price, String description, byte[] image) throws IllegalArgumentException {
         try {
             this.name = stringChecker(name, "name");
             this.id = integerChecker(id, "id");
             this.price = integerChecker(price, "price");
+            this.description = stringChecker(description, "description");
+            this.image = image; //TODO create something that check image/covert the image.
         }
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
@@ -166,9 +181,18 @@ public class Product {
         }
     }
 
+    public void setDescription(String description) {
+        try {
+            this.description = stringChecker(description, "description");
+        }
+        catch (IllegalArgumentException illegalArgumentException) {
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
+        }
+    }
+
     /**
      * Update the hole product to a new product.
-     * 
+     *
      * @param product the new product.
      */
     public void setProduct(Product product) {

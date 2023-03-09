@@ -17,7 +17,7 @@ import java.util.Optional;
 /**
  * Rest controller for the products
  *
- * @author Ole Kristian Dvergsdal
+ * @author Ole Kristian Dvergsdal                  //TODO Høre med girtz om klassen er bra?
  * @version 1.0
  */
 @RestController
@@ -26,17 +26,13 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    //Controller
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class); //TODO Fiks Logger
 
     /**
      * Product Controller Constructor.
      */
     public ProductController() {
-        Product product = new Product("sadf", 23, 324);
-        Product produc2 = new Product("sadsadfaf", 234, 3243);
-        productRepository.save(produc2);
-        productRepository.save(product);
+
     }
 
 
@@ -70,7 +66,7 @@ public class ProductController {
         if (productOptional.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(productRepository.findById(id));
+        return ResponseEntity.ok(this.productRepository.findById(id));
     }
 
     /**
@@ -113,7 +109,7 @@ public class ProductController {
             return ResponseEntity.notFound().build();
         }
         Product oldProduct = oldProductOptional.get();
-        Product updatedProduct = productRepository.save(product);
+        Product updatedProduct = this.productRepository.save(product);
         if (updatedProduct.equals(oldProduct)) {
             return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
         } else {
