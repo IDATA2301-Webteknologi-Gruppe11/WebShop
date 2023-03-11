@@ -71,7 +71,7 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         else {
-            return new ResponseEntity<>(product, HttpStatus.CREATED);
+            return ResponseEntity.ok(product);
         }
     }
 
