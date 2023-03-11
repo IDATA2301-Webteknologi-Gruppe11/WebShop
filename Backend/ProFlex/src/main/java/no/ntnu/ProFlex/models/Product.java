@@ -201,6 +201,10 @@ public class Product {
         this.price = product.getPrice();
     }
 
+    public boolean isValid() {
+        return this.id > 0 && !"".equals(this.name) && this.price > 0 && !"".equals(this.description);
+    }
+
     @Override
     public String toString() {
         return "Product{" +
