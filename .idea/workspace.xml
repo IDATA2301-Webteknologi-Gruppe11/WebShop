@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca0832cc-7a95-4b19-92ae-11ae7e5f86d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/css/Products2.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/css/Products2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/html/Products2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/html/Products2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/js/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/js/SearchBar.js" afterDir="false" />
-    </list>
+    <list default="true" id="ca0832cc-7a95-4b19-92ae-11ae7e5f86d9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +68,7 @@
       <workItem from="1675430427437" duration="701000" />
       <workItem from="1675605945191" duration="2051000" />
       <workItem from="1675763540016" duration="35000" />
-      <workItem from="1678104925548" duration="32918000" />
+      <workItem from="1678104925548" duration="32922000" />
     </task>
     <servers />
   </component>
