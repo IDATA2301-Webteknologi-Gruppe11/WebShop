@@ -3,7 +3,6 @@ package no.ntnu.ProFlex.models;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import nonapi.io.github.classgraph.json.Id;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
