@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `products`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
   `id` int NOT NULL,
-  `name` int NOT NULL,
-  `price` varchar(255) DEFAULT NULL,
+  `name` char NOT NULL,
+  `price` int(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +36,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,"Mikkel", 222),(2,1970,'Per',333),(3,'Ole', 444);
+INSERT INTO `products` VALUES (1,"Mikkel", 222),(2,'Per',333),(3,'Ole', 444);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +58,7 @@ CREATE TABLE `products_seq` (
 
 LOCK TABLES `products_seq` WRITE;
 /*!40000 ALTER TABLE `products_seq` DISABLE KEYS */;
-INSERT INTO `products_seq` VALUES (4);
+INSERT INTO `products_seq` VALUES (3);
 /*!40000 ALTER TABLE `products_seq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,16 +66,13 @@ UNLOCK TABLES;
 -- Table structure for table `book`
 --
 
-DROP TABLE IF EXISTS `book`;
+DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `book` (
-  `id` int NOT NULL,
-  `number_of_pages` int NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `year` int NOT NULL,
-  `summary` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `category` (
+  `cid` int NOT NULL,
+  `cname` char NOT NULL,
+  PRIMARY KEY (`cid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,9 +80,9 @@ CREATE TABLE `book` (
 -- Dumping data for table `book`
 --
 
-LOCK TABLES `book` WRITE;
+LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (1,800,'Computer Networking',2016,'Computer networks'),(2,600,'12 Rules for Life',2012,NULL),(3,700,'Learning Web Design',2015,NULL);
+INSERT INTO `category` VALUES (1,'nails');
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,10 +90,10 @@ UNLOCK TABLES;
 -- Table structure for table `book_seq`
 --
 
-DROP TABLE IF EXISTS `book_seq`;
+DROP TABLE IF EXISTS `category_seq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `book_seq` (
+CREATE TABLE `category_seq` (
   `next_val` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -105,9 +102,9 @@ CREATE TABLE `book_seq` (
 -- Dumping data for table `book_seq`
 --
 
-LOCK TABLES `book_seq` WRITE;
+LOCK TABLES `category_seq` WRITE;
 /*!40000 ALTER TABLE `book_seq` DISABLE KEYS */;
-INSERT INTO `book_seq` VALUES (104);
+INSERT INTO `category_seq` VALUES (104);
 /*!40000 ALTER TABLE `book_seq` ENABLE KEYS */;
 UNLOCK TABLES;
 

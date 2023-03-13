@@ -2,10 +2,12 @@ package no.ntnu.ProFlex.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import no.ntnu.ProFlex.models.Product;
 import no.ntnu.ProFlex.repositories.ProductRepository;
 
+@Service
 public class ProductService {
 
     @Autowired

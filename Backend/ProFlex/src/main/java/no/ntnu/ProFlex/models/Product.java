@@ -2,12 +2,9 @@ package no.ntnu.ProFlex.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import nonapi.io.github.classgraph.json.Id;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
-
 
 /**
  * This class represent product.
@@ -18,38 +15,42 @@ import java.util.logging.Logger;
  */
 @Schema(description = "Represent a product that is added to a product list", title = "A product")
 @Entity
-@Table(name = "product")
 public class Product {
 
+    @ManyToMany
+    @JoinTable(name = "category_product", inverseJoinColumns = @JoinColumn(name = "cid"), joinColumns = @JoinColumn(name = "id"))
+    private Set<Category> categories = new HashSet<>();
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
+
     @Schema(description = "The name of the product")
-    @NotNull
-    @Column(nullable = false)
     private String name;
 
     @Schema(description = "A unique integer for the product")
     @Id
-    @GeneratedValue
     private int id;
 
-    @Schema(description = "The price of a product")
-    @NotNull
-    @Column(nullable = false)
+    @Schema(description = "The price of the product")
     private int price;
-
-    @ManyToMany
-    @NotNull
-    @Column(nullable = false)
-    private Set<Category> categories = new HashSet<>();
 
     private static final Logger LOGGER = Logger.getLogger(Product.class.getName());
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
 
+    public Product() {
+    }
 
     /**
      * Creates a product
      *
-     * @param name of the product
-     * @param id unique identifier for the product. Can't have the same id as any other products.
+     * @param name  of the product
+     * @param id    unique identifier for the product. Can't have the same id as any
+     *              other products.
      * @param price of the product.
      */
     public Product(String name, int id, int price) throws IllegalArgumentException {
@@ -57,8 +58,7 @@ public class Product {
             this.name = stringChecker(name, "name");
             this.id = integerChecker(id, "id");
             this.price = integerChecker(price, "price");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
+        } catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
@@ -69,12 +69,12 @@ public class Product {
      * If the integer is not valid an Illegal Argument Exception is thrown.
      * If the integer is valid it returns the integer.
      *
-     * @param n the integer tha you want to check.
+     * @param n       the integer tha you want to check.
      * @param prefiks the name of the integer.
      * @return the string
      */
     private int integerChecker(int n, String prefiks) {
-        if(n < 0) {
+        if (n < 0) {
             throw new IllegalArgumentException("The integer " + prefiks + " cant be below 0");
         }
         return n;
@@ -91,7 +91,7 @@ public class Product {
      * @return string.
      */
     private String stringChecker(String string, String prefis) {
-        if(string.isEmpty() || string == null) {
+        if (string.isEmpty() || string == null) {
             throw new IllegalArgumentException("The String: " + prefis + " can not be empty or null.");
         }
         return string;
@@ -132,8 +132,7 @@ public class Product {
     public void setName(String name) {
         try {
             this.name = stringChecker(name, "name");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
+        } catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
@@ -146,8 +145,7 @@ public class Product {
     public void setId(int id) {
         try {
             this.id = integerChecker(id, "id");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
+        } catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
@@ -160,8 +158,7 @@ public class Product {
     public void setPrice(int price) {
         try {
             this.price = integerChecker(price, "price");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
+        } catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }

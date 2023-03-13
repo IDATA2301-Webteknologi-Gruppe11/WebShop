@@ -33,10 +33,6 @@ public class ProductController {
      * Product controller constructor.
      */
     public ProductController() {
-        Product product = new Product("sadf", 23, 324);
-        Product produc2 = new Product("sadsadfaf", 234, 3243);
-        productRepository.save(produc2);
-        productRepository.save(product);
     }
 
     /**
