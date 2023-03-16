@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca0832cc-7a95-4b19-92ae-11ae7e5f86d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/f/2fcb0c43eecf31a4bfa8af0817e5e142932fd94e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/java/no/ntnu/ProFlex/Controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/java/no/ntnu/ProFlex/Controllers/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/java/no/ntnu/ProFlex/Products/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/java/no/ntnu/ProFlex/Products/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/java/no/ntnu/ProFlex/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/java/no/ntnu/ProFlex/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/css/Products2.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/css/Products2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/html/Products2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/html/Products2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/js/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/js/SearchBar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -50,9 +47,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -68,6 +73,7 @@
       <workItem from="1675430427437" duration="701000" />
       <workItem from="1675605945191" duration="2051000" />
       <workItem from="1675763540016" duration="35000" />
+      <workItem from="1678104925548" duration="32918000" />
     </task>
     <servers />
   </component>

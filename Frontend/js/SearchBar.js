@@ -1,11 +1,10 @@
-$(document).ready(function() {
-    $("#search-icon").click(function() {
-        $("#search-form").toggle();
-    });
+var header = document.querySelector("header");
+var searchBar = document.getElementById("search-bar");
 
-    $("#search-form").submit(function(event) {
-        event.preventDefault();
-        const searchQuery = $("#search-input").val();
-        // Perform the search action with the searchQuery
-    });
+searchBar.addEventListener("focus", function() {
+    header.classList.add("header-expanded");
+});
+
+searchBar.addEventListener("blur", function() {
+    header.classList.remove("header-expanded");
 });
