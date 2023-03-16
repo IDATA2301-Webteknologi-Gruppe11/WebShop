@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca0832cc-7a95-4b19-92ae-11ae7e5f86d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_persistence_api_1_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/java/no/ntnu/ProFlex/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/java/no/ntnu/ProFlex/models/Product.java" afterDir="false" />
-    </list>
+    <list default="true" id="ca0832cc-7a95-4b19-92ae-11ae7e5f86d9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

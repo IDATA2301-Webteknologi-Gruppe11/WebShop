@@ -93,7 +93,7 @@ public class ProductController {
         if (oldProduct == null) {
             return ResponseEntity.notFound().build();
         }
-        this.productService.update(id, product);
+        this.productService.update(id, product);//TODO exception/errors
         if (this.productService.findById(id) == null) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         } else {
