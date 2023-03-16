@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="ca0832cc-7a95-4b19-92ae-11ae7e5f86d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/css/Products2.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/css/Products2.css" afterDir="false" />
@@ -14,6 +15,9 @@
 =======
     <list default="true" id="ca0832cc-7a95-4b19-92ae-11ae7e5f86d9" name="Changes" comment="" />
 >>>>>>> RestAPISprint3
+=======
+    <list default="true" id="ca0832cc-7a95-4b19-92ae-11ae7e5f86d9" name="Changes" comment="" />
+>>>>>>> ProductsPageSprint3
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +65,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
@@ -97,6 +102,19 @@
     </recent_temporary>
   </component>
 >>>>>>> RestAPISprint3
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+>>>>>>> ProductsPageSprint3
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -112,7 +130,8 @@
       <workItem from="1675430427437" duration="701000" />
       <workItem from="1675605945191" duration="2051000" />
       <workItem from="1675763540016" duration="35000" />
-      <workItem from="1678104925548" duration="32918000" />
+      <workItem from="1678104925548" duration="32922000" />
+      <workItem from="1678699243314" duration="70000" />
     </task>
     <servers />
   </component>
