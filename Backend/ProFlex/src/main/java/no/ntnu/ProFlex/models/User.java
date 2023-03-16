@@ -155,6 +155,10 @@ public class User {
         }
     }
 
+    public boolean isValid() {
+        return !"".equals(uname) && !"".equals(password) && uid > 0;
+    }
+
     @Override
     public String toString() {
         return "User{" +

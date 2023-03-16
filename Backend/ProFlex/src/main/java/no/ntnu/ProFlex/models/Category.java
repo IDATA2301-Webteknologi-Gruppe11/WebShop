@@ -134,6 +134,10 @@ public class Category {
         }
     }
 
+    public boolean isValid() {
+        return cid > 0 && !"".equals(cname);
+    }
+
     @Override
     public String toString() {
         return "Category{" +

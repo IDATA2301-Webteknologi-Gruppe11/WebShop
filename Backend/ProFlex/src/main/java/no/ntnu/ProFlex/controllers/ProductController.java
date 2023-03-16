@@ -4,41 +4,22 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import no.ntnu.ProFlex.models.Product;
-import no.ntnu.ProFlex.repository.ProductRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import no.ntnu.ProFlex.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Rest controller for the products
  *
- * @author Ole Kristian Dvergsdal
+ * @author Ole Kristian Dvergsdal                  //TODO Høre med girtz om klassen er bra?
  * @version 1.0
  */
 @RestController
 public class ProductController {
 
-    @Autowired
-    private ProductRepository productRepository;
-
-    //Controller
-    private static final Logger logger = LoggerFactory.getLogger(ProductController.class); //TODO Fiks Logger
-
-    /**
-     * Product Controller Constructor.
-     */
-    public ProductController() {
-        Product product = new Product("sadf", 23, 324);
-        Product produc2 = new Product("sadsadfaf", 234, 3243);
-        productRepository.save(produc2);
-        productRepository.save(product);
-    }
-
+    private ProductService productService = new ProductService();
 
     /**
      * Returns all the products.
@@ -48,9 +29,9 @@ public class ProductController {
     @Operation(summary = "Get all product", description = "Returns all the products")
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getProducts() {
-        Iterable<Product> products = this.productRepository.findAll();
+        Iterable<Product> products = this.productService.getAll();
         if(!products.iterator().hasNext()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok((List<Product>) products);
     }
@@ -63,14 +44,16 @@ public class ProductController {
      */
     @Operation(summary = "Get product by ID", description = "Retrieves a product by its ID.")
     @GetMapping("/products/{id}")
-    public ResponseEntity<Optional<Product>> getProductFromAGiveID(
+    public ResponseEntity<Product> getProductFromAGiveID(
             @Parameter(name = "id", description = "ID of the product to retrieve", required = true, in = ParameterIn.QUERY)
             @PathVariable int id) {
-        Optional<Product> productOptional = this.productRepository.findById(id);
-        if (productOptional.isEmpty()) {
+        Product product = this.productService.findById(id);
+        if (product == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(productRepository.findById(id));
+        else {
+            return ResponseEntity.ok(product);
+        }
     }
 
     /**
@@ -81,16 +64,14 @@ public class ProductController {
      */
     @Operation(summary = "Creates a product", description = "Creates and adds a product to the product list.")
     @PostMapping("/products")
-    public ResponseEntity createProduct(
+    public ResponseEntity<Product> createProduct(
             @Parameter(name = "product", description = "The product that is created", required = true, in = ParameterIn.PATH)
             @RequestBody Product product) {
-        this.productRepository.save(product);
-        Optional<Product> productOptional = this.productRepository.findById(product.getId());
-        if(productOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.CREATED).build();
+        if(!this.productService.add(product)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            return ResponseEntity.ok(product);
         }
     }
 
@@ -108,39 +89,33 @@ public class ProductController {
             @PathVariable int id,
             @Parameter(name = "product", description = "The new product that you want the old one to change to", required = true)
             @PathVariable Product product) {
-        Optional<Product> oldProductOptional = productRepository.findById(id);
-        if (oldProductOptional.isEmpty()) {
+        Product oldProduct = this.productService.findById(id);
+        if (oldProduct == null) {
             return ResponseEntity.notFound().build();
         }
-        Product oldProduct = oldProductOptional.get();
-        Product updatedProduct = productRepository.save(product);
-        if (updatedProduct.equals(oldProduct)) {
-            return ResponseEntity.status(HttpStatus.NOT_MODIFIED).build();
+        this.productService.update(id, product);//TODO exception/errors
+        if (this.productService.findById(id) == null) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         } else {
-            return ResponseEntity.ok(updatedProduct);
+            return ResponseEntity.ok(product);
         }
     }
 
-    /**
-     * Remove a product for the product list from a given ID.
-     *
-     * @param id the ID of the product:
-     * @return http status of the operation.
-     */
-    @Operation(summary = "Delete product", description = "Delete a product form the product list form a given ID")
-    @DeleteMapping("/products/{id}")
-    public ResponseEntity<Product> deleteProduct(
-            @Parameter(name = "id", description = "ID of the product to delete", required = true)
-            @PathVariable int id) {
-        if (productRepository.existsById(id)) {
-            productRepository.deleteById(id);
-            if (productRepository.existsById(id)) {
+        /**
+         * Remove a product for the product list from a given ID.
+         *
+         * @param id the ID of the product:
+         * @return http status of the operation.
+         */
+        @Operation(summary = "Delete product", description = "Delete a product form the product list form a given ID")
+        @DeleteMapping("/products/{id}")
+        public ResponseEntity<Product> deleteProduct (
+        @Parameter(name = "id", description = "ID of the product to delete", required = true)
+        @PathVariable int id){
+            if (!this.productService.delete(id)) {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
             } else {
-                return ResponseEntity.status(HttpStatus.OK).build();
+                return ResponseEntity.ok().build();
             }
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-    }
 }

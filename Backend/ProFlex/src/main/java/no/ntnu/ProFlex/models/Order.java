@@ -130,4 +130,8 @@ public class Order {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public boolean isValid() {
+        return oid > 0 && date !=null;
+    }
 }
