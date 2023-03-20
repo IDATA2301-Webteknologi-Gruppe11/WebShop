@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,18 +50,7 @@
 
 
 
-    <footer class="grid-container">
-        <nav class="icon-nav">
-            <a href="#"><i class="fa-solid fa-phone"></i> +47 99 99 99 99</a>     
-            <a href="#"><i class="fa-solid fa-envelope"></i> email@proflex.com</a> 
-            <a href="#"><i class="fa-solid fa-location-pin"></i> Larsgårdsvegen 2, 6003 Ålesund </a>  
-        </nav>
-        <h3>*This website is a result of a university group project,
-             performed in the course IDATA2301 Web technologies, 
-             at NTNU. All the information provided here is a result of imagination. 
-             Any resemblance with real companies or products is a coincidence.
-        </h3>
-    </footer>
+    <footer th:replace="fragments/footer.html :: footer"></footer>
 
     <section class="grid-container">
         <nav class="icon-nav-bottom"> 
