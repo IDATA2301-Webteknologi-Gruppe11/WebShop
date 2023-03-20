@@ -1,4 +1,4 @@
-package no.ntnu.ProFlex.Controllers;
+package no.ntnu.ProFlex.controllers;
 
 import no.ntnu.ProFlex.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package no.ntnu.ProFlex.Controllers;
+package no.ntnu.ProFlex.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
