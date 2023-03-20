@@ -1,4 +1,4 @@
-package no.ntnu.ProFlex.Controllers;
+package no.ntnu.ProFlex.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -32,7 +32,7 @@ public class OrderController {
     @GetMapping("/orders")
     public ResponseEntity<List<Order>> getOrders() {
         Iterable<Order> orders = this.orderService.getAll();
-        if(!orders.iterator().hasNext())  {
+        if (!orders.iterator().hasNext()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok((List<Order>) orders);
@@ -47,20 +47,19 @@ public class OrderController {
      */
     @GetMapping("/order/{id}")
     public ResponseEntity<Order> getOrderFromId(
-            @Parameter(name = "id", description = "The id of the order that you want to find")
-            @PathVariable int id) {
+            @Parameter(name = "id", description = "The id of the order that you want to find") @PathVariable int id) {
         Order order = this.orderService.findById(id);
-        if(order == null) {
+        if (order == null) {
             return ResponseEntity.notFound().build();
-        }
-        else {
+        } else {
             return ResponseEntity.ok(order);
         }
     }
 
     /**
      * Create and order.
-     * Also, http status. OK if it works, BAD REQUEST if something is wrong with the order.
+     * Also, http status. OK if it works, BAD REQUEST if something is wrong with the
+     * order.
      *
      * @param order The order that you want to create.
      * @return Created order, http status
@@ -68,31 +67,28 @@ public class OrderController {
     @Operation(summary = "Create an order.", description = "Create and add a order to the order repository")
     @PostMapping("/orders")
     public ResponseEntity<Order> createOrder(
-            @Parameter(name = "order", description = "the order that you want to add")
-            Order order) {
-        if(!this.orderService.add(order)) {
+            @Parameter(name = "order", description = "the order that you want to add") Order order) {
+        if (!this.orderService.add(order)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
-        else {
+        } else {
             return ResponseEntity.ok(order);
         }
     }
 
     /**
      * Update an existing order.
-     * Also, http status. OK if it worked, NOT FOUND if the order from the given id is not found and INTERNAL SERVER ERROR if it did not work.
+     * Also, http status. OK if it worked, NOT FOUND if the order from the given id
+     * is not found and INTERNAL SERVER ERROR if it did not work.
      *
-     * @param id the id of the order that you want to update.
+     * @param id    the id of the order that you want to update.
      * @param order the order that the existing order you want to update to.
      * @return the updated order, http status.
      */
     @Operation(summary = "Update a order", description = "Update an existing order form the order repository")
     @PutMapping("/orders/{id}")
     public ResponseEntity<Order> updateOrder(
-            @Parameter(name = "id", description = "the id of the product you want to update")
-            @PathVariable int id,
-            @Parameter(name = "order", description = "the order that you want the existing order to be updated to")
-            @RequestBody Order order) {
+            @Parameter(name = "id", description = "the id of the product you want to update") @PathVariable int id,
+            @Parameter(name = "order", description = "the order that you want the existing order to be updated to") @RequestBody Order order) {
         Order oldOrder = this.orderService.findById(id);
         if (oldOrder == null) {
             return ResponseEntity.notFound().build();
@@ -115,12 +111,10 @@ public class OrderController {
     @Operation(summary = "Remove order", description = "Removes a order form the order repository")
     @DeleteMapping("/order/{id}")
     public ResponseEntity<Order> deleteOrderOrder(
-            @Parameter(name = "id", description = "the id of the order that you want to remove")
-            @PathVariable int id) {
-        if(!this.orderService.delete(id)) {
+            @Parameter(name = "id", description = "the id of the order that you want to remove") @PathVariable int id) {
+        if (!this.orderService.delete(id)) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-        else {
+        } else {
             return ResponseEntity.ok().build();
         }
     }

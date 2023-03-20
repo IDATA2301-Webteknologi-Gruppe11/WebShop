@@ -1,4 +1,4 @@
-package no.ntnu.ProFlex.Controllers;
+package no.ntnu.ProFlex.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -17,10 +17,10 @@ import java.util.List;
  * @version 1.0
  */
 @RestController
-public class    CategoryController {
+public class CategoryController {
 
     @Autowired
-    private CategoryService categoryService; //TODO Swagger documentasjon
+    private CategoryService categoryService; // TODO Swagger documentasjon
 
     /**
      * Returns all categories.
@@ -32,7 +32,7 @@ public class    CategoryController {
     @GetMapping("/categories")
     public ResponseEntity<List<Category>> getCategories() {
         Iterable<Category> categories = this.categoryService.getAll();
-        if(!categories.iterator().hasNext()) {
+        if (!categories.iterator().hasNext()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok((List<Category>) categories);
@@ -48,10 +48,9 @@ public class    CategoryController {
     @Operation(summary = "Get a category", description = "Returns a category form the category repository and return http status.")
     @GetMapping("/category/{id}")
     public ResponseEntity<Category> getCategoryFromGivenId(
-            @Parameter(name = "id", description = "Id of the category you want to return")
-            @PathVariable int id) {
+            @Parameter(name = "id", description = "Id of the category you want to return") @PathVariable int id) {
         Category category = this.categoryService.findById(id);
-        if(category == null) {
+        if (category == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(category);
@@ -59,7 +58,8 @@ public class    CategoryController {
 
     /**
      * Create and add a category to the category repository.
-     * Also, A http status. OK if it works, BAD REQUEST if something is wrong with the category.
+     * Also, A http status. OK if it works, BAD REQUEST if something is wrong with
+     * the category.
      *
      * @param category the category you want to add.
      * @return the created category, http status
@@ -67,40 +67,36 @@ public class    CategoryController {
     @Operation(summary = "Create a category", description = "Create and add category to the category repository and return a http status")
     @PostMapping("/categories")
     public ResponseEntity<Category> createCategory(
-            @Parameter(name = "category", description = "The category you want to add")
-            @RequestBody Category category) {
-        if(!this.categoryService.add(category)) {
+            @Parameter(name = "category", description = "The category you want to add") @RequestBody Category category) {
+        if (!this.categoryService.add(category)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
-        else {
+        } else {
             return ResponseEntity.ok(category);
         }
     }
 
     /**
      * Update an existing category.
-     * Also, http statement. OK if it works, NOT FOUND if the category with id does not exists and INTERNAL SERVER ERROR if something wrong happens.
+     * Also, http statement. OK if it works, NOT FOUND if the category with id does
+     * not exists and INTERNAL SERVER ERROR if something wrong happens.
      *
-     * @param id the id of the category that you want to update.
+     * @param id       the id of the category that you want to update.
      * @param category the category that you want to update the category to.
      * @return The updated category, http status.
      */
     @Operation(summary = "update a existing category", description = "update a existing category int the category repository and return a http status")
     @PutMapping("/category/{id}")
     public ResponseEntity<Category> updateCategory(
-            @Parameter(name = "id", description = "the id of the category you want to update")
-            @PathVariable int id,
-            @Parameter(name = "category", description = "the cateogry you want the existing one to be update to")
-            @RequestBody Category category) {
+            @Parameter(name = "id", description = "the id of the category you want to update") @PathVariable int id,
+            @Parameter(name = "category", description = "the cateogry you want the existing one to be update to") @RequestBody Category category) {
         Category oldCategory = this.categoryService.findById(id);
-        if(oldCategory == null) {
+        if (oldCategory == null) {
             return ResponseEntity.notFound().build();
         }
         this.categoryService.update(id, category);
-        if(this.categoryService.findById(id) == null) {
+        if (this.categoryService.findById(id) == null) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-        else {
+        } else {
             return ResponseEntity.ok(category);
         }
     }
@@ -114,13 +110,11 @@ public class    CategoryController {
      */
     @Operation(summary = "Remove a category", description = "Removes a category form the category repository and return a http status")
     @DeleteMapping("/category/{id}")
-    public ResponseEntity<Category> deleteCategory (
-            @Parameter(name = "id", description = "the id of the category you want to remove")
-            @PathVariable int id) {
-        if(!this.categoryService.deleted(id)) {
+    public ResponseEntity<Category> deleteCategory(
+            @Parameter(name = "id", description = "the id of the category you want to remove") @PathVariable int id) {
+        if (!this.categoryService.deleted(id)) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-        else {
+        } else {
             return ResponseEntity.ok().build();
         }
     }

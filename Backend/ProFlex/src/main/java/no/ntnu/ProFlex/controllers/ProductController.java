@@ -1,4 +1,4 @@
-package no.ntnu.ProFlex.Controllers;
+package no.ntnu.ProFlex.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -14,12 +14,11 @@ import java.util.List;
 /**
  * Rest controller for the products
  *
- * @author Ole Kristian Dvergsdal                  //TODO Høre med girtz om klassen er bra?
+ * @author Ole Kristian Dvergsdal //TODO Høre med girtz om klassen er bra?
  * @version 1.0
  */
 @RestController
 public class ProductController {
-
 
     @Autowired
     private ProductService productService;
@@ -33,12 +32,12 @@ public class ProductController {
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getProducts() {
         Iterable<Product> products = this.productService.getAll();
-        if(!products.iterator().hasNext()) {
+        if (!products.iterator().hasNext()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok((List<Product>) products);
     }
-    
+
     /**
      * Returns the product of a given ID.
      *
@@ -48,13 +47,11 @@ public class ProductController {
     @Operation(summary = "Get product by ID", description = "Retrieves a product by its ID.")
     @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProductFromAGiveID(
-            @Parameter(name = "id", description = "ID of the product to retrieve", required = true, in = ParameterIn.QUERY)
-            @PathVariable int id) {
+            @Parameter(name = "id", description = "ID of the product to retrieve", required = true, in = ParameterIn.QUERY) @PathVariable int id) {
         Product product = this.productService.findById(id);
         if (product == null) {
             return ResponseEntity.notFound().build();
-        }
-        else {
+        } else {
             return ResponseEntity.ok(product);
         }
     }
@@ -68,12 +65,10 @@ public class ProductController {
     @Operation(summary = "Creates a product", description = "Creates and adds a product to the product list.")
     @PostMapping("/products")
     public ResponseEntity<Product> createProduct(
-            @Parameter(name = "product", description = "The product that is created", required = true, in = ParameterIn.PATH)
-            @RequestBody Product product) {
-        if(!this.productService.add(product)) {
+            @Parameter(name = "product", description = "The product that is created", required = true, in = ParameterIn.PATH) @RequestBody Product product) {
+        if (!this.productService.add(product)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
-        else {
+        } else {
             return ResponseEntity.ok(product);
         }
     }
@@ -81,22 +76,20 @@ public class ProductController {
     /**
      * Update the product for a given ID.
      *
-     * @param id the ID of the product.
+     * @param id      the ID of the product.
      * @param product new product of the product.
      * @return the http status of the operation.
      */
     @Operation(summary = "Update product", description = "Update the product from the product repository")
     @PutMapping("/products/{id}")
     public ResponseEntity<Product> UpdateProduct(
-            @Parameter(name = "id", description = "ID of the product to update", required = true, in = ParameterIn.PATH)
-            @PathVariable int id,
-            @Parameter(name = "product", description = "The new product that you want the old one to change to", required = true)
-            @PathVariable Product product) {
+            @Parameter(name = "id", description = "ID of the product to update", required = true, in = ParameterIn.PATH) @PathVariable int id,
+            @Parameter(name = "product", description = "The new product that you want the old one to change to", required = true) @PathVariable Product product) {
         Product oldProduct = this.productService.findById(id);
         if (oldProduct == null) {
             return ResponseEntity.notFound().build();
         }
-        this.productService.update(id, product);//TODO exception/errors
+        this.productService.update(id, product);// TODO exception/errors
         if (this.productService.findById(id) == null) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         } else {
@@ -104,21 +97,20 @@ public class ProductController {
         }
     }
 
-        /**
-         * Remove a product for the product list from a given ID.
-         *
-         * @param id the ID of the product:
-         * @return http status of the operation.
-         */
-        @Operation(summary = "Delete product", description = "Delete a product form the product list form a given ID")
-        @DeleteMapping("/products/{id}")
-        public ResponseEntity<Product> deleteProduct (
-        @Parameter(name = "id", description = "ID of the product to delete", required = true)
-        @PathVariable int id){
-            if (!this.productService.delete(id)) {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-            } else {
-                return ResponseEntity.ok().build();
-            }
+    /**
+     * Remove a product for the product list from a given ID.
+     *
+     * @param id the ID of the product:
+     * @return http status of the operation.
+     */
+    @Operation(summary = "Delete product", description = "Delete a product form the product list form a given ID")
+    @DeleteMapping("/products/{id}")
+    public ResponseEntity<Product> deleteProduct(
+            @Parameter(name = "id", description = "ID of the product to delete", required = true) @PathVariable int id) {
+        if (!this.productService.delete(id)) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } else {
+            return ResponseEntity.ok().build();
         }
+    }
 }
