@@ -3,7 +3,9 @@ package no.ntnu.ProFlex.services;
 import no.ntnu.ProFlex.models.Category;
 import no.ntnu.ProFlex.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CategoryService {
 
     @Autowired

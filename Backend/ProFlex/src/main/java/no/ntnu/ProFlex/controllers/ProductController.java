@@ -1,10 +1,11 @@
-package no.ntnu.ProFlex.controllers;
+package no.ntnu.ProFlex.Controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import no.ntnu.ProFlex.models.Product;
 import no.ntnu.ProFlex.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,9 @@ import java.util.List;
 @RestController
 public class ProductController {
 
-    private ProductService productService = new ProductService();
+
+    @Autowired
+    private ProductService productService;
 
     /**
      * Returns all the products.

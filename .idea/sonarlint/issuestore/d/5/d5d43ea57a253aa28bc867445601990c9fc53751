@@ -1,9 +1,7 @@
 
 O
-java:S1135"2Complete the task associated to this TODO comment.(†³¥¾8ñşŒÓí0
-o	java:S100W"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ‚••şÿÿÿÿ8ÿŒÓí0
+java:S1135"2Complete the task associated to this TODO comment.(†³¥¾8ñşŒÓí0
+o	java:S100Z"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ‚••şÿÿÿÿ8ÿŒÓí0
 T
-java:S1135`"2Complete the task associated to this TODO comment.(˜Ù€ûÿÿÿÿ8”’¢Óí0
-
-java:S1598"êThis file "ProductController.java" should be located in "no\ntnu\ProFlex\controllers" directory, not in "C:\Users\Ole Kristian\Documents\NTNU\Web-Applikasjon\Web-Site\WebShop\Backend\ProFlex\src\main\java\no\ntnu\ProFlex\Controllers".(øÒÏ
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(øÒÏ
+java:S1135c"2Complete the task associated to this TODO comment.(˜Ù€ûÿÿÿÿ8”’¢Óí0
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(êáÍ

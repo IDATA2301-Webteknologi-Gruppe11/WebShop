@@ -55,10 +55,15 @@
 			<version>8.0.27</version>
 		</dependency>
 
+		<!-- Thymeleaf engine -->
 		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0.2</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<!-- Allows automatic refresh of HTML documents instead of rebooting server  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
 	</dependencies>

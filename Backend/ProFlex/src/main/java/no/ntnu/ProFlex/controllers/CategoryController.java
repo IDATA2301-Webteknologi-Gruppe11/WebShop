@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.Category;
 import no.ntnu.ProFlex.services.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,10 @@ import java.util.List;
  * @version 1.0
  */
 @RestController
-public class CategoryController {
+public class    CategoryController {
 
-    private CategoryService categoryService = new CategoryService();
+    @Autowired
+    private CategoryService categoryService; //TODO Swagger documentasjon
 
     /**
      * Returns all categories.

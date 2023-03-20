@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Profile</title>
+    <link rel="stylesheet" href="../static/Profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <!-- Fontawesome kit link MIKKEL -->
+    <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
+</head>
+
+<header class="grid-container">
+    <h1 id="header-title">ProFlex</h1>
+        <!-- Middle option navigation bar -->
+    <nav class="option-nav">
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">About</a>
+        <form id="search-form">
+            <input id="input-text"type="text" placeholder="     Search..." />
+            <button id="submit-button" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </nav>
+        <!-- Right option icon navigation bar -->
+    <nav class="icon-nav">
+        <a href="#"><i class="fa-solid fa-cart-flatbed"></i></a>
+        <a href="#"><i class="fa-regular fa-heart"></i></a>
+        <a href="#"><i class="fa-regular fa-user"></i></a>
+    </nav>
+</header>
+
+<body>
+    <main class="flexbox-container">
+        <div class="cards">
+            <h1 class="title">Ongoing orders</h1>
+            <nav id="ongoing-orders-nav">
+                <li>Order history</li>
+                <li>Products</li>
+                <li>Date</li>
+            </nav>
+        </div>
+
+        <div class="cards">
+            <h1 class="title">Order history</h1>
+        </div>
+
+        <div class="cards">
+            <h1 class="title">Profile details</h1>
+            <nav id="details-nav">
+                <li id="username">Username</li>
+                <li>E-mail</li>
+                <li>Change password</li>
+                <li>Payment method</li>
+            </nav>
+        </div>  
+    </main>
+
+
+
+
+
+
+
+    <footer class="grid-container">
+        <nav class="icon-nav">
+            <a href="#"><i class="fa-solid fa-phone"></i> +47 99 99 99 99</a>     
+            <a href="#"><i class="fa-solid fa-envelope"></i> email@proflex.com</a> 
+            <a href="#"><i class="fa-solid fa-location-pin"></i> Larsgårdsvegen 2, 6003 Ålesund </a>  
+        </nav>
+        <h3>*This website is a result of a university group project,
+             performed in the course IDATA2301 Web technologies, 
+             at NTNU. All the information provided here is a result of imagination. 
+             Any resemblance with real companies or products is a coincidence.
+        </h3>
+    </footer>
+
+    <section class="grid-container">
+        <nav class="icon-nav-bottom"> 
+            <a href="#"><i class="fa-brands fa-facebook"></i></a> 
+            <a href="#"><i class="fa-brands fa-twitter"></i></a> 
+            <a href="#"><i class="fa-brands fa-youtube"></i></a> 
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a> 
+        </nav>
+    </section>
+</body>
+</html>

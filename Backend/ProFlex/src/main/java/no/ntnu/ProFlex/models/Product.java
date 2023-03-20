@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 @Schema(description = "Represent a product that is added to a product list", title = "A product")
 @Entity
 @Table(name = "product")
-public class Product {
+public class    Product {
 
     @Schema(description = "The name of the product")
     @NotNull
@@ -46,13 +46,6 @@ public class Product {
     @Column(nullable = false, name = "description")
     private String description;
 
-    @Schema(description = "Contain image of the product")
-    @NotNull
-    @Column(nullable = false, name = "image")
-    private byte[] image;
-
-
-
     private static final Logger LOGGER = Logger.getLogger(Product.class.getName());
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
 
@@ -64,17 +57,20 @@ public class Product {
      * @param id unique identifier for the product. Can't have the same id as any other products.
      * @param price of the product.
      */
-    public Product(String name, int id, int price, String description, byte[] image) throws IllegalArgumentException {
+    public Product(String name, int id, int price, String description) throws IllegalArgumentException {
         try {
             this.name = stringChecker(name, "name");
             this.id = integerChecker(id, "id");
             this.price = integerChecker(price, "price");
             this.description = stringChecker(description, "description");
-            this.image = image; //TODO create something that check image/covert the image.
         }
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
+    }
+
+    public Product() {
+
     }
 
     /**
@@ -200,6 +196,7 @@ public class Product {
         this.price = product.getPrice();
     }
 
+    //TODO Javadoc
     public boolean isValid() {
         return this.id > 0 && !"".equals(this.name) && this.price > 0 && !"".equals(this.description);
     }

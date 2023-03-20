@@ -4,11 +4,12 @@ import io.swagger.v3.oas.annotations.servers.Server;
 import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Represent the service class for user.
  */
-@Server
+@Service
 public class UserService {
 
     @Autowired

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 @Schema(description = "Represent a order")
 @Entity
-@Table(name = "Order")
+@Table(name = "Orders")
 public class Order {
 
     @Schema
