@@ -134,6 +134,10 @@ public class    Product {
         return this.price;
     }
 
+    public String getDescription() {
+        return this.description;
+    }
+
     /**
      * Sets the name of a product.
      *

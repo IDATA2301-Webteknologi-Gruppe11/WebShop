@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Rest controller for the products
  *
- * @author Ole Kristian Dvergsdal //TODO Høre med girtz om klassen er bra?
+ * @author Ole Kristian Dvergsdal
  * @version 1.0
  */
 @RestController
@@ -82,7 +82,7 @@ public class ProductController {
      */
     @Operation(summary = "Update product", description = "Update the product from the product repository")
     @PutMapping("/products/{id}")
-    public ResponseEntity<Product> UpdateProduct(
+    public ResponseEntity<Product> updateProduct(
             @Parameter(name = "id", description = "ID of the product to update", required = true, in = ParameterIn.PATH) @PathVariable int id,
             @Parameter(name = "product", description = "The new product that you want the old one to change to", required = true) @PathVariable Product product) {
         Product oldProduct = this.productService.findById(id);

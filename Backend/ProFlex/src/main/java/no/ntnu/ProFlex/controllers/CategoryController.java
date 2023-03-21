@@ -71,8 +71,8 @@ public class CategoryController {
         if (!this.categoryService.add(category)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         } else {
-            return ResponseEntity.ok(category);
-        }
+            return ResponseEntity.status(HttpStatus.CREATED).body(category); //TODO høre om created eller ok.
+        }                                                                    //TODO høre om postman testen og.
     }
 
     /**

@@ -2,6 +2,7 @@ package no.ntnu.ProFlex.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
@@ -29,7 +30,7 @@ public class Order {
     @NotNull
     @ManyToOne
     @JoinColumn(name ="uid", nullable = false)
-    private User user;
+    private int uid;
 
     @Schema(description = "The date when the order was placed.")
     @NotNull
@@ -48,13 +49,13 @@ public class Order {
     /**
      * Create an instans of order.
      * @param oid the unique id of the order.
-     * @param user the id of the user that place the order.
+     * @param uid the id of the user that place the order.
      * @param date the when the order was placed.
      */
-    public Order(int oid, User user, Date date) {
+    public Order(int oid, int uid, Date date) {
         try {
             this.oid = integerChecker(oid, "oid");
-            this.user = user;
+            this.uid = integerChecker(uid, "uid");
             this.date = date;
         }
         catch (IllegalArgumentException illegalArgumentException) {
@@ -79,14 +80,6 @@ public class Order {
     }
 
     /**
-     * Return oid.
-     * @return oid
-     */
-    public int getOid() {
-        return oid;
-    }
-
-    /**
      * Setts oid.
      * @param oid the oid that you want to set.
      */
@@ -100,19 +93,32 @@ public class Order {
     }
 
     /**
+     * Return oid.
+     * @return oid
+     */
+    public int getOid() {
+        return oid;
+    }
+
+    /**
      * Return uid
      * @return uid
      */
-    public User getUid() {
-        return user;
+    public int getUid() {
+        return uid;
     }
 
     /**
      * Setts the uid.
-     * @param user the uid that you want to set.
+     * @param uid the uid that you want to set.
      */
-    public void setUid(User user) {
-        this.user = user;
+    public void setUid(int uid) {
+        try {
+            this.uid = integerChecker(uid, "uid");
+        }
+        catch (IllegalArgumentException illegalArgumentException) {
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
+        }
     }
 
     /**
