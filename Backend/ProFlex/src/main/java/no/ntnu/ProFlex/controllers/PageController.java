@@ -17,14 +17,24 @@ public class PageController {
     ProductService productService;
     @Autowired
     ProductRepository productRepository;
-
+    
     @GetMapping("/")
-    public String getHome(Model model) {
-        return "Profile.html";
-    }
-
-    @GetMapping("/index")
     public String getIndex(Model model) {
         return "Index";
+    }
+
+    @GetMapping("/Profile")
+    public String getProfile(Model model) {
+        return "Profile";
+    }
+
+    @GetMapping("/Products")
+    public String getProducts(Model model) {
+        return "Products";
+    }
+
+    @GetMapping("/ShoppingCart")
+    public String getShoppingCart(Model model) {
+        return "ShoppingCart";
     }
 }
