@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="db840e38-58a1-4245-a00c-eb028a4f6c17" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/5/6/56c530ca75b650324dfbe5ed7048ff8fb648f80b" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/5/6/56c530ca75b650324dfbe5ed7048ff8fb648f80b" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/a/c/ac70b17ae505cb212bac2437c176d0f6e24582de" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/a/c/ac70b17ae505cb212bac2437c176d0f6e24582de" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/d/c/dc249e6d50ca02af22b069bb91a40bdded006769" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/d/c/dc249e6d50ca02af22b069bb91a40bdded006769" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/templates/fragments/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/templates/fragments/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/static/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/static/Register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/templates/Reister.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/templates/Reister.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +78,7 @@
       <updated>1679304428331</updated>
       <workItem from="1679568682154" duration="2218000" />
       <workItem from="1679571272171" duration="2000" />
-      <workItem from="1679572986767" duration="13853000" />
+      <workItem from="1679572986767" duration="15788000" />
     </task>
     <servers />
   </component>

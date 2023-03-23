@@ -1,6 +1,6 @@
 body {
     font-family: Poppins, sans-serif;
-    background-color: #051622;
+    background-color: white;
 }
 
 #register-flex-conteiner {
@@ -15,16 +15,11 @@ body {
     background-color: white;
     align-items: center;
     text-align: center;
-    box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem black;
-    padding-bottom: 2rem;
-}
-
-#top-flex {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    margin-left: 7rem;
-    margin-right: 2rem;
+    box-shadow: 1rem 1rem 20rem 1rem #a2a2a2;
+    padding-bottom: 3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    border-radius: 40px;
 }
 
 #back-icon {
@@ -41,7 +36,6 @@ ul li {
 }
 
 h1 {
-    margin-top: -0.5rem;
     font-size: 4rem;
     font-weight: normal;
 }
@@ -66,7 +60,7 @@ h1 {
 }
 
 #email-list {
-    margin-top: 8rem;
+    margin-top: 2rem;
     text-align: left;
 }
 
@@ -86,7 +80,7 @@ button {
     margin-top: 2rem;
     font-size: 2rem;
     color: white;
-    background-color: #051622;
+    background-color: #0067B8;
     border: none;
     width: 90%;
     height: 5rem;
