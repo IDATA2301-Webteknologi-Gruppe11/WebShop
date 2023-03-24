@@ -5,8 +5,6 @@ e
 5src/main/java/no/ntnu/ProFlex/ProFlexApplication.java,4\0\40394c3ad34ad56ecbf39a52158030b0772420e8
 g
 7src/main/java/no/ntnu/ProFlex/services/UserService.java,8\1\81ed884fe660e64dfdb99b2c392f8725510a6cb9
-j
-:src/main/java/no/ntnu/ProFlex/services/ProductService.java,4\a\4a41b535056aa92c5a9d4873ca5a41fad49bc6be
 k
 ;src/main/java/no/ntnu/ProFlex/services/CategoryService.java,9\9\9974e5ed39d49769f07869b941bcf60792e21017
 b
@@ -15,12 +13,8 @@ h
 8src/main/java/no/ntnu/ProFlex/services/OrderService.java,a\3\a3aed912b934f412ddc6456c593dad3ae07037f4
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-q
-Asrc/main/java/no/ntnu/ProFlex/Controllers/CategoryController.java,a\c\ac70b17ae505cb212bac2437c176d0f6e24582de
 m
 =src/main/java/no/ntnu/ProFlex/Controllers/PageController.java,8\a\8a1da55561d2310e2602b28a46b50f2496bb83e2
-p
-@src/main/java/no/ntnu/ProFlex/Controllers/ProductController.java,3\1\319b6133cb8bebae18f636d16c8246b005c5c932
 _
 /src/main/java/no/ntnu/ProFlex/models/Order.java,5\6\56c530ca75b650324dfbe5ed7048ff8fb648f80b
 j

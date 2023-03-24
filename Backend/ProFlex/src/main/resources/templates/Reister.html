@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
   <link rel="stylesheet" href="../static/Register.css">
+  <script src="../static/js/Register.js"></script>
   <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -26,16 +27,18 @@
       <ul class="list">
         <li class="icons"><i class="fa-sharp fa-solid fa-key"></i></li>
         <li class="register-text">Password:</li>
-        <li><input type="text" class="text-bar"></li>
+        <li><input type="password" class="text-bar" id="password-text-bar"></li>
+        <li><button class="button-eye" id="password-button-eye" onclick="showPassword()"><i class="fa-regular fa-eye-slash"></i></button></li>
       </ul>
       <div class="line"></div>
       <ul class="list">
         <li class="icons"><i class="fa-sharp fa-solid fa-key"></i></li>
         <li class="register-text">Confirm Password:</li>
-        <li><input type="text" class="text-bar"></li>
+        <li><input type="password" class="text-bar" id="password-confirm-text-bar"></li>
+        <li><button class="button-eye" id="password-confirm-button-eye" onclick="showConfirmPassword()"><i class="fa-regular fa-eye-slash"></i></button></li>
       </ul>
       <div class="line"></div>
-      <button>Register</button>
+      <button id="button-register">Register</button>
     </section>
   </div>
   <p id="footer-text">*This website is a result of a university group project, performed in the course
