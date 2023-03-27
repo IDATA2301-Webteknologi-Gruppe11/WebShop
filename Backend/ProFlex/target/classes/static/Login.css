@@ -1,0 +1,128 @@
+body {
+    font-family: Poppins, sans-serif;
+    background-color: white;
+}
+
+#login-flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#section {
+    margin-top: 2rem;
+    background-color: white;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0.2rem 0.2rem 1rem 0.2rem #cbcbcb;
+    padding-bottom: 3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    border-radius: 40px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: normal;
+}
+
+#username-list {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.loging-text {
+    font-size: 1.3rem;
+    font-weight: lighter;
+    color: #1f1f1f;
+}
+
+.icons {
+    font-size: 2rem;
+    color: #1f1f1f;
+}
+
+.text-bar {
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    color: #1f1f1f;
+    width: 95%;
+}
+
+#password-list {
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.line {
+    border-bottom: 1px solid #cbcbcb;
+    width: 95%;
+    margin-left: 1.5rem;
+    margin-top: -0.8rem;
+
+}
+
+#button1 {
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: white;
+    background-color: #0067B8;
+    border: none;
+    width: 95%;
+    height: 5rem;
+    border-radius: 5px;
+}
+
+nav {
+    margin-top: 2rem;
+}
+
+nav a {
+    margin-top: 2rem;
+    text-decoration: none;
+    color: #0067B8;
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+#button2 {
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: #051622;
+    background-color: #D2D2D2;
+    border: none;
+    width: 95%;
+    height: 5rem;
+    border-radius: 5px;
+}
+
+.button-eye {
+    border: none;
+    background-color: white;
+    font-size: 1.5rem;
+}
+
+#footer-text {
+    background-color: #eeeeee;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 1.2rem;
+    padding-top: 1.2rem;
+    font-size: 0.7rem;
+}

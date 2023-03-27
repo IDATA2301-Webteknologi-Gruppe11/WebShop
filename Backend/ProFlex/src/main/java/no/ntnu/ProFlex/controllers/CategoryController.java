@@ -4,11 +4,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.Category;
 import no.ntnu.ProFlex.services.CategoryService;
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * This class represent the controller for category.
@@ -17,105 +19,125 @@ import java.util.List;
  * @version 1.0
  */
 @RestController
+@RequestMapping("/api/category")
 public class CategoryController {
 
     @Autowired
     private CategoryService categoryService; // TODO Swagger documentasjon
 
+    private static final String JSONEEXCEPTIONMESSAGE = "The Field(s) in the request is missing or is null";
+    private static final String SEVERE = "An error occurred: ";
+    private static final Logger LOGGER = Logger.getLogger(CategoryController.class.getName());
     /**
-     * Returns all categories.
-     * Also, http status. OK if it works, NOT FOUND if nothing is found.
+     * Returns all the products.
      *
-     * @return All users, Http status.
+     * @return all products
      */
     @Operation(summary = "Get all categories", description = "Returns all categories form the category repository and returns https status.")
-    @GetMapping("/categories")
+    @GetMapping("/getAll")
     public ResponseEntity<List<Category>> getCategories() {
         Iterable<Category> categories = this.categoryService.getAll();
         if (!categories.iterator().hasNext()) {
-            return ResponseEntity.notFound().build();
+            return new ResponseEntity("Didn't find categories", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok((List<Category>) categories);
     }
 
     /**
-     * Return a category form a given id.
-     * Also, https status. OK if it works, NOT FOUND of its not found.
+     * Returns the category of a given ID.
      *
-     * @param id of the category you want to find.
-     * @return a category. Http status.
+     * @param id the ID of the category to retrieve
+     * @return the category of the given ID
      */
     @Operation(summary = "Get a category", description = "Returns a category form the category repository and return http status.")
-    @GetMapping("/category/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Category> getCategoryFromGivenId(
-            @Parameter(name = "id", description = "Id of the category you want to return") @PathVariable int id) {
+            @Parameter(name = "id", description = "Id of the category you want to return", required = true)
+            @PathVariable int id) {
         Category category = this.categoryService.findById(id);
         if (category == null) {
-            return ResponseEntity.notFound().build();
+            return new ResponseEntity("Didn't find category", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(category);
     }
 
     /**
-     * Create and add a category to the category repository.
-     * Also, A http status. OK if it works, BAD REQUEST if something is wrong with
-     * the category.
+     * Creates and adds a category.
      *
-     * @param category the category you want to add.
-     * @return the created category, http status
+     * @param category the category that is getting created
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @exception JSONException if an error occurs while creating the product
      */
     @Operation(summary = "Create a category", description = "Create and add category to the category repository and return a http status")
-    @PostMapping("/categories")
+    @PostMapping("/add")
     public ResponseEntity<Category> createCategory(
-            @Parameter(name = "category", description = "The category you want to add") @RequestBody Category category) {
-        if (!this.categoryService.add(category)) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        } else {
-            return ResponseEntity.status(HttpStatus.CREATED).body(category); //TODO høre om created eller ok.
-        }                                                                    //TODO høre om postman testen og.
+            @Parameter(name = "category", description = "The category you want to add", required = true)
+            @RequestBody Category category) {
+        try {
+            if (!this.categoryService.add(category)) {
+                return new ResponseEntity("Category was not added", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            return new ResponseEntity("Category was added", HttpStatus.CREATED);
+        }
+        catch (JSONException e) {
+            LOGGER.severe(SEVERE + e.getMessage());
+            return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**
-     * Update an existing category.
-     * Also, http statement. OK if it works, NOT FOUND if the category with id does
-     * not exists and INTERNAL SERVER ERROR if something wrong happens.
+     * Update the category for a given ID.
      *
-     * @param id       the id of the category that you want to update.
-     * @param category the category that you want to update the category to.
-     * @return The updated category, http status.
+     * @param id the ID of the category to update
+     * @param category new category of the product
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @exception JSONException if an error occurs while updating the product
      */
     @Operation(summary = "update a existing category", description = "update a existing category int the category repository and return a http status")
-    @PutMapping("/category/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Category> updateCategory(
-            @Parameter(name = "id", description = "the id of the category you want to update") @PathVariable int id,
-            @Parameter(name = "category", description = "the cateogry you want the existing one to be update to") @RequestBody Category category) {
-        Category oldCategory = this.categoryService.findById(id);
-        if (oldCategory == null) {
-            return ResponseEntity.notFound().build();
+            @Parameter(name = "id", description = "the id of the category you want to update", required = true)
+            @PathVariable int id,
+            @Parameter(name = "category", description = "the cateogry you want the existing one to be update to", required = true)
+            @RequestBody Category category) {
+        try {
+            Category oldCategory = this.categoryService.findById(id);
+            if (oldCategory == null) {
+                return new ResponseEntity("didn't find category", HttpStatus.NOT_FOUND);
+            }
+            this.categoryService.update(id, category);
+            if (this.categoryService.findById(id) == null) {
+                return new ResponseEntity("Category didn't update", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            return new ResponseEntity("Category was updated", HttpStatus.OK);
         }
-        this.categoryService.update(id, category);
-        if (this.categoryService.findById(id) == null) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        } else {
-            return ResponseEntity.ok(category);
+        catch (JSONException e) {
+            LOGGER.severe(SEVERE + e.getMessage());
+            return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
 
     /**
-     * Remove a category.
-     * Also, http status. OK if it works, INTERNAL SERVER ERROR if it did not work.
+     * Deletes a category from the category list with the given ID.
      *
-     * @param id of the category you want to remove.
-     * @return http status
+     * @param id the ID of the category to delete
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @exception JSONException  if an error occurs while deleting the product
      */
     @Operation(summary = "Remove a category", description = "Removes a category form the category repository and return a http status")
-    @DeleteMapping("/category/{id}")
+    @DeleteMapping("/remove/{id}")
     public ResponseEntity<Category> deleteCategory(
-            @Parameter(name = "id", description = "the id of the category you want to remove") @PathVariable int id) {
-        if (!this.categoryService.deleted(id)) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        } else {
+            @Parameter(name = "id", description = "the id of the category you want to remove", required = true)
+            @PathVariable int id) {
+        try {
+            if (!this.categoryService.deleted(id)) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            }
             return ResponseEntity.ok().build();
+        }
+        catch (JSONException e) {
+            LOGGER.severe(SEVERE + e.getMessage());
+            return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
 }

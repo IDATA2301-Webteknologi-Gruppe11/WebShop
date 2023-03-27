@@ -4,11 +4,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.Order;
 import no.ntnu.ProFlex.services.OrderService;
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * This class represent the controller for order.
@@ -17,105 +19,127 @@ import java.util.List;
  * @version 1.0
  */
 @RestController
+@RequestMapping("/api/order")
 public class OrderController {
 
     @Autowired
     private OrderService orderService = new OrderService();
 
+    private static final String JSONEEXCEPTIONMESSAGE = "The Field(s) in the request is missing or is null";
+    private static final String SEVERE = "An error occurred: ";
+    private static final Logger LOGGER = Logger.getLogger(OrderController.class.getName());
+
+
     /**
-     * Get all orders.
-     * Also, https status. OK if it works, NOT FOUND is anything is found.
+     * Returns all the orders.
      *
-     * @return All orders, https status.
+     * @return all orders
      */
     @Operation(summary = "Get orders", description = "Find and return all orders for the order repository and return https status")
-    @GetMapping("/orders")
+    @GetMapping("/getAll")
     public ResponseEntity<List<Order>> getOrders() {
         Iterable<Order> orders = this.orderService.getAll();
         if (!orders.iterator().hasNext()) {
-            return ResponseEntity.notFound().build();
+            return new ResponseEntity("Didn't find orders", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok((List<Order>) orders);
     }
 
     /**
-     * Get an order form a id.
-     * Also, https status. OK if it works, NOT FOUND if anything is not found.
+     * Returns the order of a given ID.
      *
-     * @param id of the order that you want to find.
-     * @return A order, http status
+     * @param id the ID of the order to retrieve
+     * @return the order of the given ID
      */
-    @GetMapping("/order/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Order> getOrderFromId(
-            @Parameter(name = "id", description = "The id of the order that you want to find") @PathVariable int id) {
+            @Parameter(name = "id", description = "The id of the order that you want to find", required = true)
+            @PathVariable int id) {
         Order order = this.orderService.findById(id);
         if (order == null) {
-            return ResponseEntity.notFound().build();
+            return new ResponseEntity("Didn't find order", HttpStatus.NOT_FOUND);
         } else {
             return ResponseEntity.ok(order);
         }
     }
 
     /**
-     * Create and order.
-     * Also, http status. OK if it works, BAD REQUEST if something is wrong with the
-     * order.
+     * Creates and adds an order.
      *
-     * @param order The order that you want to create.
-     * @return Created order, http status
+     * @param order the order that is getting created
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @exception JSONException if an error occurs while creating the order
      */
     @Operation(summary = "Create an order.", description = "Create and add a order to the order repository")
-    @PostMapping("/orders")
+    @PostMapping("/add")
     public ResponseEntity<Order> createOrder(
-            @Parameter(name = "order", description = "the order that you want to add") Order order) {
-        if (!this.orderService.add(order)) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        } else {
-            return ResponseEntity.ok(order);
+            @Parameter(name = "order", description = "the order that you want to add", required = true)
+            @RequestBody Order order) {
+        try {
+            if (!this.orderService.add(order)) {
+                return new ResponseEntity("Order was not added", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            return new ResponseEntity("Order was added", HttpStatus.CREATED);
+        }
+        catch (JSONException e) {
+            LOGGER.severe(SEVERE + e.getMessage());
+            return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
 
     /**
-     * Update an existing order.
-     * Also, http status. OK if it worked, NOT FOUND if the order from the given id
-     * is not found and INTERNAL SERVER ERROR if it did not work.
+     * Update the order for a given ID.
      *
-     * @param id    the id of the order that you want to update.
-     * @param order the order that the existing order you want to update to.
-     * @return the updated order, http status.
+     * @param id the ID of the order  to update
+     * @param order new order of the order
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @exception JSONException if an error occurs while updating the product
      */
     @Operation(summary = "Update a order", description = "Update an existing order form the order repository")
-    @PutMapping("/orders/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Order> updateOrder(
-            @Parameter(name = "id", description = "the id of the product you want to update") @PathVariable int id,
-            @Parameter(name = "order", description = "the order that you want the existing order to be updated to") @RequestBody Order order) {
-        Order oldOrder = this.orderService.findById(id);
-        if (oldOrder == null) {
-            return ResponseEntity.notFound().build();
-        }
-        this.orderService.update(id, order);
-        if (this.orderService.findById(id) == null) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        } else {
+            @Parameter(name = "id", description = "the id of the product you want to update", required = true)
+            @PathVariable int id,
+            @Parameter(name = "order", description = "the order that you want the existing order to be updated to", required = true)
+            @RequestBody Order order) {
+        try {
+            Order oldOrder = this.orderService.findById(id);
+            if (oldOrder == null) {
+                return new ResponseEntity("didn't find order", HttpStatus.NOT_FOUND);
+            }
+            this.orderService.update(id, order);
+            if (this.orderService.findById(id) == null) {
+                return new ResponseEntity("Order didn't update", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
             return ResponseEntity.ok(order);
+        }
+        catch (JSONException e) {
+            LOGGER.severe(SEVERE + e.getMessage());
+            return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
 
     /**
-     * Remove an order.
-     * Also, http status. OK if it worked, INTERNAL SERVER ERROR if it did not work.
+     * Deletes an order from the order list with the given ID.
      *
-     * @param id of the order that you want to remove.
-     * @return https status.
+     * @param id the ID of the order to delete
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @exception JSONException  if an error occurs while deleting the product
      */
     @Operation(summary = "Remove order", description = "Removes a order form the order repository")
-    @DeleteMapping("/order/{id}")
+    @DeleteMapping("/remove/{id}")
     public ResponseEntity<Order> deleteOrderOrder(
-            @Parameter(name = "id", description = "the id of the order that you want to remove") @PathVariable int id) {
-        if (!this.orderService.delete(id)) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        } else {
-            return ResponseEntity.ok().build();
+            @Parameter(name = "id", description = "the id of the order that you want to remove", required = true)
+            @PathVariable int id) {
+        try {
+            if (!this.orderService.delete(id)) {
+                return new ResponseEntity("Order was not removed", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            return new ResponseEntity("Order was removed", HttpStatus.OK);
+        }
+        catch (JSONException e) {
+            LOGGER.severe(SEVERE + e.getMessage());
+            return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
 }

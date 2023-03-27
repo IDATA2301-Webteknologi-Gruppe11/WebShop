@@ -2,7 +2,6 @@ package no.ntnu.ProFlex.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import no.ntnu.ProFlex.models.Product;
 import no.ntnu.ProFlex.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,37 +9,44 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.logging.Logger;
+import org.json.JSONException;
+
+//TODO høre med girz om id er det beste for å fjerne product/oppdatere product
 
 /**
  * Rest controller for the products
- * //TODO høre med girtz om man burde a http og hente jeson data ifrå http body for å få tak i produck?
+ *
  * @author Ole Kristian Dvergsdal
  * @version 1.0
+ *
  */
 @RestController
+@RequestMapping("/api/product")
 public class ProductController {
 
     @Autowired
     private ProductService productService;
 
+    private static final String JSONEEXCEPTIONMESSAGE = "The Field(s) in the request is missing or is null";
+    private static final String SEVERE = "An error occurred: ";
+    private static final Logger LOGGER = Logger.getLogger(ProductController.class.getName());
+
+
+
     /**
      * Returns all the products.
      *
      * @return all products
-     * @throws Exception if an error occurs while retrieving the products
      */
     @Operation(summary = "Get all product", description = "Returns all the products")
-    @GetMapping("/products")
+    @GetMapping("/getAll")
     public ResponseEntity<List<Product>> getProducts() {
-        try {
-            Iterable<Product> products = this.productService.getAll();
-            if (!products.iterator().hasNext()) {
-                return ResponseEntity.notFound().build();
-            }
-            return ResponseEntity.ok((List<Product>) products);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        Iterable<Product> products = this.productService.getAll();
+        if (!products.iterator().hasNext()) {
+            return new ResponseEntity("Didn't find products", HttpStatus.NOT_FOUND);
         }
+        return ResponseEntity.ok((List<Product>) products);
     }
 
     /**
@@ -48,21 +54,17 @@ public class ProductController {
      *
      * @param id the ID of the product to retrieve
      * @return the product of the given ID
-     * @throws Exception if an error occurs while retrieving the product
      */
     @Operation(summary = "Get product by ID", description = "Retrieves a product by its ID.")
-    @GetMapping("/products/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Product> getProductFromAGiveID(
-            @Parameter(name = "id", description = "ID of the product to retrieve", required = true, in = ParameterIn.QUERY) @PathVariable int id) {
-        try {
-            Product product = this.productService.findById(id);
-            if (product == null) {
-                return ResponseEntity.notFound().build();
-            }
-            return ResponseEntity.ok(product);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            @Parameter(name = "id", description = "ID of the product to retrieve", required = true)
+            @PathVariable int id) {
+        Product product = this.productService.findById(id);
+        if (product == null) {
+            return new ResponseEntity("Didn't find product", HttpStatus.NOT_FOUND);
         }
+        return ResponseEntity.ok(product);
     }
 
 
@@ -70,51 +72,55 @@ public class ProductController {
      * Creates and adds a product.
      *
      * @param product the product that is getting created
-     * @return returns the response of the http status
-     * @throws Exception if an error occurs while creating the product
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @exception JSONException if an error occurs while creating the product
      */
-    @Operation(summary = "Creates a product", description = "Creates and adds a product to the product list.")
-    @PostMapping("/products")
-    public ResponseEntity<Object> createProduct(
-            @Parameter(name = "product", description = "The product that is created", required = true, in = ParameterIn.PATH) @RequestBody Product product) {
+    @Operation(summary = "Adds a product", description = "Creates and adds a product to the product list.")
+    @PostMapping("/add")
+    public ResponseEntity<?> addProduct(
+            @Parameter(name = "product", description = "The product that is created", required = true)
+            @RequestBody Product product) {
         try {
-            this.productService.add(product);
             if (!this.productService.add(product)) {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                return new ResponseEntity("Product was not added", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return ResponseEntity.ok(product);
-        } catch (Exception e) {
-            return new ResponseEntity("Field(s) missing or null in request", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("Product was added", HttpStatus.CREATED);
+        } catch (JSONException e) {
+            LOGGER.severe(SEVERE + e.getMessage());
+            return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
 
+    //TODO HttpEntity<String> http høre med girtz om ditta e betre.
 
     /**
      * Update the product for a given ID.
      *
      * @param id the ID of the product to update
      * @param product new product of the product
-     * @return the http status of the operation
-     * @throws Exception if an error occurs while updating the product
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @exception JSONException if an error occurs while updating the product
      */
     @Operation(summary = "Update product", description = "Update the product from the product repository")
-    @PutMapping("/products/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Product> updateProduct(
-            @Parameter(name = "id", description = "ID of the product to update", required = true, in = ParameterIn.PATH) @PathVariable int id,
-            @Parameter(name = "product", description = "The new product that you want the old one to change to", required = true) @PathVariable Product product) {
+            @Parameter(name = "id", description = "ID of the product to update", required = true)
+            @PathVariable int id,
+            @Parameter(name = "product", description = "The new product that you want the old one to change to", required = true)
+            @PathVariable Product product) {
         try {
             Product oldProduct = this.productService.findById(id);
             if (oldProduct == null) {
-                return ResponseEntity.notFound().build();
+                return new ResponseEntity("didn't find product", HttpStatus.NOT_FOUND);
             }
             this.productService.update(id, product);
-            Product updatedProduct = this.productService.findById(id);
-            if (updatedProduct == null) {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            if (this.productService.findById(id) == null) {
+                return new ResponseEntity("Product didn't update", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return ResponseEntity.ok(updatedProduct);
-        } catch (Exception e) {
-            return new ResponseEntity("Field(s) missing or null in request", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("Product was updated", HttpStatus.OK);
+        } catch (JSONException e) {
+            LOGGER.severe(SEVERE + e.getMessage());
+            return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -123,19 +129,21 @@ public class ProductController {
      *
      * @param id the ID of the product to delete
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
-     * @exception  if an error occurs while deleting the product
+     * @exception JSONException  if an error occurs while deleting the product
      */
     @Operation(summary = "Delete product", description = "Delete a product from the product list given its ID")
-    @DeleteMapping("/products/{id}")
-    public ResponseEntity<Object> deleteProduct(
-            @Parameter(name = "id", description = "ID of the product to delete", required = true) @PathVariable int id) {
+    @DeleteMapping("/remove/{id}")
+    public ResponseEntity<Product> deleteProduct(
+            @Parameter(name = "id", description = "ID of the product to delete", required = true)
+            @PathVariable int id) {
         try {
             if (!this.productService.delete(id)) {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+                return new ResponseEntity("Product was not removed", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            return new ResponseEntity("Field(s) missing or null in request", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("product was removed", HttpStatus.OK);
+        } catch (JSONException e) {
+            LOGGER.severe(SEVERE + e.getMessage());
+            return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
 }

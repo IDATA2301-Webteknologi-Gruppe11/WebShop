@@ -120,5 +120,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: net.bytebuddy:byte-buddy:1.12.20" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.bytebuddy:byte-buddy-agent:1.12.20" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.objenesis:objenesis:3.3" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20210307" level="project" />
   </component>
 </module>
