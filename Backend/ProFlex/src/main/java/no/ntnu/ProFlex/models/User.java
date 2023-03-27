@@ -17,22 +17,27 @@ import java.util.logging.Logger;
 @Table(name = "user")
 public class User {
 
-    @Schema(description = "A unique id for the user.")
+    @Schema(description = "A unique id of the user.")
     @Id
     @GeneratedValue
     private int uid;
 
-    @Schema(description = "The username for the user.")
+    @Schema(description = "The first name of the user.")
     @NotNull
     @Column(nullable = false)
-    private String uname;
+    private String firstName;
 
-    @Schema(description = "The email for the user.")
+    @Schema(description = "The last name of the user.")
+    @NotNull
+    @Column(nullable = false)
+    private String lastName;
+
+    @Schema(description = "The email of the user.")
     @NotNull
     @Column(nullable = false)
     private String email;
 
-    @Schema(description = "The password for the user.")
+    @Schema(description = "The password of the user.")
     @NotNull
     @Column(nullable = false)
     private String password;
@@ -43,16 +48,18 @@ public class User {
     /**
      * Constructor for user.
      * This constructor take parameters.
-     * @param uid unique id for the user.
-     * @param uname the username for the user. //TODO Betre dokumentasjon
-     * @param email the email for the user.
-     * @param password the password for the user.
+     * @param uid unique id of the user.
+     * @param firstName the first name of the user. //TODO Betre dokumentasjon
+     * @param lastName the last name of the user.
+     * @param email the email of the user.
+     * @param password the password of the user.
      */
-    public User(int uid, String uname, String email, String password) {
+    public User(int uid, String firstName, String lastName, String email, String password) {
         try {
             this.uid = uid;
-            this.uname = stringChecker(uname, "Uname");
             this.email = stringChecker(email, "Email");
+            this.firstName = stringChecker(firstName, "firstName");
+            this.lastName = stringChecker(lastName, "lastName");
             this.password = stringChecker(password, "Password");
         }
         catch (IllegalArgumentException illegalArgumentException) {
@@ -81,15 +88,23 @@ public class User {
      * @return uid.
      */
     public int getUid() {
-        return uid;
+        return this.uid;
     }
 
     /**
-     * Returns username.
-     * @return username.
+     * Returns first name.
+     * @return firstName.
      */
-    public String getUname() {
-        return uname;
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    /**
+     * Returns last name
+     * @return lastName
+     */
+    public String getLastName() {
+        return this.lastName;
     }
 
     /**
@@ -97,7 +112,7 @@ public class User {
      * @return email.
      */
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     /**
@@ -105,7 +120,7 @@ public class User {
      * @return password.
      */
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     /**
@@ -117,12 +132,25 @@ public class User {
     }
 
     /**
-     * Setts the uname
-     * @param uname A string that you want the uname to be.
+     * Setts the first name.
+     * @param firstName A string that you want the firstName to be.
      */
-    public void setUname(String uname) {
+    public void setFirstName(String firstName) {
         try {
-            this.uname = stringChecker(uname, "uname");
+            this.firstName = stringChecker(firstName, "firstName");
+        }
+        catch (IllegalArgumentException illegalArgumentException) {
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
+        }
+    }
+
+    /**
+     * Setts the last name.
+     * @param lastName A string that you want the lastName to be.
+     */
+    public void setLastName(String lastName) {
+        try {
+            this.lastName = stringChecker(lastName, "lastName");
         }
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
@@ -156,14 +184,15 @@ public class User {
     }
 
     public boolean isValid() {
-        return !"".equals(uname) && !"".equals(password) && uid > 0;
+        return !"".equals(firstName) && !"".equals(firstName) && !"".equals(password) && uid > 0;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "uid=" + uid +
-                ", uname='" + uname + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
