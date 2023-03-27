@@ -103,7 +103,7 @@ public class ProductController {
      */
     @Operation(summary = "Update product", description = "Update the product from the product repository")
     @PutMapping("/update/{id}")
-    public ResponseEntity<Product> updateProduct(
+    public ResponseEntity<?> updateProduct(
             @Parameter(name = "id", description = "ID of the product to update", required = true)
             @PathVariable int id,
             @Parameter(name = "product", description = "The new product that you want the old one to change to", required = true)
@@ -117,7 +117,7 @@ public class ProductController {
             if (this.productService.findById(id) == null) {
                 return new ResponseEntity("Product didn't update", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity("Product was updated", HttpStatus.OK);
+            return new ResponseEntity("Product was updated", HttpStatus.NO_CONTENT); //TODO høre med girtz
         } catch (JSONException e) {
             LOGGER.severe(SEVERE + e.getMessage());
             return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
