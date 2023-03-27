@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db840e38-58a1-4245-a00c-eb028a4f6c17" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/9/9/9974e5ed39d49769f07869b941bcf60792e21017" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/9/9/9974e5ed39d49769f07869b941bcf60792e21017" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/a/3/a3aed912b934f412ddc6456c593dad3ae07037f4" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/a/3/a3aed912b934f412ddc6456c593dad3ae07037f4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/static/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/static/Login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/static/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/static/Register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/templates/Loggin.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/templates/Loggin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/templates/Reister.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/templates/Reister.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,11 +39,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/Intellij/SchoolProjeckts/WebSiteProject/WebShop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration name="ProFlexApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="no.ntnu.ProFlex.ProFlexApplication" />
@@ -78,6 +80,7 @@
       <workItem from="1679572986767" duration="19668000" />
       <workItem from="1679646493252" duration="5552000" />
       <workItem from="1679663609492" duration="5623000" />
+      <workItem from="1679945727305" duration="1645000" />
     </task>
     <servers />
   </component>

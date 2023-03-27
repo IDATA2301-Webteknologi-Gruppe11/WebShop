@@ -4,10 +4,13 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="3">
+          <list size="6">
             <item index="0" class="java.lang.String" itemvalue="th:insert" />
             <item index="1" class="java.lang.String" itemvalue="th:text" />
             <item index="2" class="java.lang.String" itemvalue="th:each" />
+            <item index="3" class="java.lang.String" itemvalue="th:include" />
+            <item index="4" class="java.lang.String" itemvalue="th:replace" />
+            <item index="5" class="java.lang.String" itemvalue="fragment" />
           </list>
         </value>
       </option>
