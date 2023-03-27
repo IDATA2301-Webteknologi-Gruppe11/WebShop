@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db840e38-58a1-4245-a00c-eb028a4f6c17" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/3/1/319b6133cb8bebae18f636d16c8246b005c5c932" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/a/c/ac70b17ae505cb212bac2437c176d0f6e24582de" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/9/9/9974e5ed39d49769f07869b941bcf60792e21017" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/9/9/9974e5ed39d49769f07869b941bcf60792e21017" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/a/3/a3aed912b934f412ddc6456c593dad3ae07037f4" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/a/3/a3aed912b934f412ddc6456c593dad3ae07037f4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/static/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/static/Login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/static/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/ProFlex/src/main/resources/static/Register.css" afterDir="false" />
@@ -45,20 +45,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="RunManager">
     <configuration name="ProFlexApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="no.ntnu.ProFlex.ProFlexApplication" />

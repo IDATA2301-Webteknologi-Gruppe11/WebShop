@@ -98,4 +98,24 @@ public class PageController {
     public String getShoppingCart() {
         return "ShoppingCart";
     }
+
+    /**
+    * Serve the "Login" page
+    *
+    * @return Name of the Thymeleaf template which will be used to render the HTML
+    */
+    @getMapping("/Login")
+    public String getLogin() {
+        return String "Login"
+    }
+
+    /**
+    * Serve the "Register" page
+    *
+    * @return Name of the Thymeleaf template which will be used to render the HTML
+    */
+    @GetMapping("/Register")
+    public String getRegister() {
+        return String "Register"
+    }
 }
