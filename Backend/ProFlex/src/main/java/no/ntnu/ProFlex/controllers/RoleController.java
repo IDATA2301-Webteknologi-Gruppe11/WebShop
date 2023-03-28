@@ -63,9 +63,9 @@ public class RoleController {
     }
 
     /**
-     * Creates and adds a user.
+     * Creates and adds a role.
      *
-     * @param role the user that is getting created
+     * @param role the role that is getting created
      * @return a ResponseEntity with an HTTP status indicating the success or
      *         failure of the operation
      * @exception JSONException if an error occurs while creating the product
@@ -73,7 +73,7 @@ public class RoleController {
     @Operation(summary = "add role", description = "add a new role to the role repository and return the http status.")
     @PostMapping("/add")
     public ResponseEntity<Role> createUser(
-            @Parameter(name = "user", description = "The role that is created", required = true) @RequestBody Role role) {
+            @Parameter(name = "role", description = "The role that is created", required = true) @RequestBody Role role) {
         try {
             if (!this.roleService.add(role)) {
                 return new ResponseEntity("Role was not added", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -86,9 +86,9 @@ public class RoleController {
     }
 
     /**
-     * Update the user for a given ID.
+     * Update the role for a given ID.
      *
-     * @param id   the ID of the user to update
+     * @param id   the ID of the role to update
      * @param role new user of the user
      * @return a ResponseEntity with an HTTP status indicating the success or
      *         failure of the operation
@@ -116,9 +116,9 @@ public class RoleController {
     }
 
     /**
-     * Deletes a user from the user list with the given ID.
+     * Deletes a role from the role list with the given ID.
      *
-     * @param id the ID of the user to delete
+     * @param id the ID of the role to delete
      * @return a ResponseEntity with an HTTP status indicating the success or
      *         failure of the operation
      * @exception JSONException if an error occurs while deleting the product

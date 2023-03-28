@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Rest controller for the user.
+ * Rest controller for the role.
  *
  * @author Håvard Hetland Vestbø
  * @version 1.0
@@ -18,26 +18,26 @@ public class RoleService {
     private RoleRepository roleRepository;
 
     /**
-     * Returns all user for the user repository.
+     * Returns all roles for the role repository.
      *
-     * @return users.
+     * @return roles.
      */
     public Iterable<Role> getAll() {
         return this.roleRepository.findAll();
     }
 
     /**
-     * Find and return a user for a given id.
+     * Find and return a role for a given id.
      *
-     * @param id of the user that you want to find
-     * @return the user
+     * @param id of the role that you want to find
+     * @return the role
      */
     public Role findById(int id) {
         return this.roleRepository.findById(id).orElse(null);
     }
 
     /**
-     * Adds a user to the user repository.
+     * Adds a user to the role repository.
      *
      * @param role that you want to add.
      * @return A boolean statement. True if the user is added, false is not.
@@ -52,9 +52,9 @@ public class RoleService {
     }
 
     /**
-     * Checks if a user can be added to the user repository.
+     * Checks if a role can be added to the user repository.
      *
-     * @param role the user that you want to check.
+     * @param role the role that you want to check.
      * @return A boolean statement. True if can be added, false if not.
      */
     private boolean canBeAdded(Role role) {
@@ -62,10 +62,10 @@ public class RoleService {
     }
 
     /**
-     * Remove user form the user repository.
+     * Remove role form the role repository.
      *
-     * @param id the id of the user that you want to remove.
-     * @return A boolean statement. True if user is removed, false if not.
+     * @param id the id of the role that you want to remove.
+     * @return A boolean statement. True if role is removed, false if not.
      */
     public boolean delete(int id) {
         boolean deleted = false;
@@ -77,21 +77,21 @@ public class RoleService {
     }
 
     /**
-     * Update an existing user from in the user repository.
+     * Update an existing role from in the user repository.
      *
-     * @param id   of the user that you want to update
-     * @param role new user that you want the user to be update to.
+     * @param id   of the role that you want to update
+     * @param role new role that you want the role to be update to.
      */
     public void update(int id, Role role) {
         Role existingRole = findById(id);
         String errorMessage = null;
         if (existingRole == null) {
-            errorMessage = "No user exists with the id " + id;
+            errorMessage = "No role exists with the id " + id;
         }
         if (role == null || !role.isValid()) {
             errorMessage = "Wrong data in request body";
         } else if (role.getRid() != id) {
-            errorMessage = "The ID of the user in the URL does not match anny ID in the JSON data";
+            errorMessage = "The ID of the role in the URL does not match anny ID in the JSON data";
         }
         if (errorMessage == null) {
             this.roleRepository.save(role);
