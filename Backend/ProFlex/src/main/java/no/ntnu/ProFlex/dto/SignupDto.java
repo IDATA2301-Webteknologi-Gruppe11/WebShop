@@ -7,25 +7,25 @@ package no.ntnu.ProFlex.dto;
  * @version 1.0
  */
 public class SignupDto {
-    private final String username;
+    private final String email;
     private final String password;
 
     /**
      * Default constructor
-     * @param username
-     * @param password
+     * @param email the email the user uses to log in with
+     * @param password the password the user uses to log in with
      */
-    public SignupDto(String username, String password) {
-        this.username = username;
+    public SignupDto(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 
     /**
-     * Returns username
-     * @return username
+     * Returns email
+     * @return email
      */
     public String getUsername() {
-        return username;
+        return email;
     }
 
     /**
