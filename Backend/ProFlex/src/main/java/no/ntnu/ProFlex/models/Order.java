@@ -26,12 +26,6 @@ public class Order {
     @GeneratedValue
     private int oid;
 
-    @Schema(description = "The user that plaste the order.")
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name ="uid", nullable = false)
-    private int uid;
-
     @Schema(description = "The date when the order was placed.")
     @NotNull
     @Column(nullable = false)
@@ -41,11 +35,11 @@ public class Order {
     @ManyToMany
     @NotNull
     @Column(nullable = false)
-    @JoinTable(name = "Orders",
-        joinColumns = @JoinColumn(name = "oiD"),
-        inverseJoinColumns = @JoinColumn(name = "uID")
+    @JoinTable(name = "order_user",
+        joinColumns = @JoinColumn(name = "orders_oid"),
+        inverseJoinColumns = @JoinColumn(name = "user_uid")
     )
-    private Set<Product> products = new HashSet<>();
+    private Set<User> users = new HashSet<>();
 
     private static final Logger LOGGER = Logger.getLogger(Order.class.getName());
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
@@ -53,13 +47,11 @@ public class Order {
     /**
      * Create an instans of order.
      * @param oid the unique id of the order.
-     * @param uid the id of the user that place the order.
      * @param date the when the order was placed.
      */
-    public Order(int oid, int uid, Date date) {
+    public Order(int oid, Date date) {
         try {
             this.oid = integerChecker(oid, "oid");
-            this.uid = integerChecker(uid, "uid");
             this.date = date;
         }
         catch (IllegalArgumentException illegalArgumentException) {
@@ -102,27 +94,6 @@ public class Order {
      */
     public int getOid() {
         return oid;
-    }
-
-    /**
-     * Return uid
-     * @return uid
-     */
-    public int getUid() {
-        return uid;
-    }
-
-    /**
-     * Setts the uid.
-     * @param uid the uid that you want to set.
-     */
-    public void setUid(int uid) {
-        try {
-            this.uid = integerChecker(uid, "uid");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
     }
 
     /**

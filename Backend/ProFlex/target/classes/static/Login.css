@@ -19,7 +19,7 @@ body {
     padding-bottom: 3rem;
     padding-left: 5rem;
     padding-right: 5rem;
-    border-radius: 40px;
+    width: 40rem;
 }
 
 ul {
@@ -59,7 +59,14 @@ h1 {
     font-size: 1.2rem;
     font-weight: lighter;
     color: #1f1f1f;
-    width: 95%;
+}
+
+#text-bar1 {
+    width: 25.5rem;
+}
+
+#password-text-bar {
+    width: 23rem;
 }
 
 #password-list {

@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 @Table(name = "user")
 public class User {
 
-    @ManyToMany(mappedBy = "oreder")
+    @ManyToMany(mappedBy = "users")
     private Set<Order> order = new LinkedHashSet<>();
 
     @Schema(description = "A unique id of the user.")
@@ -75,9 +75,8 @@ public class User {
      * @param email the email of the user.
      * @param password the password of the user.
      */
-    public User(int uid, String firstName, String lastName, String email, String password) {
+    public User( String firstName, String lastName, String email, String password) {
         try {
-            this.uid = uid;
             this.email = stringChecker(email, "Email");
             this.firstName = stringChecker(firstName, "firstName");
             this.lastName = stringChecker(lastName, "lastName");
@@ -89,7 +88,7 @@ public class User {
     }
 
 
-    
+
     public User(int uid, String firstName, String lastName, String email, String password, String bio) {
         try {
             this.uid = uid;
@@ -260,6 +259,15 @@ public class User {
         this.active = active;
     }
 
+    /**
+     * Add a role to the user
+     *
+     * @param role Role to add
+     */
+    public void addRole(Role role) {
+        roles.add(role);
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -269,5 +277,8 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public void setBio(String bio) {
     }
 }

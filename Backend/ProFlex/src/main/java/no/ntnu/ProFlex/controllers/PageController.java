@@ -47,7 +47,7 @@ public class PageController {
     @GetMapping("/Profile")
     public String getProfile(Model model, @ModelAttribute("id") int id) {
         model.addAttribute("user", this.userService.findById(id));
-        model.addAttribute("order", this.orderService.finAllByUid(id));
+        //model.addAttribute("order", this.orderService.finAllByUid(id));
         return "Profile";
     }
 
