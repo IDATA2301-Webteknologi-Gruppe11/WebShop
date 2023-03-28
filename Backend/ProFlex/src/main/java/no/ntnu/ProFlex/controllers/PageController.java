@@ -104,9 +104,9 @@ public class PageController {
     *
     * @return Name of the Thymeleaf template which will be used to render the HTML
     */
-    @getMapping("/Login")
+    @GetMapping("/Login")
     public String getLogin() {
-        return String "Login"
+        return "Login";
     }
 
     /**
@@ -116,6 +116,6 @@ public class PageController {
     */
     @GetMapping("/Register")
     public String getRegister() {
-        return String "Register"
+        return "Register";
     }
 }
