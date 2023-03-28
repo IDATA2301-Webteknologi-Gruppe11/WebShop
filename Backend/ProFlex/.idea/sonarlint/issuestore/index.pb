@@ -11,7 +11,5 @@ j
 :src/test/java/no/ntnu/ProFlex/ProFlexApplicationTests.java,1\e\1eabe865aa729439b97c2bff7f4208c6aeceb240
 p
 @src/main/java/no/ntnu/ProFlex/controllers/ProductController.java,7\9\79144ca13843d75b5778451d49e3778275e5deea
-m
-=src/main/java/no/ntnu/ProFlex/controllers/PageController.java,3\7\371efcad2dafd858e630dc48059ffe11638bfb77
 k
 ;src/main/java/no/ntnu/ProFlex/services/CategoryService.java,9\9\9974e5ed39d49769f07869b941bcf60792e21017
