@@ -1,0 +1,100 @@
+package no.ntnu.ProFlex.services;
+
+import no.ntnu.ProFlex.models.Role;
+import no.ntnu.ProFlex.repository.RoleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * Rest controller for the user.
+ *
+ * @author Håvard Hetland Vestbø
+ * @version 1.0
+ */
+@Service
+public class RoleService {
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    /**
+     * Returns all user for the user repository.
+     *
+     * @return users.
+     */
+    public Iterable<Role> getAll() {
+        return this.roleRepository.findAll();
+    }
+
+    /**
+     * Find and return a user for a given id.
+     *
+     * @param id of the user that you want to find
+     * @return the user
+     */
+    public Role findById(int id) {
+        return this.roleRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * Adds a user to the user repository.
+     *
+     * @param role that you want to add.
+     * @return A boolean statement. True if the user is added, false is not.
+     */
+    public boolean add(Role role) {
+        boolean added = false;
+        if (canBeAdded(role)) {
+            this.roleRepository.save(role);
+            added = true;
+        }
+        return added;
+    }
+
+    /**
+     * Checks if a user can be added to the user repository.
+     *
+     * @param role the user that you want to check.
+     * @return A boolean statement. True if can be added, false if not.
+     */
+    private boolean canBeAdded(Role role) {
+        return role != null && role.isValid();
+    }
+
+    /**
+     * Remove user form the user repository.
+     *
+     * @param id the id of the user that you want to remove.
+     * @return A boolean statement. True if user is removed, false if not.
+     */
+    public boolean delete(int id) {
+        boolean deleted = false;
+        if (findById(id) != null) {
+            this.roleRepository.deleteById(id);
+            deleted = true;
+        }
+        return deleted;
+    }
+
+    /**
+     * Update an existing user from in the user repository.
+     *
+     * @param id   of the user that you want to update
+     * @param role new user that you want the user to be update to.
+     */
+    public void update(int id, Role role) {
+        Role existingRole = findById(id);
+        String errorMessage = null;
+        if (existingRole == null) {
+            errorMessage = "No user exists with the id " + id;
+        }
+        if (role == null || !role.isValid()) {
+            errorMessage = "Wrong data in request body";
+        } else if (role.getRid() != id) {
+            errorMessage = "The ID of the user in the URL does not match anny ID in the JSON data";
+        }
+        if (errorMessage == null) {
+            this.roleRepository.save(role);
+        }
+    }
+}

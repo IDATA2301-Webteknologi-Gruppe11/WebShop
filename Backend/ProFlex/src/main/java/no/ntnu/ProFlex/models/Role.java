@@ -48,10 +48,9 @@ public class Role {
      * Default constructor for Role
      */
     public Role(String rname) {
-        try{
+        try {
             this.rname = stringChecker(rname, "rname");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
+        } catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
@@ -61,12 +60,13 @@ public class Role {
      * Checks for that the string isn't empty and null.
      * If it is an Illegal Argument Exception is thrown.
      * If it is valid it returns the string.
-     * @param string that wants to be checked.
+     * 
+     * @param string  that wants to be checked.
      * @param prefiks the name of the string.
      * @return string.
      */
     private String stringChecker(String string, String prefiks) {
-        if(string.isEmpty() || string == null) {
+        if (string.isEmpty() || string == null) {
             throw new IllegalArgumentException("The string " + "'" + prefiks + "'" + " cant bee empty or null");
         }
         return string;
@@ -74,6 +74,7 @@ public class Role {
 
     /**
      * Returns the role id
+     * 
      * @return rid
      */
     public int getRid() {
@@ -82,6 +83,7 @@ public class Role {
 
     /**
      * Returns the role name.
+     * 
      * @return rname.
      */
     public String getRname() {
@@ -90,6 +92,7 @@ public class Role {
 
     /**
      * Returns the users.
+     * 
      * @return users.
      */
     public Set<User> getUsers() {
@@ -98,19 +101,20 @@ public class Role {
 
     /**
      * sets the role name.
+     * 
      * @param rname name for the role.
      */
     public void setRname(String rname) {
         try {
             this.rname = stringChecker(rname, "rname");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
+        } catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
     }
 
     /**
      * Setts the users
+     * 
      * @param users a set of users that you want to sett
      */
     public void setUsers(Set<User> users) {
@@ -125,4 +129,16 @@ public class Role {
                 ", users=" + users +
                 '}';
     }
+
+    /**
+     * Checks whether this Role object is valid or not.
+     * A Role object is considered valid if its name field (rname) is not null or
+     * empty.
+     * 
+     * @return true if valid, false otherwise
+     */
+    public boolean isValid() {
+        return !(this.rname == null || this.rname.trim().isEmpty());
+    }
+
 }
