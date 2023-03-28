@@ -3,6 +3,9 @@ package no.ntnu.ProFlex.models;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.logging.Logger;
 
 /**
@@ -42,6 +45,21 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Schema(description = "If the user is active")
+    @NotNull
+    @Column(nullable = false)
+    private boolean active = true;
+
+    private String bio;
+
+    @Schema(description = "A set of roles")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new LinkedHashSet<>();
+
     private static final Logger LOGGER = Logger.getLogger(User.class.getName());
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
 
@@ -61,6 +79,22 @@ public class User {
             this.firstName = stringChecker(firstName, "firstName");
             this.lastName = stringChecker(lastName, "lastName");
             this.password = stringChecker(password, "Password");
+        }
+        catch (IllegalArgumentException illegalArgumentException) {
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
+        }
+    }
+
+
+    
+    public User(int uid, String firstName, String lastName, String email, String password, String bio) {
+        try {
+            this.uid = uid;
+            this.email = stringChecker(email, "Email");
+            this.firstName = stringChecker(firstName, "firstName");
+            this.lastName = stringChecker(lastName, "lastName");
+            this.password = stringChecker(password, "Password");
+            this.bio = stringChecker(bio, "bio");
         }
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
@@ -183,8 +217,44 @@ public class User {
         }
     }
 
+    /**
+     * Setts the roles
+     * @param roles a set of roles
+     */
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    /**
+     * Returns the roles
+     * @return roles
+     */
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    /**
+     * Checks if the input variables is valid
+     * @return boolean statement, true if valid false if not.
+     */
     public boolean isValid() {
         return !"".equals(firstName) && !"".equals(firstName) && !"".equals(password) && uid > 0;
+    }
+
+    /**
+     * Return the state of if the user is active
+     * @return boolean statement, true if active false if not.
+     */
+    public boolean isActive() {
+        return this.active;
+    }
+
+    /**
+     * Setts the state of the user.
+     * @param active boolean statement of the state.
+     */
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     @Override

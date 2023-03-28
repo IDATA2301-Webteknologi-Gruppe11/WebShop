@@ -17,8 +17,6 @@ a
 1src/main/java/no/ntnu/ProFlex/models/Product.java,d\c\dc249e6d50ca02af22b069bb91a40bdded006769
 p
 @src/main/java/no/ntnu/ProFlex/controllers/ProductController.java,7\9\79144ca13843d75b5778451d49e3778275e5deea
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 m
 =src/main/java/no/ntnu/ProFlex/controllers/PageController.java,3\7\371efcad2dafd858e630dc48059ffe11638bfb77
 j
@@ -27,5 +25,3 @@ h
 8src/main/java/no/ntnu/ProFlex/services/OrderService.java,a\3\a3aed912b934f412ddc6456c593dad3ae07037f4
 k
 ;src/main/java/no/ntnu/ProFlex/services/CategoryService.java,9\9\9974e5ed39d49769f07869b941bcf60792e21017
-l
-<src/main/java/no/ntnu/ProFlex/repository/UserRepository.java,5\b\5b5f550ab6745d18f8f9db7872e4899ece8ff938
