@@ -41,6 +41,10 @@ public class Order {
     @ManyToMany
     @NotNull
     @Column(nullable = false)
+    @JoinTable(name = "Orders",
+        joinColumns = @JoinColumn(name = "oiD"),
+        inverseJoinColumns = @JoinColumn(name = "uID")
+    )
     private Set<Product> products = new HashSet<>();
 
     private static final Logger LOGGER = Logger.getLogger(Order.class.getName());

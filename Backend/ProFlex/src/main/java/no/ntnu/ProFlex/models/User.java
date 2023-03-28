@@ -20,6 +20,9 @@ import java.util.logging.Logger;
 @Table(name = "user")
 public class User {
 
+    @ManyToMany(mappedBy = "oreder")
+    private Set<Order> order = new LinkedHashSet<>();
+
     @Schema(description = "A unique id of the user.")
     @Id
     @GeneratedValue
