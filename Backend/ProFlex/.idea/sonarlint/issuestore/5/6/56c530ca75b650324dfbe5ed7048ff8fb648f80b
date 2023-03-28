@@ -1,4 +1,0 @@
-
-k
-java:S1128"IRemove this unused import 'jakarta.persistence.criteria.CriteriaBuilder'.(À¼ºñþÿÿÿÿ8ýó‰ðð0
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÅªÌà

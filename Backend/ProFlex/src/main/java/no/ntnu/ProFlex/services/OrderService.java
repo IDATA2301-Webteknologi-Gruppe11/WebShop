@@ -33,14 +33,14 @@ public class OrderService {
         return this.orderRepository.findById(id).orElse(null);
     }
 
-    /**
-     * Return all orders form a given uid
-     * @param id the id of the user that have the orders.
-     * @return all orders form a given uid.
-     */
-    public List<Order> finAllByUid(int id) {
-        return this.orderRepository.findAllByUid(id);
-    }
+//    /**
+//     * Return all orders form a given uid
+//     * @param id the id of the user that have the orders.
+//     * @return all orders form a given uid.
+//     */
+//    public List<Order> finAllByUid(int id) {
+//        return this.orderRepository.findAllByUid(id);
+//    }
 
     /**
      * Adds an order to the order repository.

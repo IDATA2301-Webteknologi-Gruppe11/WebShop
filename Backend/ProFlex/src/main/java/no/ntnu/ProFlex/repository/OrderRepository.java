@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface OrderRepository extends CrudRepository<Order, Integer> {
 
-    List<Order> findAllByUid(int uid);
+    //List<Order> findAllByUid(int uid);
 }
