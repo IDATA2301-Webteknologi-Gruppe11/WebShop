@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>no.ntnu</groupId>
-	<artifactId>ProFlex</artifactId>
+	<artifactId>WebShop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ProFlex</name>
 	<description>Exam project for IDATA2301 and IDATA2306. Frontend and backend for a ProFlex website.</description>
