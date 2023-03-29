@@ -50,6 +50,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/Profile").permitAll()
                 .requestMatchers("/Products").permitAll()
                 .requestMatchers("/Product/{id}").permitAll()
+                .requestMatchers("/About").permitAll()
                 .requestMatchers("/ShoppingCart").permitAll()
                 .requestMatchers("/Register").permitAll()
                 .requestMatchers("/Login").permitAll()

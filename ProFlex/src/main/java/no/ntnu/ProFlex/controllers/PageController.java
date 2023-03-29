@@ -118,4 +118,9 @@ public class PageController {
     public String getRegister() {
         return "Reister";
     }
+
+    @GetMapping("/About")
+    public String getAbout() {
+        return "About";
+    }
 }

@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired

@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/api/role")
+@RequestMapping("/role")
 public class RoleController {
 
     @Autowired
