@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 /**
  * This class provides AccsessUserDetails needed for authentication.
@@ -29,7 +30,8 @@ import java.util.Optional;
  */
 @Service
 public class AccessUserService implements UserDetailsService {
-    private static final int MIN_PASSWORD_LENGTH = 6; //TODO høre med gruppa kva min lengde skal være
+    private static final int MIN_PASSWORD_LENGTH = 8;
+    private static final Logger LOGGER = Logger.getLogger(AccessUserService.class.getName());
     @Autowired
     UserRepository userRepository;
     @Autowired
@@ -37,7 +39,7 @@ public class AccessUserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findByemail(email);
+        Optional<User> user = userRepository.findByEmail(email);
         if (user.isPresent()) {
             return new AccessUserDetails(user.get());
         } else {
@@ -54,11 +56,11 @@ public class AccessUserService implements UserDetailsService {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
         String email = authentication.getName();
-        return userRepository.findByemail(email).orElse(null);
+        return this.userRepository.findByEmail(email).orElse(null);
     }
 
     /**
-     * Check if user with given username exists in the database
+     * Check if user with given email exists in the database
      *
      * @param email Email of the user to check, case-sensitive
      * @return True if user exists, false otherwise
@@ -68,6 +70,7 @@ public class AccessUserService implements UserDetailsService {
             loadUserByUsername(email);
             return true;
         } catch (UsernameNotFoundException ex) {
+            LOGGER.warning(ex.getMessage());
             return false;
         }
     }
@@ -75,21 +78,47 @@ public class AccessUserService implements UserDetailsService {
     /**
      * Try to create a new user
      *
-     * @param email Username of the new user
-     * @param password Plaintext password of the new user
+     * @param firstName first name of the new user
+     * @param lastName last name of the new user
+     * @param email the email user uses to log in
+     * @param password password for the new user
      * @return null when user created, error message on error
      */
-    public String tryCreateNewUser(String email, String password, String firstname, String lastname) {
+    public String tryCreateNewUser(String firstName, String lastName, String email, String password) {
         String errorMessage;
-        if (email.isEmpty()) {
-            errorMessage = "Username can't be empty";
-        } else if (userExists(email)) {
-            errorMessage = "Username already taken";
-        } else {
-            errorMessage = checkPasswordRequirements(password);
-            if (errorMessage == null) {
-                createUser(firstname, lastname, email, password);
-            }
+        if(firstName == null || firstName.isEmpty()) {
+            return  "First name can't be empty";
+        }
+        if(lastName == null || lastName.isEmpty()) {
+            return "Last name can't be empty";
+        }
+        errorMessage = checkEmailRequirements(email);
+        if(errorMessage != null) {
+            return errorMessage;
+        }
+        errorMessage = checkPasswordRequirements(password);
+        if(errorMessage == null) {
+            createUser(firstName, lastName, email, password);
+        }
+        return errorMessage;
+    }
+
+    /**
+     * Check if email matches the requirements
+     *
+     * @param email a email to check
+     * @return null of all ok, error message on error
+     */
+    private String checkEmailRequirements(String email) {
+        String errorMessage = null;
+        if(email == null || email.isEmpty()) {
+            errorMessage = "Email can't be empty";
+        }
+        else if (userExists(email)) {
+            errorMessage = "Email already taken";
+        }
+        else if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            errorMessage = "Email requirements not fulfilled";
         }
         return errorMessage;
     }
@@ -102,10 +131,13 @@ public class AccessUserService implements UserDetailsService {
      */
     private String checkPasswordRequirements(String password) {
         String errorMessage = null;
-        if (password == null || password.length() == 0) {
+        if (password == null || password.isEmpty()) {
             errorMessage = "Password can't be empty";
         } else if (password.length() < MIN_PASSWORD_LENGTH) {
             errorMessage = "Password must be at least " + MIN_PASSWORD_LENGTH + " characters";
+        }
+        else if(!password.matches(".*[A-Z]+.*") || !password.matches(".*[a-z]+.*") || !password.matches(".*\\d+.*")) {
+            errorMessage = "Password must contain at least one big, one small and on number";
         }
         return errorMessage;
     }
