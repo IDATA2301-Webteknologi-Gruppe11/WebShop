@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Profile</title>
+    <link rel="stylesheet" href="../static/Profile.css">
+    <link th:href="@{Profile.css}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <!-- Fontawesome kit link MIKKEL -->
+    <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
+</head>
+
+<header th:replace="fragments/header.html :: header"></header>
+
+<body>
+    <main class="flexbox-container">
+        <div class="cards">
+            <h1 class="title">Ongoing orders</h1>
+            <nav id="ongoing-orders-nav">
+                <li>Order history</li>
+                <li>Products</li>
+                <li>Date</li>
+            </nav>
+        </div>
+
+        <div class="cards">
+            <h1 class="title">Order history</h1>
+        </div>
+
+        <div class="cards">
+            <h1 class="title">Profile details</h1>
+            <nav id="details-nav">
+                <li id="username">Username</li>
+                <li>E-mail</li>
+                <li>Change password</li>
+                <li>Payment method</li>
+            </nav>
+        </div>  
+    </main>
+
+
+
+
+
+
+
+    <footer th:replace="fragments/footer.html :: footer"></footer>
+
+    <section class="grid-container">
+        <nav class="icon-nav-bottom"> 
+            <a href="#"><i class="fa-brands fa-facebook"></i></a> 
+            <a href="#"><i class="fa-brands fa-twitter"></i></a> 
+            <a href="#"><i class="fa-brands fa-youtube"></i></a> 
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a> 
+        </nav>
+    </section>
+</body>
+</html>

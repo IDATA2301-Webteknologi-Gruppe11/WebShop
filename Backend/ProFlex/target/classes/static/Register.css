@@ -1,0 +1,122 @@
+body {
+    font-family: Poppins, sans-serif;
+    background: white;
+    margin: 0;
+    padding: 0;
+}
+
+#register-flex-conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#section {
+    background-color: white;
+    text-align: center;
+    box-shadow: 0.2rem 0.2rem 1rem 0.2rem #cbcbcb;
+    padding-bottom: 3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    width: 40rem;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+    align-items: center;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: normal;
+}
+
+.register-text {
+    font-size: 1.3rem;
+    font-weight: lighter;
+    color: #1f1f1f;
+}
+
+.icons {
+    font-size: 2rem;
+    color: #1f1f1f;
+}
+
+.text-bar {
+    border: none;
+    outline: none;
+    font-size: 1.3rem;
+    font-weight: lighter;
+    color: #1f1f1f;
+}
+
+#text-email-bar {
+    width: 26.5rem;
+}
+
+#text-firstname-bar {
+    width: 24rem;
+}
+
+#text-lastname-bar {
+    width: 24.5rem;
+}
+
+#password-text-bar {
+    width: 25rem;
+}
+
+#password-confirm-text-bar {
+    width: 20rem;
+}
+
+#email-list {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.list {
+    margin-top: 3rem;
+    text-align: left;
+}
+
+.line {
+    border-bottom: 1px solid #cbcbcb;
+    width: 95%;
+    margin-left: 1.5rem;
+    margin-top: -0.8rem;
+}
+
+.button-eye {
+    border:none;
+    background-color: white;
+    font-size: 1.5rem;
+}
+
+#button-register {
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: white;
+    background-color: #0067B8;
+    border: none;
+    width: 95%;
+    height: 5rem;
+    border-radius: 5px;
+}
+
+#footer-text {
+    background-color: #eeeeee;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 1.2rem;
+    padding-top: 1.2rem;
+    font-size: 0.7rem;
+}

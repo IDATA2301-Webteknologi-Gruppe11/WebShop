@@ -16,7 +16,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 /**
@@ -30,21 +29,20 @@ import java.util.Optional;
  */
 @Service
 public class AccessUserService implements UserDetailsService {
-    private static final int MIN_PASSWORD_LENGTH = 6;
+    private static final int MIN_PASSWORD_LENGTH = 6; //TODO høre med gruppa kva min lengde skal være
     @Autowired
     UserRepository userRepository;
     @Autowired
     RoleRepository roleRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        Optional<User> user = userRepository.findByUsername(username);
-//        if (user.isPresent()) {
-//            return new AccessUserDetails(user.get());
-//        } else {
-//            throw new UsernameNotFoundException("User " + username + "not found");
-//        }
-        return null;
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Optional<User> user = userRepository.findByemail(email);
+        if (user.isPresent()) {
+            return new AccessUserDetails(user.get());
+        } else {
+            throw new UsernameNotFoundException("User " + email + "not found");
+        }
     }
 
     /**
@@ -55,19 +53,19 @@ public class AccessUserService implements UserDetailsService {
     public User getSessionUser() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
-        String username = authentication.getName();
-        return null; //userRepository.findByUsername(username).orElse(null);
+        String email = authentication.getName();
+        return userRepository.findByemail(email).orElse(null);
     }
 
     /**
      * Check if user with given username exists in the database
      *
-     * @param username Username of the user to check, case-sensitive
+     * @param email Email of the user to check, case-sensitive
      * @return True if user exists, false otherwise
      */
-    private boolean userExists(String username) {
+    private boolean userExists(String email) {
         try {
-            loadUserByUsername(username);
+            loadUserByUsername(email);
             return true;
         } catch (UsernameNotFoundException ex) {
             return false;
@@ -83,7 +81,7 @@ public class AccessUserService implements UserDetailsService {
      */
     public String tryCreateNewUser(String email, String password, String firstname, String lastname) {
         String errorMessage;
-        if ("".equals(email)) {
+        if (email.isEmpty()) {
             errorMessage = "Username can't be empty";
         } else if (userExists(email)) {
             errorMessage = "Username already taken";
@@ -119,13 +117,13 @@ public class AccessUserService implements UserDetailsService {
      * @param email Username of the new user
      * @param password Plaintext password of the new user
      */
-    private void createUser(String email, String password, String firstName, String lastName) {
-//        Role userRole = roleRepository.findOneByName("ROLE_USER");
-//        if (userRole != null) {
-//            User user = new User(firstName, lastName, email, createHash(password));
-//            user.addRole(userRole);
-//            userRepository.save(user);
-//        }
+    private void createUser(String firstName, String lastName, String email, String password) {
+        Role userRole = roleRepository.findOneByRname("ROLE_USER");
+        if (userRole != null) {
+            User user = new User(firstName, lastName, email, createHash(password));
+            user.addRole(userRole);
+            userRepository.save(user);
+        }
     }
 
     /**
@@ -139,15 +137,36 @@ public class AccessUserService implements UserDetailsService {
     }
 
     /**
-     * Update profile information for a user
+     * Update the user first name profile information
      *
-     * @param user        User to update
-     * @param profileData Profile data to set for the user
-     * @return True on success, false otherwise
+     * @param user the user that you want to update
+     * @param profileDto the dto user
+     * @return boolean statement if the user was updated or not, true if updated false if not.
      */
-    public boolean updateProfile(User user, UserProfileDto profileData) {
-        user.setBio(profileData.getBio());
-        userRepository.save(user);
-        return true;
+    public boolean updateProfileFirstName(User user, UserProfileDto profileDto) {
+        if(profileDto.getFirstName().isEmpty() || profileDto.getFirstName() == null) {
+            return false;
+        }
+        String oldFirstName = user.getFirstName();
+        user.setFirstName(profileDto.getFirstName());
+        this.userRepository.save(user);
+        return !oldFirstName.equals(user.getFirstName());
+    }
+
+    /**
+     * Update the user last name profile information.
+     *
+     * @param user the user that you want to update
+     * @param profileDto the dto user
+     * @return boolean statement if the user was updated or not, true if updated false if not.
+     */
+    public boolean updateProfileLastName(User user, UserProfileDto profileDto) {
+        if (profileDto.getLastName().isEmpty() || profileDto.getLastName() == null) {
+            return false;
+        }
+        String oldLastName = user.getLastName();
+        user.setLastName(profileDto.getLastName());
+        this.userRepository.save(user);
+        return !oldLastName.equals(user.getLastName());
     }
 }

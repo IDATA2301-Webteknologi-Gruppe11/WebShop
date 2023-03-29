@@ -53,8 +53,6 @@ public class User {
     @Column(nullable = false)
     private boolean active = true;
 
-    private String bio;
-
     @Schema(description = "A set of roles")
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
@@ -69,7 +67,6 @@ public class User {
     /**
      * Constructor for user.
      * This constructor take parameters.
-     * @param uid unique id of the user.
      * @param firstName the first name of the user. //TODO Betre dokumentasjon
      * @param lastName the last name of the user.
      * @param email the email of the user.
@@ -81,22 +78,6 @@ public class User {
             this.firstName = stringChecker(firstName, "firstName");
             this.lastName = stringChecker(lastName, "lastName");
             this.password = stringChecker(password, "Password");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
-    }
-
-
-
-    public User(int uid, String firstName, String lastName, String email, String password, String bio) {
-        try {
-            this.uid = uid;
-            this.email = stringChecker(email, "Email");
-            this.firstName = stringChecker(firstName, "firstName");
-            this.lastName = stringChecker(lastName, "lastName");
-            this.password = stringChecker(password, "Password");
-            this.bio = stringChecker(bio, "bio");
         }
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
@@ -277,8 +258,5 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
-    }
-
-    public void setBio(String bio) {
     }
 }

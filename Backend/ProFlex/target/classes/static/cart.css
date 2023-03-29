@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Structure of main grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: relative;
+    background-color: #FBFAF5;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Header */
+header {
+    color: white;
+    align-items: center;
+    background-color: #051622;
+}
+
+header h1 {
+    grid-column: 2 / span 2;
+    font-size: 60px;
+    margin: 5px;
+    text-align: center;
+}
+
+header .option-nav {
+    grid-column: 5 / span 4;
+    text-align: center;
+}
+
+header .option-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0px 50px;
+    font-size: 25px;
+}
+
+header .icon-nav {
+    grid-column: 10 / span 2;
+    text-align: center;
+}
+
+header .icon-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0px 20px;
+    font-size: 25px;
+}
+
+/* Search form */
+#search{
+    display: inline;
+}
+
+/* Search Input */
+form input[type="text"] {
+    background-color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+/* Search Button */
+form button[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Shoppingcart div, holds all items picked by the user */
+.shopping-cart {
+    display: inline;
+    grid-column: span 8;
+    height: auto;
+    float: left;
+    background: #ffffff;
+    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.10);
+    border-radius: 6px;
+    position: relative;
+}
+
+/* Checkout div, shows the total of the users order */
+.checkout_div {
+    grid-column: span 4;
+    background: #ffffff;
+    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.10);
+    border-radius: 6px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.title {
+    height: 60px;
+    border-bottom: 1px solid #E1E8EE;
+    padding: 20px 30px;
+    color: #5E6977;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.item {
+    padding: 20px 30px;
+    height: 120px;
+    display: flex;
+}
+
+.item:nth-child(3) {
+    border-top: 1px solid #E1E8EE;
+    border-bottom: 1px solid #E1E8EE;
+}
+
+.image {
+    margin-right: 50px;
+    padding-top: 20px;
+}
+
+
+.description {
+    padding-top: 10px;
+    margin-right: 60px;
+    width: 115px;
+}
+
+.description span {
+    display: block;
+    font-size: 14px;
+    color: #43484D;
+    font-weight: 400;
+}
+
+.description span:first-child {
+    margin-bottom: 5px;
+}
+
+.description span:last-child {
+    font-weight: 300;
+    margin-top: 8px;
+    color: #86939E;
+}
+
+.quantity {
+    margin-right: 60px;
+}
+
+.quantity input {
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+}
+
+.quantity h1 {
+    text-align: center;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+}
+
+button[class*=btn] {
+    width: 30px;
+    height: 30px;
+    background-color: #E1E8EE;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.icons {
+    padding-top: 30px;
+    padding-left: 40px;
+    margin-right: 60px;
+}
+
+.delete-btn {
+    display: inline-block;
+    Cursor: pointer;
+}
+
+.delete-btn {
+    width: 18px;
+    height: 17px;
+    background: no-repeat center;
+    padding-left: 20px;
+}
+
+.total-price {
+    width: 83px;
+    padding-top: 27px;
+    text-align: center;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+}
+
+.keep_shopping {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px #0000008e;
+    align-self: flex-start;
+    position: relative;
+}
+
+#keep_shopping_div {
+    padding-top: 20px;
+    padding-left: 30px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #051622;
+}
+
+footer h2 {
+    display: inline;
+    grid-column: 6 / span 2;
+    /* margin: auto; */
+    color: white;
+    text-align: center;
+    font-weight: 500;
+}
+
+footer h3 {
+    display: inline;
+    grid-column: 5 / span 4;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+}
+
+footer .footer-nav {
+    grid-column: 5 / span 4;
+    text-align: center;
+}
+
+footer .footer-nav a {
+    padding: 0px 50px;
+    color: white;
+    font-size: 50px;
+}
+
+footer .icon-nav {
+    grid-column: 3 / span 8;
+    text-align: center;
+}
+
+footer .icon-nav a {
+    padding: 0px 50px;
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+}

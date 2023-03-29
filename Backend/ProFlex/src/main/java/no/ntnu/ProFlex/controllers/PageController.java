@@ -106,7 +106,7 @@ public class PageController {
     */
     @GetMapping("/Login")
     public String getLogin() {
-        return "Login";
+        return "Loggin";
     }
 
     /**
@@ -116,6 +116,6 @@ public class PageController {
     */
     @GetMapping("/Register")
     public String getRegister() {
-        return "Register";
+        return "Reister";
     }
 }
