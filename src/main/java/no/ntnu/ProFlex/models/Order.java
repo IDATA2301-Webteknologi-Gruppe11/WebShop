@@ -45,11 +45,10 @@ public class Order {
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
 
     /**
-     * Create an instans of order.
-     * @param oid the unique id of the order.
-     * @param date the when the order was placed.
+     * Default constructor
+     * @param date the date of the order
      */
-    public Order(int oid, Date date) {
+    public Order(Date date) {
         try {
             this.oid = integerChecker(oid, "oid");
             this.date = date;
@@ -57,6 +56,13 @@ public class Order {
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
+    }
+
+    /**
+     * Empty constructor that is needed for JPA
+     */
+    public Order() {
+
     }
 
     /**

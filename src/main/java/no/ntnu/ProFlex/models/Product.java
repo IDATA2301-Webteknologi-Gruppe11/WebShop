@@ -28,8 +28,8 @@ public class    Product {
     @Schema(description = "A unique integer for the product")
     @Id
     @GeneratedValue
-    @Column(name = "id")
-    private int id;
+    @Column(name = "pid")
+    private int pid;
 
     @Schema(description = "The price of a product")
     @NotNull
@@ -54,13 +54,11 @@ public class    Product {
      * Creates a product
      *
      * @param name of the product
-     * @param id unique identifier for the product. Can't have the same id as any other products.
      * @param price of the product.
      */
-    public Product(String name, int id, int price, String description) throws IllegalArgumentException {
+    public Product(String name, int price, String description) throws IllegalArgumentException {
         try {
             this.name = stringChecker(name, "name");
-            this.id = integerChecker(id, "id");
             this.price = integerChecker(price, "price");
             this.description = stringChecker(description, "description");
         }
@@ -69,6 +67,9 @@ public class    Product {
         }
     }
 
+    /**
+     * Empty constructor that is needed for JPA
+     */
     public Product() {
 
     }
@@ -121,8 +122,8 @@ public class    Product {
      *
      * @return ID.
      */
-    public int getId() {
-        return this.id;
+    public int getPid() {
+        return this.pid;
     }
 
     /**
@@ -155,11 +156,11 @@ public class    Product {
     /**
      * Sets the ID of a product
      *
-     * @param id the ID number for the product.
+     * @param pid the ID number for the product.
      */
-    public void setId(int id) {
+    public void setId(int pid) {
         try {
-            this.id = integerChecker(id, "id");
+            this.pid = integerChecker(pid, "id");
         }
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
@@ -196,20 +197,20 @@ public class    Product {
      */
     public void setProduct(Product product) {
         this.name = product.getName();
-        this.id = product.getId();
+        this.pid = product.getPid();
         this.price = product.getPrice();
     }
 
     //TODO Javadoc
     public boolean isValid() {
-        return this.id > 0 && !"".equals(this.name) && this.price > 0 && !"".equals(this.description);
+        return this.pid > 0 && !"".equals(this.name) && this.price > 0 && !"".equals(this.description);
     }
 
     @Override
     public String toString() {
         return "Product{" +
                 "name='" + name + '\'' +
-                ", id=" + id +
+                ", id=" + pid +
                 ", price=" + price +
                 '}';
     }

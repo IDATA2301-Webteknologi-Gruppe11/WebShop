@@ -46,10 +46,9 @@ public class Category {
 
     /**
      * Crates and object of category.
-     * @param cid a unique id for the category.
      * @param cname the name of the category.
      */
-    public Category(int cid, String cname) {
+    public Category(String cname) {
         try {
             this.cid = integerChecker(cid, "cid");
             this.cname = stringCheker(cname, "cname");
@@ -57,6 +56,13 @@ public class Category {
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
+    }
+
+    /**
+     * Empty constructor that is needed for JPA
+     */
+    public Category() {
+
     }
 
     /**

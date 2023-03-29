@@ -30,8 +30,13 @@ import java.util.logging.Logger;
  */
 @Service
 public class AccessUserService implements UserDetailsService {
+
     private static final int MIN_PASSWORD_LENGTH = 8;
-    private static final Logger LOGGER = Logger.getLogger(AccessUserService.class.getName());
+    private static final String MIN_ONE_CAPITALLETTER = ".*[A-Z]+.*";
+    private static final String MIN_ONE_SMALLLETTER = ".*[a-z]+.*";
+    private static final String MIN_ONE_NUMBER = ".*\\d+.*";
+    private static final String CORRECT_EMAIL_REQUIREMENTS =  "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+
     @Autowired
     UserRepository userRepository;
     @Autowired
@@ -70,7 +75,6 @@ public class AccessUserService implements UserDetailsService {
             loadUserByUsername(email);
             return true;
         } catch (UsernameNotFoundException ex) {
-            LOGGER.warning(ex.getMessage());
             return false;
         }
     }
@@ -117,7 +121,7 @@ public class AccessUserService implements UserDetailsService {
         else if (userExists(email)) {
             errorMessage = "Email already taken";
         }
-        else if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+        else if (!email.matches(CORRECT_EMAIL_REQUIREMENTS)) {
             errorMessage = "Email requirements not fulfilled";
         }
         return errorMessage;
@@ -136,8 +140,8 @@ public class AccessUserService implements UserDetailsService {
         } else if (password.length() < MIN_PASSWORD_LENGTH) {
             errorMessage = "Password must be at least " + MIN_PASSWORD_LENGTH + " characters";
         }
-        else if(!password.matches(".*[A-Z]+.*") || !password.matches(".*[a-z]+.*") || !password.matches(".*\\d+.*")) {
-            errorMessage = "Password must contain at least one big, one small and on number";
+        else if(!password.matches(MIN_ONE_CAPITALLETTER) || !password.matches(MIN_ONE_SMALLLETTER) || !password.matches(MIN_ONE_NUMBER)) {
+            errorMessage = "Password must contain at least one capital letter, one small letter and on number";
         }
         return errorMessage;
     }
@@ -169,36 +173,15 @@ public class AccessUserService implements UserDetailsService {
     }
 
     /**
-     * Update the user first name profile information
+     * Update the user information
      *
      * @param user the user that you want to update
-     * @param profileDto the dto user
-     * @return boolean statement if the user was updated or not, true if updated false if not.
+     * @param profileDto the new information you want for the user
+     * @return true
      */
-    public boolean updateProfileFirstName(User user, UserProfileDto profileDto) {
-        if(profileDto.getFirstName().isEmpty() || profileDto.getFirstName() == null) {
-            return false;
-        }
-        String oldFirstName = user.getFirstName();
+    public boolean updateProfile(User user, UserProfileDto profileDto) {
         user.setFirstName(profileDto.getFirstName());
-        this.userRepository.save(user);
-        return !oldFirstName.equals(user.getFirstName());
-    }
-
-    /**
-     * Update the user last name profile information.
-     *
-     * @param user the user that you want to update
-     * @param profileDto the dto user
-     * @return boolean statement if the user was updated or not, true if updated false if not.
-     */
-    public boolean updateProfileLastName(User user, UserProfileDto profileDto) {
-        if (profileDto.getLastName().isEmpty() || profileDto.getLastName() == null) {
-            return false;
-        }
-        String oldLastName = user.getLastName();
         user.setLastName(profileDto.getLastName());
-        this.userRepository.save(user);
-        return !oldLastName.equals(user.getLastName());
+        return true;
     }
 }

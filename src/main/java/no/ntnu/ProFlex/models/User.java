@@ -67,6 +67,7 @@ public class User {
     /**
      * Constructor for user.
      * This constructor take parameters.
+     *
      * @param firstName the first name of the user. //TODO Betre dokumentasjon
      * @param lastName the last name of the user.
      * @param email the email of the user.
@@ -82,6 +83,13 @@ public class User {
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
+    }
+
+    /**
+     * Empty constructor that is needed for JPA
+     */
+    public User() {
+
     }
 
     /**

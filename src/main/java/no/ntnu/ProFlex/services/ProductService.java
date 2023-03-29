@@ -95,7 +95,7 @@ public class ProductService {
         if (product == null || !product.isValid()) {
             errorMessage = "Wrong data in request body";
         }
-        else if(product.getId() != id) {
+        else if(product.getPid() != id) {
             errorMessage = "The ID of the product in the URL does not match anny ID in the JSON data";
         }
         if (errorMessage == null) {
