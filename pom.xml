@@ -14,7 +14,7 @@
 	<name>ProFlex</name>
 	<description>Exam project for IDATA2301 and IDATA2306. Frontend and backend for a ProFlex website.</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>19</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

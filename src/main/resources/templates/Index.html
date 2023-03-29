@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>ProFlex</title>
-    <link rel="stylesheet" href="../static/Index.css" />
+    <link rel="stylesheet" href="Index.css" />
+    <link th:href="@{css/Index.css}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,14 +20,14 @@
   <body>
     <section class="header">
       <nav>
-        <a href="index.html"
+        <a href="Index"
           ><img src="../images/proflexlogo-removebg-preview.png"
         /></a>
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onClick="hideMenu()"></i>
           <ul>
             <div class="ul1">
-              <li><a href="Index.html">HOME</a></li>
+              <li><a href="Index">HOME</a></li>
               <li><a href="Products.html">PRODUCTS</a></li>
               <li><a href="">ABOUT</a></li>
             </div>
