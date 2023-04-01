@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <title>ProFlex</title>
     <link rel="stylesheet" th:href="@{/static/css/index.css}"/>
+    <link rel="stylesheet" href="/static/css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,13 +21,13 @@
     <section class="header">
       <nav>
         <a href="Index"
-          ><img src="../images/proflexlogo-removebg-preview.png"
+          ><img src="/images/proflexlogo-removebg-preview.png"
         /></a>
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onClick="hideMenu()"></i>
           <ul>
             <div class="ul1">
-              <li><a href="Index">HOME</a></li>
+              <li><a href="index.html">HOME</a></li>
               <li><a href="Products.html">PRODUCTS</a></li>
               <li><a href="">ABOUT</a></li>
             </div>
@@ -54,11 +55,11 @@
         </div>
         <i class="fa fa-bars" onclick="showMenu()"></i>
       </nav>
+    </section>
 
       <div class="text-box">
         <h1>Innovative IT Solutions which supports your success.</h1>
       </div>
-    </section>
 
     <section class="body">
       <div>
@@ -92,6 +93,10 @@
         </p>
       </div>
     </section>
+
+
+    <footer th:replace="fragments/footer.html :: footer"></footer>
+
 
     <footer class="grid">
       <h2 class="Follow-us-on">Follow us on</h2>

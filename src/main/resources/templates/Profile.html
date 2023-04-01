@@ -7,7 +7,8 @@
 
     <title>Profile</title>
     <link rel="stylesheet" href="../static/Profile.css">
-    <link th:href="@{Profile.css}" rel="stylesheet" />
+    <link th:href="@{/static/css/profile.css}" rel="stylesheet" />
+    <link href="/static/css/profile.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap" rel="stylesheet">
@@ -43,11 +44,6 @@
             </nav>
         </div>  
     </main>
-
-
-
-
-
 
 
     <footer th:replace="fragments/footer.html :: footer"></footer>

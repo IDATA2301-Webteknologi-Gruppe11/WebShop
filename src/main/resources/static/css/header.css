@@ -1,0 +1,68 @@
+/*Set rules */
+*{
+    font-family: Poppins, sans-serif;
+    font-size: 62.5%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER CSS START*/
+.grid-container{
+    margin: auto;
+    display: grid;
+    gap: 1rem;
+    max-width: 210rem;
+    grid-template-columns: repeat(12, 1fr);
+    box-shadow: 0 1px 0px rgb(0 0 0 / 25%);
+    padding: 5rem 0rem;
+}
+
+#header-title{
+    font-size: 5rem;
+    grid-column: 2 / span 3;
+    text-align: center;
+}
+
+.text-nav{
+    grid-column: 5 / span 4;
+    text-align: center;
+    align-self: center;
+}
+
+.text-nav a {
+    color: black;
+    font-size: 3rem;
+    text-decoration: none;
+    padding: 0rem 2rem;
+}
+
+.text-nav a:hover{ /* MAKE TRANSITION */
+    text-decoration: underline;
+}
+
+.icon-nav{
+    grid-column: 9 / span 3;
+    text-align: center;
+    margin-top: 0.7rem;
+}
+
+.icon-nav a{
+    font-size: 3rem;
+    color: black;
+    padding: 0rem 1rem;
+}
+
+.icon-nav p{
+    font-size: 2rem;
+    color: black;
+    padding: 0rem 1rem;
+    display: inline;
+}
+
+.icon-nav form{
+    text-align: center;
+    display: inline;
+    font-size: 3rem;
+}
+/* HEADER CSS END*/
