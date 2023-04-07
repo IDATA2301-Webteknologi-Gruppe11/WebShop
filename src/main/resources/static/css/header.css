@@ -1,68 +1,62 @@
-/*Set rules */
-*{
-    font-family: Poppins, sans-serif;
-    font-size: 62.5%;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-/* HEADER CSS START*/
-.grid-container{
-    margin: auto;
+nav {
     display: grid;
-    gap: 1rem;
+    padding: 25px;
+    grid-template-columns: repeat(6, 1fr);
+    font-size: 12rem;
     max-width: 210rem;
-    grid-template-columns: repeat(12, 1fr);
-    box-shadow: 0 1px 0px rgb(0 0 0 / 25%);
-    padding: 5rem 0rem;
 }
 
-#header-title{
-    font-size: 5rem;
-    grid-column: 2 / span 3;
+nav img {
+    width: 150px;;
+}
+
+.ul1 {
+    grid-column: 1/ span 3;
+    text-align: center;
+    display: inline;
     text-align: center;
 }
 
-.text-nav{
-    grid-column: 5 / span 4;
+.ul2 {
+    justify-content: flex-end;
+    grid-column: 4/ span 3;
     text-align: center;
-    align-self: center;
 }
 
-.text-nav a {
-    color: black;
-    font-size: 3rem;
+.ul2 li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    vertical-align: middle;
+}
+
+.ul2 li a{
+    color: #111;
     text-decoration: none;
-    padding: 0rem 2rem;
 }
 
-.text-nav a:hover{ /* MAKE TRANSITION */
-    text-decoration: underline;
+.ul1 li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    vertical-align: middle;
 }
 
-.icon-nav{
-    grid-column: 9 / span 3;
-    text-align: center;
-    margin-top: 0.7rem;
+
+.ul1 li a {
+    color: #111;
+    text-decoration: none;
 }
 
-.icon-nav a{
-    font-size: 3rem;
-    color: black;
-    padding: 0rem 1rem;
+.ul1 li::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #111;
+    display: block;
+    transition: 0.5s;
 }
 
-.icon-nav p{
-    font-size: 2rem;
-    color: black;
-    padding: 0rem 1rem;
-    display: inline;
+.ul1 li:hover::after {
+    width: 100%;
 }
-
-.icon-nav form{
-    text-align: center;
-    display: inline;
-    font-size: 3rem;
-}
-/* HEADER CSS END*/

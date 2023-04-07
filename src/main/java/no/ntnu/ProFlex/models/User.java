@@ -46,7 +46,7 @@ public class User {
     @Schema(description = "The password of the user.")
     @NotNull
     @Column(nullable = false)
-    private String password;
+    private String pass;
 
     @Schema(description = "If the user is active")
     @NotNull
@@ -78,7 +78,7 @@ public class User {
             this.email = stringChecker(email, "Email");
             this.firstName = stringChecker(firstName, "firstName");
             this.lastName = stringChecker(lastName, "lastName");
-            this.password = stringChecker(password, "Password");
+            this.pass = stringChecker(password, "Password");
         }
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
@@ -144,8 +144,8 @@ public class User {
      * Returns password.
      * @return password.
      */
-    public String getPassword() {
-        return this.password;
+    public String getPass() {
+        return this.pass;
     }
 
     /**
@@ -199,9 +199,9 @@ public class User {
      * Setts the password.
      * @param password A string that you want the uname to be.
      */
-    public void setPassword(String password) {
+    public void setPass(String password) {
         try {
-            this.password = stringChecker(password, "password");
+            this.pass = stringChecker(password, "password");
         }
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
@@ -229,7 +229,7 @@ public class User {
      * @return boolean statement, true if valid false if not.
      */
     public boolean isValid() {
-        return !"".equals(firstName) && !"".equals(firstName) && !"".equals(password) && uid > 0;
+        return !"".equals(firstName) && !"".equals(firstName) && !"".equals(pass) && uid > 0;
     }
 
     /**
@@ -264,7 +264,7 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                ", password='" + pass + '\'' +
                 '}';
     }
 }

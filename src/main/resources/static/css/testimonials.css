@@ -1,0 +1,27 @@
+.testimonials-card {
+    padding: 0rem 0rem 5rem 27rem;
+    display: block;
+    max-width: 150rem;
+}
+
+.testimonials-header {
+    font-size: 5rem;
+    font-weight: 600;
+    padding-left: 20rem;
+}
+
+.testimonials-description {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 22px;
+    padding-left: 20rem;
+    padding-bottom: 10rem;
+}
+
+.picture{
+    display: inline;
+    height: 11%;
+    width: 11%;
+    float: left;
+    border-radius: 8rem;
+}

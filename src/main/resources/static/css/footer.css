@@ -1,72 +1,33 @@
-#footer-grid-container {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(5,0.5fr);
-    grid-template-areas:
-    "ein ein ein"
-    "to to to"
-    "tre tre tre"
-    "fire fem seks"
-    "syv syv syv";
-    text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 62.5%;
+}
+.footer-grid-container{
     background-color: #0067B8;
+    display: grid;
 }
 
-.ein {
-    grid-area: ein;
-    font-family: Poppins ,sans-serif;
-    color: white;
-    font-size: 3rem;
-    font-weight: bold;
-}
-.to {
-    grid-area: to;
+.icon-nav{
+    grid-column: 2 / span 4;
+    text-align: center;
+    display: inline;
 }
 
-.to a {
+.icon-nav a{
+    display: inline;
     text-decoration: none;
     color: white;
-    font-size: 4rem;
-    margin: 5rem;
-}
-.tre {
-    grid-area: tre;
-    font-size: 2rem;
-    font-family: Poppins, sans-serif;
-    font-weight: bold;
-    color: white;
+    font-size: 3rem;
+    text-align: center;
 }
 
-.fire {
-    grid-area: fire;
-    font-family: Poppins, sans-serif;
+.footer-description{
+    display: inline;
+    grid-column: 3 / span 2;
     color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-left: 15rem;
-}
-.fem {
-    grid-area: fem;
-    font-family: Poppins, sans-serif;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-.seks {
-    grid-area: seks;
-    font-family: Poppins, sans-serif;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-    display: inline-block;
-    overflow: hidden;
-    margin-right: 15rem;
-}
-.syv {
-    grid-area: syv;
-    font-size: 1.5rem;
-    font-family: Poppins,sans-serif;
-    color: white;
-    max-width: 70%;
-    margin-left: 20rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: 2rem;
 }

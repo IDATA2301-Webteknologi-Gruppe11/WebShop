@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-  <link rel="stylesheet" th:href="@{/static/css/header.css}"> <!-- CSS FRAGMENT -->
-  <link rel="stylesheet" th:href="@{/static/css/Products2.css}"/> <!-- CSS GENERAL -->
-  <link rel="stylesheet" href="/static/css/Products2.css"> <!-- CSS LIVE VIEWER -->
+    <title>Products</title>
+  <link rel="stylesheet" th:href="@{/static/css/header.css}"> <!-- FOR CSS FRAGMENT -->
+  <link rel="stylesheet" th:href="@{/static/css/Products2.css}"/> <!-- FOR CSS GENERAL -->
+  <link rel="stylesheet" href="/static/css/Products2.css"> <!-- FOR CSS LIVE VIEWER -->
   <script src="../js/SearchBar.js"></script>
   <link
           rel="stylesheet"
@@ -19,16 +19,11 @@
 </head>
 <body>
 
-  <header th:replace="fragments/header.html :: header"></header> <!-- HEADER FRAGMENT -->
+  <header th:replace="fragments/header.html :: header"></header>
 
-  <main th:replace="fragments/product-card.html :: product-card"></main>
 
-  <div th:each="product : ${products}">
-    <div th:replace="fragments/product-card :: product-card(product=${product})"></div>
-  </div>
+  <main th:replace="fragments/product-card :: product-card"></main>
 
-  1. put data inside db
-  2. fetch data from db using js
 
   <footer th:replace="fragments/footer.html :: footer"> </footer>
 </body>

@@ -34,14 +34,14 @@ public class AccessUserDetails implements UserDetails {
      */
     public AccessUserDetails(User user) {
         this.email = user.getEmail();
-        this.password = user.getPassword();
+        this.password = user.getPass();
         this.isActive = user.isActive();
     }
 
     /**
      * Converts the roles in the Set of roles.
      * @param roles a set of roles that you want to convert.
-     */
+//     */
     private void convertRoles(Set<Role> roles) {
         this.authorities.clear();
         for(Role role: roles) {

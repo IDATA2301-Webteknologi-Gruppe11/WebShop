@@ -1,19 +1,30 @@
-<header class="grid-container" th:fragment="header">
-    <h1 id="header-title">ProFlex</h1>
-
-    <nav class="text-nav">
-        <a class="text" href="#">HOME</a>
-        <a class="text" href="#">PRODUCTS</a>
-        <a class="text" href="#">ABOUT</a>
+<section class="header" th:fragment="header">
+    <nav class="navigation">
+        <div class="ul1">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="Products.html">PRODUCTS</a></li>
+            <li><a href="">ABOUT</a></li>
+        </div>
+        <div class="ul2">
+            <li>
+                <form>
+                    <label for="search">Search</label>
+                    <input id="search" type="search" pattern=".*\S.*" required />
+                    <span class="caret"></span>
+                </form>
+            </li>
+            <li>
+                <a href="ShoppingCart.html"
+                ><i class="fa-solid fa-cart-flatbed"></i
+                ></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa-regular fa-heart"></i></a>
+            </li>
+            <li>
+                <a href="Profile.html"><i class="fa-regular fa-user"></i></a>
+            </li>
+        </div>
+<!--        <i class="fa fa-bars" onclick="showMenu()"></i>-->
     </nav>
-
-    <nav class="icon-nav">
-        <p>Search</p>
-        <form id="search-form">
-            <input id="input-text"type="text" />
-        </form>
-        <a href="#"><i class="fa-solid fa-cart-flatbed"></i></a>
-        <a href="#"><i class="fa-regular fa-heart"></i></a>
-        <a href="#"><i class="fa-regular fa-user"></i></a>
-    </nav>
-</header>
+</section>

@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 @Schema(description = "Represent a product that is added to a product list", title = "A product")
 @Entity
 @Table(name = "product")
-public class    Product {
+public class Product {
 
     @Schema(description = "The name of the product")
     @NotNull

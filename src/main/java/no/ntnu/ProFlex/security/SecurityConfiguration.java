@@ -1,6 +1,7 @@
 package no.ntnu.ProFlex.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -9,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * Creates AuthenticationManager - set up authentication type
@@ -44,23 +46,25 @@ public class SecurityConfiguration {
     public SecurityFilterChain configureAuthorizationFilterChain(HttpSecurity http) throws Exception {
         // Set up the authorization requests, starting from most restrictive at the top, to least restrictive on bottom
         http.csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/admin/**").hasRole("ADMIN")
-                .requestMatchers("/users/**").hasAnyRole("USER", "ADMIN")
-                .requestMatchers("/static/**").permitAll()
-                .requestMatchers("/Profile").permitAll()
-                .requestMatchers("/Products").permitAll()
-                .requestMatchers("/Product/{id}").permitAll()
-                .requestMatchers("/About").permitAll()
-                .requestMatchers("/ShoppingCart").permitAll()
-                .requestMatchers("/Register").permitAll()
-                .requestMatchers("/Login").permitAll()
-                .requestMatchers("/").permitAll()
+                .authorizeRequests()
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/", "GET")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/Products", "GET")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/admin/**")).hasRole("ADMIN")
+                .requestMatchers(new AntPathRequestMatcher("/users/**")).hasAnyRole("USER", "ADMIN")
+                .requestMatchers(new AntPathRequestMatcher("/Profile")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/Product/{id}")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/About")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/ShoppingCart")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/Register")).permitAll()
                 .and().formLogin().loginPage("/login")
                 .and().logout().logoutSuccessUrl("/")
         ;
         return http.build();
     }
+
+
+
 
     /**
      * This method is called to decide what encryption to use for password checking

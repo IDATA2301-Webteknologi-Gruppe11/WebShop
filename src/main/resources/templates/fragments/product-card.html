@@ -1,57 +1,10 @@
-<main class="main-wrapper" th:fragment="product-card">
-  <main class="flex-container">
-    <div class="product-card">
-      <!-- <img class="product-img" src="../images/os-icon-removebg-preview.png" alt="Image" width="260" height="222"> -->
-      <h4 class="product-name" th:text="${product.name}">Online Scheduling</h4>
-      <p class="product-category">For planning and scheduling</p>
-      <p class="products-price">From 2000kr</p>
-      <button class="products-buy">Buy</button>
-      <a class="product-learn-more">Learn more</a>
+<main class="flex-container" th:fragment="product-card">
+    <div class="product-card" th:each="products: ${products}">
+        <h4 class="product-name" th:text="${products.name}"></h4>
+        <p class="product-category"></p>
+        <p class="products-price" th:text="${products.price}"></p>
+        <p class="products-description" th:text="${products.description}"></p>
+        <button class="products-buy">Buy</button>
+        <a class="product-learn-more">Learn more</a>
     </div>
-
-    <div class="product-card">
-      <!-- <img class="product-img" src="../images/os-icon-removebg-preview.png" alt="Image" width="260" height="222"> -->
-      <h4 class="product-name">Online Scheduling</h4>
-      <p class="product-category">For planning and scheduling</p>
-      <p class="products-price">From 2000kr</p>
-      <button class="products-buy">Buy</button>
-      <a class="product-learn-more">Learn more</a>
-    </div>
-
-    <div class="product-card">
-      <!-- <img class="product-img" src="../images/os-icon-removebg-preview.png" alt="Image" width="260" height="222"> -->
-      <h4 class="product-name">${product_title}</h4>
-      <p class="product-category">${product_category}</p>
-      <p class="products-price">From 2000kr</p>
-      <button class="products-buy">Buy</button>
-      <a class="product-learn-more">Learn more</a>
-    </div>
-
-    <div class="product-card">
-      <!-- <img class="product-img" src="../images/os-icon-removebg-preview.png" alt="Image" width="260" height="222"> -->
-      <h4 class="product-name">Online Scheduling</h4>
-      <p class="product-category">For planning and scheduling</p>
-      <p class="products-price">From 2000kr</p>
-      <button class="products-buy">Buy</button>
-      <a class="product-learn-more">Learn more</a>
-    </div>
-
-    <div class="product-card">
-      <!-- <img class="product-img" src="../images/os-icon-removebg-preview.png" alt="Image" width="260" height="222"> -->
-      <h4 class="product-name">Online Scheduling</h4>
-      <p class="product-category">For planning and scheduling</p>
-      <p class="products-price">From 2000kr</p>
-      <button class="products-buy">Buy</button>
-      <a class="product-learn-more">Learn more</a>
-    </div>
-
-    <div class="product-card">
-      <!-- <img class="product-img" src="../images/os-icon-removebg-preview.png" alt="Image" width="260" height="222"> -->
-      <h4 class="product-name">Online Scheduling</h4>
-      <p class="product-category">For planning and scheduling</p>
-      <p class="products-price">From 2000kr</p>
-      <button class="products-buy">Buy</button>
-      <a class="product-learn-more">Learn more</a>
-    </div>
-  </main>
 </main>
