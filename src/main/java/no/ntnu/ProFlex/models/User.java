@@ -103,7 +103,7 @@ public class User {
      */
     private String stringChecker(String string, String prefiks) {
         if(string.isEmpty() || string == null) {
-            throw new IllegalArgumentException("The string " + "'" + prefiks + "'" + " cant bee empty or null");
+            throw new IllegalArgumentException("The string " + "'" + prefiks + "'" + " cant be empty or null");
         }
         return string;
     }

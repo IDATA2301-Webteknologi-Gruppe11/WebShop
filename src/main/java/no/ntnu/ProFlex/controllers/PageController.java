@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import no.ntnu.ProFlex.services.ProductService;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
@@ -45,8 +46,8 @@ public class PageController {
      * @return Name of the ThymeLeaf template which will be used to render the HTML.
      */
     @GetMapping("/Profile")
-    public String getProfile(Model model, @ModelAttribute("id") int id) {
-        model.addAttribute("user", this.userService.findById(id));
+    public String getProfile() {
+        //model.addAttribute("user", this.userService.findById(id));
         //model.addAttribute("order", this.orderService.finAllByUid(id));
         return "Profile";
     }
@@ -70,10 +71,10 @@ public class PageController {
      * @param id the id of the product.
      * @return Name of the ThymeLeaf template which will be used to render the HTML
      */
-    @GetMapping("/Product/{id}")
+    @GetMapping("/Products/{id}")
     public String getProduct(Model model, @ModelAttribute("id") int id) {
-        model.addAttribute("product", this.productService.findById(id));
-        return "Product";
+        model.addAttribute("products", this.productService.findById(id));
+        return "product-details";
     }
 
     /**

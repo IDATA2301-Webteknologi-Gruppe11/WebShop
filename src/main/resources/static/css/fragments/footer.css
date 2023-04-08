@@ -3,14 +3,18 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     font-size: 62.5%;
+    box-sizing: border-box;
 }
-.footer-grid-container{
+
+.footer-flex-container{
     background-color: #0067B8;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
 }
 
 .icon-nav{
-    grid-column: 2 / span 4;
     text-align: center;
     display: inline;
 }
@@ -19,15 +23,16 @@
     display: inline;
     text-decoration: none;
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
+    padding: 0rem 2rem;
 }
 
 .footer-description{
-    display: inline;
-    grid-column: 3 / span 2;
-    color: white;
     text-align: center;
-    font-weight: 500;
-    font-size: 2rem;
+    display: inline;
+    color: white;
+    font-weight: 300;
+    font-size: 1rem;
+    padding-top: 1rem;
 }

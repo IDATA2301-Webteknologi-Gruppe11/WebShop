@@ -1,9 +1,9 @@
-<section class="header" th:fragment="header">
+<header class="header" th:fragment="header">
     <nav class="navigation">
         <div class="ul1">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="Products.html">PRODUCTS</a></li>
-            <li><a href="">ABOUT</a></li>
+            <li><a href="/">HOME</a></li>
+            <li><a href="Products">PRODUCTS</a></li>
+            <li><a href="About">ABOUT</a></li>
         </div>
         <div class="ul2">
             <li>
@@ -13,18 +13,12 @@
                     <span class="caret"></span>
                 </form>
             </li>
-            <li>
-                <a href="ShoppingCart.html"
-                ><i class="fa-solid fa-cart-flatbed"></i
-                ></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-regular fa-heart"></i></a>
-            </li>
-            <li>
-                <a href="Profile.html"><i class="fa-regular fa-user"></i></a>
-            </li>
+
+            <li><a href="ShoppingCart.html"><span class="material-symbols-outlined">shopping_cart</span></a></li>
+            <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
+
+            <li><a href="Profile"><span class="material-symbols-outlined">account_circle</span></a></li>
         </div>
 <!--        <i class="fa fa-bars" onclick="showMenu()"></i>-->
     </nav>
-</section>
+</header>

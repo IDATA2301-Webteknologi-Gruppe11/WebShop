@@ -1,0 +1,64 @@
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.product-card{
+    background-color: lightblue;
+    padding: 10rem;
+    margin: 10rem;
+    width: 300rem;
+}
+
+.card-img{
+}
+
+.product-name {
+    font-family: Poppins, sans-serif;
+    font-weight: Bold;
+    font-size: 4rem;
+    padding: 1rem 0rem;
+}
+
+.product-category {
+    font-family: Poppins, sans-serif;
+    font-weight: lighter;
+    font-size: 3rem;
+    padding: 1rem 0rem;
+}
+
+.products-price {
+    font-family: Poppins, sans-serif;
+    font-weight: lighter;
+    font-size: 2.5rem;
+    padding: 1rem 0rem;
+}
+
+.products-description{
+    font-family: Poppins, sans-serif;
+    font-weight: lighter;
+    font-size: 2.5rem;
+    padding: 1rem 0rem;
+}
+
+.products-buy {
+    font-size: 2rem;
+    width: 20rem;
+    height: 5rem;
+    background-color: #0067b8;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 70px;
+    font-family: Poppins, sans-serif;
+    margin: auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.product-learn-more {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #0067b8;
+}

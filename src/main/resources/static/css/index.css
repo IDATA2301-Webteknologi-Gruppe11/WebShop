@@ -5,18 +5,18 @@
     font-size: 62.5%;
 }
 
-.hero-title {
-    font-size: 12rem;
-    padding-left: 27rem;
+.hero-section{
+    display: flex;
     max-width: 150rem;
-    min-height: 100rem;
+    min-height: 90rem;
     padding-top: 12rem;
+    justify-content: flex-start;
+    padding-left: 12rem;
+    margin: auto;
 }
 
-
-
-nav .fa {
-    display: none;
+.hero-title {
+    font-size: 11rem;
 }
 
 @media(max-width: 700px) {
