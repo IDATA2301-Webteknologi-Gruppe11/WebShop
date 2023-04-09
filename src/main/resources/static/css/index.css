@@ -7,16 +7,25 @@
 
 .hero-section{
     display: flex;
-    max-width: 150rem;
+    /*width: 150rem;*/
+    max-width: 180rem;
     min-height: 90rem;
     padding-top: 12rem;
     justify-content: flex-start;
     padding-left: 12rem;
     margin: auto;
+    flex-direction: column;;
 }
 
 .hero-title {
-    font-size: 11rem;
+    font-size: 12rem;
+}
+
+.featured-title{
+    margin-top: 10rem;
+    font-size: 5rem;
+    flex: 1;
+    vertical-align: bottom;
 }
 
 @media(max-width: 700px) {

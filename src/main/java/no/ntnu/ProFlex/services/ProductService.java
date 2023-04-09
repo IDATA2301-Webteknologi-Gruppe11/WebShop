@@ -3,7 +3,11 @@ package no.ntnu.ProFlex.services;
 import no.ntnu.ProFlex.models.Product;
 import no.ntnu.ProFlex.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
+import java.util.Random;
 
 /**
  * Represent the service class for product.
@@ -24,6 +28,17 @@ public class ProductService {
      */
     public Iterable<Product> getAll() {
         return productRepository.findAll();
+    }
+
+    /**
+     * Return n amount of products for index page.
+     * "Featured products".
+     *
+     * @param n amount of products
+     * @return amount of products
+     */
+    public Iterable<Product> getFirst(int n){
+        return productRepository.findAll(PageRequest.of(0, n));
     }
 
     /**

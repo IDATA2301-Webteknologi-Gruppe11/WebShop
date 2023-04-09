@@ -34,7 +34,8 @@ public class PageController {
      * @return Name of the ThymeLeaf template which will be used to render the HTML
      */
     @GetMapping("/")
-    public String getIndex() {
+    public String getIndex(Model model) {
+        model.addAttribute("featuredProducts", this.productService.getFirst(2)); //SHow featured products
         return "index";
     }
 
@@ -61,6 +62,7 @@ public class PageController {
     @GetMapping("/Products")
     public String getProducts(Model model) {
         model.addAttribute("products", this.productService.getAll());
+        model.addAttribute("valuta", "kr");
         return "Products";
     }
 

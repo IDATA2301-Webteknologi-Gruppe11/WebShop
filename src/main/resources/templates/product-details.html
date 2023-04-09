@@ -20,7 +20,7 @@
     <div class="product-card">
         <h4 class="product-name" th:text="${products.name}"></h4>
         <p class="product-category"></p>
-        <p class="products-price" th:text="${products.price}">kr</p>
+        <p class="products-price" th:text="${products.price} + ${valuta}"></p> -
         <p class="products-description" th:text="${products.description}"></p>
         <button class="products-buy">Buy</button>
         <a class="product-learn-more">Learn more</a>
