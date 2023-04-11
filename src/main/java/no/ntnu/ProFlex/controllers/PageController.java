@@ -62,6 +62,7 @@ public class PageController {
      */
     @GetMapping("/Products")
     public String getProducts(Model model) {
+//        model.addAttribute("setCategories", this.productService.)
         model.addAttribute("products", this.productService.getAll());
         model.addAttribute("valuta", "kr");
         return "Products";
@@ -108,7 +109,7 @@ public class PageController {
     *
     * @return Name of the Thymeleaf template which will be used to render the HTML
     */
-    @GetMapping("/Login")
+    @GetMapping("/login")
     public String getLogin() {
         return "Loggin";
     }
