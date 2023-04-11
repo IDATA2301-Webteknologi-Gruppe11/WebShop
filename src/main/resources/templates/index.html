@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <title>ProFlex</title>
     <link rel="stylesheet" th:href="@{/static/css/index.css}"/>
@@ -11,33 +11,29 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <!-- ICONS -->
     <script src="../js/Index.js"></script>
     <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
+</head>
+<body>
 
     <header th:replace="~{fragments/header.html :: header}"></header>
 
-
       <div class="hero-section">
         <h1 class="hero-title">Innovative IT Solutions which supports your success.</h1>
-        <h2 class="featured-title">Check out our featured products!</h2> <!-- TODO FIKS HERO SECTION -->
+        <h2 class="featured-title">Check out our featured products!</h2> <!-- TODO FIKS HERO SECTION. TEKST OVER BILDE? -->
 <!--        <img class="hero-picture" src="/static/images/hero-picture-low-res.png">-->
       </div>
-
-    <main class="flex-container">
-      <div class="product-card" th:each="products: ${featuredProducts}">
-        <h4 class="product-name" th:text="${products.name}"></h4>
-        <p class="product-category"></p>
-        <p class="products-price" th:text="${products.price}">kr</p>
-        <p class="products-description" th:text="${products.description}"></p>
-        <a class="products-buy">Buy</a> <!-- TOOD MAKE REDIRECT TO {ID} ENDPOINT -->S
-        <a class="product-learn-more">Learn more</a>
-      </div>
-    </main>
+      <main class="flex-container">
+        <div class="product-card" th:each="products : ${featuredProducts}">
+          <h4 class="product-name" th:text="${products.name}"></h4>
+          <p class="product-category"> (Category)</p>
+          <p class="products-price" th:text="${products.price} + ${valuta}"></p>
+          <p class="products-description" th:text="${products.description}"></p>
+          <a class="products-buy">Buy</a> <!-- TOOD MAKE REDIRECT TO {ID} ENDPOINT -->
+          <a class="product-learn-more">Learn more</a>
+        </div>
+      </main>
 
     <section th:replace="~{fragments/testimonials.html :: testimonials}"></section>
 
-
     <footer th:replace="~{fragments/footer.html :: footer}"></footer>
-
-  </body>
+</body>
 </html>
