@@ -1,24 +1,21 @@
 <header class="header" th:fragment="header">
     <nav class="navigation">
-        <div class="ul1">
+        <img src="../../static/images/proflexlogo2.png" alt="Logo">
+        <ul class="ul1">
             <li><a href="/">HOME</a></li>
             <li><a href="Products">PRODUCTS</a></li>
             <li><a href="About">ABOUT</a></li>
-        </div>
-        <div class="ul2">
+        </ul>
+        <ul class="ul2">
             <li>
                 <form>
-                    <label for="search">Search</label>
-                    <input id="search" type="search" pattern=".*\S.*" required />
+                    <input id="search" type="search" pattern=".*\S.*" required placeholder="search..." />
                     <span class="caret"></span>
                 </form>
             </li>
-
             <li><a href="ShoppingCart.html"><span class="material-symbols-outlined">shopping_cart</span></a></li>
             <li><a href="#"><span class="material-symbols-outlined">favorite</span></a></li>
-
             <li><a href="Profile"><span class="material-symbols-outlined">account_circle</span></a></li>
-        </div>
-<!--        <i class="fa fa-bars" onclick="showMenu()"></i>-->
+        </ul>
     </nav>
 </header>

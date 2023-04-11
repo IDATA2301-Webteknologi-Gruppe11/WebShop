@@ -43,7 +43,7 @@ public class Product {
 
     @Schema(description = "Description of the product")
     @NotNull
-    @Column(nullable = false, name = "description")
+    @Column(nullable = false, name = "description", length = 1000)
     private String description;
 
     private static final Logger LOGGER = Logger.getLogger(Product.class.getName());

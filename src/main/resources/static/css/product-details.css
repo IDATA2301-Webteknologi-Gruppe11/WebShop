@@ -1,64 +1,129 @@
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
     justify-content: center;
 }
 
-.product-card{
-    background-color: lightblue;
-    padding: 10rem;
-    margin: 10rem;
-    width: 300rem;
-}
-
-.card-img{
-}
-
 .product-name {
-    font-family: Poppins, sans-serif;
-    font-weight: Bold;
+    margin-top: 10rem;
+    font-size: 7rem;
+}
+
+.product-description {
+    margin-top: 5rem;
+    font-size: 2.5rem;
+    width: 70%;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    margin-top: 4rem;
+}
+
+.buy-text {
+    grid-row: 1;
+    grid-column: 1;
     font-size: 4rem;
-    padding: 1rem 0rem;
 }
 
-.product-category {
-    font-family: Poppins, sans-serif;
-    font-weight: lighter;
-    font-size: 3rem;
-    padding: 1rem 0rem;
+.product-price {
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 1.5rem;
+    margin-left: 20rem;
+    margin-top: 1rem;
 }
 
-.products-price {
-    font-family: Poppins, sans-serif;
-    font-weight: lighter;
+.button-add {
+    grid-row: 1 /span 2;
+    grid-column: 2;
     font-size: 2.5rem;
-    padding: 1rem 0rem;
-}
-
-.products-description{
-    font-family: Poppins, sans-serif;
-    font-weight: lighter;
-    font-size: 2.5rem;
-    padding: 1rem 0rem;
-}
-
-.products-buy {
-    font-size: 2rem;
-    width: 20rem;
-    height: 5rem;
-    background-color: #0067b8;
-    color: #FFFFFF;
+    margin-left: 7rem;
+    margin-top: 1rem;
+    background-color: #0067B8;
+    color: white;
     border: none;
-    border-radius: 70px;
-    font-family: Poppins, sans-serif;
-    margin: auto;
-    display: block;
-    margin-bottom: 1rem;
+    border-radius: 25px;
+    width: 30rem;
+    height: 5rem;
 }
 
-.product-learn-more {
-    font-size: 2rem;
-    text-decoration: none;
-    color: #0067b8;
+footer {
+margin-top: 38.7rem;
 }
+
+
+
+
+
+
+
+
+
+/*.flex-container {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    text-align: center;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.product-card{*/
+/*    background-color: lightblue;*/
+/*    padding: 10rem;*/
+/*    margin: 10rem;*/
+/*    width: 300rem;*/
+/*}*/
+
+/*.card-img{*/
+/*}*/
+
+/*.product-name {*/
+/*    font-family: Poppins, sans-serif;*/
+/*    font-weight: Bold;*/
+/*    font-size: 4rem;*/
+/*    padding: 1rem 0rem;*/
+/*}*/
+
+/*.product-category {*/
+/*    font-family: Poppins, sans-serif;*/
+/*    font-weight: lighter;*/
+/*    font-size: 3rem;*/
+/*    padding: 1rem 0rem;*/
+/*}*/
+
+/*.products-price {*/
+/*    font-family: Poppins, sans-serif;*/
+/*    font-weight: lighter;*/
+/*    font-size: 2.5rem;*/
+/*    padding: 1rem 0rem;*/
+/*}*/
+
+/*.products-description{*/
+/*    font-family: Poppins, sans-serif;*/
+/*    font-weight: lighter;*/
+/*    font-size: 2.5rem;*/
+/*    padding: 1rem 0rem;*/
+/*}*/
+
+/*.products-buy {*/
+/*    font-size: 2rem;*/
+/*    width: 20rem;*/
+/*    height: 5rem;*/
+/*    background-color: #0067b8;*/
+/*    color: #FFFFFF;*/
+/*    border: none;*/
+/*    border-radius: 70px;*/
+/*    font-family: Poppins, sans-serif;*/
+/*    margin: auto;*/
+/*    display: block;*/
+/*    margin-bottom: 1rem;*/
+/*}*/
+
+/*.product-learn-more {*/
+/*    font-size: 2rem;*/
+/*    text-decoration: none;*/
+/*    color: #0067b8;*/
+/*}*/
