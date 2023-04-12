@@ -37,7 +37,7 @@ public class PageController {
     @GetMapping("/")
     public String getIndex(Model model) {
         //model.addAttribute("featuredProducts", this.productService.getFirst(2)); //Show featured products
-        model.addAttribute("featuredProduct", this.productService.getRandomProduct());
+        model.addAttribute("featuredProduct", this.productService.getRandomProducts());
         model.addAttribute("valuta", "kr");
         return "index";
     }

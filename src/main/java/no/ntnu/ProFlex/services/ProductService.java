@@ -136,6 +136,28 @@ public class ProductService {
     }
 
     /**
+     * Returns a list of two random products.
+     *
+     * @return a list of two random products.
+     */
+    public List<Product> getRandomProducts() {
+        Random random = new Random();
+        List<Integer> intList = new ArrayList<>();
+        for (Product product : getAll()) {
+            intList.add(product.getPid());
+        }
+        List<Product> result = new ArrayList<>();
+        int randomIndex1 = random.nextInt(intList.size());
+        result.add(findById(intList.get(randomIndex1)));
+        int randomIndex2 = random.nextInt(intList.size());
+        while (randomIndex2 == randomIndex1) {
+            randomIndex2 = random.nextInt(intList.size());
+        }
+        result.add(findById(intList.get(randomIndex2)));
+        return result;
+    }
+
+    /**
      * Find and return all categories of a given product.
      *
      * @param pid the id of the product.

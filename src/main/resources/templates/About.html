@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <header th:replace="fragments/header.html :: header"></header>
+  <header th:replace="~{fragments/header.html :: header}"></header>
 
   <main id="flex-wrapper">
     <div class="about-flex-container">
@@ -35,7 +35,7 @@
     </div>
   </main>
 
-  <footer th:replace="fragments/footer.html :: footer"></footer>
+  <footer th:replace="~{fragments/footer.html :: footer}"></footer>
 
 </body>
 </html>

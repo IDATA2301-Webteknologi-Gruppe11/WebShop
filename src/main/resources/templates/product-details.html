@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <!-- ICON PACK -->
 </head>
 <body>
-<header th:replace="fragments/header.html" :: header></header>
+<header th:replace="~{fragments/header.html :: header}"></header>
 <main class="flex-container">
     <h1 class="product-name" th:text="${products.name}"></h1>
     <!-- <img src=""> -->
@@ -20,6 +20,6 @@
         <button class="button-add">Add To Cart</button>
     </div>
 </main>
-<footer th:replace="fragments/footer.html :: footer"></footer>
+<footer th:replace="~{fragments/footer.html :: footer}"></footer>
 </body>
 </html>
