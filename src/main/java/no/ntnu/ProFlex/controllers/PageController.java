@@ -36,7 +36,7 @@ public class PageController {
      */
     @GetMapping("/")
     public String getIndex(Model model) {
-        model.addAttribute("featuredProducts", this.productService.getFirst(2)); //SHow featured products
+        model.addAttribute("featuredProducts", this.productService.getFirst(2)); //Show featured products
         model.addAttribute("valuta", "kr");
         return "index";
     }
@@ -48,7 +48,7 @@ public class PageController {
      * @param id the id of the user that you want to get the user information.
      * @return Name of the ThymeLeaf template which will be used to render the HTML.
      */
-    @GetMapping("/Profile")
+    @GetMapping("/profile")
     public String getProfile() {
         //model.addAttribute("user", this.userService.findById(id));
         //model.addAttribute("order", this.orderService.finAllByUid(id));
@@ -61,7 +61,7 @@ public class PageController {
      * @param model The model where the data will be stored.
      * @return Name of the ThymeLeaf template which will be used to render the HTML
      */
-    @GetMapping("/Products")
+    @GetMapping("/products")
     public String getProducts(Model model) {
         model.addAttribute("products", this.productService.getAll());
         //model.addAttribute("setCategories", this.productService.findAllCategoriesByPid(id));
@@ -76,7 +76,7 @@ public class PageController {
      * @param id the id of the product.
      * @return Name of the ThymeLeaf template which will be used to render the HTML
      */
-    @GetMapping("/Products/{id}")
+    @GetMapping("/products/{id}")
     public String getProduct(Model model, @ModelAttribute("id") int id) {
         model.addAttribute("products", this.productService.findById(id));
         return "product-details";
@@ -89,7 +89,7 @@ public class PageController {
      * @param product the id of the product.
      * @return Name of the ThymeLeaf template which will be used to render the HTML
      */
-    @PostMapping("/Product/add") //TODO høre om man skal ha slike metoder i page controller
+    @PostMapping("/products/add") //TODO høre om man skal ha slike metoder i page controller
     public String addProduct(@ModelAttribute("product") Product product, Model model) {
         model.addAttribute("product", productService.add(product));
         return "Product";
@@ -101,7 +101,7 @@ public class PageController {
      * @param model The model where the data will be stored.
      * @param user the user that you want to create.
      */
-    @PostMapping("/Register")
+    @PostMapping("/register")
     public String createUser(Model model, @ModelAttribute User user, HttpServletRequest request) {
        AccessUserService accessUserService = new AccessUserService();
        String checkUser = accessUserService.tryCreateNewUser(user.getFirstName(),
@@ -121,7 +121,7 @@ public class PageController {
      *
      * @return Name of the ThymeLeaf template which will be used to render the HTML
      */
-    @GetMapping("/ShoppingCart")
+    @GetMapping("/shoppingcart")
     public String getShoppingCart() {
         return "ShoppingCart";
     }
@@ -141,13 +141,13 @@ public class PageController {
     *
     * @return Name of the Thymeleaf template which will be used to render the HTML
     */
-    @GetMapping("/Register")
+    @GetMapping("/register")
     public String getRegister(Model model) {
         model.addAttribute("user", new User());
         return "Reister";
     }
 
-    @GetMapping("/About")
+    @GetMapping("/about")
     public String getAbout() {
         return "About";
     }

@@ -11,14 +11,14 @@
 </head>
 <body>
 
-  <header th:replace="fragments/header.html :: header"></header>
+  <header th:replace="~{fragments/header.html :: header}"></header>
 
   <h1 id="Product-Title">PRODUCTS</h1>
 
 
-  <main th:replace="fragments/product-card :: product-card"></main>
+  <main th:replace="~{fragments/product-card.html :: product-card}"></main>
 
 
-  <footer th:replace="fragments/footer.html :: footer"> </footer>
+  <footer th:replace="~{fragments/footer.html :: footer}"> </footer>
 </body>
 </html>
