@@ -6,6 +6,6 @@
         <p class="products-categories">(Category)</p>
         <p class="products-price" th:text="'From ' + ${products.price} + ${valuta}"></p>
         <button class="button-buy">buy</button> <!-- TOOD MAKE REDIRECT TO {ID} ENDPOINT -->
-        <nav><a class="product-learn-more" th:href="@{/Products/{id}(id=${products.pid})}">Learn more</a></nav>
+        <nav><a class="product-learn-more" th:href="@{/products/{id}(id=${products.pid})}">Learn more</a></nav>
     </div>
 </main>

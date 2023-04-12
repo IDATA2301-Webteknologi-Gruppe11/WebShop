@@ -52,7 +52,9 @@
 }
 
 footer {
-margin-top: 38.7rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 
