@@ -12,7 +12,8 @@
 <header th:replace="~{fragments/header.html :: header}"></header>
 <main class="flex-container">
     <h1 class="product-name" th:text="${products.name}"></h1>
-    <!-- <img src=""> -->
+    <p class="products-categories" th:each="category : ${products.categories}" th:utext="${category.cname} + (${categoryStat.last}? '' : ', ')"></p>
+    <img class="detail-img" th:src="${products.image}" width="1000" height="200"/>
     <p class="product-description" th:text="${products.description}"></p>
     <div class="grid-container">
         <p class="buy-text" th:text="'Buy ' + ${products.name}"></p>

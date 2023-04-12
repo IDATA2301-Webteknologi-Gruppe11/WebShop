@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import no.ntnu.ProFlex.services.ProductService;
 
+import java.util.List;
+
 /**
  * Serves the HTML documents with help of Thymeleaf templates.
  * 
@@ -63,8 +65,14 @@ public class PageController {
      * @return Name of the ThymeLeaf template which will be used to render the HTML
      */
     @GetMapping("/products")
-    public String getProducts(Model model) {
-        model.addAttribute("products", this.productService.getAll());
+    public String getProducts(@RequestParam(required = false) String category, Model model) {
+        Iterable<Product> products = null;
+        if (category == null) {
+            products = this.productService.getAll();
+        } else {
+            products = this.productService.getByCategory(category);
+        }
+        model.addAttribute("products", products);
         model.addAttribute("valuta", "kr");
         model.addAttribute("separator", ", ");
         return "Products";

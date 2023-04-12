@@ -7,18 +7,25 @@
   <link rel="stylesheet" th:href="@{/static/css/fragments/header.css}">
   <link rel="stylesheet" th:href="@{/static/css/fragments/product-card.css}"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <script src="../js/SearchBar.js"></script>
 </head>
 <body>
 
   <header th:replace="~{fragments/header.html :: header}"></header>
 
-  <h1 id="Product-Title">PRODUCTS</h1>
-
-
+  <h1 id="Product-Title">Shop Our Selection</h1>
+  <div id="Products-flex-container">
+    <p>All Categories. Take your pick</p>
+    <a th:href="@{/products}">All</a>
+    <a th:href="@{/products(category='Planning')}">Planning</a>
+    <a th:href="@{/products(category='Scheduling')}">Scheduling</a>
+    <a th:href="@{/products(category='Automation')}">Automation</a>
+    <a th:href="@{/products(category='Processes')}">Processes</a>
+    <a th:href="@{/products(category='Tax')}">Tax</a>
+    <a th:href="@{/products(category='Legal')}">Legal</a>
+    <a th:href="@{/products(category='Accounting')}">Accounting</a>
+    <a th:href="@{/products(category='Finance')}">Finance</a>
+  </div>
   <main th:replace="~{fragments/product-card.html :: product-card}"></main>
-
-
   <footer th:replace="~{fragments/footer.html :: footer}"> </footer>
 </body>
 </html>

@@ -17,4 +17,5 @@ import java.util.List;
 public interface ProductRepository extends CrudRepository<Product, Integer> {
     Page<Product> findAll(Pageable pageable);
     List<Category> findAllCategoriesByPid(int pid);
+    List<Product> findByCategoriesCname(String cname);
 }

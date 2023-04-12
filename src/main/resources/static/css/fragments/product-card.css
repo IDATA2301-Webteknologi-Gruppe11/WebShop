@@ -6,6 +6,47 @@
     box-sizing: border-box;
 }
 
+.products-description {
+    font-size: 1.5rem;
+    min-height: 20rem;
+}
+
+
+#Product-Title {
+    text-align: center;
+    font-weight: normal;
+    font-family: Poppins, sans-serif;
+    font-size: 10rem;
+    margin-top: 10rem;
+    margin-bottom: 7rem;
+    color: #1d1d1f;
+}
+
+#Products-flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+#Products-flex-container a {
+    text-decoration: none;
+    color: #6e6e73;
+    padding-right: 3rem;
+}
+
+#Products-flex-container p {
+    color: #1d1d1f;
+    padding-right: 3rem;
+}
+
+
+#Products-flex-container a:hover {
+    text-decoration: none;
+    color: #989898;
+}
+
 .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -13,8 +54,23 @@
     justify-content: center;
 }
 
+section {
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0.2rem 0.2rem 1rem 0.2rem #cbcbcb;
+    transition: transform 0.3s ease-out;
+    height: 40rem;
+    width: 49rem;
+    padding-top: 4rem;
+}
+
+section:hover {
+    transform: scale(1.02);
+    content: "Test";
+}
+
 .product-card{
-    padding: 10rem;
+    padding: 4rem;
     max-width: 75rem;
 }
 
@@ -29,34 +85,31 @@
 
 .card-img{
     border-radius: 25px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);;
+    margin-top: 2rem;
 }
 
 .product-name {
     font-size: 3rem;
     font-family: Poppins, sans-serif;
     font-weight: Bold;
-    margin-top: 3rem;
+    width: 100%;
+    text-align: center;
+    color: #1d1d1f;
 }
 
-.products-categories {
-    font-family: Poppins, sans-serif;
-    font-weight: lighter;
-    font-size: 2rem;
-    margin-top: 3rem;
-    display: inline;
+.bottom-flex {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5rem;
 }
 
 .products-price {
     font-family: Poppins, sans-serif;
     font-weight: lighter;
     font-size: 1.5rem;
-    margin: 1.5rem 0rem;
-}
-
-.products-description{
-    font-size: 1.5rem;
-    min-height: 20rem;
+    color: #1d1d1f;
+    margin-left: 17rem;
+    margin-top: 1rem;
 }
 
 .button-buy {
@@ -68,7 +121,7 @@
     border-radius: 70px;
     font-family: Poppins, sans-serif;
     font-size: 1.7rem;
-    margin-top: 1.5rem;
+    margin-left: 3rem;
 }
 
 .product-learn-more {

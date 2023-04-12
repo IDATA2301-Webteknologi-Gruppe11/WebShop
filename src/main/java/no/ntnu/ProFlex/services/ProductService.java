@@ -166,4 +166,8 @@ public class ProductService {
     public List<Category> findAllCategoriesByPid(int pid) {
         return this.productRepository.findAllCategoriesByPid(pid);
     }
+
+    public List<Product> getByCategory(String category) {
+        return this.productRepository.findByCategoriesCname(category);
+    }
 }
