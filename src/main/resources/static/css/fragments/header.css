@@ -2,31 +2,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem;
-    font-size: 7rem;
+    padding: 3rem;
+    font-size: 9rem;
     border-bottom: 1px solid;
     border-bottom-color: gray;
 }
 
-.navigation img {
-    height: 5rem;
-    margin-left: 1rem;
+.navigation a {
+    text-decoration: none;
+    color: black;
 }
 
-.navigation a {
-    color: black;
-    text-decoration: none;
+.navigation img {
+    height: 5rem;
+    width: 15rem;
+    margin: auto;
+}
+
+.ul2{
+    width: 50rem;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.ul3{
+    width: 50rem;
+    margin: auto;
+    text-align: center;
 }
 
 .ul1 {
-    margin-left: 15rem;
+    margin: auto;
+    vertical-align: middle;
 }
 
 .ul1 li {
     list-style: none;
     display: inline-block;
     padding: 1rem;
-    vertical-align: middle;
 }
 
 
