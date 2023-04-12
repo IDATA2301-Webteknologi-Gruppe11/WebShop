@@ -44,6 +44,7 @@
     font-weight: lighter;
     font-size: 2rem;
     margin-top: 3rem;
+    display: inline;
 }
 
 .products-price {

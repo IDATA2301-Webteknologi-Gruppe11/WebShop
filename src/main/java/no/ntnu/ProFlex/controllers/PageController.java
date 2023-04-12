@@ -36,7 +36,8 @@ public class PageController {
      */
     @GetMapping("/")
     public String getIndex(Model model) {
-        model.addAttribute("featuredProducts", this.productService.getFirst(2)); //Show featured products
+        //model.addAttribute("featuredProducts", this.productService.getFirst(2)); //Show featured products
+        model.addAttribute("featuredProduct", this.productService.getRandomProduct());
         model.addAttribute("valuta", "kr");
         return "index";
     }
@@ -64,8 +65,8 @@ public class PageController {
     @GetMapping("/products")
     public String getProducts(Model model) {
         model.addAttribute("products", this.productService.getAll());
-        //model.addAttribute("setCategories", this.productService.findAllCategoriesByPid(id));
         model.addAttribute("valuta", "kr");
+        model.addAttribute("separator", ", ");
         return "Products";
     }
 

@@ -79,6 +79,10 @@ public class Product {
 
     }
 
+    public Set<Category> getCategories(){
+        return categories;
+    }
+
     /**
      * Checks a given integer.
      * The number can not be zero or below.

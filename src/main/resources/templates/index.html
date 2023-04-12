@@ -21,9 +21,9 @@
 <!--        <img class="hero-picture" src="/static/images/hero-picture-low-res.png">-->
       </div>
       <main class="flex-container">
-        <div class="product-card" th:each="products : ${featuredProducts}">
+        <div class="product-card" th:each="products : ${featuredProduct}">
           <h4 class="product-name" th:text="${products.name}"></h4>
-          <p class="product-category"> (Category)</p>
+          <p class="product-category"></p>
           <p class="products-price" th:text="${products.price} + ${valuta}"></p>
           <p class="products-description" th:text="${products.description}"></p>
           <a class="products-buy">Buy</a> <!-- TOOD MAKE REDIRECT TO {ID} ENDPOINT -->

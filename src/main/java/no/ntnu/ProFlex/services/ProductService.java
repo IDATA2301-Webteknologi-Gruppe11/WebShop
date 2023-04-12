@@ -125,11 +125,11 @@ public class ProductService {
      *
      * @return random product.
      */
-    public Product gerRandomProduct() {
+    public Product getRandomProduct() {
         Random random = new Random();
         List<Integer> intList = new ArrayList<>();
         for(Product product:getAll()) {
-            intList.add(product.getPid());
+            intList.add(product.getPid()); //
         }
         int randomIndex = random.nextInt(intList.size());
         return findById(intList.get(randomIndex));
