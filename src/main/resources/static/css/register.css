@@ -1,8 +1,9 @@
-body {
-    font-family: Poppins, sans-serif;
-    background: white;
+* {
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 62.5%;
+    box-sizing: border-box;
 }
 
 #register-flex-conteiner {
@@ -19,7 +20,8 @@ body {
     padding-bottom: 3rem;
     padding-left: 5rem;
     padding-right: 5rem;
-    width: 40rem;
+    width: 60rem;
+    margin-top: 10rem;
 }
 
 ul {
@@ -32,80 +34,78 @@ ul li {
 }
 
 h1 {
-    font-size: 4rem;
+    margin-top: 3rem;
+    font-size: 6rem;
     font-weight: normal;
 }
 
 .register-text {
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-weight: lighter;
     color: #1f1f1f;
 }
 
 .icons {
-    font-size: 2rem;
+    font-size: 3rem;
     color: #1f1f1f;
 }
 
 .text-bar {
     border: none;
     outline: none;
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-weight: lighter;
     color: #1f1f1f;
 }
 
 #text-email-bar {
-    width: 26.5rem;
+    width: 40rem;
 }
 
 #text-firstname-bar {
-    width: 24rem;
+    width: 35.5rem;
 }
 
 #text-lastname-bar {
-    width: 24.5rem;
+    width: 35.5rem;
 }
 
 #password-text-bar {
-    width: 25rem;
+    width: 36rem;
 }
 
 #password-confirm-text-bar {
-    width: 20rem;
+    width: 28rem;
 }
 
 #email-list {
-    margin-top: 2rem;
+    margin-top: 3rem;
     text-align: left;
 }
 
 .list {
-    margin-top: 3rem;
+    margin-top: 4.5rem;
     text-align: left;
 }
 
 .line {
     border-bottom: 1px solid #cbcbcb;
-    width: 95%;
-    margin-left: 1.5rem;
-    margin-top: -0.8rem;
 }
 
 .button-eye {
     border:none;
     background-color: white;
-    font-size: 1.5rem;
+    font-size: 2.3rem;
 }
 
 #button-register {
-    margin-top: 2rem;
-    font-size: 2rem;
+    margin-top: 3rem;
+    font-size: 3rem;
     color: white;
     background-color: #0067B8;
     border: none;
     width: 95%;
-    height: 5rem;
+    height: 7rem;
     border-radius: 5px;
 }
 
@@ -116,7 +116,7 @@ h1 {
     width: 100%;
     text-align: center;
     align-items: center;
-    padding-bottom: 1.2rem;
-    padding-top: 1.2rem;
-    font-size: 0.7rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    font-size: 1rem;
 }

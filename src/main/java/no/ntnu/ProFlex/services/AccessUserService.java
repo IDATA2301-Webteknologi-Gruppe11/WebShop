@@ -1,6 +1,5 @@
 package no.ntnu.ProFlex.services;
 
-
 /**
  * This class provides AccsessUserDetails needed for authentication.
  *
@@ -43,7 +42,7 @@ public class AccessUserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<User> user = this.userRepository.findByEmail(email);
+        Optional<User> user = userRepository.findByEmail(email);
         if (user.isPresent()) {
             return new AccessUserDetails(user.get());
         } else {
