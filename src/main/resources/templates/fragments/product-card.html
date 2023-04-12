@@ -1,11 +1,11 @@
 <main class="flex-container" th:fragment="product-card">
     <div class="product-card" th:each="products: ${products}">
-     <!--   <img src="#"> -->
+        <img class="card-img" th:src="${products.image}" width="320" height="480"/>
         <h4 class="product-name" th:text="${products.name}"></h4>
 <!--     <p class="product-category" th:each:="categories : ${setCategory} " th:text="${}"></p>-->
         <p class="products-categories">(Category)</p>
         <p class="products-price" th:text="'From ' + ${products.price} + ${valuta}"></p>
         <button class="button-buy">buy</button> <!-- TOOD MAKE REDIRECT TO {ID} ENDPOINT -->
-        <a class="product-learn-more">Learn more</a>
+        <nav><a class="product-learn-more" th:href="@{/Products/{id}(id=${products.pid})}">Learn more</a></nav>
     </div>
 </main>

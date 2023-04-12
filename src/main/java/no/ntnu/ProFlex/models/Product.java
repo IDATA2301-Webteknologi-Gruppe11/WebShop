@@ -3,6 +3,8 @@ package no.ntnu.ProFlex.models;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+
+import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -35,6 +37,9 @@ public class Product {
     @NotNull
     @Column(nullable = false, name = "price")
     private int price;
+
+    @Column(name = "image")
+    private String image;
 
     @ManyToMany
     @NotNull
@@ -199,6 +204,14 @@ public class Product {
         this.name = product.getName();
         this.pid = product.getPid();
         this.price = product.getPrice();
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public void setImage(String path) {
+        this.image = path;
     }
 
     //TODO Javadoc
