@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -120,12 +121,27 @@ public class ProductService {
     }
 
     /**
+     * Returns a random Product.
+     *
+     * @return random product.
+     */
+    public Product gerRandomProduct() {
+        Random random = new Random();
+        List<Integer> intList = new ArrayList<>();
+        for(Product product:getAll()) {
+            intList.add(product.getPid());
+        }
+        int randomIndex = random.nextInt(intList.size());
+        return findById(intList.get(randomIndex));
+    }
+
+    /**
      * Find and return all categories of a given product.
      *
      * @param pid the id of the product.
      * @return a list of categories.
      */
-    //public List<Category> findAllCategoriesByPid(int pid) {
-      //  return this.productRepository.findAllCategoriesByPid(pid);
-    //}
+    public List<Category> findAllCategoriesByPid(int pid) {
+        return this.productRepository.findAllCategoriesByPid(pid);
+    }
 }

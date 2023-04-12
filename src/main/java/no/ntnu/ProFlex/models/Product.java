@@ -29,7 +29,7 @@ public class Product {
     @Id
     @GeneratedValue
     @Column(name = "pid")
-    private int pid;
+    private Integer pid;
 
     @Schema(description = "The price of a product")
     @NotNull

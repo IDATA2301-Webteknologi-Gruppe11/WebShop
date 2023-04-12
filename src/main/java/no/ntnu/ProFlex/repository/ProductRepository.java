@@ -18,5 +18,5 @@ import java.util.Set;
  */
 public interface ProductRepository extends CrudRepository<Product, Integer> {
     Page<Product> findAll(Pageable pageable);
-    //List<Category> findAllCategoriesByPid(int pid);
+    List<Category> findAllCategoriesByPid(int pid);
 }
