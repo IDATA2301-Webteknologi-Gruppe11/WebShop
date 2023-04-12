@@ -1,6 +1,13 @@
 package no.ntnu.ProFlex.services;
 
 
+/**
+ * This class provides AccsessUserDetails needed for authentication.
+ *
+ * @author Ole Kristian
+ * @version 1.0
+ */
+
 import no.ntnu.ProFlex.dto.UserProfileDto;
 import no.ntnu.ProFlex.models.Role;
 import no.ntnu.ProFlex.models.User;
@@ -17,19 +24,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
-import java.util.logging.Logger;
 
-/**
- * This class provides AccsessUserDetails needed for authentication.
- *
- * @author Ole Kristian
- * @version 1.0
- */
 /**
  * Provides AccessUserDetails needed for authentication
  */
 @Service
 public class AccessUserService implements UserDetailsService {
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    RoleRepository roleRepository;
 
     private static final int MIN_PASSWORD_LENGTH = 8;
     private static final String MIN_ONE_CAPITALLETTER = ".*[A-Z]+.*";
@@ -37,14 +41,9 @@ public class AccessUserService implements UserDetailsService {
     private static final String MIN_ONE_NUMBER = ".*\\d+.*";
     private static final String CORRECT_EMAIL_REQUIREMENTS =  "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
 
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    RoleRepository roleRepository;
-
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findByEmail(email);
+        Optional<User> user = this.userRepository.findByEmail(email);
         if (user.isPresent()) {
             return new AccessUserDetails(user.get());
         } else {

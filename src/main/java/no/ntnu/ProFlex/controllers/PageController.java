@@ -1,8 +1,12 @@
 package no.ntnu.ProFlex.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
 import no.ntnu.ProFlex.models.Product;
+import no.ntnu.ProFlex.models.User;
+import no.ntnu.ProFlex.services.AccessUserService;
 import no.ntnu.ProFlex.services.OrderService;
 import no.ntnu.ProFlex.services.UserService;
+import org.bouncycastle.math.raw.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,8 +63,8 @@ public class PageController {
      */
     @GetMapping("/Products")
     public String getProducts(Model model) {
-//        model.addAttribute("setCategories", this.productService.)
         model.addAttribute("products", this.productService.getAll());
+        //model.addAttribute("setCategories", this.productService.findAllCategoriesByPid(id));
         model.addAttribute("valuta", "kr");
         return "Products";
     }
@@ -92,6 +96,27 @@ public class PageController {
     }
 
     /**
+     * creates a new user.
+     *
+     * @param model The model where the data will be stored.
+     * @param user the user that you want to create.
+     */
+    @PostMapping("/Register")
+    public String createUser(Model model, @ModelAttribute User user, HttpServletRequest request) {
+       AccessUserService accessUserService = new AccessUserService();
+       String checkUser = accessUserService.tryCreateNewUser(user.getFirstName(),
+               user.getLastName(), user.getEmail(), user.getPass());
+       if(checkUser == null) {
+           model.addAttribute("user", this.userService.add(user));
+       }
+        String referer = request.getHeader("Referer");
+        if(referer != null) {
+           return referer;
+       }
+        return "index";
+    }
+
+    /**
      * Serve the "ShoppingCart" page
      *
      * @return Name of the ThymeLeaf template which will be used to render the HTML
@@ -117,7 +142,8 @@ public class PageController {
     * @return Name of the Thymeleaf template which will be used to render the HTML
     */
     @GetMapping("/Register")
-    public String getRegister() {
+    public String getRegister(Model model) {
+        model.addAttribute("user", new User());
         return "Reister";
     }
 

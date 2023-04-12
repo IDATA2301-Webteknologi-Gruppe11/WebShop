@@ -34,12 +34,12 @@ public class UserController {
      *
      * @return all users.
      */
-    @Operation(summary = "Get all users", description = "Returns all the products")
+    @Operation(summary = "Get all users", description = "Returns all the user")
     @GetMapping("/getAll")
     public ResponseEntity<List<User>> getUser() {
         Iterable<User> users = this.userService.getAll();
         if (!users.iterator().hasNext()) {
-            return new ResponseEntity("Didn't find products", HttpStatus.NOT_FOUND);
+            return new ResponseEntity("Didn't find user", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok((List<User>) users);
     }
@@ -78,7 +78,7 @@ public class UserController {
             if (!this.userService.add(user)) {
                 return new ResponseEntity("User was not added", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity("Product was added", HttpStatus.CREATED);
+            return new ResponseEntity("User was added", HttpStatus.CREATED);
         }
         catch (JSONException e) {
             LOGGER.severe(SEVERE + e.getMessage());

@@ -1,9 +1,16 @@
 package no.ntnu.ProFlex.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.FetchType;
 import jakarta.validation.constraints.NotNull;
-
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -71,14 +78,14 @@ public class User {
      * @param firstName the first name of the user. //TODO Betre dokumentasjon
      * @param lastName the last name of the user.
      * @param email the email of the user.
-     * @param password the password of the user.
+     * @param pass the password of the user.
      */
-    public User( String firstName, String lastName, String email, String password) {
+    public User( String firstName, String lastName, String email, String pass) {
         try {
             this.email = stringChecker(email, "Email");
             this.firstName = stringChecker(firstName, "firstName");
             this.lastName = stringChecker(lastName, "lastName");
-            this.pass = stringChecker(password, "Password");
+            this.pass = stringChecker(pass, "pass");
         }
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
@@ -229,7 +236,7 @@ public class User {
      * @return boolean statement, true if valid false if not.
      */
     public boolean isValid() {
-        return !"".equals(firstName) && !"".equals(firstName) && !"".equals(pass) && uid > 0;
+        return !"".equals(firstName) && !"".equals(firstName) && !"".equals(pass) && uid >= 0;
     }
 
     /**

@@ -1,12 +1,13 @@
 package no.ntnu.ProFlex.services;
 
+import no.ntnu.ProFlex.models.Category;
 import no.ntnu.ProFlex.models.Product;
 import no.ntnu.ProFlex.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -117,4 +118,14 @@ public class ProductService {
             this.productRepository.save(product);
         }
     }
+
+    /**
+     * Find and return all categories of a given product.
+     *
+     * @param pid the id of the product.
+     * @return a list of categories.
+     */
+    //public List<Category> findAllCategoriesByPid(int pid) {
+      //  return this.productRepository.findAllCategoriesByPid(pid);
+    //}
 }

@@ -56,7 +56,7 @@ public class ProductController {
      * @return the product of the given ID
      */
     @Operation(summary = "Get product by ID", description = "Retrieves a product by its ID.")
-    @GetMapping("//{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Product> getProductFromAGiveID(
             @Parameter(name = "id", description = "ID of the product to retrieve", required = true)
             @PathVariable int id) {

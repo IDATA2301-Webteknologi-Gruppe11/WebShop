@@ -1,6 +1,5 @@
 package no.ntnu.ProFlex.services;
 
-import io.swagger.v3.oas.annotations.servers.Server;
 import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
