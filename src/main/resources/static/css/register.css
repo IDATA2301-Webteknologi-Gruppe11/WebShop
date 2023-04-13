@@ -109,6 +109,12 @@ h1 {
     border-radius: 5px;
 }
 
+.error-message {
+    margin-top: 2rem;
+    font-size: 3rem;
+    color: red;
+}
+
 #footer-text {
     background-color: #eeeeee;
     position: fixed;

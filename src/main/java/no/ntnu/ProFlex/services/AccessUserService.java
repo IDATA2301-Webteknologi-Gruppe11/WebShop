@@ -88,10 +88,10 @@ public class AccessUserService implements UserDetailsService {
      */
     public String tryCreateNewUser(String firstName, String lastName, String email, String password) {
         String errorMessage;
-        if(firstName == null || firstName.isEmpty()) {
+        if(firstName == null || firstName.trim().isEmpty()) {
             return  "First name can't be empty";
         }
-        if(lastName == null || lastName.isEmpty()) {
+        if(lastName == null || lastName.trim().isEmpty()) {
             return "Last name can't be empty";
         }
         errorMessage = checkEmailRequirements(email);

@@ -14,7 +14,7 @@
   <div id="register-flex-conteiner">
     <section id="section">
       <h1>Register</h1>
-      <form th:action="@{/Register}" method="post" th:object="${user}">
+      <form th:action="@{/register}" method="post" th:object="${user}">
         <ul id="email-list">
           <li class="icons"><i class="fa-solid fa-envelope"></i></li>
           <li class="register-text">Email:</li>
@@ -37,16 +37,19 @@
           <li class="icons"><i class="fa-sharp fa-solid fa-key"></i></li>
           <li class="register-text">Password:</li>
           <li><input type="password" class="text-bar" id="password-text-bar" th:field="*{pass}" required></li>
-          <li><button class="button-eye" id="password-button-eye" onclick="showPassword()"><i class="fa-regular fa-eye-slash"></i></button></li>
+          <li><button class="button-eye" id="password-button-eye" onclick="showPassword()" type="button"><i class="fa-regular fa-eye-slash"></i></button></li>
         </ul>
         <div class="line"></div>
         <ul class="list">
           <li class="icons"><i class="fa-sharp fa-solid fa-key"></i></li>
           <li class="register-text">Confirm Password:</li>
           <li><input type="password" class="text-bar" id="password-confirm-text-bar"></li>
-          <li><button class="button-eye" id="password-confirm-button-eye" onclick="showConfirmPassword()"><i class="fa-regular fa-eye-slash"></i></button></li>
+          <li><button class="button-eye" id="password-confirm-button-eye" onclick="showConfirmPassword()" type="button"><i class="fa-regular fa-eye-slash"></i></button></li>
         </ul>
         <div class="line"></div>
+        <div th:if="${errorMessage}" class="error-message">
+          <p th:text="${errorMessage}"></p>
+        </div>
         <button id="button-register" type="submit">Register</button>
       </form>
     </section>

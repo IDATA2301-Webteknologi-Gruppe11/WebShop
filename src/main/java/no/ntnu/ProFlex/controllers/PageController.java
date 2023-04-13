@@ -112,17 +112,17 @@ public class PageController {
      * @param model The model where the data will be stored.
      * @param user the user that you want to create.
      */
-    @PostMapping("/Register")
-    public String createUser(Model model, @ModelAttribute User user, HttpServletRequest request) {
+    @PostMapping("/register")
+    public String createUser(Model model, @ModelAttribute User user) {
        String checkUser = accessUserService.tryCreateNewUser(user.getFirstName(),
                user.getLastName(), user.getEmail(), user.getPass());
        if(checkUser == null) {
            model.addAttribute("user", this.userService.add(user));
        }
-//        String referer = request.getHeader("Referer");
-//        if(referer != null) {
-//           return referer;
-//       }
+       else {
+           model.addAttribute("errorMessage", checkUser);
+           return "Reister";
+       }
         return "index";
     }
 
