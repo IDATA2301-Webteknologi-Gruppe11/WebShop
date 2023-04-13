@@ -19,13 +19,6 @@
     margin: auto;
 }
 
-.ul2{
-    width: 50rem;
-    margin: auto;
-    vertical-align: middle;
-    text-align: right;
-}
-
 .ul3{
     width: 50rem;
     margin: auto;
@@ -43,14 +36,6 @@
     padding: 1rem;
 }
 
-
-.ul2 li {
-    list-style: none;
-    display: inline-block;
-    padding: 1rem;
-    vertical-align: middle;
-}
-
 .ul1 li::after {
     content: "";
     width: 0;
@@ -62,6 +47,60 @@
 
 .ul1 li:hover::after {
     width: 100%;
+}
+
+.ul2 {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: flex-end;
+}
+
+#search {
+    margin-right: 3rem;
+}
+
+#shoppingcart-felx-box {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2rem;
+    font-size: 2.5rem;
+    font-family: Roboto, sans-serif;
+}
+
+#shoppingcart-felx-box p {
+    margin-right: 1rem;
+    margin-top: 2rem;
+}
+
+#shoppingcart-felx-box p:hover {
+    text-decoration: 2px underline #1d1d1f;
+}
+
+#shoppingcart-felx-box span {
+    margin-top: 1.6rem;
+}
+
+
+#login-flex-box {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2rem;
+    font-size: 2.5rem;
+    font-family: Roboto, sans-serif;
+}
+
+#login-flex-box p {
+    margin-right: 1rem;
+    margin-top: 2rem;
+}
+
+#login-flex-box p:hover {
+    text-decoration: 2px underline #1d1d1f;
+}
+
+#login-flex-box span {
+    margin-top: 1.6rem;
 }
 
 #search {

@@ -8,15 +8,19 @@
             <li><a href="/products">PRODUCTS</a></li>
             <li><a href="/about">ABOUT</a></li>
         </ul>
-        <ul class="ul2">
-            <li>
-                <form>
-                    <input id="search" type="search" pattern=".*\S.*" required placeholder="search..." />
-                    <span class="caret"></span>
-                </form>
-            </li>
-            <li><a href="ShoppingCart.html"><span class="material-symbols-outlined">shopping_cart</span></a></li>
-            <li><a href="Profile"><span class="material-symbols-outlined">account_circle</span></a></li>
-        </ul>
+        <div class="ul2">
+            <form>
+                <input id="search" type="search" pattern=".*\S.*" required placeholder="search..." />
+                <span class="caret"></span>
+            </form>
+            <a href="/shoppingCart" id="shoppingcart-felx-box">
+                <p>Shopping cart</p>
+                <span class="material-symbols-outlined">shopping_cart</span>
+            </a>
+            <a href="/login" id="login-flex-box">
+                <p>Log in</p>
+                <span class="material-symbols-outlined">account_circle</span>
+            </a>
+        </div>
     </nav>
 </header>

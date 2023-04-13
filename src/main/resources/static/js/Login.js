@@ -11,3 +11,8 @@ function showPassword() {
         buttonEye.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
     }
 }
+
+
+function redirectToRegistartion() {
+    window.location.href = "/register";
+}
