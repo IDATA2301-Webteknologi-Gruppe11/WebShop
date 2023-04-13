@@ -6,20 +6,39 @@
     box-sizing: border-box;
 }
 
-.about-flex-container {
-    display: flex;
-    flex-direction: column;
-    padding-left: 27rem;
-    max-width: 150rem;
-    min-height: 40rem;
-    padding-top: 12rem;
-    margin: auto;
+.about-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 4rem auto;
+    grid-auto-rows: auto;
+    margin-top: 13rem;
 }
 
 #about-title{
+    grid-row: 1;
+    grid-column: 1;
     font-size: 3rem;
+    margin-left: 30rem;
 }
 
 #about-description {
+    grid-row: 2;
+    grid-column: 1;
     font-size: 2rem;
+    max-width: 70%;
+    line-height: 3rem;
+    margin-left: 30rem;
+
+}
+
+.about-grid-container iframe {
+    grid-row: 1 / 2;
+    grid-column: 2;
+    margin-left: 10rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
