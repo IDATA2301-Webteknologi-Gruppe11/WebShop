@@ -3,8 +3,6 @@ package no.ntnu.ProFlex.models;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-
-import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -40,6 +38,9 @@ public class Product {
 
     @Column(name = "image")
     private String image;
+
+    @Column(name = "smallDescription")
+    private String shortDescription;
 
     @ManyToMany
     @NotNull
@@ -210,12 +211,41 @@ public class Product {
         this.price = product.getPrice();
     }
 
+    /**
+     * Return image patch
+     * @return image path
+     */
     public String getImage() {
         return this.image;
     }
 
+    /**
+     * Setts image path
+     * @param path of the image
+     */
     public void setImage(String path) {
         this.image = path;
+    }
+
+    /**
+     * Returns short Description
+     * @return short Description
+     */
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    /**
+     * Setts short Description
+     * @param shortDescription the new short description
+     */
+    public void setShortDescription(String shortDescription) {
+        try {
+            this.shortDescription = stringChecker(shortDescription, "shortDescription");
+        }
+        catch (IllegalArgumentException illegalArgumentException) {
+            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
+        }
     }
 
     //TODO Javadoc

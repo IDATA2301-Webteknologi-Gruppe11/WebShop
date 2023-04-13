@@ -3,6 +3,7 @@
         <section class="product-section" th:href="@{/products/{id}(id=${products.pid})}">
             <h4 class="product-name" th:text="${products.name}"></h4>
             <img class="card-img" th:src="${products.image}" width="300" height="200"/>
+            <p class="product-short-description" th:text="${products.shortDescription}"></p>
             <div class="bottom-flex">
                 <p class="products-price" th:text="'Get product for ' + ${products.price} + ${valuta} + '*'"></p>
                 <button class="button-buy">Buy</button> <!-- TOOD MAKE REDIRECT TO {ID} ENDPOINT -->

@@ -59,7 +59,7 @@
     border-radius: 10px;
     box-shadow: 0.2rem 0.2rem 1rem 0.2rem #cbcbcb;
     transition: transform 0.3s ease-out;
-    height: 40rem;
+    height: 44rem;
     width: 49rem;
     padding-top: 4rem;
 }
@@ -88,6 +88,13 @@
     margin-top: 2rem;
 }
 
+.product-short-description {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    max-width: 80%;
+    margin-left: 6rem;
+}
+
 .product-name {
     font-size: 3rem;
     font-family: Poppins, sans-serif;
@@ -100,7 +107,7 @@
 .bottom-flex {
     display: flex;
     flex-direction: row;
-    margin-top: 5rem;
+    margin-top: 2.5rem;
 }
 
 .products-price {
@@ -130,4 +137,8 @@
     color: #0067b8;
     display: block;
     margin-top: 1.5rem;
+}
+
+footer {
+    margin-top: 4rem;
 }
