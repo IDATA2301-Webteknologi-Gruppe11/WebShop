@@ -30,6 +30,8 @@ public class PageController {
     UserService userService;
     @Autowired
     OrderService orderService;
+    @Autowired
+    AccessUserService accessUserService;
 
     /**
      * Serve the "Home" page
@@ -110,18 +112,17 @@ public class PageController {
      * @param model The model where the data will be stored.
      * @param user the user that you want to create.
      */
-    @PostMapping("/register")
+    @PostMapping("/Register")
     public String createUser(Model model, @ModelAttribute User user, HttpServletRequest request) {
-       AccessUserService accessUserService = new AccessUserService();
        String checkUser = accessUserService.tryCreateNewUser(user.getFirstName(),
                user.getLastName(), user.getEmail(), user.getPass());
        if(checkUser == null) {
            model.addAttribute("user", this.userService.add(user));
        }
-        String referer = request.getHeader("Referer");
-        if(referer != null) {
-           return referer;
-       }
+//        String referer = request.getHeader("Referer");
+//        if(referer != null) {
+//           return referer;
+//       }
         return "index";
     }
 
@@ -159,5 +160,10 @@ public class PageController {
     @GetMapping("/about")
     public String getAbout() {
         return "About";
+    }
+
+    @GetMapping("/error")
+    public String getErrorPage() {
+        return "test";
     }
 }

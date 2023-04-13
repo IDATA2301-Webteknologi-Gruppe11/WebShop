@@ -56,7 +56,7 @@
 
 .product-section {
     background-color: white;
-    border-radius: 25px;
+    border-radius: 10px;
     box-shadow: 0.2rem 0.2rem 1rem 0.2rem #cbcbcb;
     transition: transform 0.3s ease-out;
     height: 40rem;
