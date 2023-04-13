@@ -23,12 +23,13 @@
     width: 50rem;
     margin: auto;
     vertical-align: middle;
+    text-align: right;
 }
 
 .ul3{
     width: 50rem;
     margin: auto;
-    text-align: center;
+    text-align: left;
 }
 
 .ul1 {

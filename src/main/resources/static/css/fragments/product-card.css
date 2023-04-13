@@ -54,7 +54,7 @@
     justify-content: center;
 }
 
-section {
+.product-section {
     background-color: white;
     border-radius: 25px;
     box-shadow: 0.2rem 0.2rem 1rem 0.2rem #cbcbcb;
@@ -64,7 +64,7 @@ section {
     padding-top: 4rem;
 }
 
-section:hover {
+.product-section:hover {
     transform: scale(1.02);
     content: "Test";
 }

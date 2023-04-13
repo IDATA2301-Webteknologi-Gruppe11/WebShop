@@ -1,6 +1,6 @@
 <main class="flex-container" th:fragment="product-card">
     <div class="product-card" th:each="products: ${products}">
-        <section th:href="@{/products/{id}(id=${products.pid})}">
+        <section class="product-section" th:href="@{/products/{id}(id=${products.pid})}">
             <h4 class="product-name" th:text="${products.name}"></h4>
             <img class="card-img" th:src="${products.image}" width="300" height="200"/>
             <div class="bottom-flex">
