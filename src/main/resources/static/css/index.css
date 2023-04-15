@@ -12,7 +12,7 @@
     padding-top: 12rem;
     justify-content: flex-start;
     padding-left: 12rem;
-    margin: auto;
+    margin-bottom: 30rem;
     flex-direction: column;;
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 25%, rgba(0,103,184,1) 100%, rgba(0,9,255,1) 100%);
@@ -21,14 +21,62 @@
 .hero-title {
     font-size: 12rem;
     max-width: 200rem;
-    padding-left: 50rem;
+    margin-left: 10rem;
 }
 
-.featured-title{
-    margin-top: 8rem;
-    font-size: 5rem;
-    padding-top: 22rem;
-    padding-left: 50rem;
+.hero-section a {
+    text-decoration: none;
+}
+
+.hero-section-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 7rem;
+    margin-left: 80rem;
+    margin-top: 10rem;
+    color: white;
+    transition: gap 0.2s ease-in-out;
+    gap: 1rem;
+    width: 100%;
+    text-decoration: underline;
+    max-width: 50%;
+}
+
+.hero-section-link:hover {
+    gap: 3rem;
+}
+
+.index-product-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 70%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+@media screen and (min-width: 2000px) {
+    .index-product-flex {
+        max-width: 40%;
+        gap: 5rem;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .index-product-flex {
+        margin-left: 20rem;
+    }
+
+    .hero-section-link {
+        margin-left: 1rem;
+        min-width: 100%;
+    }
+}
+
+.index-product {
+    font-size: 7rem;
+    color: #1d1d1f;
 }
 
 @media(max-width: 700px) {

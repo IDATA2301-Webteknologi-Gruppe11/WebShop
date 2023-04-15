@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+.index-product-card-flex-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15rem;
+    margin-bottom: 40rem;
+}
+
+@media screen and (max-width: 1400px) {
+    .index-product-card-flex-container {
+        flex-direction: column;
+    }
+
+}
+
+.index-nav-product {
+    text-decoration: none;
+    color: #43484D;
+}
+
+.index-product-card-new-container {
+    width: 7rem;/* set the desired width */
+    text-align: center; /* center the content inside the container */
+}
+
+.index-product-card-new-box {
+    font-size: 3rem;
+    margin-top: 2rem;
+    background-color: #ffb900;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.index-product-card-white-container {
+    font-size: 3rem;
+    margin-top: 2rem;
+    background-color: white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: white;
+}
+
+.index-product-card-name {
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+.index-product-card-short-description {
+    font-size: 1.8rem;
+    max-width: 60rem;
+    margin-top: 2rem;
+    line-height: 2.5rem;
+}
+
+.index-product-card-learn-more-flex {
+    display: flex;
+    flex-direction: row;
+    font-size: 3rem;
+    color: #0067B8;
+    gap: 1rem;
+    transition: gap 0.2s ease-in-out;
+}
+
+.index-product-card-learn-more-flex:hover{
+    text-decoration: underline;
+    gap: 1.4rem;
+}
+
+.index-product-card-learn-more-flex p {
+    margin-top: 2rem;
+}
+
+.index-product-card-learn-more-flex div {
+    font-size: 2.5rem;
+    margin-top: 1.4rem;
+}
+
+
+

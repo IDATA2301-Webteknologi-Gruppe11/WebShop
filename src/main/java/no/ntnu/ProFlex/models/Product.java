@@ -42,6 +42,9 @@ public class Product {
     @Column(name = "smallDescription")
     private String shortDescription;
 
+    @Column(name = "newProduct")
+    private boolean newProduct;
+
     @ManyToMany
     @NotNull
     @Column(nullable = false)
@@ -246,6 +249,22 @@ public class Product {
         catch (IllegalArgumentException illegalArgumentException) {
             LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
         }
+    }
+
+    /**
+     * Return if the product is new or not.
+     * @return boolean statement, true if product is new, false if not.
+     */
+    public boolean getNewProduct() {
+        return this.newProduct;
+    }
+
+    /**
+     * Setts boolean statement for if the product is new or not.
+     * @param newProduct the boolean statement of the product.
+     */
+    public void setNewProduct(boolean newProduct) {
+        this.newProduct = newProduct;
     }
 
     //TODO Javadoc

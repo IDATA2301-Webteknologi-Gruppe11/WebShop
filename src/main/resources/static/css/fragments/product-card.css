@@ -54,6 +54,11 @@
     justify-content: center;
 }
 
+.navigate-to-product {
+    text-decoration: none;
+    color: #1d1d1f;
+}
+
 .product-section {
     background-color: white;
     border-radius: 10px;
@@ -66,7 +71,6 @@
 
 .product-section:hover {
     transform: scale(1.02);
-    content: "Test";
 }
 
 .product-card{

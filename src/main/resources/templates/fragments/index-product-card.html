@@ -1,0 +1,27 @@
+<main class="index-product-card-flex-container" th:fragment="index-product-card">
+  <div class="index-product-card" th:each="product : ${featuredProduct}">
+    <nav>
+      <a class="index-nav-product" th:href="@{/products/{id}(id=${product.pid})}">
+        <section>
+          <img class="index-product-card-image" th:src="${product.image}" width="550" height="267">
+          <section th:if="${product.newProduct == true}" class="index-product-card-new-container">
+            <div class="index-product-card-new-box">
+              <p>New</p>
+            </div>
+          </section>
+          <section th:if="${product.newProduct == false}">
+            <div class="index-product-card-white-container">
+              <p>New</p>
+            </div>
+          </section>
+          <h1 class="index-product-card-name" th:text="${product.name}"></h1>
+          <p class="index-product-card-short-description" th:text="${product.shortDescription}"></p>
+          <div class="index-product-card-learn-more-flex" >
+            <p>Learn more</p>
+            <div><i class="fa-solid fa-angle-right"></i></div>
+          </div>
+        </section>
+      </a>
+    </nav>
+  </div>
+</main>
