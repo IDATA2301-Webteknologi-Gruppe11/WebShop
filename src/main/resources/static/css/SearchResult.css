@@ -1,0 +1,24 @@
+
+.search-result-flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.search-result-headline {
+    font-family: Roboto, sans-serif;
+    font-size: 8.3rem;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+    width: 100%;
+    color: #1d1d1f;
+}
+
+.search-result-nav-flex {
+    display: flex;
+    flex-direction: row;
+    font-size: 7rem;
+    text-decoration: none;
+}

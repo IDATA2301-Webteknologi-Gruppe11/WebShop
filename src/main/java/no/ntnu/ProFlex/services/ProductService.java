@@ -167,7 +167,23 @@ public class ProductService {
         return this.productRepository.findAllCategoriesByPid(pid);
     }
 
+    /**
+     * Returns all product form a given category.
+     *
+     * @param category the category for the products that you want to find.
+     * @return list of products.
+     */
     public List<Product> getByCategory(String category) {
         return this.productRepository.findByCategoriesCname(category);
+    }
+
+    /**
+     * Search for product.
+     *
+     * @param query query that is used for searching.
+     * @return list of given product based on the query.
+     */
+    public List<Product> searchProducts(String query) {
+        return this.productRepository.searchProducts(query);
     }
 }

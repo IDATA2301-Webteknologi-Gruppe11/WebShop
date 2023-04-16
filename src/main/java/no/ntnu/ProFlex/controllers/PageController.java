@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import no.ntnu.ProFlex.services.ProductService;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Serves the HTML documents with help of Thymeleaf templates.
@@ -165,5 +167,13 @@ public class PageController {
     @GetMapping("/error")
     public String getErrorPage() {
         return "test";
+    }
+
+    @GetMapping("/search")
+    public ModelAndView searchProducts(@RequestParam("query") String query) {
+        List<Product> products = productService.searchProducts(query);
+        ModelAndView modelAndView = new ModelAndView("searchResults");
+        modelAndView.addObject("products", products);
+        return modelAndView;
     }
 }

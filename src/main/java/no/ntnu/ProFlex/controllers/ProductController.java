@@ -146,4 +146,9 @@ public class ProductController {
             return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam("query") String query) {
+        return ResponseEntity.ok(productService.searchProducts(query));
+    }
 }

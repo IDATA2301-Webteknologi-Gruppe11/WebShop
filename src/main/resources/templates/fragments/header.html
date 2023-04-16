@@ -9,9 +9,13 @@
             <li><a href="/about">ABOUT</a></li>
         </ul>
         <div class="ul2">
-            <form>
-                <input id="search" type="search" pattern=".*\S.*" required placeholder="search..." />
-                <span class="caret"></span>
+            <form th:action="@{/search}" method="get">
+                <div class="search-container" tabindex="1">
+                    <input type="text" name="query" placeholder="Search..." class="search-input">
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
             </form>
             <a href="/shoppingCart" id="shoppingcart-felx-box">
                 <p>Shopping cart</p>
