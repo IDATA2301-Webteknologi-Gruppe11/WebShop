@@ -1,16 +1,11 @@
 package no.ntnu.ProFlex.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -67,6 +62,10 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new LinkedHashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference
+    private Set<ShoppingCart> shoppingCarts = new HashSet<>();
 
     private static final Logger LOGGER = Logger.getLogger(User.class.getName());
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
@@ -262,6 +261,14 @@ public class User {
      */
     public void addRole(Role role) {
         roles.add(role);
+    }
+
+    public Set<ShoppingCart> getShoppingCarts() {
+        return this.shoppingCarts;
+    }
+
+    public void setShoppingCarts(Set<ShoppingCart> shoppingCarts) {
+        this.shoppingCarts = shoppingCarts;
     }
 
     @Override

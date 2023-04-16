@@ -18,7 +18,9 @@
     <div class="grid-container">
         <p class="buy-text" th:text="'Buy ' + ${products.name}"></p>
         <p class="product-price" th:text="'From ' + ${products.price} + 'kr'"></p>
-        <button class="button-add">Add To Cart</button>
+        <div>
+            <button type="submit" class="button-add">Add To Cart</button>
+        </div>
     </div>
 </main>
 <footer th:replace="~{fragments/footer.html :: footer}"></footer>

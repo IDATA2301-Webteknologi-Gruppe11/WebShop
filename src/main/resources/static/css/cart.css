@@ -1,5 +1,8 @@
 * {
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 62.5%;
 }
 
 /* Structure of main grid */
@@ -16,68 +19,6 @@ body {
     position: relative;
     background-color: #FBFAF5;
     font-family: 'Roboto', sans-serif;
-}
-
-/* Header */
-header {
-    color: white;
-    align-items: center;
-    background-color: #051622;
-}
-
-header h1 {
-    grid-column: 2 / span 2;
-    font-size: 60px;
-    margin: 5px;
-    text-align: center;
-}
-
-header .option-nav {
-    grid-column: 5 / span 4;
-    text-align: center;
-}
-
-header .option-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0px 50px;
-    font-size: 25px;
-}
-
-header .icon-nav {
-    grid-column: 10 / span 2;
-    text-align: center;
-}
-
-header .icon-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0px 20px;
-    font-size: 25px;
-}
-
-/* Search form */
-#search{
-    display: inline;
-}
-
-/* Search Input */
-form input[type="text"] {
-    background-color: white;
-    border: none;
-    padding: 8px 12px;
-    margin-right: 10px;
-    border-radius: 3px;
-}
-
-/* Search Button */
-form button[type="submit"] {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 /* Shoppingcart div, holds all items picked by the user */
@@ -224,49 +165,4 @@ button[class*=btn] {
     padding-left: 30px;
     position: relative;
     padding-bottom: 20px;
-}
-
-/* Footer */
-footer {
-    background-color: #051622;
-}
-
-footer h2 {
-    display: inline;
-    grid-column: 6 / span 2;
-    /* margin: auto; */
-    color: white;
-    text-align: center;
-    font-weight: 500;
-}
-
-footer h3 {
-    display: inline;
-    grid-column: 5 / span 4;
-    color: white;
-    text-align: center;
-    font-weight: 500;
-}
-
-footer .footer-nav {
-    grid-column: 5 / span 4;
-    text-align: center;
-}
-
-footer .footer-nav a {
-    padding: 0px 50px;
-    color: white;
-    font-size: 50px;
-}
-
-footer .icon-nav {
-    grid-column: 3 / span 8;
-    text-align: center;
-}
-
-footer .icon-nav a {
-    padding: 0px 50px;
-    color: white;
-    font-size: 25px;
-    text-decoration: none;
 }

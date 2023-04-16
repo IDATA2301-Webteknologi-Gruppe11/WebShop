@@ -19,6 +19,16 @@
 .search-result-nav-flex {
     display: flex;
     flex-direction: row;
-    font-size: 7rem;
+    font-size: 5.5rem;
+    gap: 1rem;
+    transition: gap 0.2s ease-in-out;
     text-decoration: none;
+    color: #1d1d1f;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.search-result-nav-flex:hover {
+    gap: 3rem;
+    text-decoration: underline;
 }

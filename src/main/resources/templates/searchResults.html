@@ -17,10 +17,12 @@
         <h1 class="search-result-headline">Search results</h1>
         <div th:replace="fragments/product-card.html :: product-card"></div>
     </div>
-    <div class="search-result-nav-flex">
-        <nav><a href="/products">Dint find what you where searching, check out our products</a></nav>
-        <div><i class="fa-solid fa-angle-right"></i></div>
-    </div>
+    <nav>
+        <a class="search-result-nav-flex" href="/products">
+            <p>Dint find what you where searching, check out our products</p>
+            <div><i class="fa-solid fa-angle-right"></i></div>
+        </a>
+    </nav>
 </main>
 <footer th:replace="fragments/footer.html :: footer"></footer>
 </body>

@@ -92,6 +92,7 @@
 
 .search-container .search-btn .fas{
     color: #000000;
+    text-decoration: none;
 }
 
 #shoppingcart-felx-box {

@@ -1,9 +1,13 @@
 package no.ntnu.ProFlex.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -45,6 +49,9 @@ public class Product {
     @Column(name = "newProduct")
     private boolean newProduct;
 
+    @Column(name = "quantity")
+    private int quantity;
+
     @ManyToMany
     @NotNull
     @Column(nullable = false)
@@ -54,6 +61,10 @@ public class Product {
     @NotNull
     @Column(nullable = false, name = "description", length = 1000)
     private String description;
+
+    @OneToMany(mappedBy = "product")
+    @JsonBackReference
+    private List<CartItem> cartItems = new ArrayList<>();
 
     private static final Logger LOGGER = Logger.getLogger(Product.class.getName());
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
@@ -265,6 +276,22 @@ public class Product {
      */
     public void setNewProduct(boolean newProduct) {
         this.newProduct = newProduct;
+    }
+
+    public int getQuantity() {
+        return this.quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 
     //TODO Javadoc

@@ -1,6 +1,8 @@
 package no.ntnu.ProFlex.controllers;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import no.ntnu.ProFlex.models.Product;
 import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.services.AccessUserService;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import no.ntnu.ProFlex.services.ProductService;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -134,7 +137,7 @@ public class PageController {
      * @return Name of the ThymeLeaf template which will be used to render the HTML
      */
     @GetMapping("/shoppingcart")
-    public String getShoppingCart() {
+    public String getShoppingCart(Model model) {
         return "ShoppingCart";
     }
 

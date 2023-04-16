@@ -1,0 +1,22 @@
+<main class="product-cart-flex-container" th:fragment="product-cart-card">
+  <div class="product-cart-card" th:each="products: ${products}">
+    <section class="product-cart-card-section">
+      <img class="card-img" width="20" height="20"/>
+      <div class="title-flex">
+        <h2 class="shopping-cart-card-name" th:text="${products.name}"></h2>
+        <p></p>
+      </div>
+      <div class="shopping-cart-grid-container">
+        <p>Quantity</p>
+        <p>Price</p>
+        <p>Remove</p>
+        <div class="Quantity-flex">
+          <p>1</p>
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <p class="product-cart-price"></p>
+        <button class="remove-product-button"><i class="fa-solid fa-x"></i></button>
+      </div>
+    </section>
+  </div>
+</main>
