@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     font-size: 62.5%;
+    box-sizing: border-box;
 }
 
 .hero-section{
@@ -14,8 +15,8 @@
     padding-left: 12rem;
     margin-bottom: 30rem;
     flex-direction: column;;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 25%, rgba(0,103,184,1) 100%, rgba(0,9,255,1) 100%);
+    background: rgb(33,20,255);
+    background: linear-gradient(90deg, rgba(33,20,255,1) 0%, rgba(0,151,255,1) 66%);
 }
 
 .hero-title {

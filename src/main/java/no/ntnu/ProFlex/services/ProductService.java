@@ -136,6 +136,16 @@ public class ProductService {
     }
 
     /**
+     * Find and return all categories of a given product.
+     *
+     * @param pid the id of the product.
+     * @return a list of categories.
+     */
+    public List<Category> findAllCategoriesByPid(int pid) {
+        return this.productRepository.findAllCategoriesByPid(pid);
+    }
+
+    /**
      * Returns a list of two random products.
      *
      * @return a list of two random products.
@@ -157,15 +167,6 @@ public class ProductService {
         return result;
     }
 
-    /**
-     * Find and return all categories of a given product.
-     *
-     * @param pid the id of the product.
-     * @return a list of categories.
-     */
-    public List<Category> findAllCategoriesByPid(int pid) {
-        return this.productRepository.findAllCategoriesByPid(pid);
-    }
 
     /**
      * Returns all product form a given category.

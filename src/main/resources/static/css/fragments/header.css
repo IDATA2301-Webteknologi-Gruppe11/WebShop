@@ -28,12 +28,14 @@
 .ul1 {
     margin: auto;
     vertical-align: middle;
+    text-align: center;
 }
 
 .ul1 li {
     list-style: none;
     display: inline-block;
     padding: 1rem;
+    text-align: center;
 }
 
 .ul1 li::after {
