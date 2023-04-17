@@ -1,9 +1,8 @@
 .navigation {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    font-size: 6rem;
+    justify-content: space-evenly;
+    padding: 2rem;
+    font-size: 7rem;
     border-bottom: 1px solid;
     border-bottom-color: gray;
 }
@@ -21,14 +20,15 @@
 
 .ul3{
     width: 50rem;
-    margin: auto;
-    text-align: left;
+    flex-grow: 1;
+    text-align: center;
 }
 
 .ul1 {
     margin: auto;
     vertical-align: middle;
     text-align: center;
+    flex-grow: 1;
 }
 
 .ul1 li {
@@ -55,7 +55,9 @@
     display: flex;
     flex-direction: row;
     margin: auto;
-    justify-content: flex-end;
+    justify-content: center;
+    flex-grow: 1;
+    width: 50rem;
 }
 
 .search-container{
@@ -143,4 +145,126 @@
     border-radius: 40px;
     text-indent: 1rem;
     height: 2.5rem;
+}
+
+
+@media (max-width: 1400px) and (min-width: 1201px){
+    .ul3{
+        width: 40rem;
+    }
+
+    .ul2{
+        width: 40rem;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 993px){
+    .ul3{
+        display: none;
+    }
+
+    .ul1{
+        width: auto;
+    }
+
+    .ul2{
+        width: auto;
+    }
+}
+
+@media (max-width: 992px) and (min-width: 769px){
+    .ul3{
+        display: none;
+    }
+
+    .ul1{
+        width: auto;
+    }
+
+    .ul2{
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 481px){
+    .ul3{
+        display: none;
+    }
+
+    .ul1{
+        width: auto;
+    }
+
+    .ul2{
+        width: auto;
+    }
+
+    .ul2 #shoppingcart-felx-box p{
+        display: none;
+    }
+
+    .ul2 #login-flex-box p{
+        display: none;
+    }
+
+    .ul2 .search-container{
+        display: none;
+    }
+}
+
+@media (max-width: 480px) and (min-width: 419px){
+    .ul3{
+        display: none;
+    }
+
+    .ul2{
+        width: auto;
+    }
+
+    .ul1{
+        width: auto;
+    }
+
+    .ul2 #shoppingcart-felx-box p{
+        display: none;
+    }
+
+    .ul2 #login-flex-box p{
+        display: none;
+    }
+
+    .ul2 .search-container{
+        display: none;
+    }
+}
+
+@media (max-width: 418px){
+    .navigation{
+        font-size: 4rem;
+        padding: 1rem;
+    }
+
+    .ul3{
+        display: none;
+    }
+
+    .ul2{
+        width: auto;
+    }
+
+    .ul1{
+        width: auto;
+    }
+
+    .ul2 #shoppingcart-felx-box p{
+        display: none;
+    }
+
+    .ul2 #login-flex-box p{
+        display: none;
+    }
+
+    .ul2 .search-container{
+        display: none;
+    }
 }
