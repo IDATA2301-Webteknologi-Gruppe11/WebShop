@@ -11,6 +11,7 @@ public class UserProfileDto {
     private final String firstName;
     private final String lastName;
     private final String password;
+    private final String email;
 
     /**
      * Default Constructor.
@@ -19,10 +20,11 @@ public class UserProfileDto {
      * @param lastName
      * @param password
      */
-    public UserProfileDto(String firstName, String lastName, String password) {
+    public UserProfileDto(String firstName, String lastName, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.email = email;
     }
 
     /**
@@ -47,5 +49,9 @@ public class UserProfileDto {
      */
     public String getPassword() {
         return this.password;
+    }
+
+    public String getEmail() {
+        return this.email;
     }
 }

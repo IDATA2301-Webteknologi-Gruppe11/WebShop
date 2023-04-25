@@ -1,7 +1,8 @@
-package no.ntnu.ProFlex.controllers;
+package no.ntnu.ProFlex.controllers.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import no.ntnu.ProFlex.controllers.rest.ProductController;
 import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.services.UserService;
 import org.json.JSONException;

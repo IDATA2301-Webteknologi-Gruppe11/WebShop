@@ -1,8 +1,7 @@
-package no.ntnu.ProFlex.controllers;
+package no.ntnu.ProFlex.controllers.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import jakarta.servlet.http.HttpServletResponse;
 import no.ntnu.ProFlex.models.Product;
 import no.ntnu.ProFlex.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.logging.Logger;
 import org.json.JSONException;
-import jakarta.servlet.http.Cookie;
 
 //TODO høre med girz om id er det beste for å fjerne product/oppdatere product
 

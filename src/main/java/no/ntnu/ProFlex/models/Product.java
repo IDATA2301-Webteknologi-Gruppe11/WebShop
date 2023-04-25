@@ -49,9 +49,6 @@ public class Product {
     @Column(name = "newProduct")
     private boolean newProduct;
 
-    @Column(name = "quantity")
-    private int quantity;
-
     @ManyToMany
     @NotNull
     @Column(nullable = false)
@@ -278,13 +275,6 @@ public class Product {
         this.newProduct = newProduct;
     }
 
-    public int getQuantity() {
-        return this.quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
     public List<CartItem> getCartItems() {
         return cartItems;

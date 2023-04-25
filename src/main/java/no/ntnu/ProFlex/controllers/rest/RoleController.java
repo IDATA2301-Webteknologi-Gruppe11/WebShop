@@ -1,10 +1,9 @@
-package no.ntnu.ProFlex.controllers;
+package no.ntnu.ProFlex.controllers.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.Role;
 import no.ntnu.ProFlex.services.RoleService;
-import no.ntnu.ProFlex.services.UserService;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

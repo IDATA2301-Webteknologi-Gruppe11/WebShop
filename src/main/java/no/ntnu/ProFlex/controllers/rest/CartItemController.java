@@ -1,9 +1,8 @@
-package no.ntnu.ProFlex.controllers;
+package no.ntnu.ProFlex.controllers.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.CartItem;
-import no.ntnu.ProFlex.models.ShoppingCart;
 import no.ntnu.ProFlex.services.CartItemService;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
