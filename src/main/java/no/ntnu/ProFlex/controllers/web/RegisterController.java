@@ -1,5 +1,6 @@
 package no.ntnu.ProFlex.controllers.web;
 
+import no.ntnu.ProFlex.dto.SignupDto;
 import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.services.AccessUserService;
 import no.ntnu.ProFlex.services.UserService;
@@ -37,14 +38,12 @@ public class RegisterController {
      * @param user the user that you want to create.
      */
     @PostMapping("/register")
-    public String createUser(Model model, @ModelAttribute User user) {
-        String checkUser = this.accessUserService.tryCreateNewUser(user.getFirstName(),
-                user.getLastName(), user.getEmail(), user.getPass());
-        if(checkUser == null) {
-            model.addAttribute("user", this.userService.add(user));
-        }
-        else {
-            model.addAttribute("errorMessage", checkUser);
+    public String createUser(Model model, @ModelAttribute SignupDto signupDto) {
+        String errormessage = this.accessUserService.tryCreateNewUser(signupDto.getFirstName(),
+                signupDto.getLastName(), signupDto.getEmail(), signupDto.getPass());
+        if(errormessage != null) {
+            model.addAttribute("user", signupDto);
+            model.addAttribute("errorMessage", errormessage);
             return "Reister";
         }
         return "index";

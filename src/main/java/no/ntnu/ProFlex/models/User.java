@@ -27,7 +27,7 @@ public class User {
 
     @Schema(description = "A unique id of the user.")
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int uid;
 
     @Schema(description = "The first name of the user.")

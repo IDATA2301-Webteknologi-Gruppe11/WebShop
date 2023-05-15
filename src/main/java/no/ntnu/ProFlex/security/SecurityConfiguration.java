@@ -64,8 +64,6 @@ public class SecurityConfiguration {
     }
 
 
-
-
     /**
      * This method is called to decide what encryption to use for password checking
      *
