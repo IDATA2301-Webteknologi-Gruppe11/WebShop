@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+header {
+    display: none;
+}
+
 .hero-section{
     color: white;
     display: flex;
