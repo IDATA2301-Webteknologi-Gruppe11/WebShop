@@ -16,7 +16,7 @@ header {
     min-height: 100rem;
     padding-top: 12rem;
     justify-content: flex-start;
-    padding-left: 12rem;
+    padding-right: 12rem;
     margin-bottom: 30rem;
     flex-direction: column;;
     background: rgb(33,20,255);

@@ -5,3 +5,15 @@
     font-size: 62.5%;
     box-sizing: border-box;
 }
+
+h4, p {
+    color: #1d1d1f;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+#Product-Title {
+    margin-top: 10rem;
+}
