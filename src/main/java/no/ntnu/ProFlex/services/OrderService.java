@@ -1,12 +1,9 @@
 package no.ntnu.ProFlex.services;
 
 import no.ntnu.ProFlex.models.Order;
-import no.ntnu.ProFlex.repository.OrderRepository;
+import no.ntnu.ProFlex.controllers.web.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class OrderService {

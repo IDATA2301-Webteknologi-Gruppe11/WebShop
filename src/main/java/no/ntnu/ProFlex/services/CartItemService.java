@@ -1,7 +1,7 @@
 package no.ntnu.ProFlex.services;
 
 import no.ntnu.ProFlex.models.CartItem;
-import no.ntnu.ProFlex.repository.CartItemRepository;
+import no.ntnu.ProFlex.controllers.web.repository.CartItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -13,6 +13,6 @@ function showPassword() {
 }
 
 
-function redirectToRegistartion() {
-    window.location.href = "/register";
+function redirectToSignUpForm() {
+    window.location.href = "/signup-form";
 }

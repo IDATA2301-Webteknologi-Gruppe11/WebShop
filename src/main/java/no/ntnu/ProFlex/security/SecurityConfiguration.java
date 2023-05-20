@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +18,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * The @EnableWebSecurity tells that this ia a class for configuring web security
  */
 @Configuration
+@EnableWebSecurity
 public class SecurityConfiguration {
     /**
      * A service providing our users from the database
@@ -55,11 +57,20 @@ public class SecurityConfiguration {
                 .requestMatchers(new AntPathRequestMatcher("/profile")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/product/{id}")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/about")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/user")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/shoppingcart")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/register")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/signup-form")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/signup-success")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/no-access")).permitAll()
                 .and().formLogin().loginPage("/login")
                 .and().logout().logoutSuccessUrl("/")
         ;
+        http.csrf().disable().formLogin((form) -> form
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/")
+                .permitAll()
+        );
         return http.build();
     }
 

@@ -22,7 +22,7 @@ import org.json.JSONException;
  *
  */
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/product")
 public class ProductController {
 
     @Autowired

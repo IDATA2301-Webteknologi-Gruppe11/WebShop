@@ -30,11 +30,21 @@
                 <p>Shopping cart</p>
                 <span class="material-symbols-outlined">shopping_cart</span>
             </a>
-            <a href="/login" id="login-flex-box">
-                <p>Log in</p>
-                <span class="material-symbols-outlined">account_circle</span>
-            </a>
-        </div>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <a th:href="${sessionUser != null ? '/profile' : '/login'}" id="login-flex-box">
+                        <p th:if="${sessionUser != null}" th:text="${sessionUser.email}">Log in</p>
+                        <p th:unless="${sessionUser != null}">Log in</p>
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </a>
+                </button>
+                <div class="dropdown-content">
+                    <a th:href="@{/profile}" th:if="${sessionUser != null}">Profile</a>
+                    <a th:href="${sessionUser != null ? '/logout' : '/login'}" th:if="${sessionUser != null}">
+                        Log out
+                    </a>
+                </div>
+            </div>
 
 
 

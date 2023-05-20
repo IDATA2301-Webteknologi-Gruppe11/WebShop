@@ -1,4 +1,4 @@
-package no.ntnu.ProFlex.repository;
+package no.ntnu.ProFlex.controllers.web.repository;
 
 import no.ntnu.ProFlex.models.Order;
 import no.ntnu.ProFlex.models.User;

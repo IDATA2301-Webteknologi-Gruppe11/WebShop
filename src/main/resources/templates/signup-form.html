@@ -5,7 +5,7 @@
     <title>Title</title>
   <link rel="stylesheet" href="../static/Register.css">
   <link rel="stylesheet" th:href="@{static/css/register.css}">
-  <script src="../static/js/Register.js"></script>
+  <script src="../static/js/signup.js"></script>
   <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -13,7 +13,7 @@
   <div id="register-flex-conteiner">
     <section id="section">
       <h1>Register</h1>
-      <form th:action="@{/register}" method="post" th:object="${user}">
+      <form th:action="@{/signup-form}" method="post" th:object="${user}">
         <ul id="email-list">
           <li class="icons"><i class="fa-solid fa-envelope"></i></li>
           <li class="register-text">Email:</li>

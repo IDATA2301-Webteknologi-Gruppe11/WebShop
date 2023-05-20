@@ -1,7 +1,7 @@
 package no.ntnu.ProFlex.services;
 
 import no.ntnu.ProFlex.models.Role;
-import no.ntnu.ProFlex.repository.RoleRepository;
+import no.ntnu.ProFlex.controllers.web.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

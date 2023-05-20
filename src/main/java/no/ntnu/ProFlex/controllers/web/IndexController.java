@@ -1,5 +1,6 @@
 package no.ntnu.ProFlex.controllers.web;
 
+import no.ntnu.ProFlex.services.AccessUserService;
 import no.ntnu.ProFlex.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,9 @@ public class IndexController {
     @Autowired
     ProductService productService;
 
+    @Autowired
+    AccessUserService userService;
+
     /**
      * Serve the "Home" page
      *
@@ -22,6 +26,8 @@ public class IndexController {
         //model.addAttribute("featuredProducts", this.productService.getFirst(2)); //Show featured products
         model.addAttribute("featuredProduct", this.productService.getRandomProducts());
         model.addAttribute("valuta", "kr");
+        model.addAttribute("sessionUser", this.userService.getSessionUser());
+        System.out.println("user: " +  this.userService.getSessionUser());
         return "index";
     }
 }

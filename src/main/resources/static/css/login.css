@@ -137,3 +137,10 @@ nav a {
     padding-top: 1.2rem;
     font-size: 1.3rem;
 }
+
+.alert {
+    font-size: 2rem;
+    color: red;
+    margin-top: 2rem;
+}
+

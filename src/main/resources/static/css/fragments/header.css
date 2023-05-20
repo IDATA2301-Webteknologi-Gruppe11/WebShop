@@ -159,6 +159,18 @@
 }
 
 
+.dropbtn {
+    background-color: white;
+    border: none;
+}
+
+
+
+
+
+
+
+
 @media (max-width: 1400px) and (min-width: 1201px){
     .ul3{
         width: 40rem;

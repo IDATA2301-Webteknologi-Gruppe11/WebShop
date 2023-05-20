@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class RegisterController {
+public class SignupController {
 
     @Autowired
     UserService userService;
@@ -25,10 +25,10 @@ public class RegisterController {
      *
      * @return Name of the Thymeleaf template which will be used to render the HTML
      */
-    @GetMapping("/register")
+    @GetMapping("/signup-form")
     public String getRegister(Model model) {
         model.addAttribute("user", new User());
-        return "Reister";
+        return "signup-form";
     }
 
     /**
@@ -37,15 +37,20 @@ public class RegisterController {
      * @param model The model where the data will be stored.
      * @param user the user that you want to create.
      */
-    @PostMapping("/register")
+    @PostMapping("/signup-form")
     public String createUser(Model model, @ModelAttribute SignupDto signupDto) {
         String errormessage = this.accessUserService.tryCreateNewUser(signupDto.getFirstName(),
                 signupDto.getLastName(), signupDto.getEmail(), signupDto.getPass());
         if(errormessage != null) {
             model.addAttribute("user", signupDto);
             model.addAttribute("errorMessage", errormessage);
-            return "Reister";
+            return "signup-form";
         }
-        return "index";
+        return "signup-success";
+    }
+
+    @GetMapping("/signup-success")
+    public String getSignUpSuccsess() {
+        return "signup-success";
     }
 }

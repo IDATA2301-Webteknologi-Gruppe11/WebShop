@@ -1,10 +1,18 @@
 package no.ntnu.ProFlex.controllers.web;
 
+import no.ntnu.ProFlex.services.AccessUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 public class ProfileController {
+
+    @Autowired
+    private AccessUserService userService;
+
     /**
      * Serve the "Profile" page
      *
@@ -13,9 +21,20 @@ public class ProfileController {
      * @return Name of the ThymeLeaf template which will be used to render the HTML.
      */
     @GetMapping("/profile")
-    public String getProfile() {
-        //model.addAttribute("user", this.userService.findById(id));
-        //model.addAttribute("order", this.orderService.finAllByUid(id));
+    public String getProfile(Model model) {
+        model.addAttribute("sessionUser", this.userService.getSessionUser());
         return "Profile";
+    }
+
+//    @GetMapping("user")
+//    public String userPage(Model model) {
+//        System.out.println("user is: " + userService.getSessionUser().getEmail());
+//        model.addAttribute("user", this.userService.getSessionUser());
+//        return "testUser";
+//    }
+
+    @GetMapping("no-access")
+    public String getNoAccess() {
+        return "no-access";
     }
 }

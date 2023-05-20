@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{static/css/signup-success.css}">
+    <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
+    <script src="../static/js/signupSuccess.js"></script>
+</head>
+<body>
+<img id="logo" src="../static/images/proflexlogo2.png">
+<div id="signup-success-flex-container">
+    <section>
+        <h1>Success!</h1>
+        <p>Your account was created.</p>
+        <div>
+            <i class="fa-sharp fa-regular fa-circle-check"></i>
+        </div>
+        <div>
+            <button onclick="redirectToLogin()">continue</button>
+        </div>
+    </section>
+</div>
+<p id="footer-text">*This website is a result of a university group project, performed in the course
+    IDATA2301 Web technologies, at NTNU.All the information provided here is a result
+    of imagination. Any resemblance with real companies or products is a coincidence</p>
+</body>
+</html>

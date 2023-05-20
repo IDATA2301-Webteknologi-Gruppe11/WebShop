@@ -1,7 +1,7 @@
 package no.ntnu.ProFlex.services;
 
 import no.ntnu.ProFlex.models.User;
-import no.ntnu.ProFlex.repository.UserRepository;
+import no.ntnu.ProFlex.controllers.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +31,16 @@ public class UserService {
      */
     public User findById(int id) {
         return this.userRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * FInd user by email
+     *
+     * @param email email of the user that you want to find.
+     * @return the user
+     */
+    public User findByEmail(String email) {
+       return this.userRepository.findByEmail(email).orElse(null);
     }
 
     /**
