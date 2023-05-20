@@ -26,25 +26,29 @@
                     <input type="text" name="query" placeholder="Search..." class="search-input">
                 </div>
             </form>
+
+
             <a href="/shoppingcart" id="shoppingcart-felx-box">
                 <p>Shopping cart</p>
                 <span class="material-symbols-outlined">shopping_cart</span>
             </a>
             <div class="dropdown">
-                <button class="dropbtn">
+                <button class="dropbtn" id="email-button">
                     <a th:href="${sessionUser != null ? '/profile' : '/login'}" id="login-flex-box">
-                        <p th:if="${sessionUser != null}" th:text="${sessionUser.email}">Log in</p>
+                        <p th:if="${sessionUser != null}" th:text="${sessionUser.firstName}">Log in</p>
                         <p th:unless="${sessionUser != null}">Log in</p>
                         <span class="material-symbols-outlined">account_circle</span>
                     </a>
                 </button>
-                <div class="dropdown-content">
+                <div class="dropdown-content" id="dropdown-content">
                     <a th:href="@{/profile}" th:if="${sessionUser != null}">Profile</a>
+                    <hr class="dropdown-divider" th:if="${sessionUser != null}"/>
                     <a th:href="${sessionUser != null ? '/logout' : '/login'}" th:if="${sessionUser != null}">
                         Log out
                     </a>
                 </div>
             </div>
+
 
 
 
