@@ -12,14 +12,14 @@ public class CartItem {
     private int ciid;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id")
+    @JoinColumn(name = "scid")
     @JsonBackReference
-    private ShoppingCart cart;
+    private ShoppingCart scid;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "pid")
     @JsonBackReference
-    private Product product;
+    private Product pid;
 
     private int quantity;
 
@@ -30,38 +30,74 @@ public class CartItem {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCiid() {
         return this.ciid;
     }
 
+    /**
+     *
+     * @return
+     */
     public ShoppingCart getCart() {
-        return cart;
+        return scid;
     }
 
+    /**
+     *
+     * @return
+     */
     public Product getProduct() {
-        return product;
+        return pid;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     *
+     * @param ciid
+     */
     public void setCiid(int ciid) {
         this.ciid = ciid;
     }
 
+    /**
+     *
+     * @param cart
+     */
     public void setCart(ShoppingCart cart) {
-        this.cart = cart;
+        this.scid = cart;
     }
 
+    /**
+     *
+     * @param product
+     */
     public void setProduct(Product product) {
-        this.product = product;
+        this.pid = product;
     }
 
+    /**
+     *
+     * @param quantity
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isValid() {
         return this.ciid >= 0;
     }

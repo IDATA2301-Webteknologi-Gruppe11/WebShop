@@ -1,7 +1,7 @@
 package no.ntnu.ProFlex.services;
 
 import no.ntnu.ProFlex.models.User;
-import no.ntnu.ProFlex.controllers.web.repository.UserRepository;
+import no.ntnu.ProFlex.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

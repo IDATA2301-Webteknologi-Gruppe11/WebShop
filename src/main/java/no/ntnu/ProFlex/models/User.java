@@ -63,7 +63,7 @@ public class User {
     )
     private Set<Role> roles = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "uid")
     @JsonManagedReference
     private Set<ShoppingCart> shoppingCarts = new HashSet<>();
 

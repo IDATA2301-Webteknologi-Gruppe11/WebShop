@@ -1,4 +1,4 @@
-package no.ntnu.ProFlex.controllers.web.repository;
+package no.ntnu.ProFlex.repository;
 
 import no.ntnu.ProFlex.models.User;
 import org.springframework.data.repository.CrudRepository;

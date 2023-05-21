@@ -23,11 +23,11 @@ public class ShoppingCart {
     private int scid;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "uid")
     @JsonBackReference
-    private User user;
+    private User uid;
 
-    @OneToMany(mappedBy = "cart")
+    @OneToMany(mappedBy = "scid")
     private List<CartItem> items = new ArrayList<>();
 
     /**
@@ -50,7 +50,7 @@ public class ShoppingCart {
      * @return user
      */
     public User getUser() {
-        return this.user;
+        return this.uid;
     }
 
     /**
@@ -71,10 +71,10 @@ public class ShoppingCart {
 
     /**
      * Setts user of the cart
-     * @param user the user of the cart
+     * @param uid the user of the cart
      */
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(User uid) {
+        this.uid = uid;
     }
 
     /**

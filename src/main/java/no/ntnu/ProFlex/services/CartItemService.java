@@ -1,9 +1,12 @@
 package no.ntnu.ProFlex.services;
 
 import no.ntnu.ProFlex.models.CartItem;
-import no.ntnu.ProFlex.controllers.web.repository.CartItemRepository;
+import no.ntnu.ProFlex.models.ShoppingCart;
+import no.ntnu.ProFlex.repository.CartItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * This class represent the service clas for cart items.
@@ -24,6 +27,15 @@ public class CartItemService {
      */
     public Iterable<CartItem> getAll() {
         return this.cartItemRepository.findAll();
+    }
+
+    /**
+     * Returns all cart items based on the shopping cart.
+     * @param scid the id of the shoipping cart
+     * @return list of cart items
+     */
+    public List<CartItem> findAllByScid(ShoppingCart scid) {
+        return this.cartItemRepository.findAllByScid(scid);
     }
 
     /**
@@ -95,6 +107,23 @@ public class CartItemService {
             errorMessage = "The ID of the shopping cart in the URL does not match anny ID in the JSON data";
         }
         if (errorMessage == null) {
+            this.cartItemRepository.save(cartItem);
+        }
+    }
+
+    /**
+     * Update the quantity of the cart item.
+     * @param ciid id of the cart item
+     * @param quantity the new number of quantity you want.
+     */
+    public void updateQuantity(int ciid, int quantity) {
+        CartItem cartItem = findById(ciid);
+        String errorMassage = null;
+        if(cartItem == null) {
+            errorMassage = "no cart item found";
+        }
+        if(errorMassage != null) {
+            cartItem.setQuantity(quantity);
             this.cartItemRepository.save(cartItem);
         }
     }

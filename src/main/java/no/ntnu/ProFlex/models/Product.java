@@ -59,7 +59,7 @@ public class Product {
     @Column(nullable = false, name = "description", length = 1000)
     private String description;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "pid")
     @JsonBackReference
     private List<CartItem> cartItems = new ArrayList<>();
 

@@ -5,3 +5,150 @@
     font-size: 62.5%;
     box-sizing: border-box;
 }
+
+#title {
+    font-size: 10rem;
+    margin-top: 15rem;
+    margin-left: 10rem;
+    font-weight: lighter;
+}
+
+.product-cart-card-section {
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(2,1fr);
+    text-align: center;
+}
+
+#card-img {
+    grid-column: 1;
+    grid-row: 1/span 2;
+    margin-left: 25rem;
+}
+
+#shopping-cart-card-name {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 2.5rem;
+}
+
+#description {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 1.5rem;
+}
+
+#quantity {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 30rem;
+}
+
+#Quantity-flex {
+    grid-column: 3;
+    grid-row: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 30rem;
+    gap: 0.5rem;
+}
+
+.quantityNumber {
+    font-size: 1.5rem;
+}
+
+.quantityButtonPlus {
+    font-size: 2rem;
+    height: 2rem;
+    border: none;
+    margin-top: -0.4rem;
+    background-color: white;
+}
+
+.quantityButtonMinus {
+    font-size: 2rem;
+    height: 2rem;
+    border: none;
+    margin-top: -0.4rem;
+    background-color: white;
+}
+
+#price {
+    grid-column: 4;
+    grid-row: 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.priceNumber {
+    grid-column: 4;
+    grid-row: 2;
+    font-size: 1.5rem;
+}
+
+#Remove {
+    grid-column: 5;
+    grid-row: 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 30rem;
+}
+
+#remove-product-button {
+    grid-column: 5;
+    grid-row: 2;
+    font-size: 2rem;
+    border: none;
+    background-color: white;
+    margin-right: 30rem;
+
+}
+
+#divider {
+    margin-top: 3rem;
+    height: 0.2rem;
+    background-color: #656565;
+    width: 100%;
+}
+
+#total-price {
+    font-size: 2rem;
+    text-align: end;
+    margin-right: 10rem;
+    margin-top: 10rem;
+}
+
+#button-flex {
+    display: flex;
+    flex-direction: row;
+    font-size: 5rem;
+    gap: 107rem;
+    margin-left: 10rem;
+    margin-top: 5rem;
+}
+
+#keep-shopping-button {
+    color: white;
+    background-color: #0067B8;
+    border: none;
+    border-radius: 5px;
+    width: 30rem;
+    height: 7rem;
+}
+
+#pay-button {
+    color: white;
+    background-color: #1d1d1f;
+    border: none;
+    border-radius: 5px;
+    width: 30rem;
+    height: 7rem;
+}
+
+footer {
+    margin-top: 10rem;
+}

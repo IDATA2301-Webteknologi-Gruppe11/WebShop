@@ -1,22 +1,24 @@
 <main class="product-cart-flex-container" th:fragment="product-cart-card">
-  <div class="product-cart-card" th:each="products: ${products}">
+  <div class="product-cart-card" th:each="cartItems: ${cartItems}">
     <section class="product-cart-card-section">
-      <img class="card-img" width="20" height="20"/>
-      <div class="title-flex">
-        <h2 class="shopping-cart-card-name" th:text="${products.name}"></h2>
-        <p></p>
-      </div>
-      <div class="shopping-cart-grid-container">
-        <p>Quantity</p>
-        <p>Price</p>
-        <p>Remove</p>
-        <div class="Quantity-flex">
-          <p>1</p>
+      <img id="card-img" th:src="${cartItems.product.image}" width="80" height="80"/>
+      <h2 id="shopping-cart-card-name" th:text="${cartItems.product.name}"></h2>
+      <p id="description" th:text="${cartItems.product.shortDescription}"></p>
+      <p id="quantity">Quantity</p>
+      <div id="Quantity-flex">
+        <button class="quantityButtonPlus" onclick="updateCartItemQuantity(1, true)">
           <i class="fa-solid fa-plus"></i>
-        </div>
-        <p class="product-cart-price"></p>
-        <button class="remove-product-button"><i class="fa-solid fa-x"></i></button>
+        </button>
+        <p class="quantityNumber">0</p>
+        <button class="quantityButtonMinus" onclick="updateCartItemQuantity(1, false)">
+          <i class="fa-solid fa-minus"></i>
+        </button>
       </div>
+      <p id="price">Price</p>
+      <p class="priceNumber" th:text="${cartItems.product.price}"></p>
+      <p id="Remove">Remove</p>
+      <button id="remove-product-button"><i class="fa-solid fa-x"></i></button>
     </section>
+    <div id="divider"></div>
   </div>
 </main>

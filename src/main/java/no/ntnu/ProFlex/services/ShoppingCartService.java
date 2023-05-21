@@ -1,7 +1,8 @@
 package no.ntnu.ProFlex.services;
 
 import no.ntnu.ProFlex.models.ShoppingCart;
-import no.ntnu.ProFlex.controllers.web.repository.ShoppingCartRepository;
+import no.ntnu.ProFlex.models.User;
+import no.ntnu.ProFlex.repository.ShoppingCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,15 @@ public class ShoppingCartService {
      */
     public ShoppingCart findById(int id) {
         return this.shoppingCartRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * Find and return a shopping cart based on a given user
+     * @param uid the user you want to find
+     * @return user.
+     */
+    public ShoppingCart findByUid(User uid) {
+        return this.shoppingCartRepository.findByUid(uid);
     }
 
     /**

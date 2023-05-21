@@ -7,6 +7,7 @@ import no.ntnu.ProFlex.services.CartItemService;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ import java.util.logging.Logger;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/cartitem")
+@RequestMapping("api/cart-items")
 public class CartItemController {
 
     @Autowired
@@ -95,12 +96,12 @@ public class CartItemController {
      * @exception JSONException if an error occurs while updating the product
      */
     @Operation(summary = "Update cart item", description = "Update the cart item from the cart item repository")
-    @PutMapping("/update/{id}")
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateCartItem(
             @Parameter(name = "id", description = "ID of the cart item to update", required = true)
             @PathVariable int id,
             @Parameter(name = "cartItem", description = "The new cart item that you want the old one to change to", required = true)
-            @PathVariable CartItem cartItem) {
+            @RequestBody CartItem cartItem) {
         try {
             CartItem oldCartItem = this.cartItemService.findById(id);
             if (oldCartItem == null) {
