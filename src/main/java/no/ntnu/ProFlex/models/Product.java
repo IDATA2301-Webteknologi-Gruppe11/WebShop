@@ -5,10 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Logger;
 
 
@@ -48,6 +45,9 @@ public class Product {
 
     @Column(name = "newProduct")
     private boolean newProduct;
+
+    @ManyToMany(mappedBy = "products")
+    private Set<Order> order = new LinkedHashSet<>();
 
     @ManyToMany
     @NotNull

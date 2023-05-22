@@ -31,13 +31,20 @@ public class Order {
     @Column(nullable = false)
     private Date date;
 
+    @ManyToMany
+    @JoinTable(name = "order_product",
+            joinColumns = @JoinColumn(name = "oid"),
+            inverseJoinColumns = @JoinColumn(name = "pid")
+    )
+    private Set<Product> products = new HashSet<>();
+
     @Schema(description = "Many to many relations shit with products.")
     @ManyToMany
     @NotNull
     @Column(nullable = false)
     @JoinTable(name = "order_user",
-        joinColumns = @JoinColumn(name = "orders_oid"),
-        inverseJoinColumns = @JoinColumn(name = "user_uid")
+        joinColumns = @JoinColumn(name = "oid"),
+        inverseJoinColumns = @JoinColumn(name = "uid")
     )
     private Set<User> users = new HashSet<>();
 
@@ -50,7 +57,6 @@ public class Order {
      */
     public Order(Date date) {
         try {
-            this.oid = integerChecker(oid, "oid");
             this.date = date;
         }
         catch (IllegalArgumentException illegalArgumentException) {

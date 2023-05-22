@@ -36,11 +36,6 @@ public class Category {
     @Column(nullable = false)
     private Set<Product> products = new HashSet<>();
 
-    @ManyToMany
-    @NotNull
-    @Column(nullable = false)
-    private Set<Order> orders = new HashSet<>();
-
     private static final Logger LOGGER = Logger.getLogger(Category.class.getName());
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
 

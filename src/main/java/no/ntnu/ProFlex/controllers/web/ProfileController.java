@@ -33,8 +33,13 @@ public class ProfileController {
 //        return "testUser";
 //    }
 
-    @GetMapping("no-access")
+    @GetMapping("/no-access")
     public String getNoAccess() {
         return "no-access";
+    }
+
+    @GetMapping("/profile2")
+    public String getProfile2() {
+        return "profile2";
     }
 }

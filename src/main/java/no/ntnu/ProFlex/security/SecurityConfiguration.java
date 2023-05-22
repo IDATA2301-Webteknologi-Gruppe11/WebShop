@@ -61,6 +61,7 @@ public class SecurityConfiguration {
                 .requestMatchers(new AntPathRequestMatcher("/shoppingcart")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/signup-form")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/signup-success")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/profile2")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/no-access")).permitAll()
                 .and().formLogin().loginPage("/login")
                 .and().logout().logoutSuccessUrl("/")
