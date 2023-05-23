@@ -49,9 +49,9 @@ public class SecurityConfiguration {
         // Set up the authorization requests, starting from most restrictive at the top, to least restrictive on bottom
         http.csrf().disable()
                 .authorizeRequests()
-                .requestMatchers(new AntPathRequestMatcher("/admin/**")).hasRole("ADMIN")
-//                .requestMatchers(new AntPathRequestMatcher("/profile/**")).hasAnyRole("USER", "ADMIN")
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/admin/**")).hasRole("ADMIN")
+                .requestMatchers(new AntPathRequestMatcher("/profile/**")).hasAnyRole("USER", "ADMIN")
                 .requestMatchers(new AntPathRequestMatcher("/", "GET")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/products", "GET")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/product/{id}")).permitAll()

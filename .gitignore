@@ -34,4 +34,5 @@ build/
 
 ### Ignore the .env that conteins security keys ###
 .env
+env.properties
 

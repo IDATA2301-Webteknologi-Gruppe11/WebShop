@@ -34,20 +34,13 @@ public class Order {
     @JoinColumn(name = "uid")
     private User uid;
 
-    private static final Logger LOGGER = Logger.getLogger(Order.class.getName());
-    private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
-
     /**
      * Default constructor
      * @param date the date of the order
      */
-    public Order(Date date) {
-        try {
-            this.date = date;
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+    public Order(Date date, User user) {
+        this.date = date;
+        this.uid = user;
     }
 
     /**
@@ -58,32 +51,11 @@ public class Order {
     }
 
     /**
-     * Checks a given integer.
-     * The number can not be zero or below.
-     * If the integer is not valid an Illegal Argument Exception is thrown.
-     * If the integer is valid it returns the integer.
-     * @param n the integer tha you want to check.
-     * @param prefiks the name of the integer.
-     * @return the string
-     */
-    private int integerChecker(int n, String prefiks) {
-        if(n < 0) {
-            throw new IllegalArgumentException("The integer " + prefiks + " cant be below 0");
-        }
-        return n;
-    }
-
-    /**
      * Setts oid.
      * @param oid the oid that you want to set.
      */
     public void setOid(int oid) {
-        try {
-            this.oid = integerChecker(oid, "oid");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.oid = oid;
     }
 
     /**
@@ -110,16 +82,27 @@ public class Order {
         this.date = date;
     }
 
+    /**
+     * Setts the user
+     * @param uid the user you want
+     */
     public void setUid(User uid) {
         this.uid = uid;
     }
 
+    /**
+     * Return the user for the order
+     * @return user
+     */
     public User getUid() {
         return this.uid;
     }
 
+    /**
+     * Checks of the order is valid
+     * @return boolean statement. True if order is valid, false if not.
+     */
     public boolean isValid() {
-        return oid > 0 && date !=null;
+        return this.date != null && this.uid != null;
     }
-
 }

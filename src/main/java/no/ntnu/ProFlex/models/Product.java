@@ -70,15 +70,14 @@ public class Product {
      * @param name of the product
      * @param price of the product.
      */
-    public Product(String name, int price, String description) throws IllegalArgumentException {
-        try {
-            this.name = stringChecker(name, "name");
-            this.price = integerChecker(price, "price");
-            this.description = stringChecker(description, "description");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+    public Product(String name, int price, String description, Boolean newProduct, String image, String shortDescription) throws IllegalArgumentException {
+        this.name = stringChecker(name, "name");
+        this.price = integerChecker(price, "price");
+        this.description = stringChecker(description, "description");
+        this.newProduct = newProduct;
+        this.shortDescription = stringChecker(shortDescription, "shortDescription");
+        this.image = stringChecker(image, "image");
+
     }
 
     /**
@@ -120,8 +119,8 @@ public class Product {
      * @return string.
      */
     private String stringChecker(String string, String prefis) {
-        if(string.isEmpty() || string == null) {
-            throw new IllegalArgumentException("The String: " + prefis + " can not be empty or null.");
+        if(string == null ||string.trim().isEmpty()) {
+            throw new IllegalArgumentException("The string " + prefis + " cant be empty or null.");
         }
         return string;
     }
@@ -163,12 +162,7 @@ public class Product {
      * @param name the name for the product.
      */
     public void setName(String name) {
-        try {
-            this.name = stringChecker(name, "name");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.name = stringChecker(name, "name");
     }
 
     /**
@@ -177,12 +171,7 @@ public class Product {
      * @param pid the ID number for the product.
      */
     public void setId(int pid) {
-        try {
-            this.pid = integerChecker(pid, "id");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.pid = integerChecker(pid, "id");
     }
 
     /**
@@ -191,21 +180,11 @@ public class Product {
      * @param price a price number for the product.
      */
     public void setPrice(int price) {
-        try {
-            this.price = integerChecker(price, "price");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.price = integerChecker(price, "price");
     }
 
     public void setDescription(String description) {
-        try {
-            this.description = stringChecker(description, "description");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.description = stringChecker(description, "description");
     }
 
     /**
@@ -215,8 +194,11 @@ public class Product {
      */
     public void setProduct(Product product) {
         this.name = product.getName();
-        this.pid = product.getPid();
         this.price = product.getPrice();
+        this.image = product.getImage();
+        this.newProduct = product.getNewProduct();
+        this.shortDescription = product.getShortDescription();
+        this.description = product.getDescription();
     }
 
     /**
@@ -232,7 +214,7 @@ public class Product {
      * @param path of the image
      */
     public void setImage(String path) {
-        this.image = path;
+        this.image = stringChecker(path, "path");
     }
 
     /**
@@ -248,12 +230,7 @@ public class Product {
      * @param shortDescription the new short description
      */
     public void setShortDescription(String shortDescription) {
-        try {
-            this.shortDescription = stringChecker(shortDescription, "shortDescription");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.shortDescription = stringChecker(shortDescription, "shortDescription");
     }
 
     /**
@@ -272,26 +249,28 @@ public class Product {
         this.newProduct = newProduct;
     }
 
-
+    /**
+     * Returns list of cart items
+     * @return cart items
+     */
     public List<CartItem> getCartItems() {
-        return cartItems;
+        return this.cartItems;
     }
 
+    /**
+     * Setts a list of cart items
+     * @param cartItems list of cart items
+     */
     public void setCartItems(List<CartItem> cartItems) {
         this.cartItems = cartItems;
     }
 
-    //TODO Javadoc
+    /**
+     * Checks if product is valid
+     * @return boolean statement true if valid, false if not.
+     */
     public boolean isValid() {
-        return this.pid > 0 && !"".equals(this.name) && this.price > 0 && !"".equals(this.description);
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", id=" + pid +
-                ", price=" + price +
-                '}';
+        return !" ".equals(this.name) && this.price >= 0 && !" ".equals(this.description)
+                && !" ".equals(this.shortDescription) && !" ".equals(this.image);
     }
 }

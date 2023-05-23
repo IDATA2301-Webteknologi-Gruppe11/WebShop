@@ -18,7 +18,7 @@ import java.util.Random;
  * @version 1.0
  */
 @Service
-public class ProductService {
+public class  ProductService {
 
     @Autowired
     private ProductRepository productRepository;

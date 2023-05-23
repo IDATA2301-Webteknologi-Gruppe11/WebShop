@@ -13,6 +13,14 @@
     margin-bottom: 40rem;
 }
 
+.product-card-section {
+    background-color: white;
+    width: 65rem;
+    height: 50rem;
+    padding: 3rem;
+    box-shadow: 0.1rem 0.1rem 1rem 0.1rem #cbcbcb;
+}
+
 @media screen and (max-width: 1400px) {
     .index-product-card-flex-container {
         flex-direction: column;
@@ -28,6 +36,10 @@
 .index-product-card-new-container {
     width: 7rem;/* set the desired width */
     text-align: center; /* center the content inside the container */
+}
+
+.index-product-card-image {
+    margin-left: 20rem;
 }
 
 .index-product-card-new-box {
@@ -63,9 +75,14 @@
     display: flex;
     flex-direction: row;
     font-size: 3rem;
-    color: #0067B8;
     gap: 1rem;
     transition: gap 0.2s ease-in-out;
+    color: #0067B8;
+}
+
+.price {
+    margin-left: 35rem;
+    color: #1d1d1f;
 }
 
 .index-product-card-learn-more-flex:hover{

@@ -3,10 +3,9 @@ package no.ntnu.ProFlex;
 import no.ntnu.ProFlex.models.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * This class represent the test class for User.
@@ -14,53 +13,80 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author Ole Kristian Dvergsdal
  * @version 1.0
  */
-//@SpringJUnitConfig(UserTest.Config.class)
-//@SpringBootTest
+@SpringBootTest
 public class UserTest {
 
-//    @Test
-//    void testConstructorWihtValidInputs() {
-//        User user = new User(1, "Name", "Email", "Password");
-//        assertEquals(1, user.getUid());
-//        assertEquals("Name", user.getUname());
-//        assertEquals("Email", user.getEmail());
-//        assertEquals("Password", user.getPassword());
-//    }
-//
-//    @Test
-//    void testConstructorWithInvalidInputUid() {
-//        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(outContent));
-//        new User(-1, "Name", "Email", "Password");
-//        assertEquals("Caught Illegal Argument Exception: The number uid can not be zero or below.", outContent.toString().trim());
-//    }
-//
-//    @Test
-//    void testConstructorWithInvalidInputName() {
-//        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(outContent));
-//        new User(1, "", "Email", "Password");
-//        assertEquals("Caught Illegal Argument Exception: The String: uname can not be empty or null.", outContent.toString().trim());
-//    }
-//
-//    @Test
-//    void testConstructorWithInvalidInputEmali() {
-//        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(outContent));
-//        new User(1, "Name", "", "Password");
-//        assertEquals("Caught Illegal Argument Exception: The String: email can not be empty or null.", outContent.toString().trim());
-//    }
-//
-//    @Test
-//    void testConstructorWhitInvalidPassword() {
-//        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(outContent));
-//        new User(1, "Name", "email", "");
-//        assertEquals("Caught Illegal Argument Exception: The String: password can not be empty or null.", outContent.toString().trim());
-//
-//    }
-//
-//    static class Config {
-//
-//    }
+    /**
+     * Test constructor with valid parameters
+     */
+    @Test
+    void testConstructor() {
+        User user = new User("firstName", "lastName", "email", "pass");
+        assertEquals("firstName", user.getFirstName());
+        assertEquals("lastName", user.getLastName());
+        assertEquals("email", user.getEmail());
+        assertEquals("pass", user.getPass());
+    }
+
+    /**
+     * Test constructor with invalid first name
+     */
+    @Test
+    void testConstructorEmptyFirstName() {
+        Throwable exception = assertThrows(
+                IllegalArgumentException.class, () -> {
+                    User user = new User("", "lastname", "email", "password");
+                }
+        );
+        assertEquals("The string 'firstName' cant be empty or null",exception.getMessage());
+    }
+
+    /**
+     * Test constructor with invalid last name
+     */
+    @Test
+    void testConstructorEmptyLastName() {
+        Throwable exception = assertThrows(
+                IllegalArgumentException.class, () -> {
+                    User user = new User("firstName", "", "email", "password");
+                }
+        );
+        assertEquals("The string 'lastName' cant be empty or null",exception.getMessage());
+    }
+
+    /**
+     * Test constructor with invalid email
+     */
+    @Test
+    void testConstructorEmptyEmail() {
+        Throwable exception = assertThrows(
+                IllegalArgumentException.class, () -> {
+                    User user = new User("firstName", "lastName", "", "password");
+                }
+        );
+        assertEquals("The string 'Email' cant be empty or null",exception.getMessage());
+    }
+
+    /**
+     * Test constructor with invalid pass
+     */
+    @Test
+    void testConstructorEmptyPass() {
+        Throwable exception = assertThrows(
+                IllegalArgumentException.class, () -> {
+                    User user = new User("firstName", "lastname", "email", "");
+                }
+        );
+        assertEquals("The string 'pass' cant be empty or null",exception.getMessage());
+    }
+
+    /**
+     * Test if user is valid
+     */
+    @Test
+    void testIsValid() {
+        User user = new User("firstName", "lastName", "email", "pass");
+        assertTrue(user.isValid());
+    }
 }
+

@@ -64,9 +64,6 @@ public class User {
     @JsonManagedReference
     private Set<ShoppingCart> shoppingCarts = new HashSet<>();
 
-    private static final Logger LOGGER = Logger.getLogger(User.class.getName());
-    private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
-
     /**
      * Constructor for user.
      * This constructor take parameters.
@@ -77,15 +74,10 @@ public class User {
      * @param pass the password of the user.
      */
     public User( String firstName, String lastName, String email, String pass) {
-        try {
             this.email = stringChecker(email, "Email");
             this.firstName = stringChecker(firstName, "firstName");
             this.lastName = stringChecker(lastName, "lastName");
             this.pass = stringChecker(pass, "pass");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
     }
 
     /**
@@ -105,7 +97,7 @@ public class User {
      * @return string.
      */
     private String stringChecker(String string, String prefiks) {
-        if(string.isEmpty() || string == null) {
+        if(string == null || string.trim().isEmpty()) {
             throw new IllegalArgumentException("The string " + "'" + prefiks + "'" + " cant be empty or null");
         }
         return string;
@@ -164,12 +156,7 @@ public class User {
      * @param firstName A string that you want the firstName to be.
      */
     public void setFirstName(String firstName) {
-        try {
-            this.firstName = stringChecker(firstName, "firstName");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.firstName = stringChecker(firstName, "firstName");
     }
 
     /**
@@ -177,12 +164,7 @@ public class User {
      * @param lastName A string that you want the lastName to be.
      */
     public void setLastName(String lastName) {
-        try {
-            this.lastName = stringChecker(lastName, "lastName");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.lastName = stringChecker(lastName, "lastName");
     }
 
     /**
@@ -190,12 +172,7 @@ public class User {
      * @param email A string that you want the uname to be.
      */
     public void setEmail(String email) {
-        try {
-            this.email = stringChecker(email, "email");
-        }
-        catch (IllegalArgumentException illegalArgumentException){
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.email = stringChecker(email, "email");
     }
 
     /**
@@ -203,12 +180,7 @@ public class User {
      * @param password A string that you want the uname to be.
      */
     public void setPass(String password) {
-        try {
-            this.pass = stringChecker(password, "password");
-        }
-        catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.pass = stringChecker(password, "password");
     }
 
 
@@ -217,7 +189,7 @@ public class User {
      * @return boolean statement, true if valid false if not.
      */
     public boolean isValid() {
-        return !"".equals(firstName) && !"".equals(firstName) && !"".equals(pass) && uid >= 0;
+        return !" ".equals(firstName) && !" ".equals(lastName) && !" ".equals(email) && !" ".equals(pass);
     }
 
     /**

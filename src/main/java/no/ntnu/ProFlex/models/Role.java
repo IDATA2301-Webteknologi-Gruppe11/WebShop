@@ -31,9 +31,6 @@ public class Role {
     @OneToMany(mappedBy = "rid")
     private Set<User> uid;
 
-    private static final Logger LOGGER = Logger.getLogger(Role.class.getName());
-    private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
-
     /**
      * Empty constructor that is needed for JPA
      */
@@ -45,11 +42,7 @@ public class Role {
      * Default constructor for Role
      */
     public Role(String rname) {
-        try {
-            this.rname = stringChecker(rname, "rname");
-        } catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.rname = stringChecker(rname, "rname");
     }
 
     /**
@@ -63,8 +56,8 @@ public class Role {
      * @return string.
      */
     private String stringChecker(String string, String prefiks) {
-        if (string.isEmpty() || string == null) {
-            throw new IllegalArgumentException("The string " + "'" + prefiks + "'" + " cant bee empty or null");
+        if (string.trim().isEmpty() || string == null) {
+            throw new IllegalArgumentException("The string " + "'" + prefiks + "'" + " cant be empty or null");
         }
         return string;
     }
@@ -102,11 +95,7 @@ public class Role {
      * @param rname name for the role.
      */
     public void setRname(String rname) {
-        try {
-            this.rname = stringChecker(rname, "rname");
-        } catch (IllegalArgumentException illegalArgumentException) {
-            LOGGER.warning(ILLEGAL_ARGUMENT_EXCEPTION_WARNING + illegalArgumentException.getMessage());
-        }
+        this.rname = stringChecker(rname, "rname");
     }
 
     public Set<User> getUid() {
