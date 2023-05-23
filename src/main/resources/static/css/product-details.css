@@ -7,6 +7,8 @@
 }
 
 .flex-container {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -15,6 +17,13 @@
 .product-name {
     margin-top: 5rem;
     font-size: 7rem;
+    width: 100%;
+    text-align: center;
+}
+
+.products-categories {
+    margin-top: 5rem;
+    font-size: 2.5rem;
     width: 100%;
     text-align: center;
 }
@@ -63,4 +72,6 @@
 .detail-img{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin-top: 2rem;
+    width: 300px;
+    height: 200px;
 }

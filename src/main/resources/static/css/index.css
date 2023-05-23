@@ -13,7 +13,7 @@ header {
 .hero-section{
     color: white;
     display: flex;
-    min-height: 100rem;
+    min-height: 90rem;
     padding-top: 12rem;
     justify-content: flex-start;
     padding-right: 12rem;
@@ -40,12 +40,11 @@ header {
     justify-content: center;
     font-size: 7rem;
     margin-left: 80rem;
-    margin-top: 10rem;
+    margin-top: 5rem;
     color: white;
     transition: gap 0.2s ease-in-out;
     gap: 1rem;
     width: 100%;
-    text-decoration: underline;
     max-width: 50%;
 }
 
