@@ -1,0 +1,25 @@
+<div class="order-card-felx" th:fragment="order-card">
+  <div class="order-card" th:each="order: ${orders}">
+    <div class="Order-titles-flex">
+      <p>Order ID</p>
+      <p>Order date</p>
+      <p>Products</p>
+      <p>Quantity</p>
+    </div>
+    <div class="order-info-flex">
+      <p th:text="${order.oid}"></p>
+      <p th:text="${order.date}"></p>
+      <ul class="order-product-list">
+        <li th:each="orderProduct: ${orderProducts}" th:if="${orderProduct.oid.oid == order.oid}">
+          <p th:text="${orderProduct.pid.name}"></p>
+        </li>
+      </ul>
+      <ul class="order-product-list">
+        <li th:each="orderProduct: ${orderProducts}" th:if="${orderProduct.oid.oid == order.oid}">
+          <p th:text="${orderProduct.quantity}"></p>
+        </li>
+      </ul>
+    </div>
+    <div class="order-divider"></div>
+  </div>
+</div>

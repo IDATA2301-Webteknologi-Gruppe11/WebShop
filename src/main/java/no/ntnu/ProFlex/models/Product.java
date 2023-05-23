@@ -46,12 +46,9 @@ public class Product {
     @Column(name = "newProduct")
     private boolean newProduct;
 
-    @ManyToMany(mappedBy = "products")
-    private Set<Order> order = new LinkedHashSet<>();
-
-    @ManyToMany
     @NotNull
     @Column(nullable = false)
+    @ManyToMany(mappedBy = "products")
     private Set<Category> categories = new HashSet<>();
 
     @Schema(description = "Description of the product")

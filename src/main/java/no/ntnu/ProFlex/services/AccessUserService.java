@@ -152,10 +152,10 @@ public class AccessUserService implements UserDetailsService {
      * @param password Plaintext password of the new user
      */
     private void createUser(String firstName, String lastName, String email, String password) {
-        Role userRole = roleRepository.findOneByRname("ROLE_USER");
+        Role userRole = roleRepository.findOneByRname("USER");
         if (userRole != null) {
             User user = new User(firstName, lastName, email, createHash(password));
-            user.addRole(userRole);
+            user.setRid(userRole);
             userRepository.save(user);
         }
     }

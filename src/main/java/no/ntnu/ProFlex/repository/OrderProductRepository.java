@@ -1,11 +1,10 @@
 package no.ntnu.ProFlex.repository;
 
 import no.ntnu.ProFlex.models.Order;
-import no.ntnu.ProFlex.models.User;
 import org.springframework.data.repository.CrudRepository;
+import no.ntnu.ProFlex.models.OrderProduct;
 
 import java.util.List;
 
-public interface OrderRepository extends CrudRepository<Order, Integer> {
-    List<Order> findByUid(User uid);
+public interface OrderProductRepository extends CrudRepository<OrderProduct, Integer> {
 }

@@ -34,6 +34,10 @@ public class Category {
     @ManyToMany
     @NotNull
     @Column(nullable = false)
+    @JoinTable(name = "product_categories",
+    joinColumns = @JoinColumn(name = "cid"),
+    inverseJoinColumns = @JoinColumn(name = "pid")
+    )
     private Set<Product> products = new HashSet<>();
 
     private static final Logger LOGGER = Logger.getLogger(Category.class.getName());

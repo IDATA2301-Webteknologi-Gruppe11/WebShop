@@ -28,11 +28,8 @@ public class Role {
     @Column(nullable = false)
     private String rname;
 
-    @Schema(description = "manny to manny relation with the user")
-    @NotNull
-    @Column(nullable = false)
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "rid")
+    private Set<User> uid;
 
     private static final Logger LOGGER = Logger.getLogger(Role.class.getName());
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
@@ -96,7 +93,7 @@ public class Role {
      * @return users.
      */
     public Set<User> getUsers() {
-        return this.users;
+        return this.uid;
     }
 
     /**
@@ -112,22 +109,16 @@ public class Role {
         }
     }
 
-    /**
-     * Setts the users
-     * 
-     * @param users a set of users that you want to sett
-     */
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public Set<User> getUid() {
+        return uid;
     }
 
-    @Override
-    public String toString() {
-        return "Role{" +
-                "rid=" + rid +
-                ", rname='" + rname + '\'' +
-                ", users=" + users +
-                '}';
+    public void setRid(int rid) {
+        this.rid = rid;
+    }
+
+    public void setUid(Set<User> uid) {
+        this.uid = uid;
     }
 
     /**

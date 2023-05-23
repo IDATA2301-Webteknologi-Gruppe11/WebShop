@@ -1,9 +1,12 @@
 package no.ntnu.ProFlex.services;
 
 import no.ntnu.ProFlex.models.Order;
+import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -30,14 +33,9 @@ public class OrderService {
         return this.orderRepository.findById(id).orElse(null);
     }
 
-//    /**
-//     * Return all orders form a given uid
-//     * @param id the id of the user that have the orders.
-//     * @return all orders form a given uid.
-//     */
-//    public List<Order> finAllByUid(int id) {
-//        return this.orderRepository.findAllByUid(id);
-//    }
+    public List<Order> findAllByUid(User uid) {
+        return this.orderRepository.findByUid(uid);
+    }
 
     /**
      * Adds an order to the order repository.

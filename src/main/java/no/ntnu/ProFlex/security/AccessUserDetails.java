@@ -6,6 +6,8 @@ import no.ntnu.ProFlex.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +18,7 @@ import java.util.Set;
  * @author Ole Kristian
  * @version 1.0
  */
+
 
 public class AccessUserDetails implements UserDetails {
 
@@ -36,17 +39,16 @@ public class AccessUserDetails implements UserDetails {
         this.email = user.getEmail();
         this.password = user.getPass();
         this.isActive = user.isActive();
+        this.convertRoles(user.getRid());
     }
 
     /**
      * Converts the roles in the Set of roles.
-     * @param roles a set of roles that you want to convert.
+     * @param role a set of roles that you want to convert.
 //     */
-    private void convertRoles(Set<Role> roles) {
+    private void convertRoles(Role role) {
         this.authorities.clear();
-        for(Role role: roles) {
-            this.authorities.add(new SimpleGrantedAuthority(role.getRname()));
-        }
+        authorities.add(new SimpleGrantedAuthority(role.getRname()));
     }
 
     @Override

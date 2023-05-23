@@ -27,7 +27,6 @@ public class IndexController {
         model.addAttribute("featuredProduct", this.productService.getRandomProducts());
         model.addAttribute("valuta", "kr");
         model.addAttribute("sessionUser", this.userService.getSessionUser());
-        System.out.println("user: " +  this.userService.getSessionUser());
         return "index";
     }
 }

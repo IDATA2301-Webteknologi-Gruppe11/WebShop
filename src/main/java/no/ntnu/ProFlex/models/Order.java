@@ -2,9 +2,7 @@ package no.ntnu.ProFlex.models;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.constraints.NotNull;
-
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,22 +29,10 @@ public class Order {
     @Column(nullable = false)
     private Date date;
 
-    @ManyToMany
-    @JoinTable(name = "order_product",
-            joinColumns = @JoinColumn(name = "oid"),
-            inverseJoinColumns = @JoinColumn(name = "pid")
-    )
-    private Set<Product> products = new HashSet<>();
-
-    @Schema(description = "Many to many relations shit with products.")
-    @ManyToMany
     @NotNull
-    @Column(nullable = false)
-    @JoinTable(name = "order_user",
-        joinColumns = @JoinColumn(name = "oid"),
-        inverseJoinColumns = @JoinColumn(name = "uid")
-    )
-    private Set<User> users = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "uid")
+    private User uid;
 
     private static final Logger LOGGER = Logger.getLogger(Order.class.getName());
     private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
@@ -124,7 +110,16 @@ public class Order {
         this.date = date;
     }
 
+    public void setUid(User uid) {
+        this.uid = uid;
+    }
+
+    public User getUid() {
+        return this.uid;
+    }
+
     public boolean isValid() {
         return oid > 0 && date !=null;
     }
+
 }

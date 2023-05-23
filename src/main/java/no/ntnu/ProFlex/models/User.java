@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -22,8 +23,8 @@ import java.util.logging.Logger;
 @Table(name = "user")
 public class User {
 
-    @ManyToMany(mappedBy = "users")
-    private Set<Order> order = new LinkedHashSet<>();
+    @OneToMany(mappedBy = "uid", cascade = CascadeType.ALL)
+    private Set<Order> orders = new HashSet<>();
 
     @Schema(description = "A unique id of the user.")
     @Id
@@ -55,13 +56,9 @@ public class User {
     @Column(nullable = false)
     private boolean active = true;
 
-    @Schema(description = "A set of roles")
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Set<Role> roles = new LinkedHashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "rid")
+    private Role rid;
 
     @OneToMany(mappedBy = "uid")
     @JsonManagedReference
@@ -214,21 +211,6 @@ public class User {
         }
     }
 
-    /**
-     * Setts the roles
-     * @param roles a set of roles
-     */
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-    /**
-     * Returns the roles
-     * @return roles
-     */
-    public Set<Role> getRoles() {
-        return roles;
-    }
 
     /**
      * Checks if the input variables is valid
@@ -254,14 +236,6 @@ public class User {
         this.active = active;
     }
 
-    /**
-     * Add a role to the user
-     *
-     * @param role Role to add
-     */
-    public void addRole(Role role) {
-        roles.add(role);
-    }
 
     public Set<ShoppingCart> getShoppingCarts() {
         return this.shoppingCarts;
@@ -271,14 +245,36 @@ public class User {
         this.shoppingCarts = shoppingCarts;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "uid=" + uid +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + pass + '\'' +
-                '}';
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+
+    public void setRid(Role rid) {
+        this.rid = rid;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public Role getRid() {
+        return rid;
+    }
+
+    /**
+     * Checks if the user has a role from a given role name
+     * @param roleName the name of the role that you want to check if the user have.
+     * @return boolean statement. True if it hase the role, false if it doesn't.
+     */
+    public boolean hasRole(String roleName) {
+        boolean hasRole = false;
+        if(getRid().getRname().equals(roleName)) {
+            hasRole = true;
+        }
+        return hasRole;
+    }
+
+    public boolean isAdmin() {
+        return this.hasRole("ADMIN");
     }
 }

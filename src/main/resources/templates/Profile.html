@@ -1,57 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Profile</title>
-    <link rel="stylesheet" th:href="@{/static/css/profile.css}">
-    <link rel="stylesheet" th:href="@{/static/css/fragments/footer.css}">
-    <link rel="stylesheet" th:href="@{/static/css/fragments/header.css}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{static/css/profile2.css}"/>
+    <link rel="stylesheet" th:href="@{static/css/fragments/order-card.css}"/>
+    <link rel="stylesheet" th:href="@{static/css/fragments/header.css}"/>
+    <link rel="stylesheet" th:href="@{static/css/fragments/footer.css}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
 </head>
-
-<header th:replace="~{fragments/header.html :: header}"></header>
-
 <body>
-    <main class="flexbox-container">
-        <div class="cards">
-            <h1 class="title">Ongoing orders</h1>
-            <nav id="ongoing-orders-nav">
-                <li>Order history</li>
-                <li>Products</li>
-                <li>Date</li>
-                <li>User:<span sec:authentication="principal.email"/></li>
-            </nav>
+    <header th:replace="~{fragments/header.html :: header}"></header>
+    <main>
+        <h1 class="Profile-title">Profile</h1>
+        <div class="profile-flex">
+            <section class="Orders">
+                <h2 class="order-history-title">Order History</h2>
+                <div th:replace="~{fragments/order-card.html :: order-card}"></div>
+            </section>
+            <section class="user-information">
+                <h2 class="user-title">User details</h2>
+                <ul>
+                    <li th:text="'Name: ' + ${sessionUser.firstName}"></li>
+                    <li th:text="'Last Name: ' + ${sessionUser.lastName}"></li>
+                    <li th:text="'Email: ' + ${sessionUser.email}"></li>
+                    <li><button class="change-user-information-button">Change User Information</button></li>
+                </ul>
+            </section>
         </div>
-
-        <div class="cards">
-            <h1 class="title">Order history</h1>
-        </div>
-
-        <div class="cards">
-            <h1 class="title">Profile details</h1>
-            <nav id="details-nav">
-                <li id="username">Username</li>
-                <li>E-mail</li>
-                <li>Change password</li>
-                <li>Payment method</li>
-            </nav>
-        </div>  
     </main>
-
-
     <footer th:replace="~{fragments/footer.html :: footer}"></footer>
-
-    <section class="grid-container">
-        <nav class="icon-nav-bottom"> 
-            <a href="#"><i class="fa-brands fa-facebook"></i></a> 
-            <a href="#"><i class="fa-brands fa-twitter"></i></a> 
-            <a href="#"><i class="fa-brands fa-youtube"></i></a> 
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a> 
-        </nav>
-    </section>
 </body>
 </html>
