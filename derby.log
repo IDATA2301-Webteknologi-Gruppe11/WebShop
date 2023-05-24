@@ -1,16 +1,16 @@
 ----------------------------------------------------------------
-Sat Apr 08 16:36:27 CEST 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0187-614c-0f96-00000558a870 
-on database directory memory:C:\Users\stave\OneDrive\Skrivebord\SHOP\cd9476ae-4384-44a1-92aa-d25a1865a101 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1d44bcfa 
-Loaded from file:/C:/Users/stave/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+Sun May 21 23:09:11 CEST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0188-4025-112b-000002c5f4a8 
+on database directory memory:/Users/havardvestbo/Dokumenter/GitHub/WebShop/3007f499-87db-49b7-a892-570ebede55f0 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
+Loaded from file:/Users/havardvestbo/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=17+35-LTS-2724
-user.dir=C:\Users\stave\OneDrive\Skrivebord\SHOP
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
+java.runtime.version=17.0.1+12-39
+user.dir=/Users/havardvestbo/Dokumenter/GitHub/WebShop
+os.name=Mac OS X
+os.arch=aarch64
+os.version=13.3.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sat Apr 08 16:38:27 CEST 2023:
-Shutting down instance a816c00e-0187-614c-0f96-00000558a870 on database directory memory:C:\Users\stave\OneDrive\Skrivebord\SHOP\cd9476ae-4384-44a1-92aa-d25a1865a101 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1d44bcfa 
+Sun May 21 23:09:26 CEST 2023:
+Shutting down instance a816c00e-0188-4025-112b-000002c5f4a8 on database directory memory:/Users/havardvestbo/Dokumenter/GitHub/WebShop/3007f499-87db-49b7-a892-570ebede55f0 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 

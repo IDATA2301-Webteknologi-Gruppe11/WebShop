@@ -15,10 +15,14 @@ header {
     display: none;
 }
 
+body {
+    background-color: #f5f5f5;
+}
+
 .hero-section{
     color: white;
     display: flex;
-    min-height: 90rem;
+    min-height: 100rem;
     padding-top: 12rem;
     justify-content: flex-start;
     padding-right: 12rem;
