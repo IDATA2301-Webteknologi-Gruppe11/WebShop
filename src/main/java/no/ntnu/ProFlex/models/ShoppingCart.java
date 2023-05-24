@@ -1,6 +1,7 @@
 package no.ntnu.ProFlex.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import java.util.ArrayList;
@@ -28,7 +29,8 @@ public class ShoppingCart {
     private User uid;
 
     @OneToMany(mappedBy = "scid")
-    private List<CartItem> items = new ArrayList<>();
+    @JsonManagedReference
+    private List<CartItem> ciid = new ArrayList<>();
 
     /**
      * Empty constructor that is needed for JPA
@@ -49,7 +51,7 @@ public class ShoppingCart {
      * Return user
      * @return user
      */
-    public User getUser() {
+    public User getUid() {
         return this.uid;
     }
 
@@ -57,8 +59,8 @@ public class ShoppingCart {
      * Return items
      * @return list of items
      */
-    public List<CartItem> getItems() {
-        return this.items;
+    public List<CartItem> getCiid() {
+        return this.ciid;
     }
 
     /**
@@ -73,16 +75,16 @@ public class ShoppingCart {
      * Setts user of the cart
      * @param uid the user of the cart
      */
-    public void setUser(User uid) {
+    public void setUid(User uid) {
         this.uid = uid;
     }
 
     /**
      * Setts the items of the cart
-     * @param items list of items that you want in the cart
+     * @param ciid list of items that you want in the cart
      */
-    public void setItems(List<CartItem> items) {
-        this.items = items;
+    public void setCiid(List<CartItem> ciid) {
+        this.ciid = ciid;
     }
 
     public boolean isValid() {

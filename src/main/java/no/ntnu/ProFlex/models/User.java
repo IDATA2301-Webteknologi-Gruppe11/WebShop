@@ -62,7 +62,7 @@ public class User {
 
     @OneToMany(mappedBy = "uid")
     @JsonManagedReference
-    private Set<ShoppingCart> shoppingCarts = new HashSet<>();
+    private Set<ShoppingCart> scid = new HashSet<>();
 
     /**
      * Constructor for user.
@@ -209,12 +209,12 @@ public class User {
     }
 
 
-    public Set<ShoppingCart> getShoppingCarts() {
-        return this.shoppingCarts;
+    public Set<ShoppingCart> getScid() {
+        return this.scid;
     }
 
-    public void setShoppingCarts(Set<ShoppingCart> shoppingCarts) {
-        this.shoppingCarts = shoppingCarts;
+    public void setScid(Set<ShoppingCart> shoppingCarts) {
+        this.scid = shoppingCarts;
     }
 
     public void setOrders(Set<Order> orders) {

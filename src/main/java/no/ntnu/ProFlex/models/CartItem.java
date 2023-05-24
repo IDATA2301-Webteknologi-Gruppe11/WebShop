@@ -1,6 +1,7 @@
 package no.ntnu.ProFlex.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -42,7 +43,7 @@ public class CartItem {
      *
      * @return
      */
-    public ShoppingCart getCart() {
+    public ShoppingCart getScid() {
         return scid;
     }
 
@@ -72,10 +73,10 @@ public class CartItem {
 
     /**
      *
-     * @param cart
+     * @param scid
      */
-    public void setCart(ShoppingCart cart) {
-        this.scid = cart;
+    public void setScid(ShoppingCart scid) {
+        this.scid = scid;
     }
 
     /**
