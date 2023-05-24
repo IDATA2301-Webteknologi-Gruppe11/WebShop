@@ -9,7 +9,6 @@
 .index-product-card-flex-container {
     display: flex;
     flex-direction: row;
-    gap: 15rem;
     margin-bottom: 40rem;
 }
 
@@ -136,9 +135,10 @@
 
 .flex-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
     gap: 5rem;
+    flex-wrap: wrap;
 }
 
 

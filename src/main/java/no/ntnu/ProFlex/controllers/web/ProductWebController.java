@@ -42,15 +42,19 @@ public class ProductWebController {
     @GetMapping("/products")
     public String getProducts(@RequestParam(required = false) String category, Model model) {
         model.addAttribute("sessionUser", this.userService.getSessionUser());
-        Iterable<Product> products = null;
-        if (category == null) {
-            products = this.productService.getAll();
-        } else {
-            products = this.productService.getByCategory(category);
-        }
-        model.addAttribute("products", products);
-        model.addAttribute("valuta", "kr");
-        model.addAttribute("separator", ", ");
         return "Products";
     }
+
+
+
+
+    //        Iterable<Product> products = null;
+//        if (category == null) {
+//            products = this.productService.getAll();
+//        } else {
+//            products = this.productService.getByCategory(category);
+//        }
+//        model.addAttribute("products", products);
+//        model.addAttribute("valuta", "kr");
+//        model.addAttribute("separator", ", ");
 }

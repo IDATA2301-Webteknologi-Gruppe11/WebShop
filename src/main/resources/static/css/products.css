@@ -21,3 +21,11 @@ body {
 footer {
     margin-top: 5rem;
 }
+
+#productCard {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}

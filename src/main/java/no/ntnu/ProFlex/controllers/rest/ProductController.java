@@ -46,6 +46,11 @@ public class ProductController {
         if (!products.iterator().hasNext()) {
             return new ResponseEntity("Didn't find products", HttpStatus.NOT_FOUND);
         }
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            LOGGER.warning("Product-loading thread interrupted!");
+        }
         return ResponseEntity.ok((List<Product>) products);
     }
 
@@ -65,6 +70,15 @@ public class ProductController {
             return new ResponseEntity("Didn't find product", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(product);
+    }
+
+    @GetMapping("/getByCategory/{category}")
+    public ResponseEntity<List<Product>> getByCategory(@PathVariable String category) {
+        List<Product> products = this.productService.getByCategory(category);
+        if(products == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(products);
     }
 
 
