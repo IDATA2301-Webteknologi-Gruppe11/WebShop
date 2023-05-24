@@ -60,10 +60,6 @@ public class Product {
     @JsonBackReference
     private List<CartItem> cartItems = new ArrayList<>();
 
-    private static final Logger LOGGER = Logger.getLogger(Product.class.getName());
-    private static final String ILLEGAL_ARGUMENT_EXCEPTION_WARNING = "Caught Illegal Argument Exception: ";
-
-
     /**
      * Creates a product
      *

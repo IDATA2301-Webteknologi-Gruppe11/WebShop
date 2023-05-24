@@ -1,11 +1,13 @@
 package no.ntnu.ProFlex.controllers.web;
 
+import no.ntnu.ProFlex.models.Category;
 import no.ntnu.ProFlex.models.Order;
 import no.ntnu.ProFlex.models.OrderProduct;
 import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.services.AccessUserService;
 import no.ntnu.ProFlex.services.OrderProductService;
 import no.ntnu.ProFlex.services.OrderService;
+import no.ntnu.ProFlex.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,9 @@ public class ProfileController {
     @Autowired
     OrderProductService orderProductService;
 
+    @Autowired
+    CategoryService categoryService;
+
     @GetMapping("/profile/{username}")
     public String getProfile2(Model model, @PathVariable String username) {
         List<Order> orders = this.orderService.findAllByUid(this.userService.getSessionUser());
@@ -43,11 +48,13 @@ public class ProfileController {
         if(autheticatedUser.getEmail().equals(username)) {
             model.addAttribute("sessionUser", autheticatedUser);
         }
-        return "admin";
+        return "profile";
     }
 
     @GetMapping("/admin/{username}")
     public String getAdmin(Model model, @PathVariable String username) {
+        Iterable<Category> categories = this.categoryService.getAll();
+        model.addAttribute("categories", categories);
         return   handleAdminPageRequest(username, model);
     }
 
@@ -65,12 +72,5 @@ public class ProfileController {
     @GetMapping("/no-access")
     public String getNoAccess() {
         return "no-access";
-    }
-
-    @GetMapping("change-user-information")
-    public String getChangeUserInformation(Model model) {
-        User sessionUser = this.userService.getSessionUser();
-        model.addAttribute("sessionUser", sessionUser);
-        return "change-user-information";
     }
 }

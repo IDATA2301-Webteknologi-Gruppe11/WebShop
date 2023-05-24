@@ -66,7 +66,8 @@
     height: 2rem;
     border: none;
     margin-top: -0.4rem;
-    background-color: white;
+    background-color: #f5f5f5;
+
 }
 
 .quantityButtonMinus {
@@ -74,7 +75,7 @@
     height: 2rem;
     border: none;
     margin-top: -0.4rem;
-    background-color: white;
+    background-color: #f5f5f5;
 }
 
 #price {
@@ -103,7 +104,7 @@
     grid-row: 2;
     font-size: 2rem;
     border: none;
-    background-color: white;
+    background-color: #f5f5f5;
     margin-right: 30rem;
 
 }
