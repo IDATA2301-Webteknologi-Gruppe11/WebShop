@@ -1,21 +1,21 @@
 <main class="product-cart-flex-container" th:fragment="product-cart-card">
-  <div class="product-cart-card" th:each="cartItems: ${cartItems}">
+  <div class="product-cart-card" th:each="cartItem : ${cartItems}">
     <section class="product-cart-card-section">
-      <img id="card-img" th:src="${cartItems.product.image}" width="80" height="80"/>
-      <h2 id="shopping-cart-card-name" th:text="${cartItems.product.name}"></h2>
-      <p id="description" th:text="${cartItems.product.shortDescription}"></p>
+      <img id="card-img" th:src="${cartItem.pid.image}" width="80" height="80"/>
+      <h2 id="shopping-cart-card-name" th:text="${cartItem.pid.name}"></h2>
+      <p id="description" th:text="${cartItem.pid.shortDescription}"></p>
       <p id="quantity">Quantity</p>
       <div id="Quantity-flex">
-        <button class="quantityButtonPlus" onclick="updateCartItemQuantity(1, true)">
+        <button id="quantityButtonPlus" class="quantityNumber" th:onclick="updateCartItemQuantity(true, [[${cartItem.ciid}]], [[${cartItem.scid}]], [[${cartItem.pid}]])">
           <i class="fa-solid fa-plus"></i>
         </button>
-        <p class="quantityNumber">0</p>
-        <button class="quantityButtonMinus" onclick="updateCartItemQuantity(1, false)">
+        <p th:id="'quantityNumber-' + ${cartItem.ciid}" class="quantityNumber" th:text="${cartItem.quantity}"></p>
+        <button id="quantityButtonMinus" th:onclick="updateCartItemQuantity(false, [[${cartItem.ciid}]], [[${shoppingCart}]], [[${cartItem.pid}]])">
           <i class="fa-solid fa-minus"></i>
         </button>
       </div>
       <p id="price">Price</p>
-      <p class="priceNumber" th:text="${cartItems.product.price}"></p>
+      <p class="priceNumber" th:text="${cartItem.pid.price}"></p>
       <p id="Remove">Remove</p>
       <button id="remove-product-button"><i class="fa-solid fa-x"></i></button>
     </section>

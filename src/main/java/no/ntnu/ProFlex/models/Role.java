@@ -1,5 +1,6 @@
 package no.ntnu.ProFlex.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -29,6 +30,7 @@ public class Role {
     private String rname;
 
     @OneToMany(mappedBy = "rid")
+    @JsonManagedReference(value = "user-role")
     private Set<User> uid;
 
     /**
@@ -78,15 +80,6 @@ public class Role {
      */
     public String getRname() {
         return this.rname;
-    }
-
-    /**
-     * Returns the users.
-     * 
-     * @return users.
-     */
-    public Set<User> getUsers() {
-        return this.uid;
     }
 
     /**

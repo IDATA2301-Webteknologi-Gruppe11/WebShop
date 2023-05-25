@@ -21,12 +21,11 @@ import java.util.logging.Logger;
  * @version 1.0
  */
 @RestController
-@RequestMapping("api/cart-items")
+@RequestMapping("/api/cartItems")
 public class CartItemController {
 
     @Autowired
     private CartItemService cartItemService;
-
     private static final String JSONEEXCEPTIONMESSAGE = "The Field(s) in the request is missing or is null";
     private static final String SEVERE = "An error occurred: ";
     private static final Logger LOGGER = Logger.getLogger(ProductController.class.getName());
@@ -96,7 +95,7 @@ public class CartItemController {
      * @exception JSONException if an error occurs while updating the product
      */
     @Operation(summary = "Update cart item", description = "Update the cart item from the cart item repository")
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/update/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateCartItem(
             @Parameter(name = "id", description = "ID of the cart item to update", required = true)
             @PathVariable int id,
@@ -107,6 +106,7 @@ public class CartItemController {
             if (oldCartItem == null) {
                 return new ResponseEntity("didn't find cart item", HttpStatus.NOT_FOUND);
             }
+            System.out.println(cartItem.getCiid());
             this.cartItemService.update(id, cartItem);
             if (this.cartItemService.findById(id) == null) {
                 return new ResponseEntity("Cart item didn't update", HttpStatus.INTERNAL_SERVER_ERROR);

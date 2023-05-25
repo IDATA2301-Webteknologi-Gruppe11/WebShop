@@ -61,7 +61,7 @@
     font-size: 1.5rem;
 }
 
-.quantityButtonPlus {
+#quantityButtonPlus {
     font-size: 2rem;
     height: 2rem;
     border: none;
@@ -70,7 +70,7 @@
 
 }
 
-.quantityButtonMinus {
+#quantityButtonMinus {
     font-size: 2rem;
     height: 2rem;
     border: none;

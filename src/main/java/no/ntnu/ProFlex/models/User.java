@@ -1,15 +1,11 @@
 package no.ntnu.ProFlex.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import org.springframework.stereotype.Component;
-
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.logging.Logger;
+import java.util.*;
 
 /**
  * This class represent the user of the web site.
@@ -24,6 +20,7 @@ import java.util.logging.Logger;
 public class User {
 
     @OneToMany(mappedBy = "uid", cascade = CascadeType.ALL)
+    @JsonManagedReference(value = "user-order")
     private Set<Order> orders = new HashSet<>();
 
     @Schema(description = "A unique id of the user.")
@@ -58,11 +55,12 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "rid")
+    @JsonBackReference(value = "user-role")
     private Role rid;
 
-    @OneToMany(mappedBy = "uid")
-    @JsonManagedReference
-    private Set<ShoppingCart> scid = new HashSet<>();
+    @OneToOne(mappedBy = "uid")
+    @JsonManagedReference(value = "user-shoppingcart")
+    private ShoppingCart scid;
 
     /**
      * Constructor for user.
@@ -208,27 +206,46 @@ public class User {
         this.active = active;
     }
 
-
-    public Set<ShoppingCart> getScid() {
+    /**
+     *
+     * @return
+     */
+    public ShoppingCart getScid() {
         return this.scid;
     }
 
-    public void setScid(Set<ShoppingCart> shoppingCarts) {
-        this.scid = shoppingCarts;
+    public void setScid(ShoppingCart scid) {
+        this.scid = scid;
     }
 
+    /**
+     *
+     * @param orders
+     */
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
 
+    /**
+     *
+     * @param rid
+     */
     public void setRid(Role rid) {
         this.rid = rid;
     }
 
+    /**
+     *
+     * @return
+     */
     public Set<Order> getOrders() {
         return orders;
     }
 
+    /**
+     *
+     * @return
+     */
     public Role getRid() {
         return rid;
     }

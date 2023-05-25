@@ -2,7 +2,6 @@ package no.ntnu.ProFlex.controllers.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import no.ntnu.ProFlex.controllers.rest.ProductController;
 import no.ntnu.ProFlex.models.ShoppingCart;
 import no.ntnu.ProFlex.services.ShoppingCartService;
 import org.json.JSONException;
@@ -21,7 +20,7 @@ import java.util.logging.Logger;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/shoppingcart")
+@RequestMapping("/api/shoppingcart")
 public class ShoppingCartController {
 
     @Autowired

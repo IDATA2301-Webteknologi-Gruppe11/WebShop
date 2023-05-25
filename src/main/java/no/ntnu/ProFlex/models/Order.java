@@ -1,12 +1,10 @@
 package no.ntnu.ProFlex.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.logging.Logger;
 
 /**
  * This class represent the orders for the users.
@@ -32,6 +30,7 @@ public class Order {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "uid")
+    @JsonBackReference(value = "user-order")
     private User uid;
 
     /**

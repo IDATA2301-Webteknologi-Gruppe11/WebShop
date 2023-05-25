@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/api/category")
 public class CategoryController {
 
     @Autowired

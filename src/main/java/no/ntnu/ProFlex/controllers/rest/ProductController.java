@@ -33,7 +33,6 @@ public class ProductController {
     private static final Logger LOGGER = Logger.getLogger(ProductController.class.getName());
 
 
-
     /**
      * Returns all the products.
      *
@@ -61,7 +60,7 @@ public class ProductController {
      * @return the product of the given ID
      */
     @Operation(summary = "Get product by ID", description = "Retrieves a product by its ID.")
-    @GetMapping("/getProduct{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Product> getProductFromAGiveID(
             @Parameter(name = "id", description = "ID of the product to retrieve", required = true)
             @PathVariable int id) {
@@ -121,7 +120,7 @@ public class ProductController {
             @Parameter(name = "id", description = "ID of the product to update", required = true)
             @PathVariable int id,
             @Parameter(name = "product", description = "The new product that you want the old one to change to", required = true)
-            @PathVariable Product product) {
+            @RequestBody Product product) {
         try {
             Product oldProduct = this.productService.findById(id);
             if (oldProduct == null) {

@@ -106,6 +106,7 @@ public class CartItemService {
         else if(cartItem.getCiid() != id) {
             errorMessage = "The ID of the shopping cart in the URL does not match anny ID in the JSON data";
         }
+        System.out.println(errorMessage);
         if (errorMessage == null) {
             this.cartItemRepository.save(cartItem);
         }

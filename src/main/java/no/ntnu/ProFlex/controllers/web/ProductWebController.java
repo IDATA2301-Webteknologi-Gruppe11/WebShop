@@ -1,8 +1,12 @@
 package no.ntnu.ProFlex.controllers.web;
 
+import com.sun.jdi.VMOutOfMemoryException;
 import no.ntnu.ProFlex.models.Product;
+import no.ntnu.ProFlex.models.ShoppingCart;
+import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.services.AccessUserService;
 import no.ntnu.ProFlex.services.ProductService;
+import no.ntnu.ProFlex.services.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +23,9 @@ public class ProductWebController {
     @Autowired
     AccessUserService userService;
 
+    @Autowired
+    ShoppingCartService shoppingCartService;
+
     /**
      * Serve the "Product" page
      *
@@ -29,7 +36,10 @@ public class ProductWebController {
     @GetMapping("/products/{id}")
     public String getProduct(Model model, @ModelAttribute("id") int id) {
         model.addAttribute("products", this.productService.findById(id));
-        model.addAttribute("sessionUser", this.userService.getSessionUser());
+        User sessionUser = this.userService.getSessionUser();
+        model.addAttribute("sessionUser", sessionUser);
+        ShoppingCart shoppingCart = this.shoppingCartService.findByUid(sessionUser);
+        model.addAttribute("shoppingCart", shoppingCart);
         return "product-details";
     }
 

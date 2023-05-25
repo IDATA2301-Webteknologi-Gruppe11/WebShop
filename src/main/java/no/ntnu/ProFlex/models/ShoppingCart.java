@@ -1,7 +1,5 @@
 package no.ntnu.ProFlex.models;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import java.util.ArrayList;
@@ -23,13 +21,13 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int scid;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "uid")
-    @JsonBackReference
+    @JsonBackReference(value = "user-shoppingcart")
     private User uid;
 
     @OneToMany(mappedBy = "scid")
-    @JsonManagedReference
+    @JsonManagedReference(value = "cartitem-shoppingcart")
     private List<CartItem> ciid = new ArrayList<>();
 
     /**

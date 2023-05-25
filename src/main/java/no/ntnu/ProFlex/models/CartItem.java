@@ -1,7 +1,6 @@
 package no.ntnu.ProFlex.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,12 +13,12 @@ public class CartItem {
 
     @ManyToOne
     @JoinColumn(name = "scid")
-    @JsonBackReference
+    @JsonBackReference(value = "cartitem-shoppingcart")
     private ShoppingCart scid;
 
     @ManyToOne
     @JoinColumn(name = "pid")
-    @JsonBackReference
+    @JsonBackReference(value = "cartitem-product")
     private Product pid;
 
     private int quantity;
@@ -51,7 +50,7 @@ public class CartItem {
      *
      * @return
      */
-    public Product getProduct() {
+    public Product getPid() {
         return pid;
     }
 
@@ -83,7 +82,7 @@ public class CartItem {
      *
      * @param product
      */
-    public void setProduct(Product product) {
+    public void setPid(Product product) {
         this.pid = product;
     }
 

@@ -57,7 +57,7 @@ public class Product {
     private String description;
 
     @OneToMany(mappedBy = "pid")
-    @JsonBackReference
+    @JsonBackReference("cartitem-product")
     private List<CartItem> cartItems = new ArrayList<>();
 
     /**
