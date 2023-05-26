@@ -265,7 +265,7 @@
     }
 }
 
-@media (max-width: 480px) and (min-width: 419px){
+@media (max-width: 480px) and (min-width: 429px){
     .ul3{
         display: none;
     }
@@ -291,9 +291,9 @@
     }
 }
 
-@media (max-width: 418px){
+@media (max-width: 428px){
     .navigation{
-        font-size: 4rem;
+        font-size: 6rem;
         padding: 1rem;
     }
 

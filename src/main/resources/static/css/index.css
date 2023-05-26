@@ -93,7 +93,7 @@ body {
     color: #1d1d1f;
 }
 
-@media(max-width: 700px) {
+/* @media(max-width: 700px) {
     .text-box h1 {
         font-size: 36px;
     }
@@ -118,6 +118,38 @@ body {
 
     .nav-links ul {
         padding: 30px;
+    }
+} */
+
+@media (max-width: 428px) {
+    .hero-section {
+        padding: 0;
+        min-height: 70rem;
+        margin-bottom: 5rem;
+    }
+
+    .hero-title {
+        font-size: 6rem;
+        padding-top: 4rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    .hero-section-link {
+        font-size: 3rem;
+    }
+
+    p {
+        margin-top: 1.6rem;
+    }
+
+    .index-product {
+        font-size: 4rem;
+    }
+
+    .index-product-flex {
+        max-width: 100%;
+        margin-left: 2rem;
     }
 }
 
