@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import java.util.List;
 
 @Controller
@@ -35,6 +34,8 @@ public class ShopingcartWebController {
         User sessionUser = this.userService.getSessionUser();
         model.addAttribute("sessionUser", sessionUser);
         ShoppingCart shoppingCart = this.shoppingCartService.findByUid(sessionUser);
+        model.addAttribute("shoppingCart",shoppingCart);
+        System.out.println(shoppingCart + "      here");
         List<CartItem> cartItems = this.cartItemService.findAllByScid(shoppingCart);
         model.addAttribute("cartItems", cartItems);
         return "ShoppingCart";

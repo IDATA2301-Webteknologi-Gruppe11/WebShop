@@ -23,11 +23,8 @@ public class Order {
     private int oid;
 
     @Schema(description = "The date when the order was placed.")
-    @NotNull
-    @Column(nullable = false)
     private Date date;
 
-    @NotNull
     @ManyToOne
     @JoinColumn(name = "uid")
     @JsonBackReference(value = "user-order")

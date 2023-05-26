@@ -79,7 +79,7 @@ public class OrderController {
             if (!this.orderService.add(order)) {
                 return new ResponseEntity("Order was not added", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity("Order was added", HttpStatus.CREATED);
+            return new ResponseEntity(order, HttpStatus.CREATED);
         }
         catch (JSONException e) {
             LOGGER.severe(SEVERE + e.getMessage());

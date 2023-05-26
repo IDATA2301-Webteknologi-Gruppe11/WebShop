@@ -14,4 +14,23 @@ public class OrderProductService {
     public Iterable<OrderProduct> findAll() {
         return this.orderProductRepository.findAll();
     }
+
+    /**
+     * Add a orderProduct to the orderProduct repository
+     * @param orderProduct The orderProduct you want to add
+     * @return boolean statement. True if added, false if not.
+     */
+    public boolean add(OrderProduct orderProduct) {
+        boolean added = false;
+        if(canBeAdded(orderProduct)) {
+            this.orderProductRepository.save(orderProduct);
+            System.out.println("im here ");
+            added = true;
+        }
+        return added;
+    }
+
+    private boolean canBeAdded(OrderProduct orderProduct) {
+        return orderProduct != null && orderProduct.isValid();
+    }
 }
