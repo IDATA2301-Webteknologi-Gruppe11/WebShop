@@ -152,7 +152,7 @@
 @media screen and (max-width: 700px) {
     .product-card-section {
         width: 35rem;
-        height: 55rem;
+        height: 57rem;
         padding: 3rem;
     }
 
@@ -164,6 +164,7 @@
 
     .index-product-card-image {
         margin-left: 100px;
+        margin-top: 40px;
         width: 100px;
         height: 100px;
       }
