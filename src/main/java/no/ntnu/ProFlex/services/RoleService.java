@@ -90,7 +90,7 @@ public class RoleService {
         }
         if (role == null || !role.isValid()) {
             errorMessage = "Wrong data in request body";
-        } else if (role.getRid() != id) {
+        } else if (role.getId() != id) {
             errorMessage = "The ID of the role in the URL does not match anny ID in the JSON data";
         }
         if (errorMessage == null) {

@@ -24,7 +24,7 @@ public class OrderTest {
         User user = new User("firstName", "lastName", "email", "password");
         Order order = new Order(date, user);
         assertEquals("Fri Apr 13 00:00:00 CEST 3923", order.getDate().toString());
-        assertEquals("firstName", order.getUid().getFirstName());
+        assertEquals("firstName", order.getUser().getFirstName());
     }
 
     /**

@@ -3,7 +3,7 @@ package no.ntnu.ProFlex.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+
 import java.util.Date;
 
 /**
@@ -20,15 +20,15 @@ public class Order {
     @Schema
     @Id
     @GeneratedValue
-    private int oid;
+    private int id;
 
     @Schema(description = "The date when the order was placed.")
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "uid")
+    @JoinColumn(name = "orders")
     @JsonBackReference(value = "user-order")
-    private User uid;
+    private User user;
 
     /**
      * Default constructor
@@ -36,7 +36,7 @@ public class Order {
      */
     public Order(Date date, User user) {
         this.date = date;
-        this.uid = user;
+        this.user = user;
     }
 
     /**
@@ -48,18 +48,18 @@ public class Order {
 
     /**
      * Setts oid.
-     * @param oid the oid that you want to set.
+     * @param id the oid that you want to set.
      */
-    public void setOid(int oid) {
-        this.oid = oid;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
      * Return oid.
      * @return oid
      */
-    public int getOid() {
-        return oid;
+    public int getId() {
+        return id;
     }
 
     /**
@@ -80,18 +80,18 @@ public class Order {
 
     /**
      * Setts the user
-     * @param uid the user you want
+     * @param user the user you want
      */
-    public void setUid(User uid) {
-        this.uid = uid;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**
      * Return the user for the order
      * @return user
      */
-    public User getUid() {
-        return this.uid;
+    public User getUser() {
+        return this.user;
     }
 
     /**
@@ -99,6 +99,6 @@ public class Order {
      * @return boolean statement. True if order is valid, false if not.
      */
     public boolean isValid() {
-        return this.date != null && this.uid != null;
+        return this.date != null && this.user != null;
     }
 }

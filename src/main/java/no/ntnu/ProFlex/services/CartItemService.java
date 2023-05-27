@@ -31,11 +31,11 @@ public class CartItemService {
 
     /**
      * Returns all cart items based on the shopping cart.
-     * @param scid the id of the shoipping cart
+     * @param shoppingCart the id of the shoipping cart
      * @return list of cart items
      */
-    public List<CartItem> findAllByScid(ShoppingCart scid) {
-        return this.cartItemRepository.findAllByScid(scid);
+    public List<CartItem> findAllByShoppingCart(ShoppingCart shoppingCart) {
+        return this.cartItemRepository.findAllByShoppingCart(shoppingCart);
     }
 
     /**
@@ -103,7 +103,7 @@ public class CartItemService {
         if (cartItem == null || !cartItem.isValid()) {
             errorMessage = "Wrong data in request body";
         }
-        else if(cartItem.getCiid() != id) {
+        else if(cartItem.getId() != id) {
             errorMessage = "The ID of the shopping cart in the URL does not match anny ID in the JSON data";
         }
         System.out.println(errorMessage);

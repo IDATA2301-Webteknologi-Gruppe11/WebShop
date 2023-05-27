@@ -6,7 +6,6 @@ import no.ntnu.ProFlex.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -39,7 +38,7 @@ public class AccessUserDetails implements UserDetails {
         this.email = user.getEmail();
         this.password = user.getPass();
         this.isActive = user.isActive();
-        this.convertRoles(user.getRid());
+        this.convertRoles(user.getRole());
     }
 
     /**
@@ -48,7 +47,7 @@ public class AccessUserDetails implements UserDetails {
 //     */
     private void convertRoles(Role role) {
         this.authorities.clear();
-        authorities.add(new SimpleGrantedAuthority(role.getRname()));
+        authorities.add(new SimpleGrantedAuthority(role.getName()));
     }
 
     @Override

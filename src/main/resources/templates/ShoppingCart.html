@@ -28,7 +28,7 @@
     <p id="total-price">Total price: </p>
     <div id="button-flex">
         <button onclick="redirectToProducts()" id="keep-shopping-button">Keep Shopping</button>
-        <button id="pay-button" th:onclick="createOrderProduct([[${shoppingCart.scid}]], [[${sessionUser}]])">Go To Checkout</button>
+        <button id="pay-button" th:onclick="createOrderProduct([[${shoppingCart.id}]], [[${sessionUser}]])">Go To Checkout</button>
     </div>
     <footer th:replace="~{fragments/footer.html :: footer}"> </footer>
 </body>

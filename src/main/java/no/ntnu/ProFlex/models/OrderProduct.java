@@ -8,15 +8,15 @@ public class OrderProduct {
 
     @Id
     @GeneratedValue
-    private int opid;
+    private int id;
 
     @OneToOne
-    @JoinColumn(name = "oid")
-    private Order oid;
+    @JoinColumn(name = "orders")
+    private Order order;
 
     @OneToOne
-    @JoinColumn(name = "pid")
-    private Product pid;
+    @JoinColumn(name = "product")
+    private Product product;
 
     @Column(name = "quantity")
     private int quantity;
@@ -36,24 +36,24 @@ public class OrderProduct {
      *
      * @return
      */
-    public int getOpid() {
-        return opid;
+    public int getId() {
+        return id;
     }
 
     /**
      *
      * @return
      */
-    public Order getOid() {
-        return oid;
+    public Order getOrder() {
+        return order;
     }
 
     /**
      *
      * @return
      */
-    public Product getPid() {
-        return pid;
+    public Product getProduct() {
+        return this.product;
     }
 
     /**
@@ -74,26 +74,26 @@ public class OrderProduct {
 
     /**
      *
-     * @param opid
+     * @param id
      */
-    public void setOpid(int opid) {
-        this.opid = opid;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
      *
-     * @param oid
+     * @param order
      */
-    public void setOid(Order oid) {
-        this.oid = oid;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     /**
      *
-     * @param pid
+     * @param product
      */
-    public void setPid(Product pid) {
-        this.pid = pid;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     /**

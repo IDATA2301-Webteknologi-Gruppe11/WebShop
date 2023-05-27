@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CartItemRepository extends CrudRepository<CartItem, Integer> {
-    List<CartItem> findAllByScid(ShoppingCart scid);
+    List<CartItem> findAllByShoppingCart(ShoppingCart shoppingCart);
 }

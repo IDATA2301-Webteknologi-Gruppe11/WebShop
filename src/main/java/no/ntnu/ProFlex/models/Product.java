@@ -28,8 +28,8 @@ public class Product {
     @Schema(description = "A unique integer for the product")
     @Id
     @GeneratedValue
-    @Column(name = "pid")
-    private Integer pid;
+    @Column(name = "id")
+    private int id;
 
     @Schema(description = "The price of a product")
     @NotNull
@@ -55,7 +55,7 @@ public class Product {
     @Column(nullable = false, name = "description", length = 1000)
     private String description;
 
-    @OneToMany(mappedBy = "pid")
+    @OneToMany(mappedBy = "product")
     @JsonBackReference("cartitem-product")
     private List<CartItem> cartItems = new ArrayList<>();
 
@@ -134,8 +134,8 @@ public class Product {
      *
      * @return ID.
      */
-    public int getPid() {
-        return this.pid;
+    public int getId() {
+        return this.id;
     }
 
     /**
@@ -166,7 +166,7 @@ public class Product {
      * @param pid the ID number for the product.
      */
     public void setId(int pid) {
-        this.pid = integerChecker(pid, "id");
+        this.id = integerChecker(pid, "id");
     }
 
     /**

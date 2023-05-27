@@ -1,7 +1,6 @@
 package no.ntnu.ProFlex;
 
 import no.ntnu.ProFlex.models.Category;
-import no.ntnu.ProFlex.models.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -20,7 +19,7 @@ public class CategoryTest {
     @Test
     void testConstructorWithValidParameters() {
         Category category = new Category("name");
-        assertEquals("name", category.getCname());
+        assertEquals("name", category.getName());
     }
 
     /**

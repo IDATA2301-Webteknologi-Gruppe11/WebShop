@@ -19,16 +19,16 @@ public class ShoppingCart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int scid;
+    private int id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "uid")
+    @JoinColumn(name = "user")
     @JsonBackReference(value = "user-shoppingcart")
-    private User uid;
+    private User user;
 
-    @OneToMany(mappedBy = "scid")
+    @OneToMany(mappedBy = "shoppingCart")
     @JsonManagedReference(value = "cartitem-shoppingcart")
-    private List<CartItem> ciid = new ArrayList<>();
+    private List<CartItem> cartItems = new ArrayList<>();
 
     /**
      * Empty constructor that is needed for JPA
@@ -41,51 +41,51 @@ public class ShoppingCart {
      * Return scid
      * @return scid
      */
-    public int getScid() {
-        return this.scid;
+    public int getId() {
+        return this.id;
     }
 
     /**
      * Return user
      * @return user
      */
-    public User getUid() {
-        return this.uid;
+    public User getUser() {
+        return this.user;
     }
 
     /**
      * Return items
      * @return list of items
      */
-    public List<CartItem> getCiid() {
-        return this.ciid;
+    public List<CartItem> getCartItems() {
+        return this.cartItems;
     }
 
     /**
      * Setts id of the shoppin cart
      * @param id the new scid of the cart
      */
-    public void setScid(int id) {
-        this.scid = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
      * Setts user of the cart
-     * @param uid the user of the cart
+     * @param user the user of the cart
      */
-    public void setUid(User uid) {
-        this.uid = uid;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**
      * Setts the items of the cart
-     * @param ciid list of items that you want in the cart
+     * @param cartItems list of items that you want in the cart
      */
-    public void setCiid(List<CartItem> ciid) {
-        this.ciid = ciid;
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
     }
 
     public boolean isValid() {
-        return this.scid >= 0;
+        return this.id >= 0;
     }
 }

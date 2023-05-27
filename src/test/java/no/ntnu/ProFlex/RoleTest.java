@@ -19,7 +19,7 @@ public class RoleTest {
     @Test
     void testConstructorWithValidParameters() {
         Role role = new Role("rname");
-        assertEquals("rname", role.getRname());
+        assertEquals("rname", role.getName());
     }
 
     /**

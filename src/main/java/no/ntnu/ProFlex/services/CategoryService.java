@@ -86,7 +86,7 @@ public class CategoryService {
             errorMessage = "Wrong data in request body";
         }
 
-        else if (category.getCid() != id) {
+        else if (category.getId() != id) {
             errorMessage = "The ID of the category in the URL does not match anny ID in the JSON data";
         }
         if(errorMessage == null) {

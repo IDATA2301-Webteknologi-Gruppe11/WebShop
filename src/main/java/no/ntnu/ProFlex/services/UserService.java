@@ -98,7 +98,7 @@ public class UserService {
         if (user == null || !user.isValid()) {
             errorMessage = "Wrong data in request body";
         }
-        else if(user.getUid() != id) {
+        else if(user.getId() != id) {
             errorMessage = "The ID of the user in the URL does not match anny ID in the JSON data";
         }
         if (errorMessage == null) {

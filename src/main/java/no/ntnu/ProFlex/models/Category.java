@@ -22,28 +22,28 @@ public class Category {
     @Schema(description = "A unique id for the category")
     @Id
     @GeneratedValue
-    private int cid;
+    private int id;
 
     @Schema(description = "The name of the category.")
     @NotNull
     @Column(nullable = false)
-    private String cname;
+    private String name;
 
     @ManyToMany
     @NotNull
     @Column(nullable = false)
     @JoinTable(name = "product_categories",
-    joinColumns = @JoinColumn(name = "cid"),
-    inverseJoinColumns = @JoinColumn(name = "pid")
+    joinColumns = @JoinColumn(name = "category"),
+    inverseJoinColumns = @JoinColumn(name = "product")
     )
     private Set<Product> products = new HashSet<>();
 
     /**
      * Crates and object of category.
-     * @param cname the name of the category.
+     * @param name the name of the category.
      */
-    public Category(String cname) {
-        this.cname = stringCheker(cname, "cname");
+    public Category(String name) {
+        this.name = stringCheker(name, "name");
     }
 
     /**
@@ -73,33 +73,33 @@ public class Category {
      * Returns cid.
      * @return cid.
      */
-    public int getCid() {
-        return cid;
+    public int getId() {
+        return id;
     }
 
     /**
-     * Returns cname.
-     * @return cname.
+     * Returns name.
+     * @return name.
      */
-    public String getCname() {
-        return cname;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Setts the cname for category.
-     * @param cname the cname for category.
+     * Setts the name for category.
+     * @param name the name for category.
      */
-    public void setCname(String cname) {
-        this.cname = stringCheker(cname, "cname");
+    public void setName(String name) {
+        this.name = stringCheker(name, "name");
     }
 
     //TODO id skal kansje være unchangeable, so må dobbelsjekke om den skal ha setCid.
     /**
      * Setts the cid for the category.
-     * @param cid the new cid for category.
+     * @param id the new cid for category.
      */
-    public void setCid(int cid) {
-        this.cid = cid;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
@@ -107,7 +107,7 @@ public class Category {
      * @return
      */
     public boolean isValid() {
-        return !" ".equals(this.cname);
+        return !" ".equals(this.name);
     }
 
 }

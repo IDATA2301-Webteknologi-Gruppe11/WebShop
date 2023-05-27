@@ -39,11 +39,11 @@ public class ShoppingCartService {
 
     /**
      * Find and return a shopping cart based on a given user
-     * @param uid the user you want to find
+     * @param user the user you want to find
      * @return user.
      */
-    public ShoppingCart findByUid(User uid) {
-        return this.shoppingCartRepository.findByUid(uid);
+    public ShoppingCart findByUser(User user) {
+        return this.shoppingCartRepository.findByUser(user);
     }
 
     /**
@@ -101,7 +101,7 @@ public class ShoppingCartService {
         if (shoppingCart == null || !shoppingCart.isValid()) {
             errorMessage = "Wrong data in request body";
         }
-        else if(shoppingCart.getScid() != id) {
+        else if(shoppingCart.getId() != id) {
             errorMessage = "The ID of the shopping cart in the URL does not match anny ID in the JSON data";
         }
         if (errorMessage == null) {

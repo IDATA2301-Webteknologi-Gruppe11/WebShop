@@ -17,13 +17,13 @@ import java.util.List;
  */
 public interface ProductRepository extends CrudRepository<Product, Integer> {
     Page<Product> findAll(Pageable pageable);
-    List<Category> findAllCategoriesByPid(int pid);
-    List<Product> findByCategoriesCname(String cname);
+    List<Category> findAllCategoriesById(int id);
+    List<Product> findByCategoriesName(String name);
 
     //Query that finds product based on if the name mach or if category matches
     @Query("SELECT p FROM Product p LEFT JOIN p.categories c WHERE " +
             "p.name LIKE CONCAT('%',:query, '%') OR " +
             "p.description LIKE CONCAT('%', :query, '%') OR " +
-            "c.cname LIKE CONCAT('%', :query, '%')")
+            "c.name LIKE CONCAT('%', :query, '%')")
     List<Product> searchProducts(String query);
 }

@@ -33,10 +33,11 @@ public class ShopingcartWebController {
     public String getShoppingCart(Model model) {
         User sessionUser = this.userService.getSessionUser();
         model.addAttribute("sessionUser", sessionUser);
-        ShoppingCart shoppingCart = this.shoppingCartService.findByUid(sessionUser);
+        System.out.println(sessionUser);
+        ShoppingCart shoppingCart = this.shoppingCartService.findByUser(sessionUser);
         model.addAttribute("shoppingCart",shoppingCart);
         System.out.println(shoppingCart + "      here");
-        List<CartItem> cartItems = this.cartItemService.findAllByScid(shoppingCart);
+        List<CartItem> cartItems = this.cartItemService.findAllByShoppingCart(shoppingCart);
         model.addAttribute("cartItems", cartItems);
         return "ShoppingCart";
     }

@@ -112,7 +112,7 @@ public class  ProductService {
         if (product == null || !product.isValid()) {
             errorMessage = "Wrong data in request body";
         }
-        else if(product.getPid() != id) {
+        else if(product.getId() != id) {
             errorMessage = "The ID of the product in the URL does not match anny ID in the JSON data";
         }
         if (errorMessage == null) {
@@ -129,7 +129,7 @@ public class  ProductService {
         Random random = new Random();
         List<Integer> intList = new ArrayList<>();
         for(Product product:getAll()) {
-            intList.add(product.getPid()); //
+            intList.add(product.getId()); //
         }
         int randomIndex = random.nextInt(intList.size());
         return findById(intList.get(randomIndex));
@@ -138,11 +138,11 @@ public class  ProductService {
     /**
      * Find and return all categories of a given product.
      *
-     * @param pid the id of the product.
+     * @param id the id of the product.
      * @return a list of categories.
      */
-    public List<Category> findAllCategoriesByPid(int pid) {
-        return this.productRepository.findAllCategoriesByPid(pid);
+    public List<Category> findAllCategoriesById(int id) {
+        return this.productRepository.findAllCategoriesById(id);
     }
 
     /**
@@ -154,7 +154,7 @@ public class  ProductService {
         Random random = new Random();
         List<Integer> intList = new ArrayList<>();
         for (Product product : getAll()) {
-            intList.add(product.getPid());
+            intList.add(product.getId());
         }
         List<Product> result = new ArrayList<>();
         int randomIndex1 = random.nextInt(intList.size());
@@ -171,11 +171,11 @@ public class  ProductService {
     /**
      * Returns all product form a given category.
      *
-     * @param category the category for the products that you want to find.
+     * @param name the category for the products that you want to find.
      * @return list of products.
      */
-    public List<Product> getByCategory(String category) {
-        return this.productRepository.findByCategoriesCname(category);
+    public List<Product> getByCategory(String name) {
+        return this.productRepository.findByCategoriesName(name);
     }
 
     /**

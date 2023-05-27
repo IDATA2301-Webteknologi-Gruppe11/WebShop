@@ -4,9 +4,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import java.util.LinkedHashSet;
+
 import java.util.Set;
-import java.util.logging.Logger;
 
 /**
  * This class represent the role of the user
@@ -22,16 +21,16 @@ public class Role {
     @Schema(description = "the unique id of the role")
     @Id
     @GeneratedValue
-    private int rid;
+    private int id;
 
     @Schema(description = "the name of the user")
     @NotNull
     @Column(nullable = false)
-    private String rname;
+    private String name;
 
-    @OneToMany(mappedBy = "rid")
+    @OneToMany(mappedBy = "role")
     @JsonManagedReference(value = "user-role")
-    private Set<User> uid;
+    private Set<User> users;
 
     /**
      * Empty constructor that is needed for JPA
@@ -43,8 +42,8 @@ public class Role {
     /**
      * Default constructor for Role
      */
-    public Role(String rname) {
-        this.rname = stringChecker(rname, "rname");
+    public Role(String name) {
+        this.name = stringChecker(name, "name");
     }
 
     /**
@@ -69,8 +68,8 @@ public class Role {
      * 
      * @return rid
      */
-    public int getRid() {
-        return this.rid;
+    public int getId() {
+        return this.id;
     }
 
     /**
@@ -78,29 +77,29 @@ public class Role {
      * 
      * @return rname.
      */
-    public String getRname() {
-        return this.rname;
+    public String getName() {
+        return this.name;
     }
 
     /**
      * sets the role name.
      * 
-     * @param rname name for the role.
+     * @param name name for the role.
      */
-    public void setRname(String rname) {
-        this.rname = stringChecker(rname, "rname");
+    public void setName(String name) {
+        this.name = stringChecker(name, "rname");
     }
 
-    public Set<User> getUid() {
-        return uid;
+    public Set<User> getUsers() {
+        return this.users;
     }
 
-    public void setRid(int rid) {
-        this.rid = rid;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setUid(Set<User> uid) {
-        this.uid = uid;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     /**
@@ -111,7 +110,7 @@ public class Role {
      * @return true if valid, false otherwise
      */
     public boolean isValid() {
-        return !(this.rname == null || this.rname.trim().isEmpty());
+        return !(this.name == null || this.name.trim().isEmpty());
     }
 
 }

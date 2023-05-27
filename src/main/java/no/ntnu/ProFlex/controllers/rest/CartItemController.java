@@ -106,7 +106,7 @@ public class CartItemController {
             if (oldCartItem == null) {
                 return new ResponseEntity("didn't find cart item", HttpStatus.NOT_FOUND);
             }
-            System.out.println(cartItem.getCiid());
+            System.out.println(cartItem.getId());
             this.cartItemService.update(id, cartItem);
             if (this.cartItemService.findById(id) == null) {
                 return new ResponseEntity("Cart item didn't update", HttpStatus.INTERNAL_SERVER_ERROR);

@@ -7,15 +7,15 @@
       <p>Quantity</p>
     </div>
     <div class="order-info-flex">
-      <p th:text="${order.oid}"></p>
+      <p th:text="${order.id}"></p>
       <p th:text="${order.date}"></p>
       <ul class="order-product-list">
-        <li th:each="orderProduct: ${orderProducts}" th:if="${orderProduct.oid.oid == order.oid}">
-          <p th:text="${orderProduct.pid.name}"></p>
+        <li th:each="orderProduct: ${orderProducts}" th:if="${orderProduct.order.id == order.id}">
+          <p th:text="${orderProduct.product.name}"></p>
         </li>
       </ul>
       <ul class="order-product-list">
-        <li th:each="orderProduct: ${orderProducts}" th:if="${orderProduct.oid.oid == order.oid}">
+        <li th:each="orderProduct: ${orderProducts}" th:if="${orderProduct.order.id == order.id}">
           <p th:text="${orderProduct.quantity}"></p>
         </li>
       </ul>

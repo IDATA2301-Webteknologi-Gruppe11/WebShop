@@ -19,14 +19,14 @@ import java.util.*;
 @Table(name = "user")
 public class User {
 
-    @OneToMany(mappedBy = "uid", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference(value = "user-order")
     private Set<Order> orders = new HashSet<>();
 
     @Schema(description = "A unique id of the user.")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int uid;
+    private int id;
 
     @Schema(description = "The first name of the user.")
     @NotNull
@@ -54,13 +54,13 @@ public class User {
     private boolean active = true;
 
     @ManyToOne
-    @JoinColumn(name = "rid")
+    @JoinColumn(name = "role")
     @JsonBackReference(value = "user-role")
-    private Role rid;
+    private Role role;
 
-    @OneToOne(mappedBy = "uid")
+    @OneToOne(mappedBy = "user")
     @JsonManagedReference(value = "user-shoppingcart")
-    private ShoppingCart scid;
+    private ShoppingCart shoppingCart;
 
     /**
      * Constructor for user.
@@ -105,8 +105,8 @@ public class User {
      * Returns the uid.
      * @return uid.
      */
-    public int getUid() {
-        return this.uid;
+    public int getId() {
+        return this.id;
     }
 
     /**
@@ -143,10 +143,10 @@ public class User {
 
     /**
      * Setts the uid
-     * @param uid A integer that you want the uid to be.
+     * @param id A integer that you want the uid to be.
      */
-    public void setUid(int uid) {
-        this.uid = uid;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
@@ -210,12 +210,12 @@ public class User {
      *
      * @return
      */
-    public ShoppingCart getScid() {
-        return this.scid;
+    public ShoppingCart getShoppingCart() {
+        return this.shoppingCart;
     }
 
-    public void setScid(ShoppingCart scid) {
-        this.scid = scid;
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
     }
 
     /**
@@ -228,10 +228,10 @@ public class User {
 
     /**
      *
-     * @param rid
+     * @param role
      */
-    public void setRid(Role rid) {
-        this.rid = rid;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     /**
@@ -246,8 +246,8 @@ public class User {
      *
      * @return
      */
-    public Role getRid() {
-        return rid;
+    public Role getRole() {
+        return role;
     }
 
     /**
@@ -257,7 +257,7 @@ public class User {
      */
     public boolean hasRole(String roleName) {
         boolean hasRole = false;
-        if(getRid().getRname().equals(roleName)) {
+        if(getRole().getName().equals(roleName)) {
             hasRole = true;
         }
         return hasRole;

@@ -24,10 +24,10 @@ async function updateCartItemQuantity(isIncrease, cartItemId, scid, pid) {
     var currentQuantity = parseInt(quantityElement.textContent);
     var newQuantity = isIncrease ? currentQuantity + 1 : currentQuantity - 1;
     var payload = {
-        ciid: cartItemId,
+        id: cartItemId,
         quantity: newQuantity,
-        scid: scid,
-        pid: pid
+        shoppingCart: scid,
+        product: pid
     };
     try {
         const response = await fetch(`/api/cartItems/update/` + cartItemId, {
@@ -67,7 +67,7 @@ async function removeACartItem(ciid) {
 async function createOrder(uid) {
     const payload = {
         date: new Date(),
-        uid: uid,
+        user: uid,
     }
     const response = await fetch("/api/order/add", {
         method: 'POST',
@@ -90,11 +90,11 @@ async function createOrderProduct(scid, uid) {
     const response = await fetch("/api/shoppingcart/" + scid);
     if (response.ok) {
         const shoppingCart = await response.json();
-        for (const ciid of Object.values(shoppingCart.ciid)) {
-            console.log(ciid)
-            await createOrderProductFromCartItem(uid, ciid, order);
-            console.log(ciid.ciid)
-            await removeACartItem(ciid.ciid);
+        for (const cartItems of Object.values(shoppingCart.cartItems)) {
+            console.log(cartItems)
+            await createOrderProductFromCartItem(uid, cartItems, order);
+            console.log(cartItems.id)
+            await removeACartItem(cartItems.id);
         }
     } else {
         console.log("Error creating order");
@@ -102,8 +102,8 @@ async function createOrderProduct(scid, uid) {
 }
 async function createOrderProductFromCartItem(uid, ciid, order) {
     const payload = {
-        oid: order,
-        pid: ciid.pid,
+        order: order,
+        product: ciid.product,
         quantity: ciid.quantity,
         lisensKey: generateRandomString(10)
     }

@@ -1,23 +1,23 @@
 <main class="product-cart-flex-container" th:fragment="product-cart-card">
   <div class="product-cart-card" th:each="cartItem : ${cartItems}">
     <section class="product-cart-card-section">
-      <img id="card-img" th:src="${cartItem.pid.image}" width="80" height="80"/>
-      <h2 id="shopping-cart-card-name" th:text="${cartItem.pid.name}"></h2>
-      <p id="description" th:text="${cartItem.pid.shortDescription}"></p>
+      <img id="card-img" th:src="${cartItem.product.image}" width="80" height="80"/>
+      <h2 id="shopping-cart-card-name" th:text="${cartItem.product.name}"></h2>
+      <p id="description" th:text="${cartItem.product.shortDescription}"></p>
       <p id="quantity">Quantity</p>
       <div id="Quantity-flex">
-        <button id="quantityButtonPlus" class="quantityNumber" th:onclick="updateCartItemQuantity(true, [[${cartItem.ciid}]], [[${cartItem.scid}]], [[${cartItem.pid}]])">
+        <button id="quantityButtonPlus" class="quantityNumber" th:onclick="updateCartItemQuantity(true, [[${cartItem.id}]], [[${cartItem.shoppingCart}]], [[${cartItem.product}]])">
           <i class="fa-solid fa-plus"></i>
         </button>
-        <p th:id="'quantityNumber-' + ${cartItem.ciid}" class="quantityNumber" th:text="${cartItem.quantity}"></p>
-        <button id="quantityButtonMinus" th:onclick="updateCartItemQuantity(false, [[${cartItem.ciid}]], [[${shoppingCart}]], [[${cartItem.pid}]])">
+        <p th:id="'quantityNumber-' + ${cartItem.id}" class="quantityNumber" th:text="${cartItem.quantity}"></p>
+        <button id="quantityButtonMinus" th:onclick="updateCartItemQuantity(false, [[${cartItem.id}]], [[${shoppingCart}]], [[${cartItem.product}]])">
           <i class="fa-solid fa-minus"></i>
         </button>
       </div>
       <p id="price">Price</p>
-      <p class="priceNumber" th:text="${cartItem.pid.price}"></p>
+      <p class="priceNumber" th:text="${cartItem.product.price}"></p>
       <p id="Remove">Remove</p>
-      <button id="remove-product-button" th:onclick="removeACartItem([[${cartItem.ciid}]])"><i class="fa-solid fa-x"></i></button>
+      <button id="remove-product-button" th:onclick="removeACartItem([[${cartItem.id}]])"><i class="fa-solid fa-x"></i></button>
     </section>
     <div id="divider"></div>
   </div>

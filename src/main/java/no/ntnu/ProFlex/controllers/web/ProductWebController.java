@@ -38,7 +38,7 @@ public class ProductWebController {
         model.addAttribute("products", this.productService.findById(id));
         User sessionUser = this.userService.getSessionUser();
         model.addAttribute("sessionUser", sessionUser);
-        ShoppingCart shoppingCart = this.shoppingCartService.findByUid(sessionUser);
+        ShoppingCart shoppingCart = this.shoppingCartService.findByUser(sessionUser);
         model.addAttribute("shoppingCart", shoppingCart);
         return "product-details";
     }

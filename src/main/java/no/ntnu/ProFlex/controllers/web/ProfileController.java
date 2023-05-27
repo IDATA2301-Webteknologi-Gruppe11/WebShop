@@ -33,7 +33,7 @@ public class ProfileController {
 
     @GetMapping("/profile/{username}")
     public String getProfile2(Model model, @PathVariable String username) {
-        List<Order> orders = this.orderService.findAllByUid(this.userService.getSessionUser());
+        List<Order> orders = this.orderService.findByUser(this.userService.getSessionUser());
         model.addAttribute("orders", orders);
         Iterable<OrderProduct> orderProducts = this.orderProductService.findAll();
         model.addAttribute("orderProducts", orderProducts);

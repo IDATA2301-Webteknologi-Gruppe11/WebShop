@@ -33,8 +33,8 @@ public class OrderService {
         return this.orderRepository.findById(id).orElse(null);
     }
 
-    public List<Order> findAllByUid(User uid) {
-        return this.orderRepository.findByUid(uid);
+    public List<Order> findByUser(User user) {
+        return this.orderRepository.findByUser(user);
     }
 
     /**
@@ -92,7 +92,7 @@ public class OrderService {
         if (order == null || !order.isValid()) {
             errorMessage = "Wrong data in request body";
         }
-        else if(order.getOid() != id) {
+        else if(order.getId() != id) {
             errorMessage = "The ID of the product in the URL does not match anny ID in the JSON data";
         }
         if (errorMessage == null) {

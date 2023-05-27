@@ -1,6 +1,6 @@
 <main class="index-product-card-flex-container" th:fragment="index-product-card">
   <div class="index-product-card" th:each="product : ${featuredProduct}">
-    <a class="index-nav-product" th:href="@{/products/{id}(id=${product.pid})}">
+    <a class="index-nav-product" th:href="@{/products/{id}(id=${product.id})}">
         <section class="product-card-section">
           <img class="index-product-card-image" th:src="${product.image}" width="200" height="200">
           <section th:if="${product.newProduct == true}" class="index-product-card-new-container">
