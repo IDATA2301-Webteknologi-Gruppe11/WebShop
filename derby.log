@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Sun May 21 23:09:11 CEST 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0188-4025-112b-000002c5f4a8 
-on database directory memory:/Users/havardvestbo/Dokumenter/GitHub/WebShop/3007f499-87db-49b7-a892-570ebede55f0 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
+Sat May 27 15:07:02 CEST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0188-5d51-cdc2-000002161f98 
+on database directory memory:/Users/havardvestbo/Dokumenter/GitHub/WebShop/6ef57bb1-074e-4eea-8ebe-4adfeabfa1b9 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
 Loaded from file:/Users/havardvestbo/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=17.0.1+12-39
@@ -11,6 +11,3 @@ os.arch=aarch64
 os.version=13.3.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Sun May 21 23:09:26 CEST 2023:
-Shutting down instance a816c00e-0188-4025-112b-000002c5f4a8 on database directory memory:/Users/havardvestbo/Dokumenter/GitHub/WebShop/3007f499-87db-49b7-a892-570ebede55f0 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
