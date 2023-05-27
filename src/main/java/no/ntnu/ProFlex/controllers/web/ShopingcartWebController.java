@@ -12,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
+/**
+ * Controller class responsible for handling shopping cart-related requests.
+ */
 @Controller
 public class ShopingcartWebController {
 
@@ -25,9 +28,10 @@ public class ShopingcartWebController {
     CartItemService cartItemService;
 
     /**
-     * Serve the "ShoppingCart" page
+     * Serves the "ShoppingCart" page, displaying the user's shopping cart and its items.
      *
-     * @return Name of the ThymeLeaf template which will be used to render the HTML
+     * @param model the model object to add attributes for the view
+     * @return the name of the Thymeleaf template used to render the HTML view
      */
     @GetMapping("/shoppingcart")
     public String getShoppingCart(Model model) {
@@ -35,7 +39,7 @@ public class ShopingcartWebController {
         model.addAttribute("sessionUser", sessionUser);
         System.out.println(sessionUser);
         ShoppingCart shoppingCart = this.shoppingCartService.findByUser(sessionUser);
-        model.addAttribute("shoppingCart",shoppingCart);
+        model.addAttribute("shoppingCart", shoppingCart);
         System.out.println(shoppingCart + "      here");
         List<CartItem> cartItems = this.cartItemService.findAllByShoppingCart(shoppingCart);
         model.addAttribute("cartItems", cartItems);

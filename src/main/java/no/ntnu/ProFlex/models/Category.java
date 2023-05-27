@@ -7,19 +7,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * This class represent the category of a product.
- * It's an entety class for the web shop database.
+ * This class represents a category of a product.
+ * It is an entity class for the web shop database.
  * It will be a table in the database.
  *
  * @author Ole Kristian
  * @version 1.0
  */
-@Schema(description = "Represent category, that will be the different categories for the products.")
+@Schema(description = "Represents a category that can be assigned to products.")
 @Entity
 @Table(name = "category")
 public class Category {
 
-    @Schema(description = "A unique id for the category")
+    @Schema(description = "A unique ID for the category.")
     @Id
     @GeneratedValue
     private int id;
@@ -33,21 +33,22 @@ public class Category {
     @NotNull
     @Column(nullable = false)
     @JoinTable(name = "product_categories",
-    joinColumns = @JoinColumn(name = "category"),
-    inverseJoinColumns = @JoinColumn(name = "product")
+            joinColumns = @JoinColumn(name = "category"),
+            inverseJoinColumns = @JoinColumn(name = "product")
     )
     private Set<Product> products = new HashSet<>();
 
     /**
-     * Crates and object of category.
-     * @param name the name of the category.
+     * Creates a new Category object with the specified name.
+     *
+     * @param name the name of the category
      */
     public Category(String name) {
-        this.name = stringCheker(name, "name");
+        this.name = stringChecker(name, "name");
     }
 
     /**
-     * Empty constructor that is needed for JPA
+     * Empty constructor that is needed for JPA.
      */
     public Category() {
 
@@ -55,59 +56,66 @@ public class Category {
 
     /**
      * Checks if the string is valid.
-     * Checks for that the string isn't empty and null.
-     * If it is an Illegal Argument Exception is thrown.
-     * If it is valid it returns the string.
-     * @param string that wants to be checked.
-     * @param prefiks the name of the string.
-     * @return string.
+     * It checks that the string is not empty or null.
+     * If it is empty or null, an IllegalArgumentException is thrown.
+     * If it is valid, the string is returned.
+     *
+     * @param string  the string to check
+     * @param prefix  the name of the string
+     * @return the string if it is valid
+     * @throws IllegalArgumentException if the string is empty or null
      */
-    private String stringCheker(String string, String prefiks) {
-        if( string == null || string.trim().isEmpty()) {
-            throw new IllegalArgumentException("The string " + prefiks + " cant be empty or null.");
+    private String stringChecker(String string, String prefix) {
+        if (string == null || string.trim().isEmpty()) {
+            throw new IllegalArgumentException("The string " + prefix + " cannot be empty or null.");
         }
         return string;
     }
 
     /**
-     * Returns cid.
-     * @return cid.
+     * Retrieves the ID of the category.
+     *
+     * @return the ID of the category
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Returns name.
-     * @return name.
+     * Retrieves the name of the category.
+     *
+     * @return the name of the category
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Setts the name for category.
-     * @param name the name for category.
+     * Sets the name for the category.
+     *
+     * @param name the name for the category
      */
     public void setName(String name) {
-        this.name = stringCheker(name, "name");
+        this.name = stringChecker(name, "name");
     }
 
-    //TODO id skal kansje være unchangeable, so må dobbelsjekke om den skal ha setCid.
+    // TODO: id should perhaps be unchangeable, so double-check if it should have a setId method.
+
     /**
-     * Setts the cid for the category.
-     * @param id the new cid for category.
+     * Sets the ID for the category.
+     *
+     * @param id the new ID for the category
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Tests if the category is valid
-     * @return
+     * Checks if the category is valid.
+     *
+     * @return true if the category is valid, false otherwise
      */
     public boolean isValid() {
-        return !" ".equals(this.name);
+        return !"".equals(this.name.trim());
     }
-
 }

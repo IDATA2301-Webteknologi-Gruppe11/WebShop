@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-
 import java.util.Set;
 
 /**
- * This class represent the role of the user
+ * This class represents the role of a user.
+ * It is used to define the roles that users can have.
+ * Each role is associated with one or more users.
  *
  * @author Ole Kristian
  * @version 1.0
@@ -18,12 +19,12 @@ import java.util.Set;
 @Table(name = "roles")
 public class Role {
 
-    @Schema(description = "the unique id of the role")
+    @Schema(description = "The unique ID of the role")
     @Id
     @GeneratedValue
     private int id;
 
-    @Schema(description = "the name of the user")
+    @Schema(description = "The name of the role")
     @NotNull
     @Column(nullable = false)
     private String name;
@@ -33,14 +34,16 @@ public class Role {
     private Set<User> users;
 
     /**
-     * Empty constructor that is needed for JPA
+     * Empty constructor that is needed for JPA.
      */
     public Role() {
 
     }
 
     /**
-     * Default constructor for Role
+     * Constructs a Role object with the given name.
+     *
+     * @param name the name of the role
      */
     public Role(String name) {
         this.name = stringChecker(name, "name");
@@ -48,69 +51,82 @@ public class Role {
 
     /**
      * Checks if the string is valid.
-     * Checks for that the string isn't empty and null.
-     * If it is an Illegal Argument Exception is thrown.
-     * If it is valid it returns the string.
-     * 
-     * @param string  that wants to be checked.
-     * @param prefiks the name of the string.
-     * @return string.
+     * Checks that the string is not empty or null.
+     * If it is empty or null, an IllegalArgumentException is thrown.
+     * If it is valid, it returns the string.
+     *
+     * @param string  the string to be checked
+     * @param prefix  the name of the string
+     * @return the valid string
      */
-    private String stringChecker(String string, String prefiks) {
+    private String stringChecker(String string, String prefix) {
         if (string.trim().isEmpty() || string == null) {
-            throw new IllegalArgumentException("The string " + "'" + prefiks + "'" + " cant be empty or null");
+            throw new IllegalArgumentException("The string '" + prefix + "' cannot be empty or null.");
         }
         return string;
     }
 
     /**
-     * Returns the role id
-     * 
-     * @return rid
+     * Retrieves the ID of the role.
+     *
+     * @return the ID of the role
      */
     public int getId() {
         return this.id;
     }
 
     /**
-     * Returns the role name.
-     * 
-     * @return rname.
+     * Retrieves the name of the role.
+     *
+     * @return the name of the role
      */
     public String getName() {
         return this.name;
     }
 
     /**
-     * sets the role name.
-     * 
-     * @param name name for the role.
+     * Sets the name for the role.
+     *
+     * @param name the name for the role
      */
     public void setName(String name) {
         this.name = stringChecker(name, "rname");
     }
 
+    /**
+     * Retrieves the set of users associated with the role.
+     *
+     * @return the set of users associated with the role
+     */
     public Set<User> getUsers() {
         return this.users;
     }
 
+    /**
+     * Sets the ID of the role.
+     *
+     * @param id the ID of the role
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Sets the set of users associated with the role.
+     *
+     * @param users the set of users to associate with the role
+     */
     public void setUsers(Set<User> users) {
         this.users = users;
     }
 
     /**
-     * Checks whether this Role object is valid or not.
-     * A Role object is considered valid if its name field (rname) is not null or
-     * empty.
-     * 
-     * @return true if valid, false otherwise
+     * Checks whether this Role object is valid.
+     * A Role object is considered valid if its name field is not null or empty.
+     *
+     * @return true if the Role is valid, false otherwise
      */
     public boolean isValid() {
         return !(this.name == null || this.name.trim().isEmpty());
     }
-
 }

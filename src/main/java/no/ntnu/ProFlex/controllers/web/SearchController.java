@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
+/**
+ * Controller class responsible for handling search-related requests.
+ */
 @Controller
 public class SearchController {
 
@@ -19,6 +22,13 @@ public class SearchController {
     @Autowired
     AccessUserService userService;
 
+    /**
+     * Handles the search products request and returns the search results.
+     *
+     * @param query the search query
+     * @param model the model object to add attributes for the view
+     * @return a ModelAndView object representing the search results view with the matching products
+     */
     @GetMapping("/search")
     public ModelAndView searchProducts(@RequestParam("query") String query, Model model) {
         model.addAttribute("sessionUser", this.userService.getSessionUser());

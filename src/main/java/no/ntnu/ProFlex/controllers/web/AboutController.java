@@ -11,6 +11,12 @@ public class AboutController {
     @Autowired
     AccessUserService userService;
 
+    /**
+     * Retrieves the "About" page.
+     *
+     * @param model the model object to add attributes for the view
+     * @return the name of the view template for the "About" page
+     */
     @GetMapping("/about")
     public String getAbout(Model model) {
         model.addAttribute("sessionUser", this.userService.getSessionUser());

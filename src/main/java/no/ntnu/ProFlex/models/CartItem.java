@@ -25,79 +25,89 @@ public class CartItem {
     private int quantity;
 
     /**
-     * Empty constructor that is needed for JPA
+     * Constructs a new CartItem object.
+     * This constructor is needed for JPA.
      */
     public CartItem() {
 
     }
 
     /**
+     * Retrieves the ID of the CartItem.
      *
-     * @return
+     * @return the ID of the CartItem
      */
     public int getId() {
         return this.id;
     }
 
     /**
+     * Retrieves the ShoppingCart associated with the CartItem.
      *
-     * @return
+     * @return the ShoppingCart associated with the CartItem
      */
     public ShoppingCart getShoppingCart() {
         return shoppingCart;
     }
 
     /**
+     * Retrieves the Product associated with the CartItem.
      *
-     * @return
+     * @return the Product associated with the CartItem
      */
     public Product getProduct() {
         return product;
     }
 
     /**
+     * Retrieves the quantity of the CartItem.
      *
-     * @return
+     * @return the quantity of the CartItem
      */
     public int getQuantity() {
         return quantity;
     }
 
     /**
+     * Sets the ID of the CartItem.
      *
-     * @param id
+     * @param id the ID of the CartItem
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
+     * Sets the ShoppingCart associated with the CartItem.
      *
-     * @param shoppingCart
+     * @param shoppingCart the ShoppingCart to associate with the CartItem
      */
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
 
     /**
+     * Sets the Product associated with the CartItem.
      *
-     * @param product
+     * @param product the Product to associate with the CartItem
      */
     public void setProduct(Product product) {
         this.product = product;
     }
 
     /**
+     * Sets the quantity of the CartItem.
      *
-     * @param quantity
+     * @param quantity the quantity of the CartItem
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
     /**
+     * Checks if the CartItem is valid.
      *
-     * @return
+     * @return true if the CartItem is valid, false otherwise
      */
     public boolean isValid() {
         return this.id >= 0;

@@ -93,10 +93,6 @@ public class  ProductService {
         return deleted;
     }
 
-    public int getSize() {
-        return (int) this.productRepository.count();
-    }
-
     /** 
      * Update a product in the product repository
      *

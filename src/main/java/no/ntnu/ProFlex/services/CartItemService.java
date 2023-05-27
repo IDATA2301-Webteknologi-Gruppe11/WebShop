@@ -5,7 +5,6 @@ import no.ntnu.ProFlex.models.ShoppingCart;
 import no.ntnu.ProFlex.repository.CartItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**

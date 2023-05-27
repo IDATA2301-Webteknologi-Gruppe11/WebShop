@@ -1,13 +1,15 @@
 package no.ntnu.ProFlex.models;
+
 import com.fasterxml.jackson.annotation.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
- * This class represent shopping cart
+ * This class represents a shopping cart for a user.
+ * It contains a list of cart items associated with the cart.
+ * Each shopping cart is associated with a user.
  *
  * @author Ole Kristian
  * @version 1.0
@@ -31,60 +33,72 @@ public class ShoppingCart {
     private List<CartItem> cartItems = new ArrayList<>();
 
     /**
-     * Empty constructor that is needed for JPA
+     * Empty constructor that is needed for JPA.
      */
     public ShoppingCart() {
 
     }
 
     /**
-     * Return scid
-     * @return scid
+     * Returns the ID of the shopping cart.
+     *
+     * @return the ID of the shopping cart
      */
     public int getId() {
         return this.id;
     }
 
     /**
-     * Return user
-     * @return user
+     * Returns the user associated with the shopping cart.
+     *
+     * @return the user associated with the shopping cart
      */
     public User getUser() {
         return this.user;
     }
 
     /**
-     * Return items
-     * @return list of items
+     * Returns the list of cart items in the shopping cart.
+     *
+     * @return the list of cart items in the shopping cart
      */
     public List<CartItem> getCartItems() {
         return this.cartItems;
     }
 
     /**
-     * Setts id of the shoppin cart
-     * @param id the new scid of the cart
+     * Sets the ID of the shopping cart.
+     *
+     * @param id the new ID of the shopping cart
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Setts user of the cart
-     * @param user the user of the cart
+     * Sets the user associated with the shopping cart.
+     *
+     * @param user the user associated with the shopping cart
      */
     public void setUser(User user) {
         this.user = user;
     }
 
     /**
-     * Setts the items of the cart
-     * @param cartItems list of items that you want in the cart
+     * Sets the list of cart items in the shopping cart.
+     *
+     * @param cartItems the list of cart items to be set in the shopping cart
      */
     public void setCartItems(List<CartItem> cartItems) {
         this.cartItems = cartItems;
     }
 
+    /**
+     * Checks whether this shopping cart object is valid.
+     * A shopping cart object is considered valid if its ID is greater than or equal to 0.
+     *
+     * @return true if the shopping cart is valid, false otherwise
+     */
     public boolean isValid() {
         return this.id >= 0;
     }

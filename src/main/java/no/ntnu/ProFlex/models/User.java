@@ -207,44 +207,54 @@ public class User {
     }
 
     /**
+     * Retrieves the shopping cart associated with the user.
      *
-     * @return
+     * @return the shopping cart of the user
      */
     public ShoppingCart getShoppingCart() {
         return this.shoppingCart;
     }
 
+    /**
+     * Sets the shopping cart for the user.
+     *
+     * @param shoppingCart the shopping cart to be set for the user
+     */
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
 
     /**
+     * Sets the orders for the user.
      *
-     * @param orders
+     * @param orders the set of orders to be assigned to the user
      */
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
 
     /**
+     * Sets the role for the user.
      *
-     * @param role
+     * @param role the role to be assigned to the user
      */
     public void setRole(Role role) {
         this.role = role;
     }
 
     /**
+     * Retrieves the set of orders associated with the user.
      *
-     * @return
+     * @return the set of orders belonging to the user
      */
     public Set<Order> getOrders() {
         return orders;
     }
 
     /**
+     * Retrieves the role of the user.
      *
-     * @return
+     * @return the role of the user
      */
     public Role getRole() {
         return role;
@@ -263,6 +273,11 @@ public class User {
         return hasRole;
     }
 
+    /**
+     * Checks if the user has the role of an administrator.
+     *
+     * @return true if the user has the "ADMIN" role, false otherwise
+     */
     public boolean isAdmin() {
         return this.hasRole("ADMIN");
     }

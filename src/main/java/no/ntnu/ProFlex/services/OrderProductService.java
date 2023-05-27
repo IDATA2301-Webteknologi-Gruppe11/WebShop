@@ -30,6 +30,12 @@ public class OrderProductService {
         return added;
     }
 
+    /**
+     * Checks if the orderProduct can be added
+     *
+     * @param orderProduct the orderProduct you want to check
+     * @return boolean true if it can be added, false if not
+     */
     private boolean canBeAdded(OrderProduct orderProduct) {
         return orderProduct != null && orderProduct.isValid();
     }

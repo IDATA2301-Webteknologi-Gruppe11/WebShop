@@ -30,7 +30,7 @@ public class ProductWebController {
      * Serve the "Product" page
      *
      * @param model The model where the data will be stored.
-     * @param id the id of the product.
+     * @param id    the id of the product.
      * @return Name of the ThymeLeaf template which will be used to render the HTML
      */
     @GetMapping("/products/{id}")
@@ -54,17 +54,4 @@ public class ProductWebController {
         model.addAttribute("sessionUser", this.userService.getSessionUser());
         return "Products";
     }
-
-
-
-
-    //        Iterable<Product> products = null;
-//        if (category == null) {
-//            products = this.productService.getAll();
-//        } else {
-//            products = this.productService.getByCategory(category);
-//        }
-//        model.addAttribute("products", products);
-//        model.addAttribute("valuta", "kr");
-//        model.addAttribute("separator", ", ");
 }
