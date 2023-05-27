@@ -70,7 +70,7 @@
     border-radius: 5px;
   }
   
-  @media (max-width: 1080px) and (min-width: 428px) {
+  @media (max-width: 1080px) and (min-width: 429px) {
     #Products-header {
       font-size: 7rem;
     }
@@ -108,7 +108,7 @@
     }
   }
   
-  @media (max-width: 418px) {
+  @media (max-width: 428px) {
     #Products-header {
       font-size: 5rem;
       margin-top: 10rem;

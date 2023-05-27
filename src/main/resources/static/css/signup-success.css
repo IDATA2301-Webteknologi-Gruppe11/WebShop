@@ -7,6 +7,10 @@
     color: #1d1d1f
 }
 
+#logo {
+    width: 20rem;
+}
+
 #signup-success-flex-container {
     display: flex;
     flex-direction: column;

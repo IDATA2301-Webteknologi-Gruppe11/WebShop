@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+#logo-image {
+    width: 20rem;
+}
+
 #login-flex-container {
     display: flex;
     flex-direction: column;
@@ -97,6 +101,10 @@ h1 {
     border-radius: 5px;
 }
 
+#button1:hover {
+    background-color: #005ea8;
+}
+
 nav {
     margin-top: 2rem;
 }
@@ -118,6 +126,10 @@ nav a {
     width: 95%;
     height: 7rem;
     border-radius: 5px;
+}
+
+#button2:hover {
+    background-color: #cbcbcb;
 }
 
 .button-eye {

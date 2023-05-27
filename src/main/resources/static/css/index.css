@@ -15,10 +15,6 @@ header {
     display: none;
 }
 
-body {
-    background-color: #f5f5f5;
-}
-
 .hero-section{
     color: white;
     display: flex;
