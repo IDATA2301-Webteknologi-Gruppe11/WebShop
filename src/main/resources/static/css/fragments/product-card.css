@@ -180,4 +180,8 @@
       p {
         margin-left: 0;
       }
+
+      #Products-flex-container p {
+        padding-right: 0;
+      }
 }

@@ -309,6 +309,10 @@
         width: auto;
     }
 
+    .ul1 li {
+        padding: 0.5rem;
+    }
+
     .ul2 #shoppingcart-felx-box p{
         display: none;
     }

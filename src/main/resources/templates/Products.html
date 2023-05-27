@@ -33,17 +33,31 @@
     <header th:replace="~{fragments/header.html :: header}"></header>
     <main>
       <h1 id="Products-header">Shop Our Selection</h1>
-      <div id="Products-flex-container">
+      <div id="Products-flex-container">        
         <p>Select a category:</p>
+        <div class="dropdown-category">
+          <button class="dropbtn-category" id="category-button">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <div class="dropdown-content-category" id="dropdown-content-category">
+            <a href="#" onclick="sendProductDataRequest()">All</a>
+            <a href="#" onclick="getProductsByCategory('Accounting')">Accounting</a>
+            <a href="#" onclick="getProductsByCategory('Automation')">Automation</a>
+            <a href="#" onclick="getProductsByCategory('Finance')">Finance</a>
+            <a href="#" onclick="getProductsByCategory('Legal')">Legal</a>
+            <a href="#" onclick="getProductsByCategory('Planning')">Planning</a>
+            <a href="#" onclick="getProductsByCategory('Scheduling')">Scheduling</a>
+            <a href="#" onclick="getProductsByCategory('Tax')">Tax</a>
+          </div>
+        </div>
         <a href="#" onclick="sendProductDataRequest()">All</a>
+        <a href="#" onclick="getProductsByCategory('Accounting')">Accounting</a>
+        <a href="#" onclick="getProductsByCategory('Automation')">Automation</a>
+        <a href="#" onclick="getProductsByCategory('Finance')">Finance</a>
+        <a href="#" onclick="getProductsByCategory('Legal')">Legal</a>
         <a href="#" onclick="getProductsByCategory('Planning')">Planning</a>
         <a href="#" onclick="getProductsByCategory('Scheduling')">Scheduling</a>
-        <a href="#" onclick="getProductsByCategory('Automation')">Automation</a>
-        <a href="#" onclick="getProductsByCategory('Processes')">Processes</a>
         <a href="#" onclick="getProductsByCategory('Tax')">Tax</a>
-        <a href="#" onclick="getProductsByCategory('Legal')">Legal</a>
-        <a href="#" onclick="getProductsByCategory('Accounting')">Accounting</a>
-        <a href="#" onclick="getProductsByCategory('Finance')">Finance</a>
       </div>
       <div class="flex-container">
         <div id="productCard"></div>
