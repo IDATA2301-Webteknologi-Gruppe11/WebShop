@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Sat May 27 16:12:05 CEST 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0188-5d8d-5c9a-000002d28c90 
-on database directory memory:C:\Users\Ole Kristian\Documents\NTNU\Web-Applikasjon\Web-Site-2\WebShop\c527fb4f-19b6-4586-a080-b5e2faaf889a with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1d44bcfa 
+Sat May 27 16:29:23 CEST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0188-5d9d-33e8-00000178c790 
+on database directory memory:C:\Users\Ole Kristian\Documents\NTNU\Web-Applikasjon\Web-Site-2\WebShop\123b2084-4325-4aa6-991a-e0f285014647 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1d44bcfa 
 Loaded from file:/C:/Users/Ole%20Kristian/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=17+35-LTS-2724
@@ -12,5 +12,21 @@ os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Sat May 27 16:21:58 CEST 2023:
-Shutting down instance a816c00e-0188-5d8d-5c9a-000002d28c90 on database directory memory:C:\Users\Ole Kristian\Documents\NTNU\Web-Applikasjon\Web-Site-2\WebShop\c527fb4f-19b6-4586-a080-b5e2faaf889a with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1d44bcfa 
+Sat May 27 16:30:55 CEST 2023:
+Shutting down instance a816c00e-0188-5d9d-33e8-00000178c790 on database directory memory:C:\Users\Ole Kristian\Documents\NTNU\Web-Applikasjon\Web-Site-2\WebShop\123b2084-4325-4aa6-991a-e0f285014647 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1d44bcfa 
+----------------------------------------------------------------
+Sat May 27 16:30:57 CEST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance b74a0151-0188-5d9d-33e8-00000178c790 
+on database directory memory:C:\Users\Ole Kristian\Documents\NTNU\Web-Applikasjon\Web-Site-2\WebShop\be619947-6ff6-4308-80d2-94a744e38b45 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Users/Ole%20Kristian/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=17+35-LTS-2724
+user.dir=C:\Users\Ole Kristian\Documents\NTNU\Web-Applikasjon\Web-Site-2\WebShop
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sat May 27 16:31:17 CEST 2023:
+Shutting down instance b74a0151-0188-5d9d-33e8-00000178c790 on database directory memory:C:\Users\Ole Kristian\Documents\NTNU\Web-Applikasjon\Web-Site-2\WebShop\be619947-6ff6-4308-80d2-94a744e38b45 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1d44bcfa 
