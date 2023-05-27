@@ -14,12 +14,16 @@
 <body>
 <header th:replace="~{fragments/header.html :: header}"></header>
 <main class="flex-container">
-    <img class="detail-img" th:src="${products.image}"/>
-    <h1 class="product-name" th:text="${products.name}"></h1>
+    <div class="product-header">
+        <img class="detail-img" th:src="${products.image}"/>
+        <h1 class="product-name" th:text="${products.name}"></h1>
+    </div>
+    <p class="product-price" th:text="${products.price} + ',-'"></p>
+    <h2 class="description-title">Description</h2>
     <p class="product-description" th:text="${products.description}"></p>
     <div class="grid-container">
         <p class="buy-text" th:text="'Buy ' + ${products.name}"></p>
-        <p class="product-price" th:text="'From ' + ${products.price} + 'kr'"></p>
+        
         <div>
             <button type="submit" class="button-add" th:onclick="addProductToCart([[${shoppingCart}]], [[${products}]])">Add To Cart</button>
         </div>

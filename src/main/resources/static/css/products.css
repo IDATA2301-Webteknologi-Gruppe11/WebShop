@@ -99,13 +99,15 @@
       font-size: 1.5rem;
     }
   
-    .dropdown-content-category {
-      position: static;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 0;
-    }
+     /* Add the following rule to hide the dropdown content by default */
+  .dropdown-category:hover .dropdown-content-category {
+    display: none;
+  }
+
+  /* Add the following rule to display the dropdown content on hover */
+  .dropdown-category:hover .dropdown-content-category {
+    display: block;
+  }
   }
   
   @media (max-width: 428px) {
@@ -144,11 +146,13 @@
       font-size: 1.5rem;
     }
   
-    .dropdown-content-category {
-      position: static;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 0;
-    }
+     /* Add the following rule to hide the dropdown content by default */
+  .dropdown-category:hover .dropdown-content-category {
+    display: none;
+  }
+
+  /* Add the following rule to display the dropdown content on hover */
+  .dropdown-category:hover .dropdown-content-category {
+    display: block;
+  }
   }  
