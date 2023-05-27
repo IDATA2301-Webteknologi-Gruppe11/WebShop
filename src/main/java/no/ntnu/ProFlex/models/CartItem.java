@@ -1,6 +1,7 @@
 package no.ntnu.ProFlex.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,7 +19,7 @@ public class CartItem {
 
     @ManyToOne
     @JoinColumn(name = "pid")
-    @JsonBackReference(value = "cartitem-product")
+    @JsonIgnoreProperties("ciid")
     private Product pid;
 
     private int quantity;

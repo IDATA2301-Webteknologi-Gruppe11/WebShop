@@ -68,7 +68,7 @@ public class OrderProduct {
      *
      * @return
      */
-    public String getLisensKLey() {
+    public String getLisensKey() {
         return lisensKey;
     }
 
@@ -106,10 +106,10 @@ public class OrderProduct {
 
     /**
      *
-     * @param lisensKLey
+     * @param lisensKey
      */
-    public void setLisensKLey(String lisensKLey) {
-        this.lisensKey = lisensKLey;
+    public void setLisensKey(String lisensKey) {
+        this.lisensKey = lisensKey;
     }
 
     /**

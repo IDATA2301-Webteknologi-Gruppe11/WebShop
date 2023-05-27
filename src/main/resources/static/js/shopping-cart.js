@@ -88,22 +88,23 @@ async function createOrder(uid) {
 async function createOrderProduct(scid, uid) {
     const order = await createOrder(uid);
     const response = await fetch("/api/shoppingcart/" + scid);
-    if(response.ok) {
+    if (response.ok) {
         const shoppingCart = await response.json();
-        for (const ciid in shoppingCart) {
+        for (const ciid of Object.values(shoppingCart.ciid)) {
             console.log(ciid)
             await createOrderProductFromCartItem(uid, ciid, order);
+            console.log(ciid.ciid)
+            await removeACartItem(ciid.ciid);
         }
-    }
-    else {
-        console.log("Error creating order")
+    } else {
+        console.log("Error creating order");
     }
 }
-async function createOrderProductFromCartItem(uid, cartItem, order) {
+async function createOrderProductFromCartItem(uid, ciid, order) {
     const payload = {
         oid: order,
-        pid: cartItem.pid,
-        quantity: cartItem.quantity,
+        pid: ciid.pid,
+        quantity: ciid.quantity,
         lisensKey: generateRandomString(10)
     }
     const responseOrderProduct = await fetch("/api/orderproduct/add", {
@@ -121,12 +122,14 @@ async function createOrderProductFromCartItem(uid, cartItem, order) {
 }
 
 function generateRandomString(length) {
+    console.log("im here")
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
+    console.log(result);
     return result;
 }
 
