@@ -1,6 +1,8 @@
 package no.ntnu.ProFlex.models;
 
 import com.fasterxml.jackson.annotation.*;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import java.util.ArrayList;
@@ -14,22 +16,25 @@ import java.util.List;
  * @author Ole Kristian
  * @version 1.0
  */
-@Schema(description = "Represent a shopping cart for a user")
+@ApiModel(description = "Represent a shopping cart for a user")
 @Entity
 @Table(name = "shoppingcart")
 public class ShoppingCart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(value = "the id of shopping cart")
     private int id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user")
     @JsonBackReference(value = "user-shoppingcart")
+    @ApiModelProperty(value = "the user of this shopping cart")
     private User user;
 
     @OneToMany(mappedBy = "shoppingCart")
     @JsonManagedReference(value = "cartitem-shoppingcart")
+    @ApiModelProperty(value = "a list of cart items in the shopping cart")
     private List<CartItem> cartItems = new ArrayList<>();
 
     /**

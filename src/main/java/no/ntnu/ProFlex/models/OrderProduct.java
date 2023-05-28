@@ -1,27 +1,36 @@
 package no.ntnu.ProFlex.models;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 
+@ApiModel(description = "Represent the relation ship between order and product")
 @Entity
 @Table(name = "order_product")
 public class OrderProduct {
 
     @Id
     @GeneratedValue
+    @ApiModelProperty(value = "id of orderProduct")
     private int id;
 
     @OneToOne
     @JoinColumn(name = "orders")
+    @ApiModelProperty(value = "The order of orderProduct")
     private Order order;
 
     @OneToOne
     @JoinColumn(name = "product")
+    @ApiModelProperty(value = "the product of orderProduct")
     private Product product;
 
     @Column(name = "quantity")
+    @ApiModelProperty(value = "quantity of product that is orderd")
     private int quantity;
 
+
     @Column(name = "lisensKey")
+    @ApiModelProperty("The lisens key for product")
     private String lisensKey;
 
     /**

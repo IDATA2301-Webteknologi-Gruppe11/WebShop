@@ -1,16 +1,28 @@
 
+/**
+ * Asynchronously sends a request to retrieve product data.
+ * If the product data is already available in the state, it shows the products.
+ * Otherwise, it retrieves the product data from the database and updates the state.
+ */
 async function sendProductDataRequest() {
     console.log("Loading product data...");
+
     if (state.products.length !== 0) {
         showProducts(state.products);
     } else {
         console.log("Loading from the database");
+
+        // Retrieve product data from the database
         const response = await fetch("/api/product/getAll");
+
         if (response.ok) {
             const productJson = await response.json();
             state.products = productJson;
+
+            // Update the state in local storage
             const updatedStateString = JSON.stringify(state);
             localStorage.setItem('state', updatedStateString);
+
             showProducts(state.products);
         } else {
             console.error("Failed to retrieve products");
@@ -18,9 +30,15 @@ async function sendProductDataRequest() {
     }
 }
 
+/**
+ * Asynchronously retrieves products based on the given category.
+ *
+ * @param {string} category - The category to filter the products.
+ */
 async function getProductsByCategory(category) {
     const url = `/api/product/getByCategory/${encodeURIComponent(category)}`;
     const response = await fetch(url);
+
     if (response.ok) {
         const products = await response.json();
         showProducts(products);
@@ -29,6 +47,11 @@ async function getProductsByCategory(category) {
     }
 }
 
+/**
+ * Shows the products on the page.
+ *
+ * @param {Array} products - The array of products to be displayed.
+ */
 function showProducts(products) {
     const productCard = document.getElementById("productCard");
     productCard.innerHTML = "";

@@ -1,5 +1,7 @@
 package no.ntnu.ProFlex.controllers.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.Product;
@@ -14,6 +16,7 @@ import org.json.JSONException;
 
 @RestController
 @RequestMapping("/api/product")
+@Api(value = "Product API", tags = "Product")
 public class ProductController {
 
     @Autowired
@@ -23,7 +26,7 @@ public class ProductController {
     private static final String SEVERE = "An error occurred: ";
     private static final Logger LOGGER = Logger.getLogger(ProductController.class.getName());
 
-    @Operation(summary = "Get all products", description = "Returns all the products")
+    @ApiOperation(value = "Get all products", notes = "Returns all the products")
     @GetMapping("/getAll")
     public ResponseEntity<List<Product>> getProducts() {
         Iterable<Product> products = this.productService.getAll();
@@ -38,7 +41,7 @@ public class ProductController {
         return ResponseEntity.ok((List<Product>) products);
     }
 
-    @Operation(summary = "Get product by ID", description = "Retrieves a product by its ID")
+    @ApiOperation(value = "Get product by ID", notes = "Retrieves a product by its ID")
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductFromAGiveID(
             @Parameter(name = "id", description = "ID of the product to retrieve", required = true)
@@ -50,7 +53,7 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
-    @Operation(summary = "Get products by category", description = "Retrieves products by category")
+    @ApiOperation(value = "Get products by category", notes = "Retrieves products by category")
     @GetMapping("/getByCategory/{category}")
     public ResponseEntity<List<Product>> getByCategory(@PathVariable String category) {
         List<Product> products = this.productService.getByCategory(category);
@@ -60,7 +63,7 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-    @Operation(summary = "Add a product", description = "Creates and adds a product to the product list")
+    @ApiOperation(value = "Add a product", notes = "Creates and adds a product to the product list")
     @PostMapping("/add")
     public ResponseEntity<?> addProduct(
             @Parameter(name = "product", description = "The product to be created", required = true)
@@ -84,7 +87,7 @@ public class ProductController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @throws JSONException if an error occurs while updating the product
      */
-    @Operation(summary = "Update product", description = "Update the product from the product repository")
+    @ApiOperation(value = "Update product", notes = "Update the product from the product repository")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateProduct(
             @Parameter(name = "id", description = "ID of the product to update", required = true)
@@ -114,7 +117,7 @@ public class ProductController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @throws JSONException if an error occurs while deleting the product
      */
-    @Operation(summary = "Delete product", description = "Delete a product from the product list given its ID")
+    @ApiOperation(value = "Delete product", notes = "Delete a product from the product list given its ID")
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<Product> deleteProduct(
             @Parameter(name = "id", description = "ID of the product to delete", required = true)
