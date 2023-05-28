@@ -1,11 +1,23 @@
+:root {
+    --font-family: 'Poppins', sans-serif;
+    --base-font-size: 62.5%;
+
+    /* Colors */
+    --background-color: #FBFAF5;
+    --title-color: #5E6977;
+    --description-color: #43484D;
+    --secondary-color: #86939E;
+    --button-bg-color: #E1E8EE;
+    --box-shadow-color: rgba(0, 0, 0, 0.10);
+}
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-    font-size: 62.5%;
+    font-family: var(--font-family);
+    font-size: var(--base-font-size);
 }
 
-/* Structure of main grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -17,27 +29,25 @@ body {
     height: 100%;
     margin: 0;
     position: relative;
-    background-color: #FBFAF5;
+    background-color: var(--background-color);
     font-family: 'Roboto', sans-serif;
 }
 
-/* Shoppingcart div, holds all items picked by the user */
 .shopping-cart {
     display: inline;
     grid-column: span 8;
     height: auto;
     float: left;
     background: #ffffff;
-    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.10);
+    box-shadow: 1px 2px 3px 0px var(--box-shadow-color);
     border-radius: 6px;
     position: relative;
 }
 
-/* Checkout div, shows the total of the users order */
 .checkout_div {
     grid-column: span 4;
     background: #ffffff;
-    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.10);
+    box-shadow: 1px 2px 3px 0px var(--box-shadow-color);
     border-radius: 6px;
     padding-left: 20px;
     position: relative;
@@ -47,7 +57,7 @@ body {
     height: 60px;
     border-bottom: 1px solid #E1E8EE;
     padding: 20px 30px;
-    color: #5E6977;
+    color: var(--title-color);
     font-size: 18px;
     font-weight: 400;
 }
@@ -68,7 +78,6 @@ body {
     padding-top: 20px;
 }
 
-
 .description {
     padding-top: 10px;
     margin-right: 60px;
@@ -78,7 +87,7 @@ body {
 .description span {
     display: block;
     font-size: 14px;
-    color: #43484D;
+    color: var(--description-color);
     font-weight: 400;
 }
 
@@ -89,7 +98,7 @@ body {
 .description span:last-child {
     font-weight: 300;
     margin-top: 8px;
-    color: #86939E;
+    color: var(--secondary-color);
 }
 
 .quantity {
@@ -101,24 +110,23 @@ body {
     text-align: center;
     width: 32px;
     font-size: 16px;
-    color: #43484D;
+    color: var(--description-color);
     font-weight: 300;
 }
 
 .quantity h1 {
     text-align: center;
     font-size: 16px;
-    color: #43484D;
+    color: var(--description-color);
     font-weight: 300;
 }
 
 button[class*=btn] {
     width: 30px;
     height: 30px;
-    background-color: #E1E8EE;
+    background-color: var(--button-bg-color);
     border-radius: 6px;
     border: none;
-    cursor: pointer;
 }
 
 .icons {
@@ -129,10 +137,7 @@ button[class*=btn] {
 
 .delete-btn {
     display: inline-block;
-    Cursor: pointer;
-}
-
-.delete-btn {
+    cursor: pointer;
     width: 18px;
     height: 17px;
     background: no-repeat center;
@@ -144,7 +149,7 @@ button[class*=btn] {
     padding-top: 27px;
     text-align: center;
     font-size: 16px;
-    color: #43484D;
+    color: var(--description-color);
     font-weight: 300;
 }
 

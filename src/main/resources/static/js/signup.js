@@ -1,4 +1,9 @@
 
+/**
+ * Toggles the visibility of the password input field and the associated eye button.
+ *
+ * @function showPassword
+ */
 function showPassword() {
     const passwordTextBar = document.getElementById("password-text-bar");
     const buttonEye = document.getElementById("password-button-eye");
@@ -13,6 +18,11 @@ function showPassword() {
     }
 }
 
+/**
+ * Toggles the visibility of the confirm password input field and the associated eye button.
+ *
+ * @function showConfirmPassword
+ */
 function showConfirmPassword() {
     const passwordTextBar = document.getElementById("password-confirm-text-bar");
     const buttonEye = document.getElementById("password-confirm-button-eye");

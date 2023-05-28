@@ -1,3 +1,10 @@
+/**
+ * Adds a product to the shopping cart.
+ *
+ * @param {string} shoppingCartId - The ID of the shopping cart.
+ * @param {object} product - The product object to add to the cart.
+ * @returns {Promise<void>} - A Promise that resolves when the operation is complete.
+ */
 async function addProductToCart(shoppingCartId, product) {
     try {
         const responseShoppingCart = await fetch("/api/shoppingcart/" + shoppingCartId);
@@ -25,6 +32,14 @@ async function addProductToCart(shoppingCartId, product) {
     }
 }
 
+/**
+ * Checks if a product exists in a cart item and updates its quantity if found.
+ *
+ * @param {object} cartItem - The cart item to check.
+ * @param {object} product - The product to compare with the cart item.
+ * @param {object} shoppingCart - The shopping cart object.
+ * @returns {Promise<boolean>} - A Promise that resolves to `true` if the cart item was updated, or `undefined` otherwise.
+ */
 async function checkProductInCartItem(cartItem, product, shoppingCart) {
     if (cartItem.product.id === product.id) {
         const payload = {
@@ -54,6 +69,13 @@ async function checkProductInCartItem(cartItem, product, shoppingCart) {
     }
 }
 
+/**
+ * Creates a new cart item in the shopping cart.
+ *
+ * @param {object} shoppingCart - The shopping cart object.
+ * @param {object} product - The product object to add to the cart.
+ * @returns {Promise<void>} - A Promise that resolves when the operation is complete.
+ */
 async function createCartItem(shoppingCart, product) {
     const payload = {
         shoppingCart: shoppingCart,

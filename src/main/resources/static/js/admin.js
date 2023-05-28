@@ -1,3 +1,14 @@
+/**
+ * Creates a new product.
+ *
+ * @param {string} name - The name of the product.
+ * @param {number} price - The price of the product.
+ * @param {string} image - The URL or path of the product image.
+ * @param {string[]} categories - An array of categories that the product belongs to.
+ * @param {string} description - The description of the product.
+ * @param {string} shortDescription - A short description of the product.
+ * @returns {Promise<void>} - A Promise that resolves when the product creation is complete.
+ */
 async function createProduct(name, price, image, categories, description, shortDescription) {
     const payload = {
         name: name,
@@ -17,11 +28,23 @@ async function createProduct(name, price, image, categories, description, shortD
         if(response.ok) {
             console.log("Product was created");
         }
-    }catch (error) {
+    } catch (error) {
         console.log(error.message);
     }
 }
 
+/**
+ * Updates a product.
+ *
+ * @param {string} id - The ID of the product to update.
+ * @param {string} name - The updated name of the product.
+ * @param {number} price - The updated price of the product.
+ * @param {string} image - The updated URL or path of the product image.
+ * @param {string[]} categories - The updated array of categories that the product belongs to.
+ * @param {string} description - The updated description of the product.
+ * @param {string} shortDescription - The updated short description of the product.
+ * @returns {Promise<void>} - A Promise that resolves when the product update is complete.
+ */
 async function updateProduct(id, name, price, image, categories, description, shortDescription) {
     const payload = {
         id: id,
@@ -42,13 +65,20 @@ async function updateProduct(id, name, price, image, categories, description, sh
             body: JSON.stringify(payload)
         });
         if(response.ok) {
-            console.log("product was updated");
+            console.log("Product was updated");
         }
     } catch (error) {
         console.log(error.message);
     }
 }
 
+/**
+ * Changes the role of a user.
+ *
+ * @param {string} id - The ID of the user to update.
+ * @param {string} role - The updated role of the user.
+ * @returns {Promise<void>} - A Promise that resolves when the user role change is complete.
+ */
 async function changeUserRole(id, role) {
     try {
         const responseUser = await fetch("/api/user/" + id)
