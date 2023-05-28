@@ -63,15 +63,12 @@ h1 {
     border: none;
     outline: none;
     font-size: 2rem;
+    width: 40rem;
     font-weight: lighter;
     color: #1f1f1f;
 }
 
-#text-bar1 {
-    width: 40rem;
-}
-
-#password-text-bar {
+#password.text-bar {
     width: 36rem;
 }
 
@@ -154,4 +151,24 @@ nav a {
     font-size: 2rem;
     color: red;
     margin-top: 2rem;
+}
+
+@media (max-width: 620px) {
+    #section {
+        width: 35rem;
+        margin-top: 2rem;
+    }
+
+    #footer-text {
+        position: static;
+        margin-top: 10rem;
+    }
+
+    .text-bar {
+        width: 22rem;
+    }
+
+    #password.text-bar {
+        width: 22rem;
+    }
 }

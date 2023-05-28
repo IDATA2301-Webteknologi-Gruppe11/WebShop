@@ -134,3 +134,39 @@ h1 {
     padding-top: 1.2rem;
     font-size: 1.3rem;
 }
+
+@media (max-width: 620px) {
+    #section {
+        width: 35rem;
+        margin-top: 2rem;
+    }
+
+    #footer-text {
+        position: static;
+        margin-top: 10rem;
+    }
+
+    #text-email-bar {
+        width: 22rem;
+    }
+    
+    #text-firstname-bar {
+        width: 22rem;
+    }
+    
+    #text-lastname-bar {
+        width: 22rem;
+    }
+    
+    #password-text-bar {
+        width: 22rem;
+    }
+    
+    #password-confirm-text-bar {
+        width: 22rem;
+    }
+    
+    #email-list {
+        margin-top: 3rem;
+        text-align: left;
+}
