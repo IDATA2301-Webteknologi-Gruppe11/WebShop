@@ -1,51 +1,65 @@
-async function addProductToCart(shoppingCart, product) {
-    const shoppingCartJson = JSON.stringify(shoppingCart);
-    if(Object.values(shoppingCartJson.ciid === null)) {
-        await createCartItem(shoppingCart, product)
-    }
-    else {
-        for(const ciid of Object.values(shoppingCartJson.ciid)) {
-            await checkProductInCartItem(ciid,product)
+async function addProductToCart(shoppingCartId, product) {
+    try {
+        const responseShoppingCart = await fetch("/api/shoppingcart/" + shoppingCartId);
+        if (!responseShoppingCart.ok) {
+            console.log("Failed to fetch shopping cart");
+            return;
         }
+        const shoppingCartData = await responseShoppingCart.json();
+        if (shoppingCartData.cartItems === null) {
+            await createCartItem(shoppingCartData, product);
+        } else {
+            let productFound = false;
+            for (const cartItem of Object.values(shoppingCartData.cartItems)) {
+                if (await checkProductInCartItem(cartItem, product, shoppingCartData)) {
+                    productFound = true;
+                    break;
+                }
+            }
+            if (!productFound) {
+                await createCartItem(shoppingCartData, product);
+            }
+        }
+    } catch (error) {
+        console.log('Error: ' + error.message);
     }
 }
 
 async function checkProductInCartItem(cartItem, product, shoppingCart) {
-    if(cartItem.pid === product) {
+    if (cartItem.product.id === product.id) {
         const payload = {
-            ciid: cartItem.ciid,
-            scid: cartItem.scid,
-            pid: cartItem.pid,
+            id: cartItem.id,
+            shoppingCart: shoppingCart,
+            product: cartItem.product,
             quantity: cartItem.quantity + 1
         };
         try {
-            const response =  await fetch("/api/cartItems/update" + cartItem.ciid, {
+            const response = await fetch("/api/cartItems/update/" + cartItem.id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(payload)
             });
-            if(response.ok) {
+            if (response.ok) {
                 console.log("cartItem was updated");
+                cartItem.quantity = cartItem.quantity + 1; // Update the quantity in the cartItem object
+                return true;
             } else {
-                console.log("Didnt update cart item.")
+                console.log("Didn't update cart item.");
             }
-        }catch (error) {
+        } catch (error) {
             console.log('Error updating cart item: ' + error.message);
         }
-    } else {
-        await createCartItem(cartItem.scid, product);
     }
 }
 
 async function createCartItem(shoppingCart, product) {
     const payload = {
-        scid: shoppingCart,
-        pid: product,
+        shoppingCart: shoppingCart,
+        product: product,
         quantity: 1
-    }
-
+    };
     const response = await fetch("/api/cartItems/add", {
         method: 'POST',
         headers: {
@@ -53,9 +67,9 @@ async function createCartItem(shoppingCart, product) {
         },
         body: JSON.stringify(payload)
     });
-    if(response.ok) {
-        console.log("cartItem was created")
+    if (response.ok) {
+        console.log("cartItem was created");
     } else {
-        console.log("Error creating cartItem")
+        console.log("Error creating cartItem");
     }
 }

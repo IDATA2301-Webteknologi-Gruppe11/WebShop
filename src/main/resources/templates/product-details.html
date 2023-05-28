@@ -25,7 +25,7 @@
         <p class="buy-text" th:text="'Buy ' + ${products.name}"></p>
         
         <div>
-            <button type="submit" class="button-add" th:onclick="addProductToCart([[${shoppingCart}]], [[${products}]])">Add To Cart</button>
+            <button type="submit" class="button-add" th:onclick="addProductToCart([[${shoppingCart.id}]], [[${products}]])">Add To Cart</button>
         </div>
     </div>
 </main>

@@ -11,8 +11,6 @@ function showPassword() {
         buttonEye.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
     }
 }
-
-
 function redirectToSignUpForm() {
     window.location.href = "/signup-form";
 }

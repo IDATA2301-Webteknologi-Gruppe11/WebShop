@@ -152,11 +152,8 @@ public class AccessUserService implements UserDetailsService {
      * @param password Plaintext password of the new user
      */
     private void createUser(String firstName, String lastName, String email, String password) {
-        System.out.println("here1");
         Role userRole = roleRepository.findOneByName("USER");
-        System.out.println(roleRepository.findOneByName("USER"));
         if (userRole != null) {
-            System.out.println("here2");
             User user = new User(firstName, lastName, email, createHash(password));
             user.setRole(userRole);
             userRepository.save(user);

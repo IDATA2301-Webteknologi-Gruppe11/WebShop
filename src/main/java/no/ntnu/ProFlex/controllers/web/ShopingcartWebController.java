@@ -37,12 +37,14 @@ public class ShopingcartWebController {
     public String getShoppingCart(Model model) {
         User sessionUser = this.userService.getSessionUser();
         model.addAttribute("sessionUser", sessionUser);
-        System.out.println(sessionUser);
         ShoppingCart shoppingCart = this.shoppingCartService.findByUser(sessionUser);
         model.addAttribute("shoppingCart", shoppingCart);
-        System.out.println(shoppingCart + "      here");
         List<CartItem> cartItems = this.cartItemService.findAllByShoppingCart(shoppingCart);
         model.addAttribute("cartItems", cartItems);
+
+        if(sessionUser == null) {
+            return "no-access";
+        }
         return "ShoppingCart";
     }
 }
