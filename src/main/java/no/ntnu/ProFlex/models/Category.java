@@ -1,6 +1,7 @@
 package no.ntnu.ProFlex.models;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.util.HashSet;
@@ -14,17 +15,17 @@ import java.util.Set;
  * @author Ole Kristian
  * @version 1.0
  */
-@Schema(description = "Represents a category that can be assigned to products.")
+@ApiModel(description = "Represents a category that can be assigned to products.")
 @Entity
 @Table(name = "category")
 public class Category {
 
-    @Schema(description = "A unique ID for the category.")
+    @ApiModelProperty(value = "A unique ID for the category.")
     @Id
     @GeneratedValue
     private int id;
 
-    @Schema(description = "The name of the category.")
+    @ApiModelProperty(value = "The name of the category.")
     @NotNull
     @Column(nullable = false)
     private String name;
@@ -36,6 +37,7 @@ public class Category {
             joinColumns = @JoinColumn(name = "category"),
             inverseJoinColumns = @JoinColumn(name = "product")
     )
+    @ApiModelProperty(value = "A set of products")
     private Set<Product> products = new HashSet<>();
 
     /**

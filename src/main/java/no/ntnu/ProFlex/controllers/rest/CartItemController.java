@@ -1,5 +1,7 @@
 package no.ntnu.ProFlex.controllers.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.CartItem;
@@ -21,6 +23,7 @@ import java.util.logging.Logger;
  */
 @RestController
 @RequestMapping("/api/cartItems")
+@Api(value = "CartItem API", tags = "CartItem")
 public class CartItemController {
 
     @Autowired
@@ -34,7 +37,7 @@ public class CartItemController {
      *
      * @return all cart items
      */
-    @Operation(summary = "Get all cart items", description = "Returns all the cart items")
+    @ApiOperation(value = "Get all cart items", notes = "Returns all the cart items")
     @GetMapping("/getAll")
     public ResponseEntity<List<CartItem>> getCartItems() {
         Iterable<CartItem> cartItems = this.cartItemService.getAll();
@@ -50,7 +53,7 @@ public class CartItemController {
      * @param id the ID of the cart item to retrieve
      * @return the cart item of the given ID
      */
-    @Operation(summary = "Get cart item by ID", description = "Retrieves a cart item by its ID.")
+    @ApiOperation(value = "Get cart item by ID", notes = "Retrieves a cart item by its ID.")
     @GetMapping("/{id}")
     public ResponseEntity<CartItem> getCartItemFromGivenId(
             @Parameter(name = "id", description = "ID of the cart item to retrieve", required = true)
@@ -69,7 +72,7 @@ public class CartItemController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException if an error occurs while creating the product
      */
-    @Operation(summary = "Adds a cart item", description = "Creates and adds a cart item to the shopping cart repository.")
+    @ApiOperation(value = "Adds a cart item", notes = "Creates and adds a cart item to the shopping cart repository.")
     @PostMapping("/add")
     public ResponseEntity<?> addCartItem(
             @Parameter(name = "cart item", description = "The cart item that is created", required = true)
@@ -93,7 +96,7 @@ public class CartItemController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException if an error occurs while updating the product
      */
-    @Operation(summary = "Update cart item", description = "Update the cart item from the cart item repository")
+    @ApiOperation(value = "Update cart item", notes = "Update the cart item from the cart item repository")
     @PutMapping(value = "/update/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateCartItem(
             @Parameter(name = "id", description = "ID of the cart item to update", required = true)
@@ -124,7 +127,7 @@ public class CartItemController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException  if an error occurs while deleting the product
      */
-    @Operation(summary = "Delete cart item", description = "Delete a cart item from the cart item repository given its ID")
+    @ApiOperation(value = "Delete cart item", notes = "Delete a cart item from the cart item repository given its ID")
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<CartItem> deleteCartItem(
             @Parameter(name = "id", description = "ID of the cart item to delete", required = true)

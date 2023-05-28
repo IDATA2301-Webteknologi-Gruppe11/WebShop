@@ -1,5 +1,7 @@
 package no.ntnu.ProFlex.controllers.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.User;
@@ -20,6 +22,7 @@ import java.util.logging.Logger;
  */
 @RestController
 @RequestMapping("/api/user")
+@Api(value = "User API", tags = "User")
 public class UserController {
 
     @Autowired
@@ -34,7 +37,7 @@ public class UserController {
      *
      * @return all users.
      */
-    @Operation(summary = "Get all users", description = "Returns all the user")
+    @ApiOperation(value = "Get all users", notes = "Returns all the user")
     @GetMapping("/getAll")
     public ResponseEntity<List<User>> getUser() {
         Iterable<User> users = this.userService.getAll();
@@ -50,7 +53,7 @@ public class UserController {
      * @param id the ID of the user to retrieve
      * @return the user of the given ID
      */
-    @Operation(summary = "Return a user", description = "Find and return a user from id")
+    @ApiOperation(value = "Return a user", notes = "Find and return a user from id")
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserFromId(
             @Parameter(name = "id", description = "the id of the user that you want to find", required = true)
@@ -69,7 +72,7 @@ public class UserController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException if an error occurs while creating the product
      */
-    @Operation(summary = "add user", description = "add a new user to the user repository and return the http status.")
+    @ApiOperation(value = "add user", notes = "add a new user to the user repository and return the http status.")
     @PostMapping("/add")
     public ResponseEntity<User> createUser(
             @Parameter(name = "user", description = "The user that is created", required = true)
@@ -94,7 +97,7 @@ public class UserController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException if an error occurs while updating the product
      */
-    @Operation(summary = "update user", description = "update a existing user in the user repository and return http status")
+    @ApiOperation(value = "update user", notes = "update a existing user in the user repository and return http status")
     @PutMapping("/update/{id}")
     public ResponseEntity<User> updateUser(
             @Parameter(name = "id", description = "id of the user that you want to update", required = true)
@@ -125,7 +128,7 @@ public class UserController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException  if an error occurs while deleting the product
      */
-    @Operation(summary = "Delete user", description = "Delete a user form the user list form given ID")
+    @ApiOperation(value = "Delete user", notes = "Delete a user form the user list form given ID")
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<User> deleteUser(
             @Parameter(name = "id", description = "UD of the user to delete", required = true)
@@ -141,5 +144,4 @@ public class UserController {
             return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
-
 }

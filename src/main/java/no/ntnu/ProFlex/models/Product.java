@@ -1,6 +1,8 @@
 package no.ntnu.ProFlex.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -15,48 +17,54 @@ import java.util.*;
  * @author Ole Kristian Dvergsdal
  * @version 1.0
  */
-@Schema(description = "Represent a product that is added to a product list", title = "A product")
+@ApiModel(description = "Represent a product that is added to a product list")
 @Entity
 @Table(name = "product")
 public class Product {
 
-    @Schema(description = "The name of the product")
+    @ApiModelProperty(value = "The name of the product")
     @NotNull
     @Column(nullable = false, name = "name")
     private String name;
 
-    @Schema(description = "A unique integer for the product")
+    @ApiModelProperty(value = "A unique integer for the product")
     @Id
     @GeneratedValue
     @Column(name = "id")
     private int id;
 
-    @Schema(description = "The price of a product")
+    @ApiModelProperty(value = "The price of a product")
     @NotNull
     @Column(nullable = false, name = "price")
     private int price;
 
     @Column(name = "image")
+    @ApiModelProperty(value = "the image path of the product")
     private String image;
 
     @Column(name = "smallDescription")
+    @ApiModelProperty(value = "short description of the product")
     private String shortDescription;
 
     @Column(name = "newProduct")
+    @ApiModelProperty(value = "A bit value that tells if the product is new or not.")
     private boolean newProduct;
 
     @NotNull
     @Column(nullable = false)
     @ManyToMany(mappedBy = "products")
+    @ApiModelProperty(value = "a set of categories for the product")
     private Set<Category> categories = new HashSet<>();
 
     @Schema(description = "Description of the product")
     @NotNull
     @Column(nullable = false, name = "description", length = 1000)
+    @ApiModelProperty(value = "The normal description of the product")
     private String description;
 
     @OneToMany(mappedBy = "product")
     @JsonBackReference("cartitem-product")
+    @ApiModelProperty(value = "List of cart items this product is in.")
     private List<CartItem> cartItems = new ArrayList<>();
 
     /**

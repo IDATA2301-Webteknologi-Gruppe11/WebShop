@@ -1,5 +1,7 @@
 package no.ntnu.ProFlex.controllers.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.Category;
@@ -20,6 +22,7 @@ import java.util.logging.Logger;
  */
 @RestController
 @RequestMapping("/api/category")
+@Api(value = "Category API", tags = "Category")
 public class CategoryController {
 
     @Autowired
@@ -33,7 +36,7 @@ public class CategoryController {
      *
      * @return all products
      */
-    @Operation(summary = "Get all categories", description = "Returns all categories form the category repository and returns https status.")
+    @ApiOperation(value = "Get all categories", notes = "Returns all categories form the category repository and returns http status.")
     @GetMapping("/getAll")
     public ResponseEntity<List<Category>> getCategories() {
         Iterable<Category> categories = this.categoryService.getAll();
@@ -49,7 +52,7 @@ public class CategoryController {
      * @param id the ID of the category to retrieve
      * @return the category of the given ID
      */
-    @Operation(summary = "Get a category", description = "Returns a category form the category repository and return http status.")
+    @ApiOperation(value = "Get a category", notes = "Returns a category form the category repository and return http status.")
     @GetMapping("/{id}")
     public ResponseEntity<Category> getCategoryFromGivenId(
             @Parameter(name = "id", description = "Id of the category you want to return", required = true)
@@ -68,7 +71,7 @@ public class CategoryController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException if an error occurs while creating the product
      */
-    @Operation(summary = "Create a category", description = "Create and add category to the category repository and return a http status")
+    @ApiOperation(value = "Create a category", notes = "Create and add category to the category repository and return a http status")
     @PostMapping("/add")
     public ResponseEntity<Category> createCategory(
             @Parameter(name = "category", description = "The category you want to add", required = true)
@@ -93,7 +96,7 @@ public class CategoryController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException if an error occurs while updating the product
      */
-    @Operation(summary = "update a existing category", description = "update a existing category int the category repository and return a http status")
+    @ApiOperation(value = "update a existing category", notes = "update a existing category int the category repository and return a http status")
     @PutMapping("/update/{id}")
     public ResponseEntity<Category> updateCategory(
             @Parameter(name = "id", description = "the id of the category you want to update", required = true)
@@ -124,7 +127,7 @@ public class CategoryController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException  if an error occurs while deleting the product
      */
-    @Operation(summary = "Remove a category", description = "Removes a category form the category repository and return a http status")
+    @ApiOperation(value = "Remove a category", notes = "Removes a category form the category repository and return a http status")
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<Category> deleteCategory(
             @Parameter(name = "id", description = "the id of the category you want to remove", required = true)

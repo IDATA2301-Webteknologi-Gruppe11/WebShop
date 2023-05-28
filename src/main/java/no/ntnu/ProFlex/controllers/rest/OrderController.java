@@ -1,5 +1,7 @@
 package no.ntnu.ProFlex.controllers.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.Order;
@@ -20,6 +22,7 @@ import java.util.logging.Logger;
  */
 @RestController
 @RequestMapping("/api/order")
+@Api(value = "Order API", tags = "Order")
 public class OrderController {
 
     @Autowired
@@ -35,7 +38,7 @@ public class OrderController {
      *
      * @return all orders
      */
-    @Operation(summary = "Get orders", description = "Find and return all orders for the order repository and return https status")
+    @ApiOperation(value = "Get orders", notes = "Find and return all orders for the order repository and return http status")
     @GetMapping("/getAll")
     public ResponseEntity<List<Order>> getOrders() {
         Iterable<Order> orders = this.orderService.getAll();
@@ -51,6 +54,7 @@ public class OrderController {
      * @param id the ID of the order to retrieve
      * @return the order of the given ID
      */
+    @ApiOperation(value = "Get order by id", notes = "finds and return order by id. Also returns http status")
     @GetMapping("/{id}")
     public ResponseEntity<Order> getOrderFromId(
             @Parameter(name = "id", description = "The id of the order that you want to find", required = true)
@@ -70,7 +74,7 @@ public class OrderController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException if an error occurs while creating the order
      */
-    @Operation(summary = "Create an order.", description = "Create and add a order to the order repository")
+    @ApiOperation(value = "Create an order.", notes = "Create and add a order to the order repository")
     @PostMapping("/add")
     public ResponseEntity<Order> createOrder(
             @Parameter(name = "order", description = "the order that you want to add", required = true)
@@ -95,7 +99,7 @@ public class OrderController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException if an error occurs while updating the product
      */
-    @Operation(summary = "Update a order", description = "Update an existing order form the order repository")
+    @ApiOperation(value = "Update a order", notes = "Update an existing order form the order repository")
     @PutMapping("/update/{id}")
     public ResponseEntity<Order> updateOrder(
             @Parameter(name = "id", description = "the id of the product you want to update", required = true)
@@ -126,7 +130,7 @@ public class OrderController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @exception JSONException  if an error occurs while deleting the product
      */
-    @Operation(summary = "Remove order", description = "Removes a order form the order repository")
+    @ApiOperation(value = "Remove order", notes = "Removes a order form the order repository")
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<Order> deleteOrderOrder(
             @Parameter(name = "id", description = "the id of the order that you want to remove", required = true)

@@ -1,6 +1,8 @@
 package no.ntnu.ProFlex.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -14,21 +16,22 @@ import java.util.Set;
  * @author Ole Kristian
  * @version 1.0
  */
-@Schema(description = "Represent the roles that the user can have")
+@ApiModel(description = "Represent the roles that the user can have")
 @Entity(name = "roles")
 @Table(name = "roles")
 public class Role {
 
-    @Schema(description = "The unique ID of the role")
+    @ApiModelProperty(value = "The unique ID of the role")
     @Id
     @GeneratedValue
     private int id;
 
-    @Schema(description = "The name of the role")
+    @ApiModelProperty(value = "The name of the role")
     @NotNull
     @Column(nullable = false)
     private String name;
 
+    @ApiModelProperty(value = "a set of user that have this role")
     @OneToMany(mappedBy = "role")
     @JsonManagedReference(value = "user-role")
     private Set<User> users;

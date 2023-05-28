@@ -1,5 +1,7 @@
 package no.ntnu.ProFlex.controllers.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.Role;
@@ -20,6 +22,7 @@ import java.util.logging.Logger;
  */
 @RestController
 @RequestMapping("/api/role")
+@Api(value = "Role API", tags = "Role")
 public class RoleController {
 
     @Autowired
@@ -34,7 +37,7 @@ public class RoleController {
      *
      * @return a list of all roles
      */
-    @Operation(summary = "Get all roles", description = "Returns a list of all roles")
+    @ApiOperation(value = "Get all roles", notes = "Returns a list of all roles")
     @GetMapping("/getAll")
     public ResponseEntity<List<Role>> getRoles() {
         Iterable<Role> roles = this.roleService.getAll();
@@ -50,7 +53,7 @@ public class RoleController {
      * @param id the ID of the role to retrieve
      * @return the role with the given ID
      */
-    @Operation(summary = "Get role by ID", description = "Returns the role with the specified ID")
+    @ApiOperation(value = "Get role by ID", notes = "Returns the role with the specified ID")
     @GetMapping("/{id}")
     public ResponseEntity<Role> getRoleFromId(
             @Parameter(name = "id", description = "The ID of the role to retrieve", required = true)
@@ -69,7 +72,7 @@ public class RoleController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @throws JSONException if an error occurs while creating the role
      */
-    @Operation(summary = "Add role", description = "Creates and adds a new role to the role repository")
+    @ApiOperation(value = "Add role", notes = "Creates and adds a new role to the role repository")
     @PostMapping("/add")
     public ResponseEntity<Role> createRole(
             @Parameter(name = "role", description = "The role to add", required = true)
@@ -93,7 +96,7 @@ public class RoleController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @throws JSONException if an error occurs while updating the role
      */
-    @Operation(summary = "Update role", description = "Updates an existing role in the role repository and returns the HTTP status")
+    @ApiOperation(value = "Update role", notes = "Updates an existing role in the role repository and returns the HTTP status")
     @PutMapping("/update/{id}")
     public ResponseEntity<Role> updateRole(
             @Parameter(name = "id", description = "ID of the role to update", required = true)
@@ -123,7 +126,7 @@ public class RoleController {
      * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
      * @throws JSONException if an error occurs while deleting the role
      */
-    @Operation(summary = "Delete role", description = "Deletes a role from the role list with the given ID")
+    @ApiOperation(value = "Delete role", notes = "Deletes a role from the role list with the given ID")
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<Role> deleteRole(
             @Parameter(name = "id", description = "ID of the role to delete", required = true)

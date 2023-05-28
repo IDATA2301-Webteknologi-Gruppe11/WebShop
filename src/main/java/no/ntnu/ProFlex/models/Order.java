@@ -1,6 +1,8 @@
 package no.ntnu.ProFlex.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
@@ -12,19 +14,20 @@ import java.util.Date;
  * @author Ole Kristian
  * @version 1.0
  */
-@Schema(description = "Represent a order")
+@ApiModel(description = "Represent a order")
 @Entity
 @Table(name = "Orders")
 public class Order {
 
-    @Schema
+    @ApiModelProperty(value = "Id for order")
     @Id
     @GeneratedValue
     private int id;
 
-    @Schema(description = "The date when the order was placed.")
+    @ApiModelProperty(value = "The date when the order was placed.")
     private Date date;
 
+    @ApiModelProperty(value = "User of the order")
     @ManyToOne
     @JoinColumn(name = "orders")
     @JsonBackReference(value = "user-order")

@@ -2,6 +2,8 @@ package no.ntnu.ProFlex.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -14,52 +16,55 @@ import java.util.*;
  * @author Ole Kristian Dvergsdal
  * @version 1.0
  */
-@Schema(description = "Represent user that is used to log on to the web site")
+@ApiModel(description = "Represent user that is used to log on to the web site")
 @Entity
 @Table(name = "user")
 public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference(value = "user-order")
+    @ApiModelProperty(value = "a set of order this user have")
     private Set<Order> orders = new HashSet<>();
 
-    @Schema(description = "A unique id of the user.")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(value = "the id of the user")
     private int id;
 
-    @Schema(description = "The first name of the user.")
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "the first name of the user")
     private String firstName;
 
-    @Schema(description = "The last name of the user.")
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "the last name of the user")
     private String lastName;
 
-    @Schema(description = "The email of the user.")
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "the email of the user")
     private String email;
 
-    @Schema(description = "The password of the user.")
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "The password of the user.")
     private String pass;
 
-    @Schema(description = "If the user is active")
     @NotNull
     @Column(nullable = false)
+    @ApiModelProperty(value = "If the user is active")
     private boolean active = true;
 
     @ManyToOne
     @JoinColumn(name = "role")
     @JsonBackReference(value = "user-role")
+    @ApiModelProperty(value = "the role the user have")
     private Role role;
 
     @OneToOne(mappedBy = "user")
     @JsonManagedReference(value = "user-shoppingcart")
+    @ApiModelProperty(value = "the shopping cart for the user")
     private ShoppingCart shoppingCart;
 
     /**

@@ -2,26 +2,33 @@ package no.ntnu.ProFlex.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 
+@ApiModel(description = "Represent cartItem")
 @Entity
 @Table(name = "CartItem")
 public class CartItem {
 
     @Id
     @GeneratedValue
+    @ApiModelProperty(value = "cart item id")
     private int id;
 
     @ManyToOne
     @JoinColumn(name = "shoppingCart")
     @JsonBackReference(value = "cartitem-shoppingcart")
+    @ApiModelProperty(value = "cart item shopping cart")
     private ShoppingCart shoppingCart;
 
     @ManyToOne
     @JoinColumn(name = "product")
     @JsonIgnoreProperties("cartItems")
+    @ApiModelProperty(value = "product in the cart item")
     private Product product;
 
+    @ApiModelProperty(value = "Quantity of product in cart item")
     private int quantity;
 
     /**
