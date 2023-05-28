@@ -13,7 +13,7 @@
   <div id="register-flex-conteiner">
     <section id="section">
       <h1>Register</h1>
-      <form th:action="@{/signup-form}" method="post" th:object="${user}">
+      <form th:action="@{/signup-form}" method="post" th:object="${user}" onsubmit="return validateForm()">
         <ul id="email-list">
           <li class="icons"><i class="fa-solid fa-envelope"></i></li>
           <li class="register-text">Email:</li>

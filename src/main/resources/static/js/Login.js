@@ -2,7 +2,7 @@
  * Toggles the visibility of the password text in the password input field.
  */
 function showPassword() {
-    const passwordTextBar = document.getElementById("password-text-bar");
+    const passwordTextBar = document.getElementById("password");
     const buttonEye = document.getElementById("password-button-eye");
 
     if(passwordTextBar.type === "password") {

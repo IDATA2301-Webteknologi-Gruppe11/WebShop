@@ -36,3 +36,21 @@ function showConfirmPassword() {
         buttonEye.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
     }
 }
+
+/**
+ * Validates the registration form to ensure that the "Confirm Password" field matches the "Password" field.
+ * Displays an alert if the passwords do not match.
+ * 
+ * @returns {boolean} Returns true if the form is valid, otherwise false.
+ */
+function validateForm() {
+    var password = document.getElementById("password-text-bar").value;
+    var confirmPassword = document.getElementById("password-confirm-text-bar").value;
+    
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return false;
+    }
+    
+    return true;
+}
