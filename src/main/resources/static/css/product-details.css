@@ -1,45 +1,18 @@
-:root {
-    --font-primary: 'Poppins', sans-serif;
-    --font-size-base: 62.5%;
-    --color-background: #f5f5f5;
-    --padding-base: 10rem;
-    --margin-base: 2rem;
-    --width-img: 200px;
-    --height-img: 200px;
-    --margin-name: 7rem;
-    --font-size-name: 7rem;
-    --margin-title: 5rem;
-    --font-size-title: 5rem;
-    --font-weight-description: 300;
-    --line-height-description: 2rem;
-    --margin-grid: 4rem;
-    --font-size-buy-text: 3rem;
-    --font-size-price: 5rem;
-    --color-price: #090979;
-    --margin-button: 5rem;
-    --margin-left-button: 7rem;
-    --background-button: #0067B8;
-    --color-button: white;
-    --border-radius-button: 5px;
-    --width-button: 30rem;
-    --height-button: 5rem;
-}
-
 * {
     margin: 0;
     padding: 0;
-    font-family: var(--font-primary);
-    font-size: var(--font-size-base);
+    font-family: 'Poppins', sans-serif;
+    font-size: 62.5%;
     box-sizing: border-box;
 }
 
 body {
-    background-color: var(--color-background);
+    background-color: #f5f5f5;
 }
 
 .flex-container {
-    padding-top: var(--padding-base);
-    padding-bottom: var(--padding-base);
+    padding-top: 10rem;
+    padding-bottom: 10rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -50,31 +23,31 @@ body {
     flex-direction: row;
 }
 
-.detail-img {
-    margin-top: var(--margin-base);
-    width: var(--width-img);
-    height: var(--height-img);
+.detail-img{
+    margin-top: 2rem;
+    width: 200px;
+    height: 200px;
 }
 
 .product-name {
-    margin-top: var(--margin-name);
-    margin-left: var(--margin-base);
-    font-size: var(--font-size-name);
+    margin-top: 7rem;
+    margin-left: 4rem;
+    font-size: 7rem;
     text-align: center;
 }
 
 .description-title {
-    margin-top: var(--margin-title);
-    font-size: var(--font-size-title);
+    margin-top: 5rem;
+    font-size: 5rem;
     width: 60%;
     text-align: start;
 }
 
 .product-description {
-    margin-top: var(--margin-base);
+    margin-top: 2rem;
     font-size: 2rem;
-    font-weight: var(--font-weight-description);
-    line-height: var(--line-height-description);
+    font-weight: 300;
+    line-height: 2rem;
     width: 60%;
     text-align: start;
 }
@@ -83,34 +56,34 @@ body {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
-    margin-top: var(--margin-grid);
+    margin-top: 4rem;
     width: 60%;
 }
 
 .buy-text {
-    margin-top: var(--margin-title);
+    margin-top: 5rem;
     grid-row: 1;
     grid-column: 1;
-    font-size: var(--font-size-buy-text);
+    font-size: 3rem;
 }
 
 .product-price {
-    font-size: var(--font-size-price);
-    color: var(--color-price);
+    font-size: 5rem;
+    color: #090979;
     width: 60%;
     text-align: start;
 }
 
 .button-add {
-    grid-row: 1 / span 2;
+    grid-row: 1 /span 2;
     grid-column: 2;
     font-size: 2.5rem;
-    margin-left: var(--margin-left-button);
-    margin-top: var(--margin-button);
-    background-color: var(--background-button);
-    color: var(--color-button);
+    margin-left: 7rem;
+    margin-top: 5rem;
+    background-color: #0067B8;
+    color: white;
     border: none;
-    border-radius: var(--border-radius-button);
-    width: var(--width-button);
-    height: var(--height-button);
+    border-radius: 5px;
+    width: 30rem;
+    height: 5rem;
 }

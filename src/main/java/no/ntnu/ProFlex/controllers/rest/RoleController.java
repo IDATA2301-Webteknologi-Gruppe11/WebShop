@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.logging.Logger;
 
 /**
- * Rest controller for the user.
+ * Rest controller for managing roles.
  *
- * @author Håvard Hetland Vestbø
  * @version 1.0
  */
 @RestController
@@ -30,49 +30,50 @@ public class RoleController {
     private static final Logger LOGGER = Logger.getLogger(RoleController.class.getName());
 
     /**
-     * Returns all the roles.
+     * Returns all roles.
      *
-     * @return all roles.
+     * @return a list of all roles
      */
-    @Operation(summary = "Get all roles", description = "Returns all the roles")
+    @Operation(summary = "Get all roles", description = "Returns a list of all roles")
     @GetMapping("/getAll")
-    public ResponseEntity<List<Role>> getRole() {
+    public ResponseEntity<List<Role>> getRoles() {
         Iterable<Role> roles = this.roleService.getAll();
         if (!roles.iterator().hasNext()) {
-            return new ResponseEntity("Didn't find products", HttpStatus.NOT_FOUND);
+            return new ResponseEntity("No roles found", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok((List<Role>) roles);
     }
 
     /**
-     * Returns the roles of a given ID.
+     * Returns the role with the given ID.
      *
-     * @param id the ID of the user to retrieve
-     * @return the user of the given ID
+     * @param id the ID of the role to retrieve
+     * @return the role with the given ID
      */
-    @Operation(summary = "Return a reol", description = "Find and return a role from id")
+    @Operation(summary = "Get role by ID", description = "Returns the role with the specified ID")
     @GetMapping("/{id}")
     public ResponseEntity<Role> getRoleFromId(
-            @Parameter(name = "id", description = "the id of the role that you want to find", required = true) @PathVariable int id) {
+            @Parameter(name = "id", description = "The ID of the role to retrieve", required = true)
+            @PathVariable int id) {
         Role role = this.roleService.findById(id);
         if (role == null) {
-            return new ResponseEntity("Didn't find role", HttpStatus.NOT_FOUND);
+            return new ResponseEntity("Role not found", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(role);
     }
 
     /**
-     * Creates and adds a role.
+     * Creates and adds a new role.
      *
-     * @param role the role that is getting created
-     * @return a ResponseEntity with an HTTP status indicating the success or
-     *         failure of the operation
-     * @exception JSONException if an error occurs while creating the product
+     * @param role the role to add
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @throws JSONException if an error occurs while creating the role
      */
-    @Operation(summary = "add role", description = "add a new role to the role repository and return the http status.")
+    @Operation(summary = "Add role", description = "Creates and adds a new role to the role repository")
     @PostMapping("/add")
-    public ResponseEntity<Role> createUser(
-            @Parameter(name = "role", description = "The role that is created", required = true) @RequestBody Role role) {
+    public ResponseEntity<Role> createRole(
+            @Parameter(name = "role", description = "The role to add", required = true)
+            @RequestBody Role role) {
         try {
             if (!this.roleService.add(role)) {
                 return new ResponseEntity("Role was not added", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -85,29 +86,30 @@ public class RoleController {
     }
 
     /**
-     * Update the role for a given ID.
+     * Updates the role with the given ID.
      *
      * @param id   the ID of the role to update
-     * @param role new user of the user
-     * @return a ResponseEntity with an HTTP status indicating the success or
-     *         failure of the operation
-     * @exception JSONException if an error occurs while updating the product
+     * @param role the new role data
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @throws JSONException if an error occurs while updating the role
      */
-    @Operation(summary = "update role", description = "update a existing role in the role repository and return http status")
+    @Operation(summary = "Update role", description = "Updates an existing role in the role repository and returns the HTTP status")
     @PutMapping("/update/{id}")
-    public ResponseEntity<Role> updateUser(
-            @Parameter(name = "id", description = "id of the role that you want to update", required = true) @PathVariable int id,
-            @Parameter(name = "user", description = "the role that the exsisting role you want to be updated to", required = true) @PathVariable Role role) {
+    public ResponseEntity<Role> updateRole(
+            @Parameter(name = "id", description = "ID of the role to update", required = true)
+            @PathVariable int id,
+            @Parameter(name = "role", description = "The new role data", required = true)
+            @RequestBody Role role) {
         try {
             Role oldRole = this.roleService.findById(id);
             if (oldRole == null) {
-                return new ResponseEntity("didn't find role", HttpStatus.NOT_FOUND);
+                return new ResponseEntity("Role not found", HttpStatus.NOT_FOUND);
             }
             this.roleService.update(id, role);
             if (this.roleService.findById(id) == null) {
-                return new ResponseEntity("Role didn't update", HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity("Role not updated", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity("Role was updated", HttpStatus.OK);
+            return new ResponseEntity("Role updated successfully", HttpStatus.OK);
         } catch (JSONException e) {
             LOGGER.severe(SEVERE + e.getMessage());
             return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
@@ -115,26 +117,25 @@ public class RoleController {
     }
 
     /**
-     * Deletes a role from the role list with the given ID.
+     * Deletes a role with the given ID.
      *
      * @param id the ID of the role to delete
-     * @return a ResponseEntity with an HTTP status indicating the success or
-     *         failure of the operation
-     * @exception JSONException if an error occurs while deleting the product
+     * @return a ResponseEntity with an HTTP status indicating the success or failure of the operation
+     * @throws JSONException if an error occurs while deleting the role
      */
-    @Operation(summary = "Delete role", description = "Delete a role form the role list form given ID")
+    @Operation(summary = "Delete role", description = "Deletes a role from the role list with the given ID")
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<Role> deleteRole(
-            @Parameter(name = "id", description = "ID of the roles to delete", required = true) @PathVariable int id) {
+            @Parameter(name = "id", description = "ID of the role to delete", required = true)
+            @PathVariable int id) {
         try {
             if (!this.roleService.delete(id)) {
-                return new ResponseEntity("Role was not removed", HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity("Role not removed", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity("Role was removed", HttpStatus.OK);
+            return new ResponseEntity("Role removed successfully", HttpStatus.OK);
         } catch (JSONException e) {
             LOGGER.severe(SEVERE + e.getMessage());
             return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
         }
     }
-
 }
