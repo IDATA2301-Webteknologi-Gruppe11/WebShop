@@ -25,6 +25,27 @@ body {
   color: #1d1d1f;
 }
 
+#category-flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 5rem;
+  font-size: 3rem;
+}
+
+#category-flex-container a {
+  text-decoration: none;
+  color: #6e6e73;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+}
+
+#category-flex-container p {
+  color: #1d1d1f;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+}
+
 footer {
   margin-top: 5rem;
 }
@@ -37,79 +58,28 @@ footer {
   justify-content: center;
 }
 
-.dropdown-category {
-  position: relative;
-  display: none;
-}
-
-.dropdown-content-category {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 13rem;
-  box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 5px;
-  margin-top: 1rem;
-}
-
-.dropdown-category:hover .dropdown-content-category {
-  display: block;
-}
-
-.dropdown-content-category a {
-  color: #1d1d1f;
-  padding: 1.2rem 2.4rem;
-  text-decoration: none;
-  display: block;
-  font-size: 1.5rem;
-}
-
-.dropdown-content-category a:hover {
-  background-color: #e6e6e6;
-  border-radius: 5px;
-}
-
 @media (max-width: 1080px) and (min-width: 429px) {
   #Products-header {
     font-size: 7rem;
   }
 
-  #Products-flex-container a {
-    display: none;
+  #category-flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+
+  #category-flex-container p, #category-flex-container a{
+    padding-right: 0;
   }
 
   #productCard {
     margin: 5rem;
   }
-
-  .dropdown-category {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .dropbtn-category {
-    background-color: white;
-    border: none;
-  }
-
-  .material-symbols-outlined {
-    font-size: 1.5rem;
-  }
-
-  /* Add the following rule to hide the dropdown content by default */
-  .dropdown-category:hover .dropdown-content-category {
-    display: none;
-  }
-
-  /* Add the following rule to display the dropdown content on hover */
-  .dropdown-category:hover .dropdown-content-category {
-    display: block;
-  }
 }
-
+  
 @media (max-width: 428px) {
   #Products-header {
     font-size: 5rem;
@@ -117,9 +87,16 @@ footer {
     margin-bottom: 3rem;
   }
 
-  #Products-flex-container a {
-    display: none;
+  #category-flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 0;
+  }
+
+  #category-flex-container p, #category-flex-container a{
+    padding-right: 0;
   }
 
   #productCard {
@@ -129,30 +106,4 @@ footer {
   #Products-flex-container p {
     padding-right: 0;
   }
-
-  .dropdown-category {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .dropbtn-category {
-    background-color: white;
-    border: none;
-  }
-
-  .material-symbols-outlined {
-    font-size: 1.5rem;
-  }
-
-  /* Add the following rule to hide the dropdown content by default */
-  .dropdown-category:hover .dropdown-content-category {
-    display: none;
-  }
-
-  /* Add the following rule to display the dropdown content on hover */
-  .dropdown-category:hover .dropdown-content-category {
-    display: block;
-  }
-}
+}  

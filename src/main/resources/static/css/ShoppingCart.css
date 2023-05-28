@@ -11,5 +11,10 @@ body{
     background-color: #f5f5f5;
 }
 
+@media (max-width: 1080px) and (min-width: 428px) {
 
+}
 
+@media (max-width: 428px) {
+    
+}

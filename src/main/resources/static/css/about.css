@@ -16,12 +16,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding-top: 20rem;
+  padding-top: 15rem;
 }
 
 .about-grid-flex {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -36,10 +36,12 @@ body {
 #about-description {
   text-align: center;
   font-size: 3rem;
-  max-width: 800px;
-  margin-bottom: 20px;
+  max-width: 80rem;
+  margin-bottom: 5rem;
+
 }
-#about-description iframe {
+
+.map {
   padding-bottom: 5rem;
 }
 
@@ -52,6 +54,13 @@ body {
 
   #about-description {
     font-size: 2rem;
+    padding: 5rem;
+  }
+
+  .map{
+    padding: 5rem;
+    width: 100%;
+    max-width: 80rem;
   }
 }
 
@@ -64,6 +73,13 @@ body {
 
   #about-description {
     font-size: 1.5rem;
+    padding: 5rem;
+  }
+
+  .map{
+    padding: 5rem;
+    width: 100%;
+    max-width: 80rem;
   }
 }
   

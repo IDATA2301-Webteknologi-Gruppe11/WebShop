@@ -173,6 +173,7 @@
     box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     z-index: 1;
     border-radius: 5px;
+    right: 0;
 }
 
 
