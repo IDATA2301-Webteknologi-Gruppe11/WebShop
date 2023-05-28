@@ -4,17 +4,32 @@
     font-family: 'Poppins', sans-serif;
     font-size: 62.5%;
     box-sizing: border-box;
-    color: #1d1d1f;
 }
 
 body{
     background-color: #f5f5f5;
 }
 
-@media (max-width: 1080px) and (min-width: 428px) {
+#shoppingcart-title {
+    text-align: center;
+    font-weight: normal;
+    font-family: Poppins, sans-serif;
+    font-size: 10rem;
+    margin-top: 15rem;
+    margin-bottom: 7rem;
+    color: #1d1d1f;
+}
 
+@media (max-width: 1080px) and (min-width: 428px) {
+    #shoppingcart-title {
+        font-size: 7rem;
+    }
 }
 
 @media (max-width: 428px) {
-    
+    #shoppingcart-title {
+        font-size: 5rem;
+        margin-top: 10rem;
+        margin-bottom: 3rem;
+    }
 }

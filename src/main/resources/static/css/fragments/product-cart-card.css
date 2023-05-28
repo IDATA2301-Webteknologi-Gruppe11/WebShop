@@ -126,9 +126,10 @@
 #button-flex {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     font-size: 5rem;
-    gap: 107rem;
     margin-left: 10rem;
+    margin-right: 10rem;
     margin-top: 5rem;
 }
 

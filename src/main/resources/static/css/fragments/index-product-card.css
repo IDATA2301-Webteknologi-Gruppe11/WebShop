@@ -10,7 +10,6 @@
     display: flex;
     flex-direction: row;
     gap: 15rem;
-    margin-bottom: 40rem;
 }
 
 .product-card-section {

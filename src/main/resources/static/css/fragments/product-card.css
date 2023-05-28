@@ -9,7 +9,6 @@
 .index-product-card-flex-container {
     display: flex;
     flex-direction: row;
-    margin-bottom: 40rem;
 }
 
 .product-card-section {
