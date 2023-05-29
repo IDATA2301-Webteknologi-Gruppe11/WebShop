@@ -103,7 +103,7 @@ public class UserController {
             @Parameter(name = "id", description = "id of the user that you want to update", required = true)
             @PathVariable int id,
             @Parameter(name = "user", description = "the user that the exsisting user you want to be updated to", required = true)
-            @PathVariable User user) {
+            @RequestBody User user) {
         try {
             User oldUser = this.userService.findById(id);
             if (oldUser == null) {

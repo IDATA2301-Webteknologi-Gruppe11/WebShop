@@ -57,6 +57,8 @@ public class SecurityConfiguration {
                 .requestMatchers(new AntPathRequestMatcher("/product/{id}")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/about")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/shoppingcart")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/resetpassword")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/forgotpassword")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/signup-form")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/signup-success")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/no-access")).permitAll()

@@ -15,9 +15,11 @@
                 </section>
                 <h1 class="index-product-card-name" th:text="${product.name}"></h1>
                 <p class="index-product-card-short-description" th:text="${product.shortDescription}"></p>
-                <div class="index-product-card-learn-more-flex" >
-                    <p class="learn-more">Learn more</p>
-                    <div><i class="fa-solid fa-angle-right"></i></div>
+                <div class="index-product-card-botmo-flex" >
+                    <div class="index-product-card-learn-more-flex" >
+                        <p class="learn-more">Learn more</p>
+                        <div><i class="fa-solid fa-angle-right"></i></div>
+                    </div>
                     <p class="price" th:text="'Price ' + ${product.price}"></p>
                 </div>
             </section>

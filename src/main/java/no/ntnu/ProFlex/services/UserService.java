@@ -3,7 +3,10 @@ package no.ntnu.ProFlex.services;
 import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 /**
  * Represent the service class for user.
@@ -104,5 +107,26 @@ public class UserService {
         if (errorMessage == null) {
             this.userRepository.save(user);
         }
+    }
+
+    public void updateResetPasswordToken(String token, String email) {
+        User user = findByEmail(email);
+        if(user != null) {
+            user.setResetPasswordToke(token);
+            this.userRepository.save(user);
+        }
+    }
+
+    public User getByResetPasswordToken(String token) {
+        return this.userRepository.findByResetPasswordToke(token).orElse(null);
+    }
+
+    public void updatePassword(User user, String newPassword) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String encodePassword = bCryptPasswordEncoder.encode(newPassword);
+        user.setPass(encodePassword);
+
+        user.setResetPasswordToke(null);
+        this.userRepository.save(user);
     }
 }

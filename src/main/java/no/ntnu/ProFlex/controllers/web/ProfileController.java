@@ -65,7 +65,7 @@ public class ProfileController {
         User sessionUser = this.userService.getSessionUser();
         model.addAttribute("sessionUser", sessionUser);
         if(!sessionUser.hasRole("ROLE_ADMIN")) {
-            return  "no-access";
+            return "no-access";
         }
         return "admin";
     }

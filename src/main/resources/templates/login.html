@@ -30,7 +30,7 @@
                 <div class="line"></div>
                 <p th:if="${param.error}" class="alert">Invalid username or password</p>
                 <button id="button1" type="submit">Login</button>
-                <nav><a href="#">Forgot Your Password. Click Here To Reset</a></nav>
+                <nav><a th:href="@{/forgotpassword}">Forgot Your Password. Click Here To Reset</a></nav>
                 <button id="button2" onclick="redirectToSignUpForm()" type="button">Register New Account</button>
             </section>
         </div>

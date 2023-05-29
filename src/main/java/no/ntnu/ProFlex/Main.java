@@ -5,7 +5,7 @@ import no.ntnu.ProFlex.controllers.rest.UserController;
 public class Main {
 
     public static void main(String args[]) {
-        UserController productController = new UserController();
-        System.out.println(productController.getUser());
+        UserController userController = new UserController();
+        System.out.println(userController.getUser());
     }
 }

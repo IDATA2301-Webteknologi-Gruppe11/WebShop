@@ -102,7 +102,7 @@ public class ShoppingCartController {
             @Parameter(name = "id", description = "ID of the shopping cart to update", required = true)
             @PathVariable int id,
             @Parameter(name = "shoppingCart", description = "The new shopping cart that replaces the existing one", required = true)
-            @PathVariable ShoppingCart shoppingCart) {
+            @RequestBody ShoppingCart shoppingCart) {
         try {
             ShoppingCart oldShoppingCart = this.shoppingCartService.findById(id);
             if (oldShoppingCart == null) {

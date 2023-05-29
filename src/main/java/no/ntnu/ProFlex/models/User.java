@@ -67,6 +67,9 @@ public class User {
     @ApiModelProperty(value = "the shopping cart for the user")
     private ShoppingCart shoppingCart;
 
+    @ApiModelProperty(value = "token to reset password")
+    private String resetPasswordToke;
+
     /**
      * Constructor for user.
      * This constructor take parameters.
@@ -263,6 +266,14 @@ public class User {
      */
     public Role getRole() {
         return role;
+    }
+
+    public String getResetPasswordToke() {
+        return resetPasswordToke;
+    }
+
+    public void setResetPasswordToke(String resetPasswordToke) {
+        this.resetPasswordToke = resetPasswordToke;
     }
 
     /**
