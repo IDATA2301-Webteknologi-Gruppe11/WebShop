@@ -37,3 +37,5 @@ build/
 env.properties
 
 keystore.p12
+
+nohup.out
