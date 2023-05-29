@@ -151,3 +151,33 @@ header {
     height: auto;
     margin-top: 10%;
 }
+
+.proflex-values-section-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 11rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #43484d;
+    margin: 7rem 0;
+}
+
+.value {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+
+.value p {
+    max-width: 50rem;
+    font-size: 3rem;
+}
+
+.value span {
+    font-size: 12rem;
+}
+
+.value h3 {
+    font-size: 6rem;
+}
