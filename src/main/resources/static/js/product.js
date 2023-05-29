@@ -44,14 +44,12 @@ async function fetchProductRequest() {
  * @param {string} category - The category to filter the products.
  */
 async function getProductsByCategory(category) {
-    const url = `/api/product/getByCategory/${encodeURIComponent(category)}`;
-    const response = await fetch(url);
-
+    const response = await fetch("/api/product/" + category)
     if (response.ok) {
         const products = await response.json();
         showProducts(products);
     } else {
-        console.error(`Error: ${response.status} - ${response.statusText}`);
+        console.log("error fiding products")
     }
 }
 
