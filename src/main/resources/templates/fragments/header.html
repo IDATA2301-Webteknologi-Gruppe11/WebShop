@@ -30,7 +30,7 @@
                     </a>
                 </button>
                 <div class="dropdown-content" id="dropdown-content">
-                    <a th:href="${sessionUser != null ? '/profile/' + sessionUser.email : '/login'}" th:if="${sessionUser != null}">
+                    <a th:href="${sessionUser != null ? '/profile' : '/login'}" th:if="${sessionUser != null}">
                         Profile
                     </a>
                     <hr class="dropdown-divider" th:if="${sessionUser != null}"/>
