@@ -1,24 +1,47 @@
-<div class="order-card-felx" th:fragment="order-card">
+<div class="order-card-flex" th:fragment="order-card">
   <div class="order-card" th:each="order: ${orders}">
-    <div class="Order-titles-flex">
-      <p>Order ID</p>
-      <p>Order date</p>
-      <p>Products</p>
-      <p>Quantity</p>
-    </div>
     <div class="order-info-flex">
-      <p th:text="${order.id}"></p>
-      <p th:text="${order.date}"></p>
-      <ul class="order-product-list">
-        <li th:each="orderProduct: ${orderProducts}" th:if="${orderProduct.order.id == order.id}">
-          <p th:text="${orderProduct.product.name}"></p>
-        </li>
-      </ul>
-      <ul class="order-product-list">
-        <li th:each="orderProduct: ${orderProducts}" th:if="${orderProduct.order.id == order.id}">
-          <p th:text="${orderProduct.quantity}"></p>
-        </li>
-      </ul>
+      <div class="order-column">
+        <h3>Order ID</h3>
+        <p th:text="${order.id}"></p>
+      </div>
+      <div class="order-column">
+        <h3>Order date</h3>
+        <p th:text="${order.date}"></p>
+      </div>
+      <div class="order-column">
+        <h3>Products</h3>
+        <ul class="order-product-list">
+          <li
+            th:each="orderProduct: ${orderProducts}"
+            th:if="${orderProduct.order.id == order.id}"
+          >
+            <p th:text="${orderProduct.product.name}"></p>
+          </li>
+        </ul>
+      </div>
+      <div class="order-column">
+        <h3>Quantity</h3>
+        <ul class="order-product-list">
+          <li
+            th:each="orderProduct: ${orderProducts}"
+            th:if="${orderProduct.order.id == order.id}"
+          >
+            <p th:text="${orderProduct.quantity}"></p>
+          </li>
+        </ul>
+      </div>
+      <div class="order-column">
+        <h3>License key</h3>
+        <ul class="order-product-list">
+          <li
+            th:each="orderProduct: ${orderProducts}"
+            th:if="${orderProduct.order.id == order.id}"
+          >
+            <p th:text="${orderProduct.lisensKey}"></p>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="order-divider"></div>
   </div>

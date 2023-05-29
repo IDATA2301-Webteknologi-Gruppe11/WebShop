@@ -33,11 +33,6 @@ public class ProductController {
         if (!products.iterator().hasNext()) {
             return new ResponseEntity("Didn't find products", HttpStatus.NOT_FOUND);
         }
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            LOGGER.warning("Product-loading thread interrupted!");
-        }
         return ResponseEntity.ok((List<Product>) products);
     }
 

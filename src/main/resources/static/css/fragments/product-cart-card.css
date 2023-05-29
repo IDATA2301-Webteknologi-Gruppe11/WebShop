@@ -142,6 +142,10 @@
     height: 7rem;
 }
 
+#keep-shopping-button:hover {
+    background-color: #005ea8;
+}
+
 #pay-button {
     color: white;
     background-color: #1d1d1f;
@@ -149,6 +153,10 @@
     border-radius: 5px;
     width: 30rem;
     height: 7rem;
+}
+
+#pay-button:hover {
+    background-color: #65656a;
 }
 
 footer {
