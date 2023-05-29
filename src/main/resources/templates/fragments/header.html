@@ -23,7 +23,7 @@
             </a>
             <div class="dropdown">
                 <button class="dropbtn" id="email-button">
-                    <a th:href="${sessionUser != null ? '/profile/' + sessionUser.email : '/login'}" id="login-flex-box">
+                    <a th:href="${sessionUser != null ? '/profile' : '/login'}" id="login-flex-box">
                         <p th:if="${sessionUser != null}" th:text="${sessionUser.firstName}">Log in</p>
                         <p th:unless="${sessionUser != null}">Log in</p>
                         <span class="material-symbols-outlined">account_circle</span>
