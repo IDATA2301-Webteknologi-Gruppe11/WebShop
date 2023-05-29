@@ -24,7 +24,7 @@
     <div class="grid-container">
         <p class="buy-text" th:text="'Buy ' + ${products.name}"></p>
         
-        <div>
+        <div class="flex-button">
             <button type="submit" class="button-add" th:onclick="addProductToCart([[${shoppingCart?.id}]], [[${products}]])">Add To Cart</button>
         </div>
     </div>

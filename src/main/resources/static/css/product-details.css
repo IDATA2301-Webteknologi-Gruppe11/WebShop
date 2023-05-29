@@ -15,7 +15,8 @@ body {
     padding-bottom: 10rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .product-header {
@@ -72,6 +73,7 @@ body {
     color: #090979;
     width: 60%;
     text-align: start;
+    margin-top: 2rem;
 }
 
 .button-add {
@@ -86,4 +88,42 @@ body {
     border-radius: 5px;
     width: 30rem;
     height: 5rem;
+}
+
+@media (max-width: 700px) {
+    .flex-container {
+        align-items: center;
+    }
+    .product-name {
+        font-size: 4rem;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .product-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .description-title {
+        margin-top: 2rem;
+    }
+
+    .product-price {
+        margin-top: 4rem;
+    }
+
+    .button-add {
+        width: 20rem;
+        height: 10rem;
+        margin-left: 0;
+    }
+
+    .buy-text {
+        display: none;
+    }
+    .flex-button {
+        display: flex;
+        justify-content: center;
+    }
 }

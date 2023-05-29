@@ -3,7 +3,7 @@
  * Redirects to the products page.
  */
 function redirectToProducts() {
-    window.location.href = "/signup-form";
+    window.location.href = "/products";
 }
 
 /**
