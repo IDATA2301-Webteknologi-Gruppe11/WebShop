@@ -34,6 +34,10 @@
                         Profile
                     </a>
                     <hr class="dropdown-divider" th:if="${sessionUser != null}"/>
+                    <a th:href="@{/admin}" th:if="${sessionUser != null && sessionUser.hasRole('ROLE_ADMIN')}">
+                        Admin
+                    </a>
+                    <hr class="dropdown-divider" th:if="${sessionUser != null}"/>
                     <a th:href="${sessionUser != null ? '/logout' : '/login'}" th:if="${sessionUser != null}">
                         Log out
                     </a>
