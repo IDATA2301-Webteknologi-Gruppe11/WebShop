@@ -26,8 +26,7 @@ public class Order {
     private Date date;
 
     @ApiModelProperty(value = "User of the order")
-    @ManyToOne
-    @JoinColumn(name = "orders")
+    @OneToOne
     @JsonBackReference(value = "user-order")
     private User user;
 
