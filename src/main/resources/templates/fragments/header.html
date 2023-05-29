@@ -1,22 +1,13 @@
 <header class="header" th:fragment="header">
     <nav class="navigation">
-
-
-
         <div class="ul3">
             <a href="/"><img class="logo" src="../../static/images/proflexlogo.png" alt="Logo"></a>
         </div>
-
-
-
         <ul class="ul1">
                 <li><a href="/">HOME</a></li>
                 <li><a href="/products">PRODUCTS</a></li>
                 <li><a href="/about">ABOUT</a></li>
         </ul>
-
-
-
         <div class="ul2">
             <form th:action="@{/search}" method="get">
                 <div class="search-container" tabindex="1">
@@ -26,8 +17,6 @@
                     <input type="text" name="query" placeholder="Search..." class="search-input">
                 </div>
             </form>
-
-
             <a href="/shoppingcart" id="shoppingcart-felx-box">
                 <p>Shopping cart</p>
                 <span class="material-symbols-outlined">shopping_cart</span>
@@ -51,8 +40,5 @@
                 </div>
             </div>
         </div>
-
-
-
     </nav>
 </header>

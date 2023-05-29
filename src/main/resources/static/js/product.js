@@ -30,6 +30,14 @@ async function sendProductDataRequest() {
     }
 }
 
+async function fetchProductRequest() {
+    const response = await fetch("/api/product/getAll");
+    if(response.ok) {
+        const productJosn = await response.json();
+        showProducts(productJosn)
+    }
+}
+
 /**
  * Asynchronously retrieves products based on the given category.
  *
@@ -62,7 +70,7 @@ function showProducts(products) {
 
         const productLink = document.createElement("a");
         productLink.className = "index-nav-product";
-        productLink.href = "/products/" + product.pid;
+        productLink.href = "/products/" + product.id;
 
         const productSection = document.createElement("section");
         productSection.className = "product-card-section";

@@ -171,10 +171,10 @@ public class Product {
     /**
      * Sets the ID of a product
      *
-     * @param pid the ID number for the product.
+     * @param id the ID number for the product.
      */
-    public void setId(int pid) {
-        this.id = integerChecker(pid, "id");
+    public void setId(int id) {
+        this.id = integerChecker(id, "id");
     }
 
     /**

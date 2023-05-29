@@ -32,15 +32,15 @@ function calculateTotalPrice() {
  * @param {string} scid - The shopping cart ID associated with the cart item.
  * @param {string} pid - The product ID associated with the cart item.
  */
-async function updateCartItemQuantity(isIncrease, cartItemId, scid, pid) {
+async function updateCartItemQuantity(isIncrease, cartItemId, shoppingCart, product) {
     var quantityElement = document.getElementById("quantityNumber-" + cartItemId);
     var currentQuantity = parseInt(quantityElement.textContent);
     var newQuantity = isIncrease ? currentQuantity + 1 : currentQuantity - 1;
     var payload = {
         id: cartItemId,
         quantity: newQuantity,
-        shoppingCart: scid,
-        product: pid
+        shoppingCart: shoppingCart,
+        product: product
     };
 
     try {
@@ -67,8 +67,8 @@ async function updateCartItemQuantity(isIncrease, cartItemId, scid, pid) {
  *
  * @param {string} ciid - The ID of the cart item to remove.
  */
-async function removeACartItem(ciid) {
-    const response = await fetch("/api/cartItems/remove/" + ciid, {
+async function removeACartItem(cartItemId) {
+    const response = await fetch("/api/cartItems/remove/" + cartItemId, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -76,10 +76,17 @@ async function removeACartItem(ciid) {
     });
 
     if (response.ok) {
-        updateShoppingCartPage();
         console.log('CartItem was deleted: ' + response);
+        return true;
     } else {
         console.log('Error deleting cartItem: ' + response.status);
+        return false;
+    }
+}
+
+async function runRemoveCartItem(cartItemId) {
+    if( await removeACartItem(cartItemId) === true) {
+        updateShoppingCartPage();
     }
 }
 
@@ -130,6 +137,7 @@ async function createOrderProduct(scid, uid) {
             console.log(cartItems.id);
             await removeACartItem(cartItems.id);
         }
+        updateShoppingCartPage()
     } else {
         console.log("Error creating order");
     }

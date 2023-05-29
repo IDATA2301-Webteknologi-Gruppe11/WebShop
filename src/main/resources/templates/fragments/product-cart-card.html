@@ -17,7 +17,7 @@
       <p id="price">Price</p>
       <p class="priceNumber" th:text="${cartItem.product.price}"></p>
       <p id="Remove">Remove</p>
-      <button id="remove-product-button" th:onclick="removeACartItem([[${cartItem.id}]])"><i class="fa-solid fa-x"></i></button>
+      <button id="remove-product-button" th:onclick="runRemoveCartItem([[${cartItem.id}]])"><i class="fa-solid fa-x"></i></button>
     </section>
     <div id="divider"></div>
   </div>
