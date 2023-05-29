@@ -1,9 +1,8 @@
 .testimonials{
     display: flex;
     justify-content: space-evenly;
-    background: rgb(33,20,255);
-    background: linear-gradient(90deg, rgba(33,20,255,1) 0%, rgba(0,151,255,1) 66%);
     flex-wrap: wrap;
+    color: #43484D;
 }
 
 .testimonials-title{
@@ -11,9 +10,9 @@
     display: block;
     width: 100%;
     margin: auto;
+    margin-top: 7rem;
     text-align: center;
-    margin-top: 10rem;
-    color: white;
+    color: #43484D;
 }
 
 
@@ -25,8 +24,7 @@
     max-width: 160rem;
     min-height: 50rem;
     margin: 10rem 0rem;
-    box-shadow: 0px -1px 59px -7px rgba(0,0,0,0.74);
-    border-radius: 5px;
+    box-shadow: 0.1rem 0.1rem 1rem 0.1rem #cbcbcb;
 }
 
 .testimonials-partner-wrapper{
@@ -43,14 +41,12 @@
 .testimonials-header {
     font-size: 3rem;
     font-weight: 600;
-    letter-spacing: 1px;
     padding-left: 12rem;
 }
 
 .testimonials-position{
     font-size: 2rem;
     padding-left: 12rem;
-    letter-spacing: 1px;
 }
 
 .testimonials-description {

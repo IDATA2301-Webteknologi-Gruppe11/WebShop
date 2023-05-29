@@ -18,14 +18,13 @@ header {
 .hero-section{
     color: white;
     display: flex;
-    min-height: 100rem;
+    min-height: 90rem;
     padding-top: 12rem;
     justify-content: flex-start;
     padding-right: 2rem;
     margin-bottom: 5rem;
     flex-direction: column;
-    background: rgb(33,20,255);
-    background: linear-gradient(90deg, rgba(33,20,255,1) 0%, rgba(0,151,255,1) 66%);
+    background-color: #2274A5;
 }
 
 .hero-title {
@@ -56,24 +55,23 @@ header {
 
 .index-product {
     font-size: 7rem;
-    color: #1d1d1f;
-    margin-left: 10rem;
+    color: #43484D;
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.divider{
+    background-color: white;
+    height: 3rem;
 }
 
 .index-product-flex {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
     max-width: 70%;
-    margin: 5rem auto;
+    margin: 10rem auto;
     align-items: center;
     justify-content: center;
-}
-
-
-.index-product {
-    font-size: 7rem;
-    color: #1d1d1f;
 }
 
 @media (max-width: 1080px) and (min-width: 428px) {
