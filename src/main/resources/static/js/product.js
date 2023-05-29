@@ -6,27 +6,12 @@
  */
 async function sendProductDataRequest() {
     console.log("Loading product data...");
-
-    if (state.products.length !== 0) {
-        showProducts(state.products);
-    } else {
-        console.log("Loading from the database");
-
-        // Retrieve product data from the database
         const response = await fetch("/api/product/getAll");
-
-        if (response.ok) {
-            const productJson = await response.json();
-            state.products = productJson;
-
-            // Update the state in local storage
-            const updatedStateString = JSON.stringify(state);
-            localStorage.setItem('state', updatedStateString);
-
-            showProducts(state.products);
-        } else {
-            console.error("Failed to retrieve products");
-        }
+    if (response.ok) {
+        const productJson = await response.json();
+        showProducts(productJson);
+    } else {
+        console.error("Failed to retrieve products");
     }
 }
 
@@ -44,12 +29,13 @@ async function fetchProductRequest() {
  * @param {string} category - The category to filter the products.
  */
 async function getProductsByCategory(category) {
-    const response = await fetch("/api/product/" + category)
+    const response = await fetch("/api/product/getByCategory/" + category)
+
     if (response.ok) {
         const products = await response.json();
         showProducts(products);
     } else {
-        console.log("error fiding products")
+        console.log("error")
     }
 }
 
