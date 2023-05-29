@@ -109,7 +109,7 @@ function showProducts(products) {
 
         const priceText = document.createElement("p");
         priceText.className = "price";
-        priceText.textContent = "Price " + product.price;
+        priceText.textContent = "Price " + product.price + ",-";
 
         learnMoreFlex.appendChild(learnMoreText);
         learnMoreFlex.appendChild(arrowIcon);

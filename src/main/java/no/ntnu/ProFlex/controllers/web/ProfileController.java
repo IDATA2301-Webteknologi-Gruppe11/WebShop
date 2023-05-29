@@ -62,6 +62,8 @@ public class ProfileController {
      */
     @GetMapping("/admin")
     public String getAdmin(Model model) {
+        Iterable<Category> categories = this.categoryService.getAll();
+        model.addAttribute("categories", categories);
         User sessionUser = this.userService.getSessionUser();
         model.addAttribute("sessionUser", sessionUser);
         if(!sessionUser.hasRole("ROLE_ADMIN")) {
