@@ -37,6 +37,11 @@ public class ShoppingCart {
     @ApiModelProperty(value = "a list of cart items in the shopping cart")
     private List<CartItem> cartItems = new ArrayList<>();
 
+
+    public ShoppingCart(User user) {
+        this.user = user;
+    }
+
     /**
      * Empty constructor that is needed for JPA.
      */

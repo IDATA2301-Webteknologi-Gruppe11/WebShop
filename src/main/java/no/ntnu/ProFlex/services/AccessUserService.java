@@ -9,8 +9,10 @@ package no.ntnu.ProFlex.services;
 
 import no.ntnu.ProFlex.dto.UserProfileDto;
 import no.ntnu.ProFlex.models.Role;
+import no.ntnu.ProFlex.models.ShoppingCart;
 import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.repository.RoleRepository;
+import no.ntnu.ProFlex.repository.ShoppingCartRepository;
 import no.ntnu.ProFlex.repository.UserRepository;
 import no.ntnu.ProFlex.security.AccessUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,10 @@ public class AccessUserService implements UserDetailsService {
     UserRepository userRepository;
     @Autowired
     RoleRepository roleRepository;
+    @Autowired
+    ShoppingCartRepository shoppingCartRepository;
+    @Autowired
+    UserService userService;
 
     private static final int MIN_PASSWORD_LENGTH = 8;
     private static final String MIN_ONE_CAPITALLETTER = ".*[A-Z]+.*";
@@ -156,7 +162,9 @@ public class AccessUserService implements UserDetailsService {
         if (userRole != null) {
             User user = new User(firstName, lastName, email, createHash(password));
             user.setRole(userRole);
-            userRepository.save(user);
+            this.userRepository.save(user);
+            ShoppingCart shoppingCart = new ShoppingCart(this.userService.findByEmail(user.getEmail()));
+            this.shoppingCartRepository.save(shoppingCart);
         }
     }
 
