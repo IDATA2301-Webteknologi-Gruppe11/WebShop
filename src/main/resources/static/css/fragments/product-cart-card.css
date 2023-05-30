@@ -79,7 +79,6 @@
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    background-color: var(-category-hover);
   
 }
 
@@ -94,7 +93,6 @@
     background-color: #ebebeb;
     border: none;
     cursor: pointer;
-    background-color: var(-category-hover);
 }
 
 #price {
@@ -131,7 +129,6 @@
     background-color: #ebebeb;
     border: none;
     cursor: pointer;
-    background-color: var(-category-hover);
 }
 
 #divider {

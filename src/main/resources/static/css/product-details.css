@@ -88,7 +88,7 @@ body {
     background-color: var(--button-blue);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--button-border-radius);
     width: 30rem;
     height: 5rem;
 }

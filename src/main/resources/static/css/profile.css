@@ -94,7 +94,7 @@ body {
     padding: 0.5rem 1rem;
     font-size: 1.6rem;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--button-border-radius);;
     cursor: pointer;
     width: 20rem;
 }

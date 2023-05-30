@@ -38,7 +38,7 @@ button {
     font-size: 3rem;
     color: white;
     background-color: var(--button-blue);
-    border-radius: 5px;
+    border-radius: var(--button-border-radius);
     border: none;
     width: 17rem;
     height: 5rem;

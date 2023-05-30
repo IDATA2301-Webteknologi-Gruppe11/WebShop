@@ -110,7 +110,7 @@ h1 {
     border: none;
     width: 95%;
     height: 7rem;
-    border-radius: 5px;
+    border-radius: var(--button-border-radius);
 }
 
 #button-register:hover {
