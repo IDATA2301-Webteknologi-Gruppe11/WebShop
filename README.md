@@ -1,7 +1,6 @@
 # WebShop
 
-This repository is for the website project for IDATA2301 and IDATA2306. The web application is a considered a monolith application, therefore the repository contains both backend and frontend.
-
+This repository is for the website project for IDATA2301 and IDATA2306. The web application is a considered a monolith application, therefore the repository contains both backend and frontend. You can check out the Wiki for further information about the project such as sprint reports, design guidelines, group contract etc.
 # Installation guide
 
 ## Getting started
