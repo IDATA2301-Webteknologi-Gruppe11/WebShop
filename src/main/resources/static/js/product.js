@@ -62,6 +62,7 @@ function showProducts(products) {
         const productImage = document.createElement("img");
         productImage.className = "index-product-card-image";
         productImage.src = product.image;
+        productImage.alt = product.name;
 
         productSection.appendChild(productImage);
 
