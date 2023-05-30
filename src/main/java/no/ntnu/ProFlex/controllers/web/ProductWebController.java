@@ -52,6 +52,6 @@ public class ProductWebController {
     @GetMapping("/products")
     public String getProducts(@RequestParam(required = false) String category, Model model) {
         model.addAttribute("sessionUser", this.userService.getSessionUser());
-        return "Products";
+        return "products";
     }
 }

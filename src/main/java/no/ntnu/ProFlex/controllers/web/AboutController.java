@@ -20,6 +20,6 @@ public class AboutController {
     @GetMapping("/about")
     public String getAbout(Model model) {
         model.addAttribute("sessionUser", this.userService.getSessionUser());
-        return "About";
+        return "about";
     }
 }

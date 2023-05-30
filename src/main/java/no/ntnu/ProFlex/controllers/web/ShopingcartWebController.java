@@ -45,6 +45,6 @@ public class ShopingcartWebController {
         if(sessionUser == null) {
             return "no-access";
         }
-        return "ShoppingCart";
+        return "shoppingCart";
     }
 }
