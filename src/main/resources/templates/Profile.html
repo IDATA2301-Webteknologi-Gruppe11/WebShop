@@ -2,7 +2,17 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8" />
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="View and manage your profile details and order history. Update your user details and track your past orders."
+    />
+    <meta
+      name="keywords"
+      content="ProFlex, IT solutions, NTNU, technology, software, business solutions, operational efficiency, productivity, innovation, reliability, competition, workflows, cost reduction, customer satisfaction"
+    />
+    <meta name="author" content="Group 11" />
+    <title>Profile</title>
     <link rel="stylesheet" th:href="@{static/css/fragments/order-card.css}" />
     <link rel="stylesheet" th:href="@{static/css/fragments/header.css}" />
     <link rel="stylesheet" th:href="@{static/css/fragments/footer.css}" />
@@ -11,12 +21,11 @@
       type="text/css"
       th:href="@{static/css/profile.css}"
     />
-    <script th:src="@{static/js/profile.js}"></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <!-- ICONS -->
+    <script th:src="@{static/js/profile.js}"></script>
     <script
       src="https://kit.fontawesome.com/0a8856d0a6.js"
       crossorigin="anonymous"
@@ -28,31 +37,27 @@
       <h1 class="Profile-title">Profile</h1>
       <div class="profile-flex">
         <section class="user-information">
-            <h2 class="user-title">User details</h2>
-            <p  th:text="'First name: ' + ${sessionUser.firstName}"></p>
-            <p  th:text="'Last name: ' + ${sessionUser.lastName}"></p>
-            <p  th:text="'Email: ' + ${sessionUser.email}"></p>
+          <h2 class="user-title">User details</h2>
+          <p th:text="'First name: ' + ${sessionUser.firstName}"></p>
+          <p th:text="'Last name: ' + ${sessionUser.lastName}"></p>
+          <p th:text="'Email: ' + ${sessionUser.email}"></p>
 
           <h2 class="change-user-title">Change user details</h2>
           <ul>
             <li>
-                <label for="firstName">Change first name:</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-              />
+              <label for="firstName">Change first name:</label>
+              <input type="text" id="firstName" name="firstName" />
             </li>
             <li>
-                <label for="lastName">Change last name:</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-              />
+              <label for="lastName">Change last name:</label>
+              <input type="text" id="lastName" name="lastName" />
             </li>
           </ul>
-          <button th:onclick="saveChanges([[${sessionUser}]], [[${sessionUser.role}]])">Save Changes</button>
+          <button
+            th:onclick="saveChanges([[${sessionUser}]], [[${sessionUser.role}]])"
+          >
+            Save Changes
+          </button>
         </section>
         <section class="Orders">
           <h2 class="order-history-title">Order History</h2>

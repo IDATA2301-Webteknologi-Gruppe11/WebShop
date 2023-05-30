@@ -1,28 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" th:href="@{static/css/signup-success.css}">
-    <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Your account has been successfully created with ProFlex. Start exploring our IT solutions to enhance operational efficiency, boost productivity, and drive innovation in your business."
+    />
+    <meta
+      name="keywords"
+      content="ProFlex, IT solutions, NTNU, technology, software, business solutions, operational efficiency, productivity, innovation, reliability, competition, workflows, cost reduction, customer satisfaction"
+    />
+    <meta name="author" content="Group 11" />
+    <title>signup success</title>
+    <link rel="stylesheet" th:href="@{static/css/signup-success.css}" />
+    <script
+      src="https://kit.fontawesome.com/0a8856d0a6.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="../static/js/signupSuccess.js"></script>
-</head>
-<body>
-    <a href="/"><img id="logo" src="../static/images/proflexlogo.png"></a>
-<div id="signup-success-flex-container">
-    <section>
+  </head>
+  <body>
+    <a href="/"><img id="logo" src="../static/images/proflexlogo.png" /></a>
+    <div id="signup-success-flex-container">
+      <section>
         <h1>Success!</h1>
         <p>Your account was created.</p>
         <div>
-            <i class="fa-sharp fa-regular fa-circle-check"></i>
+          <i class="fa-sharp fa-regular fa-circle-check"></i>
         </div>
         <div>
-            <button onclick="redirectToLogin()">Continue</button>
+          <button onclick="redirectToLogin()">Continue</button>
         </div>
-    </section>
-</div>
-<p id="footer-text">*This website is a result of a university group project, performed in the course
-    IDATA2301 Web technologies, at NTNU.All the information provided here is a result
-    of imagination. Any resemblance with real companies or products is a coincidence</p>
-</body>
+      </section>
+    </div>
+    <p id="footer-text">
+      *This website is a result of a university group project, performed in the
+      course IDATA2301 Web technologies, at NTNU.All the information provided
+      here is a result of imagination. Any resemblance with real companies or
+      products is a coincidence
+    </p>
+  </body>
 </html>

@@ -1,60 +1,137 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-  <link rel="stylesheet" href="../static/Register.css">
-  <link rel="stylesheet" th:href="@{static/css/register.css}">
-  <script src="../static/js/signup.js"></script>
-  <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <a href="/"><img id="logo" src="../static/images/proflexlogo.png"></a>
-  <div id="register-flex-conteiner">
-    <section id="section">
-      <h1>Register</h1>
-      <form th:action="@{/signup-form}" method="post" th:object="${user}" onsubmit="return validateForm()">
-        <ul id="email-list">
-          <li class="icons"><i class="fa-solid fa-envelope"></i></li>
-          <li class="register-text">Email:</li>
-          <li><input type="text" class="text-bar" id="text-email-bar" th:field="*{email}" required></li>
-        </ul>
-        <div class="line"></div>
-        <ul class="list">
-          <li class="icons"><i class="fa-solid fa-user"></i></li>
-          <li class="register-text">First Name:</li>
-          <li><input type="text" class="text-bar" id="text-firstname-bar" th:field="*{firstName}" required></li>
-        </ul>
-        <div class="line"></div>
-        <ul class="list">
-          <li class="icons"><i class="fa-solid fa-user"></i></li>
-          <li class="register-text">Last Name:</li>
-          <li><input type="text" class="text-bar" id="text-lastname-bar" th:field="*{lastName}" required></li>
-        </ul>
-        <div class="line"></div>
-        <ul class="list">
-          <li class="icons"><i class="fa-sharp fa-solid fa-key"></i></li>
-          <li class="register-text">Password:</li>
-          <li><input type="password" class="text-bar" id="password-text-bar" th:field="*{pass}" required></li>
-          <li><button class="button-eye" id="password-button-eye" onclick="showPassword()" type="button"><i class="fa-regular fa-eye-slash"></i></button></li>
-        </ul>
-        <div class="line"></div>
-        <ul class="list">
-          <li class="icons"><i class="fa-sharp fa-solid fa-key"></i></li>
-          <li class="register-text">Confirm Password:</li>
-          <li><input type="password" class="text-bar" id="password-confirm-text-bar"></li>
-          <li><button class="button-eye" id="password-confirm-button-eye" onclick="showConfirmPassword()" type="button"><i class="fa-regular fa-eye-slash"></i></button></li>
-        </ul>
-        <div class="line"></div>
-        <div th:if="${errorMessage}" class="error-message">
-          <p th:text="${errorMessage}"></p>
-        </div>
-        <button id="button-register" type="submit">Register</button>
-      </form>
-    </section>
-  </div>
-  <p id="footer-text">*This website is a result of a university group project, performed in the course
-    IDATA2301 Web technologies, at NTNU.All the information provided here is a result
-    of imagination. Any resemblance with real companies or products is a coincidence</p>
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Register an account with ProFlex and join our community. Sign up to access exclusive IT solutions, improve operational efficiency, increase productivity, and drive innovation for your business."
+    />
+    <meta
+      name="keywords"
+      content="ProFlex, IT solutions, NTNU, technology, software, business solutions, operational efficiency, productivity, innovation, reliability, competition, workflows, cost reduction, customer satisfaction"
+    />
+    <meta name="author" content="Group 11" />
+    <title>signup form</title>
+    <link rel="stylesheet" href="../static/Register.css" />
+    <link rel="stylesheet" th:href="@{static/css/register.css}" />
+    <script src="../static/js/signup.js"></script>
+    <script
+      src="https://kit.fontawesome.com/0a8856d0a6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <a href="/"><img id="logo" src="../static/images/proflexlogo.png" /></a>
+    <div id="register-flex-conteiner">
+      <section id="section">
+        <h1>Register</h1>
+        <form
+          th:action="@{/signup-form}"
+          method="post"
+          th:object="${user}"
+          onsubmit="return validateForm()"
+        >
+          <ul id="email-list">
+            <li class="icons"><i class="fa-solid fa-envelope"></i></li>
+            <li class="register-text">Email:</li>
+            <li>
+              <input
+                type="text"
+                class="text-bar"
+                id="text-email-bar"
+                th:field="*{email}"
+                required
+              />
+            </li>
+          </ul>
+          <div class="line"></div>
+          <ul class="list">
+            <li class="icons"><i class="fa-solid fa-user"></i></li>
+            <li class="register-text">First Name:</li>
+            <li>
+              <input
+                type="text"
+                class="text-bar"
+                id="text-firstname-bar"
+                th:field="*{firstName}"
+                required
+              />
+            </li>
+          </ul>
+          <div class="line"></div>
+          <ul class="list">
+            <li class="icons"><i class="fa-solid fa-user"></i></li>
+            <li class="register-text">Last Name:</li>
+            <li>
+              <input
+                type="text"
+                class="text-bar"
+                id="text-lastname-bar"
+                th:field="*{lastName}"
+                required
+              />
+            </li>
+          </ul>
+          <div class="line"></div>
+          <ul class="list">
+            <li class="icons"><i class="fa-sharp fa-solid fa-key"></i></li>
+            <li class="register-text">Password:</li>
+            <li>
+              <input
+                type="password"
+                class="text-bar"
+                id="password-text-bar"
+                th:field="*{pass}"
+                required
+              />
+            </li>
+            <li>
+              <button
+                class="button-eye"
+                id="password-button-eye"
+                onclick="showPassword()"
+                type="button"
+              >
+                <i class="fa-regular fa-eye-slash"></i>
+              </button>
+            </li>
+          </ul>
+          <div class="line"></div>
+          <ul class="list">
+            <li class="icons"><i class="fa-sharp fa-solid fa-key"></i></li>
+            <li class="register-text">Confirm Password:</li>
+            <li>
+              <input
+                type="password"
+                class="text-bar"
+                id="password-confirm-text-bar"
+              />
+            </li>
+            <li>
+              <button
+                class="button-eye"
+                id="password-confirm-button-eye"
+                onclick="showConfirmPassword()"
+                type="button"
+              >
+                <i class="fa-regular fa-eye-slash"></i>
+              </button>
+            </li>
+          </ul>
+          <div class="line"></div>
+          <div th:if="${errorMessage}" class="error-message">
+            <p th:text="${errorMessage}"></p>
+          </div>
+          <button id="button-register" type="submit">Register</button>
+        </form>
+      </section>
+    </div>
+    <p id="footer-text">
+      *This website is a result of a university group project, performed in the
+      course IDATA2301 Web technologies, at NTNU.All the information provided
+      here is a result of imagination. Any resemblance with real companies or
+      products is a coincidence
+    </p>
+  </body>
 </html>
