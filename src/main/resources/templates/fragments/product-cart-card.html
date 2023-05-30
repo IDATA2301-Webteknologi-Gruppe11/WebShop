@@ -18,7 +18,9 @@
           th:onclick="updateCartItemQuantity(true, [[${cartItem.id}]], [[${cartItem.shoppingCart}]], [[${cartItem.product}]])"
           aria-label="Add one more product"
         >
-          <i class="fa-solid fa-plus"></i>
+          <span class="material-symbols-outlined">
+            add
+          </span>
         </button>
         <p
           th:id="'quantityNumber-' + ${cartItem.id}"
@@ -31,7 +33,9 @@
           th:onclick="updateCartItemQuantity(false, [[${cartItem.id}]], [[${shoppingCart}]], [[${cartItem.product}]])"
           aria-label="Remove one product"
         >
-          <i class="fa-solid fa-minus"></i>
+          <span class="material-symbols-outlined">
+            remove
+          </span>
         </button>
       </div>
       <p id="price">Price</p>
@@ -44,7 +48,9 @@
         th:onclick="runRemoveCartItem([[${cartItem.id}]])"
         aria-label="Remove all products of this type from the cart"
       >
-        <i class="fa-solid fa-x"></i>
+        <span class="material-symbols-outlined">
+          close
+        </span>
     </div>
       </button>
     </section>
