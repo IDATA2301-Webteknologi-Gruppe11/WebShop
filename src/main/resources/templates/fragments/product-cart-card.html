@@ -6,14 +6,15 @@
         th:src="${cartItem.product.image}"
         width="80"
         height="80"
+        alt="Product image"
       />
       <h2 id="shopping-cart-card-name" th:text="${cartItem.product.name}"></h2>
       <p id="description" th:text="${cartItem.product.shortDescription}"></p>
       <p id="quantity">Quantity</p>
       <div id="Quantity-flex">
         <button
-          id="quantityButtonPlus"
-          class="quantityNumber"
+          id="quantityButtonPlus-${cartItem.id}"
+          class="quantityButton"
           th:onclick="updateCartItemQuantity(true, [[${cartItem.id}]], [[${cartItem.shoppingCart}]], [[${cartItem.product}]])"
           aria-label="Add one more product"
         >
@@ -25,7 +26,8 @@
           th:text="${cartItem.quantity}"
         ></p>
         <button
-          id="quantityButtonMinus"
+          id="quantityButtonMinus-${cartItem.id}"
+          class="quantityButton"
           th:onclick="updateCartItemQuantity(false, [[${cartItem.id}]], [[${shoppingCart}]], [[${cartItem.product}]])"
           aria-label="Remove one product"
         >
@@ -37,7 +39,8 @@
       <p id="Remove">Remove</p>
       <div id="remove-button-box">
       <button
-        id="remove-product-button"
+        id="remove-product-button-${cartItem.id}"
+        class="remove-product-button"
         th:onclick="runRemoveCartItem([[${cartItem.id}]])"
         aria-label="Remove all products of this type from the cart"
       >

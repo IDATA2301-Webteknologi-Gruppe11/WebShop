@@ -72,20 +72,7 @@ h1, h2, h3, p {
     margin-right: 1rem;
 }
 
-#quantityButtonPlus {
-    display: flex;
-    font-size: 2rem;
-    align-items: center;
-    justify-content: center;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-  
-}
-
-#quantityButtonMinus {
+.quantityButton {
     display: flex;
     font-size: 2rem;
     align-items: center;
@@ -124,7 +111,7 @@ h1, h2, h3, p {
     align-self: start;
 }
 
-#remove-product-button {
+.remove-product-button {
     font-size: 2rem;
     width: 4rem;
     height: 4rem;
