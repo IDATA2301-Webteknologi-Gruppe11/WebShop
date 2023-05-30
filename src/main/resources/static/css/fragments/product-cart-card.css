@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+.product-cart-container {
+    margin: 2rem;
+}
+
 #title {
     font-size: 10rem;
     margin-top: 15rem;
@@ -26,7 +30,7 @@
 #card-img {
     grid-column: 1;
     grid-row: 1/span 2;
-    margin-left: 25rem;
+    justify-self: center;
 }
 
 #shopping-cart-card-name {
@@ -47,7 +51,6 @@
     grid-row: 1;
     font-size: 1.5rem;
     font-weight: bold;
-    margin-left: 30rem;
 }
 
 #Quantity-flex {
@@ -56,29 +59,42 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-left: 30rem;
     gap: 0.5rem;
 }
 
-.quantityNumber {
-    font-size: 1.5rem;
+#Quantity-flex p{
+    font-size: 2rem;
+    margin-top: 0.7rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 #quantityButtonPlus {
+    display: flex;
     font-size: 2rem;
-    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
     border: none;
-    margin-top: -0.4rem;
-    background-color: var(--background-color-grey)
-
+    cursor: pointer;
+    background-color: var(-category-hover);
+  
 }
 
 #quantityButtonMinus {
+    display: flex;
     font-size: 2rem;
-    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #ebebeb;
     border: none;
-    margin-top: -0.4rem;
-    background-color: var(--background-color-grey);
+    cursor: pointer;
+    background-color: var(-category-hover);
 }
 
 #price {
@@ -99,17 +115,23 @@
     grid-row: 1;
     font-size: 1.5rem;
     font-weight: bold;
-    margin-right: 30rem;
+}
+
+#remove-button-box {
+    grid-column: 5;
+    grid-row: 2;
+    align-self: start;
 }
 
 #remove-product-button {
-    grid-column: 5;
-    grid-row: 2;
     font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #ebebeb;
     border: none;
-    background-color: var(--background-color-grey);
-    margin-right: 30rem;
-
+    cursor: pointer;
+    background-color: var(-category-hover);
 }
 
 #divider {
@@ -164,4 +186,46 @@
 
 footer {
     margin-top: 10rem;
+}
+
+@media (max-width: 850px) {
+    product-cart-card-section {
+        grid-template-columns: repeat(2, 1fr); /* Update the number of columns */
+        grid-template-rows: auto; /* Remove the repeat() function */
+        gap: 2rem; /* Add some gap between the cards */
+        text-align: center;
+    }
+
+    #Quantity-flex {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: center;
+    }
+
+    .priceNumber {
+        grid-row: 1;
+        align-self: center;
+    }
+
+    #remove-button-box {
+        grid-column: 4;
+        align-self: center;
+    }
+    
+    #button-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #description, #quantity, #price, #Remove {
+        display: none;
+    }
+
+    #keep-shopping-button {
+        margin-bottom: 5rem;
+    }
+    #total-price {
+        text-align: center;
+    }
 }
