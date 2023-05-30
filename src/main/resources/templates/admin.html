@@ -2,6 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Adminstrators can edit products, create new products and change user roles."
+    />
+    <meta
+      name="keywords"
+      content="ProFlex, IT solutions, NTNU, technology, software, business solutions, operational efficiency, productivity, innovation, reliability, competition, workflows, cost reduction, customer satisfaction"
+    />
+    <meta name="author" content="Group 11" />
     <title>Title</title>
     <link rel="stylesheet" th:href="@{static/css/fragments/header.css}" />
     <link rel="stylesheet" th:href="@{static/css/fragments/footer.css}" />
@@ -25,42 +35,46 @@
           <h3>Change product</h3>
           <div class="change-product-parm-flex">
             <label>Name Of Product You Want To Change</label>
-            <input type="text" class="nameOfProductYouWantToChange">
+            <input type="text" class="nameOfProductYouWantToChange" />
           </div>
           <div class="change-product-parm-flex">
             <p>Change name</p>
-            <input type="text" id="changeName"/>
+            <input type="text" id="changeName" />
           </div>
           <div class="change-product-parm-flex">
             <label>Change price</label>
-            <input type="text" id="changePrice"/>
+            <input type="text" id="changePrice" />
           </div>
           <div class="change-product-parm-flex">
             <label>New or not. Set 1 or 0</label>
-            <input type="text" id="changeNewOrNote"/>
+            <input type="text" id="changeNewOrNote" />
           </div>
           <div class="change-product-parm-flex">
             <label>Change description</label>
-            <input type="text" id="changeDescription"/>
+            <input type="text" id="changeDescription" />
           </div>
           <div class="change-product-parm-flex">
             <label>Change short description</label>
-            <input type="text" id="changeShortDescription"/>
+            <input type="text" id="changeShortDescription" />
           </div>
-          <button class="admin-button" onclick="saveProductChanges()">Save change</button>
+          <button class="admin-button" onclick="saveProductChanges()">
+            Save change
+          </button>
         </section>
         <section class="change-role-user-flex">
           <h3>Change role for user</h3>
           <div class="change-role-user-input-flex">
             <p>Email of user</p>
-            <input type="text" id="email-input">
+            <input type="text" id="email-input" />
           </div>
           <div class="change-role-user-input-flex">
             <p>Role of user. Use ROLE_ADMIN or ROLE_USER</p>
-            <input type="text" id="role-input">
+            <input type="text" id="role-input" />
           </div>
-          <button class="admin-button" onclick="saveChangesRole()">save change</button>
-          </section>
+          <button class="admin-button" onclick="saveChangesRole()">
+            save change
+          </button>
+        </section>
       </div>
     </main>
     <footer th:replace="~{fragments/footer.html :: footer}"></footer>

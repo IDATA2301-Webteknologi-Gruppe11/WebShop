@@ -1,35 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ProFlex is a leading provider of IT solutions that help businesses and personal users enhance their operational efficiency and productivity."
+    />
+    <meta
+      name="keywords"
+      content="ProFlex, IT solutions, NTNU, technology, software, business solutions, operational efficiency, productivity, innovation, reliability, competition, workflows, cost reduction, customer satisfaction"
+    />
+    <meta name="author" content="Group 11" />
     <title>About us</title>
-    <link rel="stylesheet" th:href="@{/static/css/fragments/footer.css}">
-    <link rel="stylesheet" th:href="@{/static/css/fragments/header.css}">
-    <link rel="stylesheet" th:href="@{/static/css/about.css}">
-    <script src="https://kit.fontawesome.com/0a8856d0a6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <!-- ICONS -->
+    <link rel="stylesheet" th:href="@{/static/css/fragments/footer.css}" />
+    <link rel="stylesheet" th:href="@{/static/css/fragments/header.css}" />
+    <link rel="stylesheet" th:href="@{/static/css/about.css}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script
+      src="https://kit.fontawesome.com/0a8856d0a6.js"
+      crossorigin="anonymous"
+    ></script>
     <script th:src="@{static/js/Header.js}" defer></script>
-</head>
-<body>
-
-  <header th:replace="~{fragments/header.html :: header}"></header>
-
-  <main id="grid-wrapper">
-    <h1 id="about-title">Hi, we are ProFlex.</h1>
-    <div class="about-grid-flex">
-      <p id="about-description">ProFlex is a leading provider of IT solutions that help businesses of all sizes enhance their operational
-          efficiency and productivity. The company offers a comprehensive suite of software solutions designed to address
-          the unique needs of various industries, including tax, finance, planning, scheduling and more. With years of
-          experience and a team of highly skilled professionals, ProFlex has a proven track record of delivering i
-          nnovative and reliable IT solutions that enable organizations to stay ahead of the competition. Whether you are
-          looking to streamline your workflows, reduce costs, or improve customer satisfaction, ProFlex has the expertise
-          and technology to help you achieve your goals.
-      </p>
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1844.0139148720225!2d6.23101628885499!3d62.4721365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4616dac1b03a4a8b%3A0x5df228448dd93ce98!2sNTNU%20i%20%C3%85lesund!5e0!3m2!1sno!2sno!4v1680957978695!5m2!1sno!2sno?daddr=Larsgårdsvegen+2,+6003+Ålesund" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-  </main>
-
-  <footer th:replace="~{fragments/footer.html :: footer}"></footer>
-
-</body>
+  </head>
+  <body>
+    <header th:replace="~{fragments/header.html :: header}"></header>
+    <main id="grid-wrapper">
+      <h1 id="about-title">Hi, we are ProFlex.</h1>
+      <div class="about-grid-flex">
+        <p id="about-description">
+          ProFlex is a leading provider of IT solutions that help businesses of
+          all sizes enhance their operational efficiency and productivity. The
+          company offers a comprehensive suite of software solutions designed to
+          address the unique needs of various industries, including tax,
+          finance, planning, scheduling and more. With years of experience and a
+          team of highly skilled professionals, ProFlex has a proven track
+          record of delivering i nnovative and reliable IT solutions that enable
+          organizations to stay ahead of the competition. Whether you are
+          looking to streamline your workflows, reduce costs, or improve
+          customer satisfaction, ProFlex has the expertise and technology to
+          help you achieve your goals.
+        </p>
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1844.0139148720225!2d6.23101628885499!3d62.4721365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4616dac1b03a4a8b%3A0x5df228448dd93ce98!2sNTNU%20i%20%C3%85lesund!5e0!3m2!1sno!2sno!4v1680957978695!5m2!1sno!2sno?daddr=Larsgårdsvegen+2,+6003+Ålesund"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </main>
+    <footer th:replace="~{fragments/footer.html :: footer}"></footer>
+  </body>
 </html>
