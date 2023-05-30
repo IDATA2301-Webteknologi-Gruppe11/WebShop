@@ -1,3 +1,5 @@
+@import "../global.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +14,7 @@
 }
 
 .product-card-section {
-    background-color: white;
+    background-color: var(--color-white);
     width: 65rem;
     height: 50rem;
     padding: 3rem;
@@ -23,13 +25,10 @@
     width: 200px;
     height: 200px;
   }
-  
-
-
 
 .index-nav-product {
     text-decoration: none;
-    color: #43484D;
+    color: var(--main-color-black);
 }
 
 .index-product-card-new-container {
@@ -44,7 +43,7 @@
 .index-product-card-new-box {
     font-size: 3rem;
     margin-top: 2rem;
-    background-color: #ffb900;
+    background-color: var(--product-new-label);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
@@ -52,10 +51,10 @@
 .index-product-card-white-container {
     font-size: 3rem;
     margin-top: 2rem;
-    background-color: white;
+    background-color: var(--color-white);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    color: white;
+    color: var(--color-white);
 }
 
 .index-product-card-name {
@@ -79,9 +78,14 @@
     color: #0067B8;
 }
 
+.index-product-card-learn-more-flex{
+    margin-top: 2rem;
+}
+
 .price {
+    font-size: 2rem;
     margin-left: 35rem;
-    color: #1d1d1f;
+    color: var(--main-color-black);
 }
 
 .index-product-card-learn-more-flex:hover{
@@ -89,13 +93,8 @@
     gap: 1.4rem;
 }
 
-.index-product-card-learn-more-flex p {
-    margin-top: 2rem;
-}
-
-.index-product-card-learn-more-flex div {
-    font-size: 2.5rem;
-    margin-top: 1.4rem;
+.learn-more{
+    font-size: 2rem;
 }
 
 #Product-Title {
@@ -105,7 +104,7 @@
     font-size: 10rem;
     margin-top: 10rem;
     margin-bottom: 7rem;
-    color: #1d1d1f;
+    color: var(--main-color-black);
 }
 
 #Products-flex-container {
@@ -118,19 +117,19 @@
 
 #Products-flex-container a {
     text-decoration: none;
-    color: #6e6e73;
+    color: var(--main-color-black);
     padding-right: 3rem;
 }
 
 #Products-flex-container p {
-    color: #1d1d1f;
+    color: var(--main-color-black);
     padding-right: 3rem;
 }
 
 
 #Products-flex-container a:hover {
     text-decoration: none;
-    color: #989898;
+    color: var(--main-color-black);
 }
 
 .flex-container {

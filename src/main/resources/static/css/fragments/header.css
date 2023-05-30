@@ -1,11 +1,13 @@
+@import "../global.css";
+
 .header {
     position: fixed;
     top: 0;
     width: 100%;
     display: block;
     transition: top 0.3s ease;
-    background-color: #ffffff;
-    color: #1d1d1f;
+    background-color: var(--color-white);
+    color: var(--main-color-black);
 }
 
 .navigation {
@@ -17,7 +19,7 @@
 
 .navigation a {
     text-decoration: none;
-    color: #1d1d1f;
+    color: var(--main-color-black);
 }
 
 .navigation img {
@@ -104,7 +106,7 @@
 }
 
 .search-container .search-btn .fas{
-    color: #1d1d1f;
+    color: var(--main-color-black);
     text-decoration: none;
     
 }
@@ -161,14 +163,14 @@
 
 
 .dropbtn {
-    background-color: white;
+    background-color: var(--color-white);
     border: none;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: var(--color-white);
     min-width: 13rem;
     box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     z-index: 1;
@@ -190,7 +192,7 @@
 }
 
 .dropdown-content a:hover {
-    background-color: #e6e6e6;
+    background-color: #ebebeb;
     border-radius: 5px;
 }
 

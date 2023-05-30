@@ -1,3 +1,5 @@
+@import "global.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -7,24 +9,31 @@
 }
 
 body {
-    background-color: #f5f5f5;
-}
-
-.search-result-flex-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
+    color: var(--main-color-black);
+    background-color: var(--background-color-grey)
 }
 
 .search-result-headline {
     text-align: center;
     font-weight: normal;
     font-size: 10rem;
-    margin-top: 15rem;
-    margin-bottom: 7rem;
-    color: #1d1d1f;
+    margin-top: 13rem;
+    margin-bottom: 2rem;
+}
+
+.search-result-flex-container {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.search-failure{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 3rem 0;
 }
 
 .search-result-nav-flex {
@@ -34,12 +43,13 @@ body {
     gap: 1rem;
     transition: gap 0.2s ease-in-out;
     text-decoration: none;
-    color: #1d1d1f;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    color: var(--main-color-black);
 }
 
 .search-result-nav-flex:hover {
     gap: 3rem;
     text-decoration: underline;
 }
+

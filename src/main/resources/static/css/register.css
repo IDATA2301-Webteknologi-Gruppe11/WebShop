@@ -1,3 +1,5 @@
+@import "global.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -15,10 +17,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: var(--main-color-black);
 }
 
 #section {
-    background-color: white;
+    background-color: var(--color-white);
     text-align: center;
     box-shadow: 0.2rem 0.2rem 1rem 0.2rem #cbcbcb;
     padding-bottom: 3rem;
@@ -46,12 +49,10 @@ h1 {
 .register-text {
     font-size: 2rem;
     font-weight: lighter;
-    color: #1f1f1f;
 }
 
 .icons {
     font-size: 3rem;
-    color: #1f1f1f;
 }
 
 .text-bar {
@@ -59,7 +60,6 @@ h1 {
     outline: none;
     font-size: 2rem;
     font-weight: lighter;
-    color: #1f1f1f;
 }
 
 #text-email-bar {
@@ -106,7 +106,7 @@ h1 {
     margin-top: 3rem;
     font-size: 3rem;
     color: white;
-    background-color: #0067B8;
+    background-color: var(--button-blue);
     border: none;
     width: 95%;
     height: 7rem;
@@ -114,17 +114,21 @@ h1 {
 }
 
 #button-register:hover {
-    background-color: #005da3;
+    background-color: var(--button-blue-hover);
+}
+
+#button-register:active{
+    transform: scale(0.98);
 }
 
 .error-message {
     margin-top: 2rem;
     font-size: 3rem;
-    color: red;
+    color: var(--alert-color);
 }
 
 #footer-text {
-    background-color: #eeeeee;
+    background-color: var(--footer-color-dark-grey);
     position: fixed;
     bottom: 0;
     width: 100%;

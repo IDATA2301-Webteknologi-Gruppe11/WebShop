@@ -1,3 +1,5 @@
+@import "global.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -28,6 +30,7 @@ section {
     padding-right: 5rem;
     width: 60rem;
     margin-top: 10rem;
+    color: var(--main-color-black);
 }
 
 h1 {
@@ -43,19 +46,27 @@ p {
 i {
     font-size: 15rem;
     margin-top: 4rem;
-    color: #0067B8;
+    color: var(--button-blue);
 }
 
 button {
     font-size: 3rem;
     margin-top: 4rem;
-    background-color: #0067B8;
+    background-color: var(--button-blue);
     border: none;
     width: 18rem;
     height: 5rem;
     border-radius: 5px;
     color: white;
     margin-bottom: 4rem;
+}
+
+button:hover{
+    background-color: var(--button-blue-hover);
+}
+
+button:active{
+    transform: scale(0.98);
 }
 
 #footer-text {

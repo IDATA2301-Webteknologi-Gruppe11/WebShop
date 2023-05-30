@@ -1,3 +1,5 @@
+@import "global.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -7,16 +9,11 @@
 }
 
 body {
-    background-color: #f5f5f5;
-}
-
-
-header {
-    display: none;
+    background-color: var(--background-color-grey);
 }
 
 .hero-section{
-    color: white;
+    color: var(--color-white);
     display: flex;
     min-height: 90rem;
     padding-top: 12rem;
@@ -24,7 +21,7 @@ header {
     padding-right: 2rem;
     margin-bottom: 5rem;
     flex-direction: column;
-    background-color: #2274A5;
+    background-color: var(--hero-section-color-blue);
 }
 
 .hero-title {
@@ -44,7 +41,7 @@ header {
     font-size: 7rem;
     margin-top: 5rem;
     margin-right: 2rem;
-    color: white;
+    color: var(--color-white);
     transition: gap 0.2s ease-in-out;
     gap: 1rem;
 }
@@ -55,13 +52,13 @@ header {
 
 .index-product {
     font-size: 7rem;
-    color: #43484D;
+    color: var(--main-color-black);
     text-align: center;
     margin-bottom: 5rem;
 }
 
 .divider{
-    background-color: white;
+    background-color: var(--color-white);
     height: 3rem;
 }
 

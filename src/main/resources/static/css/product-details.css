@@ -1,3 +1,5 @@
+@import "global.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +9,7 @@
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: var(--background-color-grey);
 }
 
 .flex-container {
@@ -17,30 +19,32 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    color: var(--main-color-black);
 }
 
 .product-header {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .detail-img{
-    margin-top: 2rem;
-    width: 200px;
-    height: 200px;
+    margin-top: 3rem;
+    width: 150px;
+    height: 150px;
 }
 
 .product-name {
     margin-top: 7rem;
     margin-left: 4rem;
-    font-size: 7rem;
+    font-size: 6rem;
     text-align: center;
     font-weight: normal;
 }
 
 .description-title {
     margin-top: 5rem;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: normal;
     width: 60%;
     text-align: start;
@@ -49,7 +53,7 @@ body {
 .product-description {
     margin-top: 2rem;
     font-size: 2rem;
-    line-height: 2rem;
+    line-height: 2.5rem;
     width: 60%;
     text-align: start;
 }
@@ -58,7 +62,6 @@ body {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
-    margin-top: 4rem;
     width: 60%;
 }
 
@@ -70,11 +73,10 @@ body {
 }
 
 .product-price {
-    font-size: 5rem;
-    color: #090979;
+    font-size: 3rem;
     width: 60%;
     text-align: start;
-    margin-top: 2rem;
+    margin-top: 5rem;
 }
 
 .button-add {
@@ -83,12 +85,20 @@ body {
     font-size: 2.5rem;
     margin-left: 7rem;
     margin-top: 5rem;
-    background-color: #0067B8;
+    background-color: var(--button-blue);
     color: white;
     border: none;
     border-radius: 5px;
     width: 30rem;
     height: 5rem;
+}
+
+button:hover{
+    background-color: var(--button-blue-hover);
+}
+
+button:active{
+    transform: scale(0.98);
 }
 
 @media (max-width: 700px) {

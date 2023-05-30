@@ -12,18 +12,24 @@
 </head>
 <body>
 <header th:replace="fragments/header.html :: header"></header>
+
+<h1 class="search-result-headline">Search results</h1>
+
 <main class="flex-container">
     <div class="search-result-flex-container">
-        <h1 class="search-result-headline">Search results</h1>
         <div th:replace="fragments/product-card.html :: product-card"></div>
     </div>
-    <nav>
-        <a class="search-result-nav-flex" href="/products">
-            <p>Dint find what you where searching, check out our products</p>
-            <div><i class="fa-solid fa-angle-right"></i></div>
-        </a>
-    </nav>
 </main>
+
+<nav class="search-failure">
+    <a class="search-result-nav-flex" href="/products">
+        <p>Dint find what you were searching for? Check out our products</p>
+        <div><i class="fa-solid fa-angle-right"></i></div>
+    </a>
+</nav>
+
+
+
 <footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>

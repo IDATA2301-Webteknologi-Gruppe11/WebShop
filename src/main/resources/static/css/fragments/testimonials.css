@@ -1,8 +1,10 @@
+@import "../global.css";
+
 .testimonials{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    color: #43484D;
+    color: var(--main-color-black)
 }
 
 .testimonials-title{

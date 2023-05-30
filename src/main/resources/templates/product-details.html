@@ -13,14 +13,16 @@
 </head>
 <body>
 <header th:replace="~{fragments/header.html :: header}"></header>
+
+
 <main class="flex-container">
     <div class="product-header">
         <img class="detail-img" th:src="${products.image}"/>
         <h1 class="product-name" th:text="${products.name}"></h1>
     </div>
-    <p class="product-price" th:text="${products.price} + ',-'"></p>
     <h2 class="description-title">Description</h2>
     <p class="product-description" th:text="${products.description}"></p>
+    <p class="product-price" th:text="${products.price} + ',-'"></p>
     <div class="grid-container">
         <p class="buy-text" th:text="'Buy ' + ${products.name}"></p>
         
@@ -29,6 +31,8 @@
         </div>
     </div>
 </main>
+
+
 <footer th:replace="~{fragments/footer.html :: footer}"></footer>
 </body>
 </html>

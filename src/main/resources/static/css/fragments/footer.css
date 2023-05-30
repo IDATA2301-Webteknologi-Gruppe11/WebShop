@@ -1,5 +1,7 @@
+@import "../global.css";
+
 .footer-flex-container{
-    background-color: #d9d9db;
+    background-color: var(--footer-color-dark-grey);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,7 +18,7 @@
 .icon-nav a{
     display: inline;
     text-decoration: none;
-    color: #43484D;
+    color: var(--main-color-black);
     font-size: 2rem;
     text-align: center;
     padding: 0rem 2rem;
@@ -26,7 +28,7 @@
 .footer-description{
     text-align: center;
     display: inline;
-    color: #43484D;
+    color: var(--main-color-black);
     font-weight: 300;
     font-size: 1.4rem;
     padding-top: 4rem;

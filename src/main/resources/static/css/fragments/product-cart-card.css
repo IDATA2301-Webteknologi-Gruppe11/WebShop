@@ -1,3 +1,5 @@
+@import "../global.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -67,7 +69,7 @@
     height: 2rem;
     border: none;
     margin-top: -0.4rem;
-    background-color: #f5f5f5;
+    background-color: var(--background-color-grey)
 
 }
 
@@ -76,7 +78,7 @@
     height: 2rem;
     border: none;
     margin-top: -0.4rem;
-    background-color: #f5f5f5;
+    background-color: var(--background-color-grey);
 }
 
 #price {
@@ -105,7 +107,7 @@
     grid-row: 2;
     font-size: 2rem;
     border: none;
-    background-color: #f5f5f5;
+    background-color: var(--background-color-grey);
     margin-right: 30rem;
 
 }
@@ -113,7 +115,7 @@
 #divider {
     margin-top: 3rem;
     height: 0.2rem;
-    background-color: #656565;
+    background-color: var(--main-color-black);
     width: 100%;
 }
 
@@ -136,7 +138,7 @@
 
 #keep-shopping-button {
     color: white;
-    background-color: #0067B8;
+    background-color: var(--hero-section-color-blue);
     border: none;
     border-radius: 5px;
     width: 30rem;
@@ -144,12 +146,12 @@
 }
 
 #keep-shopping-button:hover {
-    background-color: #005ea8;
+    background-color: var(--button-blue-hover);
 }
 
 #pay-button {
     color: white;
-    background-color: #1d1d1f;
+    background-color: var(--button-black);
     border: none;
     border-radius: 5px;
     width: 30rem;
@@ -157,7 +159,7 @@
 }
 
 #pay-button:hover {
-    background-color: #65656a;
+    background-color: var(--button-black-hover);
 }
 
 footer {

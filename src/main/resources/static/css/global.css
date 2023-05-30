@@ -1,0 +1,16 @@
+:root{
+    --main-color-black: #43484D;
+    --color-white: #ffffff;
+    --background-color-grey: #f5f5f5;
+    --background-color-white: #fffff;
+    --hero-section-color-blue: #2274A5;
+    --footer-color-dark-grey: #d9d9db;
+    --hyperlink-learn-more: #0067B8;
+    --product-new-label: #ffb900;
+    --button-blue: #2274A5;
+    --button-blue-hover: #0f6599;
+    --button-black: #43484D;
+    --button-black-hover: #65656a;
+    --alert-color: red;
+    --category-hover: #979fa6;
+}
