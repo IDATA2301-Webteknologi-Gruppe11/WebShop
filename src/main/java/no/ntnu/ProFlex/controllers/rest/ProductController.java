@@ -114,7 +114,7 @@ public class ProductController {
             if (!this.productService.add(product)) {
                 return new ResponseEntity("Product was not added", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity("Product was added", HttpStatus.CREATED);
+            return new ResponseEntity(product, HttpStatus.CREATED);
         } catch (JSONException e) {
             LOGGER.severe(SEVERE + e.getMessage());
             return new ResponseEntity<>(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
@@ -145,7 +145,7 @@ public class ProductController {
             if (this.productService.findById(id) == null) {
                 return new ResponseEntity<>("Product didn't update", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity<>("Product was updated", HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>("Product was updated", HttpStatus.OK);
         } catch (JSONException e) {
             LOGGER.severe(SEVERE + e.getMessage());
             return new ResponseEntity<>(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);

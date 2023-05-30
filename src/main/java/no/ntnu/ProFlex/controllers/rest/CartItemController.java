@@ -113,7 +113,7 @@ public class CartItemController {
             if (this.cartItemService.findById(id) == null) {
                 return new ResponseEntity("Cart item didn't update", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity("Cart item cart was updated", HttpStatus.NO_CONTENT);
+            return new ResponseEntity("Cart item cart was updated", HttpStatus.OK);
         } catch (JSONException e) {
             LOGGER.severe(SEVERE + e.getMessage());
             return new ResponseEntity(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);

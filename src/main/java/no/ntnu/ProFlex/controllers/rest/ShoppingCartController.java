@@ -113,7 +113,7 @@ public class ShoppingCartController {
             if (this.shoppingCartService.findById(id) == null) {
                 return new ResponseEntity<>("Shopping cart update failed", HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity<>("Shopping cart updated successfully", HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>("Shopping cart updated successfully", HttpStatus.OK);
         } catch (JSONException e) {
             LOGGER.severe(SEVERE + e.getMessage());
             return new ResponseEntity<>(JSONEEXCEPTIONMESSAGE, HttpStatus.BAD_REQUEST);
