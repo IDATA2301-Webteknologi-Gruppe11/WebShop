@@ -5,7 +5,7 @@ This repository is for the website project for IDATA2301 and IDATA2306. The web 
 
 ## Getting started
 
-## Profile for testing website
+### Profile for testing website
 Login:
 - email: test@hotmail.com
 - password: TestUser123
