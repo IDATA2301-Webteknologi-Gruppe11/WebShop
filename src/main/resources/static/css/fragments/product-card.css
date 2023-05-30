@@ -83,7 +83,7 @@
 }
 
 .price {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-left: 35rem;
     color: var(--main-color-black);
 }
@@ -94,7 +94,7 @@
 }
 
 .learn-more{
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 #Product-Title {

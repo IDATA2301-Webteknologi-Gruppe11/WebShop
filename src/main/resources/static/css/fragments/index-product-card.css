@@ -32,6 +32,7 @@
 
 .index-product-card-image {
     margin-left: 20rem;
+    transition: transform 0.3s ease-in;
 }
 
 .index-product-card-new-box {
@@ -79,7 +80,7 @@
 
 .index-product-card-learn-more-flex:hover{
     text-decoration: underline;
-    gap: 1.4rem;
+    /*gap: 1.4rem;*/
 }
 
 .index-product-card-learn-more-flex p {
@@ -89,4 +90,8 @@
 .index-product-card-learn-more-flex div {
     font-size: 2.5rem;
     margin-top: 1.4rem;
+}
+
+.index-product-card:hover img{
+    transform: scale(1.1);
 }

@@ -8,13 +8,14 @@
 }
 
 .testimonials-title{
-    font-size: 8rem;
+    font-size: var(--h2-font-size);
     display: block;
     width: 100%;
     margin: auto;
     margin-top: 7rem;
     text-align: center;
-    color: #43484D;
+    color: var(--main-color-black);
+    font-weight: normal;
 }
 
 
@@ -42,17 +43,18 @@
 
 .testimonials-header {
     font-size: 3rem;
-    font-weight: 600;
     padding-left: 12rem;
 }
 
 .testimonials-position{
-    font-size: 2rem;
+    font-size: var(--p--font-size);
     padding-left: 12rem;
+    font-weight: 200;
 }
 
 .testimonials-description {
-    font-size: 2.5rem;
+    font-size: var(--h3-font-size);
+    font-weight: 200;
     padding: 0rem 2rem 0rem 2rem;
     max-width: 60rem;
     letter-spacing: 1px;

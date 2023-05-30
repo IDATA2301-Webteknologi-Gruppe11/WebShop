@@ -19,9 +19,9 @@ body {
 
 #Products-header {
   text-align: center;
-  font-weight: normal;
   font-family: Poppins, sans-serif;
-  font-size: 10rem;
+  font-size: var(--h2-font-size);
+  font-weight: normal;
   margin-top: 15rem;
   margin-bottom: 7rem;
 }
