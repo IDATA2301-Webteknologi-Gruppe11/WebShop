@@ -35,27 +35,43 @@
           <h3>Change product</h3>
           <div class="change-product-parm-flex">
             <label>Name Of Product You Want To Change</label>
-            <input type="text" id="nameOfProductYouWantToChange" />
+            <input
+              type="text"
+              id="chageName"
+              placeholder="name"
+            />
           </div>
           <div class="change-product-parm-flex">
             <p>Change name</p>
-            <input type="text" id="changeName" />
+            <input type="text" id="changeName" placeholder="name" />
           </div>
           <div class="change-product-parm-flex">
             <label>Change price</label>
-            <input type="text" id="changePrice" />
+            <input type="text" id="changePrice" placeholder="price" />
           </div>
           <div class="change-product-parm-flex">
             <label>New or not. Set 1 or 0</label>
-            <input type="text" id="changeNewOrNote" />
+            <input
+              type="text"
+              id="changeNewOrNote"
+              placeholder="1=new, 0=not"
+            />
           </div>
           <div class="change-product-parm-flex">
             <label>Change description</label>
-            <input type="text" id="changeDescription" />
+            <input
+              type="text"
+              id="changeDescription"
+              placeholder="description"
+            />
           </div>
           <div class="change-product-parm-flex">
             <label>Change short description</label>
-            <input type="text" id="changeShortDescription" />
+            <input
+              type="text"
+              id="changeShortDescription"
+              placeholder="short description"
+            />
           </div>
           <button class="admin-button" onclick="saveProductChanges()">
             Save change
@@ -65,11 +81,15 @@
           <h3>Change role for user</h3>
           <div class="change-role-user-input-flex">
             <p>Email of user</p>
-            <input type="text" id="email-input" />
+            <input type="text" id="email-input" placeholder="email" />
           </div>
           <div class="change-role-user-input-flex">
             <p>Role of user. Use ROLE_ADMIN or ROLE_USER</p>
-            <input type="text" id="role-input" />
+            <input
+              type="text"
+              id="role-input"
+              placeholder="role"
+            />
           </div>
           <button class="admin-button" onclick="saveChangesRole()">
             save change
