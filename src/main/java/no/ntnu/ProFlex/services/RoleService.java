@@ -36,6 +36,10 @@ public class RoleService {
         return this.roleRepository.findById(id).orElse(null);
     }
 
+    public Role findByRoleName(String name) {
+        return this.roleRepository.findOneByName(name);
+    }
+
     /**
      * Adds a user to the role repository.
      *

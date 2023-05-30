@@ -19,6 +19,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
     Page<Product> findAll(Pageable pageable);
     List<Category> findAllCategoriesById(int id);
     List<Product> findByCategoriesName(String name);
+    Product findByName(String name);
 
     //Query that finds product based on if the name mach or if category matches
     @Query("SELECT p FROM Product p LEFT JOIN p.categories c WHERE " +

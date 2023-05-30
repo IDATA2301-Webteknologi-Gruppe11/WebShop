@@ -14,60 +14,53 @@
       src="https://kit.fontawesome.com/0a8856d0a6.js"
       crossorigin="anonymous"
     ></script>
+    <script th:src="@{static/js/admin.js}"></script>
   </head>
   <body>
     <header th:replace="~{fragments/header.html :: header}"></header>
     <main>
+      <h2>Admin Page</h2>
       <div class="admin-page-flex">
         <section class="create-product-section">
-          <h2>Add Product</h2>
-          <div class="create-product-info-flex">
-            <ul>
-              <li>Name</li>
-              <li>price</li>
-              <li>description</li>
-              <li>shortDescription</li>
-              <li>Image</li>
-              <li>Categories</li>
-            </ul>
-            <ul>
-              <li><input type="text" /></li>
-              <li><input type="text" /></li>
-              <li><input type="text" /></li>
-              <li><input type="text" /></li>
-              <li><input type="text" /></li>
-              <div class="categories-flex">
-                <div th:each="category : ${categories}">
-                  <ul>
-                    <li th:text="${category.name}"></li>
-                    <li><input type="checkbox" /></li>
-                  </ul>
-                </div>
-              </div>
-            </ul>
+          <h3>Change product</h3>
+          <div class="change-product-parm-flex">
+            <label>Name Of Product You Want To Change</label>
+            <input type="text" class="nameOfProductYouWantToChange">
           </div>
-        </section>
-        <section class="create-product-section">
-          <h2>Change product</h2>
-          <div class="create-product-info-flex">
-            <ul>
-              <li>Change name</li>
-              <li>Change price</li>
-              <li>Change image</li>
-              <li>New or not</li>
-              <li>Change description</li>
-              <li>Change short description</li>
-            </ul>
-            <ul>
-                <li><input type="text" /></li>
-                <li><input type="text" /></li>
-                <li><input type="text" /></li>
-                <li><input type="text" /></li>
-                <li><input type="text" /></li>
-                <li><input type="text" /></li>
-              </ul>
+          <div class="change-product-parm-flex">
+            <p>Change name</p>
+            <input type="text" id="changeName"/>
           </div>
+          <div class="change-product-parm-flex">
+            <label>Change price</label>
+            <input type="text" id="changePrice"/>
+          </div>
+          <div class="change-product-parm-flex">
+            <label>New or not. Set 1 or 0</label>
+            <input type="text" id="changeNewOrNote"/>
+          </div>
+          <div class="change-product-parm-flex">
+            <label>Change description</label>
+            <input type="text" id="changeDescription"/>
+          </div>
+          <div class="change-product-parm-flex">
+            <label>Change short description</label>
+            <input type="text" id="changeShortDescription"/>
+          </div>
+          <button class="admin-button" onclick="saveProductChanges()">Save change</button>
         </section>
+        <section class="change-role-user-flex">
+          <h3>Change role for user</h3>
+          <div class="change-role-user-input-flex">
+            <p>Email of user</p>
+            <input type="text" id="email-input">
+          </div>
+          <div class="change-role-user-input-flex">
+            <p>Role of user. Use ROLE_ADMIN or ROLE_USER</p>
+            <input type="text" id="role-input">
+          </div>
+          <button class="admin-button" onclick="saveChangesRole()">save change</button>
+          </section>
       </div>
     </main>
     <footer th:replace="~{fragments/footer.html :: footer}"></footer>

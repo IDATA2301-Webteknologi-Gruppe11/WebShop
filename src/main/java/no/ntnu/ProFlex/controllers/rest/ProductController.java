@@ -48,6 +48,17 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
+    @GetMapping("/name/{name}")
+    public ResponseEntity getByName(
+            @Parameter(name = "name", description = "name of the product you want to find")
+            @PathVariable String name) {
+        Product product = this.productService.findByName(name);
+        if(product == null) {
+            return new ResponseEntity("Didnt find product", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(product);
+    }
+
     @ApiOperation(value = "Get products by category", notes = "Retrieves products by category")
     @GetMapping("/getByCategory/{category}")
     public ResponseEntity<List<Product>> getByCategory(@PathVariable String category) {

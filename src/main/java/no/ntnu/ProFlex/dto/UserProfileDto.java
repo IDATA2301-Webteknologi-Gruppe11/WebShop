@@ -1,5 +1,7 @@
 package no.ntnu.ProFlex.dto;
 
+import no.ntnu.ProFlex.models.Role;
+
 /**
  * Data transfer object (DTO) for submitting changes to user profile data
  *
@@ -10,21 +12,16 @@ public class UserProfileDto {
 
     private final String firstName;
     private final String lastName;
-    private final String password;
-    private final String email;
 
     /**
-     * Default Constructor.
+     * Default Constructor for changing user profile.
      *
      * @param firstName
      * @param lastName
-     * @param password
      */
-    public UserProfileDto(String firstName, String lastName, String password, String email) {
+    public UserProfileDto(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.password = password;
-        this.email = email;
     }
 
     /**
@@ -41,17 +38,5 @@ public class UserProfileDto {
      */
     public String getLastName() {
         return this.lastName;
-    }
-
-    /**
-     * Returns password.
-     * @return password.
-     */
-    public String getPassword() {
-        return this.password;
-    }
-
-    public String getEmail() {
-        return this.email;
     }
 }

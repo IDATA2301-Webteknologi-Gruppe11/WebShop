@@ -53,6 +53,10 @@ public class  ProductService {
         return this.productRepository.findById(id).orElse(null);
     }
 
+    public Product findByName(String name) {
+        return this.productRepository.findByName(name);
+    }
+
     /**
      * Adds a product to the product repository.
      *

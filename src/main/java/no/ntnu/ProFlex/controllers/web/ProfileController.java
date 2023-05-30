@@ -1,5 +1,6 @@
 package no.ntnu.ProFlex.controllers.web;
 
+import no.ntnu.ProFlex.dto.UserProfileDto;
 import no.ntnu.ProFlex.models.Category;
 import no.ntnu.ProFlex.models.Order;
 import no.ntnu.ProFlex.models.OrderProduct;
@@ -12,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -80,5 +83,12 @@ public class ProfileController {
     @GetMapping("/no-access")
     public String getNoAccess() {
         return "no-access";
+    }
+
+    @PostMapping("/profile")
+    public String updateUserPost(@ModelAttribute UserProfileDto userProfileDto) {
+        User user = this.userService.getSessionUser();
+        this.userService.updateProfile(user, userProfileDto);
+        return "profile";
     }
 }

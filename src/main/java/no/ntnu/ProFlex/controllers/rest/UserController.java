@@ -65,6 +65,17 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    @GetMapping("/email/{email}")
+    public ResponseEntity<User> getUserByEmail(
+            @Parameter(name = "email", description = "email of the user that you want to find")
+            @PathVariable String email) {
+        User user = this.userService.findByEmail(email);
+        if(user == null) {
+            return new ResponseEntity("Didnt find user", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(user);
+    }
+
     /**
      * Creates and adds a user.
      *

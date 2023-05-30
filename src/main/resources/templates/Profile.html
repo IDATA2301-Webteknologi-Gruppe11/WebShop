@@ -51,16 +51,8 @@
                 name="lastName"
               />
             </li>
-            <li>
-                <label for="email">Change email:</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-              />
-            </li>
           </ul>
-          <button type="submit">Save Changes</button>
+          <button th:onclick="saveChanges([[${sessionUser}]], [[${sessionUser.role}]])">Save Changes</button>
         </section>
         <section class="Orders">
           <h2 class="order-history-title">Order History</h2>

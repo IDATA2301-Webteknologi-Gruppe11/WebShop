@@ -7,17 +7,18 @@
  * @param {string} email - The updated email of the user.
  * @returns {Promise<void>} - A Promise that resolves when the user details are updated.
  */
-async function updateUserDetails(user, firstName, lastName, email) {
+async function updateUserDetails(user, firstName, lastName,role) {
+    console.log(user.role)
     const payload = {
         orders: user.orders,
         id: user.id,
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
+        firstName: firstName ? firstName : user.firstName,
+        lastName: lastName ? lastName: user.lastName,
+        email: user.email,
         pass: user.pass,
         active: user.active,
-        role: user.role,
-        shoppingCart: user.shoppingCart
+        shoppingCart: user.shoppingCart,
+        role: role
     };
 
     try {
@@ -34,4 +35,12 @@ async function updateUserDetails(user, firstName, lastName, email) {
     } catch (error) {
         console.log(error.message);
     }
+}
+
+async function saveChanges(sessionUser, role) {
+    const firstNameInput = document.getElementById("firstName");
+    const lastNameInput = document.getElementById("lastName");
+    const firstName = firstNameInput.value;
+    const lastName = lastNameInput.value;
+    await updateUserDetails(sessionUser ,firstName, lastName, role);
 }

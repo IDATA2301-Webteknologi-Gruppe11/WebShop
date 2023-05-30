@@ -65,6 +65,17 @@ public class RoleController {
         return ResponseEntity.ok(role);
     }
 
+    @GetMapping("/name/{name}")
+    public ResponseEntity<Role> getByRoleName(
+            @Parameter(name = "name", description = "name of the role")
+            @PathVariable String name) {
+        Role role = this.roleService.findByRoleName(name);
+        if(role == null) {
+            return new ResponseEntity("Role not found", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(role);
+    }
+
     /**
      * Creates and adds a new role.
      *
