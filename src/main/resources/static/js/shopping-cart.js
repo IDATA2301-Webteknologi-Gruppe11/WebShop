@@ -140,7 +140,8 @@ async function createOrderProduct(scid, uid) {
             console.log(cartItems.id);
             await removeACartItem(cartItems.id);
         }
-        updateShoppingCartPage()
+        validateBuy();
+        updateShoppingCartPage();
     } else {
         console.log("Error creating order");
     }
@@ -201,4 +202,8 @@ function generateRandomString(length) {
  */
 function updateShoppingCartPage() {
     location.reload();
+}
+
+function validateBuy() {
+    alert("Your order has been checked out and added to your order history in profile page, however this is not a real webshop so there is no real payment.")
 }

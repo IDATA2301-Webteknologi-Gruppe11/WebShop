@@ -15,18 +15,19 @@ async function addProductToCart(shoppingCartId, product) {
         const shoppingCartData = await responseShoppingCart.json();
         if (shoppingCartData.cartItems === null) {
             await createCartItem(shoppingCartData, product);
-            productWasAddedToCartPopup();
+            redirectToShoppingCart();
         } else {
             let productFound = false;
             for (const cartItem of Object.values(shoppingCartData.cartItems)) {
                 if (await checkProductInCartItem(cartItem, product, shoppingCartData)) {
                     productFound = true;
+                    redirectToShoppingCart();
                     break;
                 }
             }
             if (!productFound) {
                 await createCartItem(shoppingCartData, product);
-                productWasAddedToCartPopup();
+                redirectToShoppingCart();
             }
         }
     } catch (error) {
@@ -61,7 +62,6 @@ async function checkProductInCartItem(cartItem, product, shoppingCart) {
             if (response.ok) {
                 console.log("cartItem was updated");
                 cartItem.quantity = cartItem.quantity + 1; // Update the quantity in the cartItem object
-                productWasAddedToCartPopup();
                 return true;
             } else {
                 console.log("Didn't update cart item.");
@@ -99,7 +99,9 @@ async function createCartItem(shoppingCart, product) {
     }
 }
 
-function productWasAddedToCartPopup() {
-    var button = document.getElementById("addProductToCartButton");
-    var slideout = document.getElementById("notif")
+/**
+ * Rederect to shopping cart page
+ */
+function redirectToShoppingCart() {
+    window.location.href = "/shoppingcart";
 }
