@@ -26,15 +26,12 @@
       crossorigin="anonymous"
     ></script>
     <script th:src="@{static/js/product-details.js}"></script>
-    >
-    <script src="../static/js/product-details.js"></script>
-    >
   </head>
   <body>
     <header th:replace="~{fragments/header.html :: header}"></header>
     <main class="flex-container">
       <div class="product-header">
-        <img class="detail-img" th:src="${products.image}" />
+        <img class="detail-img" alt="Image of product" th:src="${products.image}" />
         <h1 class="product-name" th:text="${products.name}"></h1>
       </div>
       <h2 class="description-title">Description</h2>
@@ -46,6 +43,7 @@
           <button
             type="submit"
             class="button-add"
+            aria-label="Add product to shopping cart"
             th:onclick="addProductToCart([[${shoppingCart?.id}]], [[${products}]])"
           >
             Add To Cart
