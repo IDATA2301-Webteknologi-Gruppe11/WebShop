@@ -51,7 +51,7 @@ public class EmailController {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
 
-        helper.setFrom("contact@shopme.com", "Shopme Support");
+        helper.setFrom("Proflex@Support.com", "Proflex Support");
         helper.setTo(recipientEmail);
 
         String subject = "Here's the link to reset your password";

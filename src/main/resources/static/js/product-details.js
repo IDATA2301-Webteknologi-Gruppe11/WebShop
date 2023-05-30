@@ -15,6 +15,7 @@ async function addProductToCart(shoppingCartId, product) {
         const shoppingCartData = await responseShoppingCart.json();
         if (shoppingCartData.cartItems === null) {
             await createCartItem(shoppingCartData, product);
+            productWasAddedToCartPopup();
         } else {
             let productFound = false;
             for (const cartItem of Object.values(shoppingCartData.cartItems)) {
@@ -25,6 +26,7 @@ async function addProductToCart(shoppingCartId, product) {
             }
             if (!productFound) {
                 await createCartItem(shoppingCartData, product);
+                productWasAddedToCartPopup();
             }
         }
     } catch (error) {
@@ -59,6 +61,7 @@ async function checkProductInCartItem(cartItem, product, shoppingCart) {
             if (response.ok) {
                 console.log("cartItem was updated");
                 cartItem.quantity = cartItem.quantity + 1; // Update the quantity in the cartItem object
+                productWasAddedToCartPopup();
                 return true;
             } else {
                 console.log("Didn't update cart item.");
@@ -94,4 +97,9 @@ async function createCartItem(shoppingCart, product) {
     } else {
         console.log("Error creating cartItem");
     }
+}
+
+function productWasAddedToCartPopup() {
+    var button = document.getElementById("addProductToCartButton");
+    var slideout = document.getElementById("notif")
 }

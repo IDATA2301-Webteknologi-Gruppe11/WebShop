@@ -36,6 +36,9 @@ async function updateCartItemQuantity(isIncrease, cartItemId, shoppingCart, prod
     var quantityElement = document.getElementById("quantityNumber-" + cartItemId);
     var currentQuantity = parseInt(quantityElement.textContent);
     var newQuantity = isIncrease ? currentQuantity + 1 : currentQuantity - 1;
+    if(newQuantity < 0) {
+        return;
+    }
     var payload = {
         id: cartItemId,
         quantity: newQuantity,
