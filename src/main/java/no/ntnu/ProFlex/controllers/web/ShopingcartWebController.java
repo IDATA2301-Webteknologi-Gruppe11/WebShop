@@ -14,6 +14,9 @@ import java.util.List;
 
 /**
  * Controller class responsible for handling shopping cart-related requests.
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
  */
 @Controller
 public class ShopingcartWebController {

@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 /**
  * This class represents the controller endpoint class for shopping carts.
  *
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @RestController

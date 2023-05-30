@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.util.*;
@@ -13,7 +12,7 @@ import java.util.*;
  * This class represent the user of the web site.
  * When a user want's to log in to a site, it is this class that is the user.
  *
- * @author Ole Kristian Dvergsdal
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @ApiModel(description = "Represent user that is used to log on to the web site")
@@ -74,7 +73,7 @@ public class User {
      * Constructor for user.
      * This constructor take parameters.
      *
-     * @param firstName the first name of the user. //TODO Betre dokumentasjon
+     * @param firstName the first name of the user.
      * @param lastName the last name of the user.
      * @param email the email of the user.
      * @param pass the password of the user.
@@ -268,10 +267,18 @@ public class User {
         return role;
     }
 
+    /**
+     * returns reset password token
+     * @return reset password token
+     */
     public String getResetPasswordToke() {
         return resetPasswordToke;
     }
 
+    /**
+     * Set reset password token
+     * @param resetPasswordToke
+     */
     public void setResetPasswordToke(String resetPasswordToke) {
         this.resetPasswordToke = resetPasswordToke;
     }

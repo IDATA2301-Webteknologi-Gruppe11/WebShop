@@ -13,7 +13,7 @@ import java.util.List;
  * It contains a list of cart items associated with the cart.
  * Each shopping cart is associated with a user.
  *
- * @author Ole Kristian
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @ApiModel(description = "Represent a shopping cart for a user")
@@ -38,6 +38,10 @@ public class ShoppingCart {
     private List<CartItem> cartItems = new ArrayList<>();
 
 
+    /**
+     * Default contructor for shoppingcart
+     * @param user the user of the shopping cart
+     */
     public ShoppingCart(User user) {
         this.user = user;
     }

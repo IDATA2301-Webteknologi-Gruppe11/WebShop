@@ -5,6 +5,12 @@ import no.ntnu.ProFlex.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service class for category repository
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
+ */
 @Service
 public class CategoryService {
 

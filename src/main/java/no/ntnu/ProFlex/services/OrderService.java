@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service class for order repository
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
+ */
 @Service
 public class OrderService {
 

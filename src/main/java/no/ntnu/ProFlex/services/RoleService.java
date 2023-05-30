@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 /**
  * Rest controller for the role.
  *
- * @author Håvard Hetland Vestbø
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @Service

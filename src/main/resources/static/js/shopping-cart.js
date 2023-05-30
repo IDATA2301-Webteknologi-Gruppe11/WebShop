@@ -87,6 +87,11 @@ async function removeACartItem(cartItemId) {
     }
 }
 
+/**
+ * Removes cart item form shopping cart
+ * @param cartItemId the id of cart item to remove
+ * @returns {Promise<void>} A Promise that resolves when the user details are updated.
+ */
 async function runRemoveCartItem(cartItemId) {
     if( await removeACartItem(cartItemId) === true) {
         updateShoppingCartPage();
@@ -204,6 +209,9 @@ function updateShoppingCartPage() {
     location.reload();
 }
 
+/**
+ * response when checking out
+ */
 function validateBuy() {
     alert("Your order has been checked out and added to your order history in profile page, however this is not a real webshop so there is no real payment.")
 }

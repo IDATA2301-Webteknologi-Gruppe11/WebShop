@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * This class represent the service clas for cart items.
  *
- * @author Ole Kristian
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @Service

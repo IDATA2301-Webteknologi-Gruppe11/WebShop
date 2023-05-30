@@ -6,6 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * web controller for about page
+ *
+ * @author IDATA2306 Group 11
+ */
 @Controller
 public class AboutController {
     @Autowired

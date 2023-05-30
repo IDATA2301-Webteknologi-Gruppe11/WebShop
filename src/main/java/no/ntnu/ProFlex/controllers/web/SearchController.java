@@ -12,6 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 /**
  * Controller class responsible for handling search-related requests.
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
  */
 @Controller
 public class SearchController {

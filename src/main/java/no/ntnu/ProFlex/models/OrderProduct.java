@@ -4,6 +4,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 
+/**
+ * Represent a order product
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
+ */
 @ApiModel(description = "Represent the relation ship between order and product")
 @Entity
 @Table(name = "order_product")

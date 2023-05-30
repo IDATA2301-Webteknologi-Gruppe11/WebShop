@@ -37,6 +37,12 @@ async function updateUserDetails(user, firstName, lastName,role) {
     }
 }
 
+/**
+ * Saves the changes to the user.
+ * @param sessionUser the user that is geting updated
+ * @param role the role of the user
+ * @returns {Promise<void>} A Promise that resolves when the user details are updated.
+ */
 async function saveChanges(sessionUser, role) {
     const firstNameInput = document.getElementById("firstName");
     const lastNameInput = document.getElementById("lastName");

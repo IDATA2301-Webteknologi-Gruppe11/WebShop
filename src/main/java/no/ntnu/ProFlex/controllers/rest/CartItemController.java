@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 /**
  * This class represent the controller endpoint class for cart item.
  *
- * @author Ole Kristian
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @RestController

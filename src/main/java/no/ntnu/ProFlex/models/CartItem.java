@@ -6,6 +6,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.*;
 
+/**
+ * Represent a cart item
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
+ */
 @ApiModel(description = "Represent cartItem")
 @Entity
 @Table(name = "CartItem")

@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * Controller class responsible for handling user registration and signup-related requests.
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
  */
 @Controller
 public class SignupController {

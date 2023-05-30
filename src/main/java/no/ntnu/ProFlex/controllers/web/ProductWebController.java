@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * Web controller for product pages
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
+ */
 @Controller
 public class ProductWebController {
 

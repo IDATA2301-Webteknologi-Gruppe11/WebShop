@@ -3,7 +3,7 @@ package no.ntnu.ProFlex.services;
 /**
  * This class provides AccsessUserDetails needed for authentication.
  *
- * @author Ole Kristian
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 
@@ -176,18 +176,5 @@ public class AccessUserService implements UserDetailsService {
      */
     private String createHash(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
-    }
-
-    /**
-     * Update the user information
-     *
-     * @param user the user that you want to update
-     * @param profileDto the new information you want for the user
-     * @return true
-     */
-    public boolean updateProfile(User user, UserProfileDto profileDto) {
-        user.setFirstName(profileDto.getFirstName());
-        user.setLastName(profileDto.getLastName());
-        return true;
     }
 }

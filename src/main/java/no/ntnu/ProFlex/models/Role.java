@@ -13,7 +13,7 @@ import java.util.Set;
  * It is used to define the roles that users can have.
  * Each role is associated with one or more users.
  *
- * @author Ole Kristian
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @ApiModel(description = "Represent the roles that the user can have")

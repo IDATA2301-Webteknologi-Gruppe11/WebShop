@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import jakarta.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 
+/**
+ * Email controller for email service
+ *
+ * @author IDATA2306 Group 11
+ */
 @Controller
 public class EmailController {
 
@@ -25,11 +30,23 @@ public class EmailController {
     @Autowired
     UserService userService;
 
+    /**
+     * Displays the forgot password form.
+     *
+     * @return The name of the forgot password form view.
+     */
     @GetMapping("/forgotpassword")
     public String showForgotPasswordForm() {
         return "forgot-password-form";
     }
 
+    /**
+     * Processes the forgot password form submission.
+     *
+     * @param request The HttpServletRequest containing the form data.
+     * @param model   The Model object for adding attributes to the view.
+     * @return The name of the forgot password form view.
+     */
     @PostMapping("/forgotpassword")
     public String proccessForgotPassword(HttpServletRequest request, Model model) {
         String email = request.getParameter("email");
@@ -46,6 +63,14 @@ public class EmailController {
         return "forgot-password-form";
     }
 
+    /**
+     * Sends an email with a reset password link.
+     *
+     * @param recipientEmail The recipient's email address.
+     * @param link           The reset password link.
+     * @throws MessagingException            If an error occurs while sending the email.
+     * @throws UnsupportedEncodingException If an unsupported encoding is used.
+     */
     public void sendEmail(String recipientEmail, String link)
             throws MessagingException, UnsupportedEncodingException {
         MimeMessage message = mailSender.createMimeMessage();
@@ -69,6 +94,13 @@ public class EmailController {
         mailSender.send(message);
     }
 
+    /**
+     * Displays the reset password form.
+     *
+     * @param token The reset password token.
+     * @param model The Model object for adding attributes to the view.
+     * @return The name of the reset password form view if the token is valid, or the name of the message view if the token is invalid.
+     */
     @GetMapping("/resetpassword")
     public String showResetPasswordForm(@Param(value = "token") String token, Model model) {
         User user = this.userService.getByResetPasswordToken(token);
@@ -80,6 +112,13 @@ public class EmailController {
         return "reset-password-form";
     }
 
+    /**
+     * Processes the reset password form submission.
+     *
+     * @param request The HttpServletRequest containing the form data.
+     * @param model   The Model object for adding attributes to the view.
+     * @return The name of the login view if the password is successfully reset, or the name of the message view if the token is invalid.
+     */
     @PostMapping("/resetpassword")
     public String processResetPassword(HttpServletRequest request, Model model) {
         String token = request.getParameter("token");
@@ -95,7 +134,6 @@ public class EmailController {
             this.userService.updatePassword(user, password);
             model.addAttribute("message", "You have successfully changed your password.");
         }
-
         return "login";
     }
 

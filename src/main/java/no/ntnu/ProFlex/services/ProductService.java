@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * Represent the service class for product.
  *
- * @author Ole Kristian Dvergsdal
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @Service

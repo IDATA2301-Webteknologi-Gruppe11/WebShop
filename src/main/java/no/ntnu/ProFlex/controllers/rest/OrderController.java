@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 /**
  * This class represent the controller for order.
  *
- * @author Ole Kristian
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @RestController

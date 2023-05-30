@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * This class represent the service class for shopping cart
  *
- * @author Ole Kristian
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @Service

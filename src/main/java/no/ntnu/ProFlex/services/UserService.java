@@ -10,6 +10,9 @@ import java.util.Optional;
 
 /**
  * Represent the service class for user.
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
  */
 @Service
 public class UserService {
@@ -109,6 +112,12 @@ public class UserService {
         }
     }
 
+    /**
+     * Updates the reset password token for a user with the provided email.
+     *
+     * @param token The new reset password token.
+     * @param email The email of the user to update.
+     */
     public void updateResetPasswordToken(String token, String email) {
         User user = findByEmail(email);
         if(user != null) {
@@ -117,10 +126,22 @@ public class UserService {
         }
     }
 
+    /**
+     * Retrieves a user by their reset password token.
+     *
+     * @param token The reset password token.
+     * @return The user with the given reset password token, or null if not found.
+     */
     public User getByResetPasswordToken(String token) {
         return this.userRepository.findByResetPasswordToke(token).orElse(null);
     }
 
+    /**
+     * Updates the password for a user.
+     *
+     * @param user The user to update the password for.
+     * @param newPassword The new password.
+     */
     public void updatePassword(User user, String newPassword) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String encodePassword = bCryptPasswordEncoder.encode(newPassword);

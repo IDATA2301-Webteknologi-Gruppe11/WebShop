@@ -14,7 +14,7 @@ import java.util.*;
  * This class represent product.
  * It is used to create other product fromm it.
  *
- * @author Ole Kristian Dvergsdal
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @ApiModel(description = "Represent a product that is added to a product list")

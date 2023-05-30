@@ -13,6 +13,12 @@ import java.util.List;
 import java.util.logging.Logger;
 import org.json.JSONException;
 
+/**
+ * This class represent the controller class for entity product
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/product")
 @Api(value = "Product API", tags = "Product")
@@ -25,6 +31,11 @@ public class ProductController {
     private static final String SEVERE = "An error occurred: ";
     private static final Logger LOGGER = Logger.getLogger(ProductController.class.getName());
 
+    /**
+     * Retrieves all products.
+     *
+     * @return ResponseEntity containing a list of products if found, or an error message with HTTP status code if no products are found.
+     */
     @ApiOperation(value = "Get all products", notes = "Returns all the products")
     @GetMapping("/getAll")
     public ResponseEntity<List<Product>> getProducts() {
@@ -35,6 +46,12 @@ public class ProductController {
         return ResponseEntity.ok((List<Product>) products);
     }
 
+    /**
+     * Retrieves a product by its ID.
+     *
+     * @param id ID of the product to retrieve.
+     * @return ResponseEntity containing the product if found, or an error message with HTTP status code if the product is not found.
+     */
     @ApiOperation(value = "Get product by ID", notes = "Retrieves a product by its ID")
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductFromAGiveID(
@@ -47,6 +64,13 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
+    /**
+     * Retrieves a product by its name.
+     *
+     * @param name Name of the product to retrieve.
+     * @return ResponseEntity containing the product if found, or an error message with HTTP status code if the product is not found.
+     */
+    @ApiOperation(value = "Get product by product name", notes = "retreves a product base on the product name")
     @GetMapping("/name/{name}")
     public ResponseEntity getByName(
             @Parameter(name = "name", description = "name of the product you want to find")
@@ -58,6 +82,12 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
+    /**
+     * Retrieves products by category.
+     *
+     * @param category Category of the products to retrieve.
+     * @return ResponseEntity containing a list of products if found, or an error message with HTTP status code if no products are found.
+     */
     @ApiOperation(value = "Get products by category", notes = "Retrieves products by category")
     @GetMapping("/getByCategory/{category}")
     public ResponseEntity<List<Product>> getByCategory(@PathVariable String category) {
@@ -68,6 +98,13 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
+
+    /**
+     * Adds a new product to the product list.
+     *
+     * @param product The product to be created.
+     * @return ResponseEntity with a success message if the product is added successfully, or an error message with HTTP status code if the product could not be added.
+     */
     @ApiOperation(value = "Add a product", notes = "Creates and adds a product to the product list")
     @PostMapping("/add")
     public ResponseEntity<?> addProduct(

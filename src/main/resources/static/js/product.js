@@ -15,6 +15,10 @@ async function sendProductDataRequest() {
     }
 }
 
+/**
+ * Asynchronously retrieves all products.
+ * @returns {Promise<void>}
+ */
 async function fetchProductRequest() {
     const response = await fetch("/api/product/getAll");
     if(response.ok) {

@@ -13,6 +13,12 @@ import java.util.logging.Logger;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+/**
+ * This class represent the controller class for entity order product
+ *
+ * @author IDATA2306 Group 11
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/api/orderproduct")
 @Api(value = "OrderProduct API", tags = "OrderProduct")
@@ -25,6 +31,10 @@ public class OrderProductController {
     private static final String JSONEEXCEPTIONMESSAGE = "The Field(s) in the request is missing or is null";
     private static final String SEVERE = "An error occurred: ";
 
+    /**
+     * Returns all order products
+     * @return all order product
+     */
     @ApiOperation(value = "Get all OrderProducts", notes = "Retrieves all OrderProducts")
     @GetMapping("/getAll")
     public ResponseEntity<List<OrderProduct>> getOrderProducts() {
@@ -35,6 +45,11 @@ public class OrderProductController {
         return ResponseEntity.ok((List<OrderProduct>) orderProducts);
     }
 
+    /**
+     * Add a order product to the database
+     * @param orderProduct the json that you want to create order from
+     * @return https status of the operation
+     */
     @ApiOperation(value = "Add OrderProduct", notes = "Adds a new OrderProduct")
     @PostMapping("/add")
     public ResponseEntity<?> addOrderProduct(

@@ -1,76 +1,4 @@
-/**
- * Creates a new product.
- *
- * @param {string} name - The name of the product.
- * @param {number} price - The price of the product.
- * @param {string} image - The URL or path of the product image.
- * @param {string[]} categories - An array of categories that the product belongs to.
- * @param {string} description - The description of the product.
- * @param {string} shortDescription - A short description of the product.
- * @returns {Promise<void>} - A Promise that resolves when the product creation is complete.
- */
-async function createProduct(name, price, image, categories, description, shortDescription) {
-    const payload = {
-        name: name,
-        price: price,
-        image: image,
-        shortDescription: shortDescription,
-        categories: categories,
-    };
-    try {
-        const response = await fetch("/api/product/add", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        });
-        if(response.ok) {
-            console.log("Product was created");
-        }
-    } catch (error) {
-        console.log(error.message);
-    }
-}
 
-/**
- * Updates a product.
- *
- * @param {string} id - The ID of the product to update.
- * @param {string} name - The updated name of the product.
- * @param {number} price - The updated price of the product.
- * @param {string} image - The updated URL or path of the product image.
- * @param {string[]} categories - The updated array of categories that the product belongs to.
- * @param {string} description - The updated description of the product.
- * @param {string} shortDescription - The updated short description of the product.
- * @returns {Promise<void>} - A Promise that resolves when the product update is complete.
- */
-async function updateProduct(id, name, price, image, categories, description, shortDescription) {
-    const payload = {
-        id: id,
-        name: name,
-        price: price,
-        image: image,
-        shortDescription: shortDescription,
-        description: description,
-        categories: categories,
-        newProduct: 1
-    };
-    try {
-        const response = await fetch("/api/product/update/" + id, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        });
-        if(response.ok) {
-            console.log("Product was updated");
-        }
-    } catch (error) {
-        console.log(error.message);
-    }
-}
 
 /**
  * Changes the role of a user.
@@ -103,8 +31,15 @@ async function updateUserRole(email, roleName) {
         },
         body: JSON.stringify(payload)
     })
+    if(response.ok) {
+        vaildateRole();
+        updateShoppingCartPage();
+    }
 }
 
+/**
+ * Saves the changes made to a user's role.
+ */
 async function saveChangesRole() {
     const emailInput = document.getElementById("email-input");
     const roleInput = document.getElementById("role-input");
@@ -113,6 +48,12 @@ async function saveChangesRole() {
     await updateUserRole(email, role);
 }
 
+/**
+ * Fetches a product by its name.
+ *
+ * @param name The name of the product to fetch.
+ * @returns The fetched product if found, or undefined otherwise.
+ */
 async function fetchProductByName(name) {
     const response = await fetch("/api/product/name/" + name);
     if(response.ok) {
@@ -123,6 +64,16 @@ async function fetchProductByName(name) {
     }
 }
 
+/**
+ * Updates a product with new information.
+ *
+ * @param name              The name of the product to update.
+ * @param changeName        The new name for the product.
+ * @param price             The new price for the product.
+ * @param newOreNot         Flag indicating whether the product is new or not.
+ * @param description       The new description for the product.
+ * @param shortDescription  The new short description for the product.
+ */
 async function updateProduct(name, changeName, price, newOreNot, description, shortDescription) {
     const product = await fetchProductByName(name)
 
@@ -145,11 +96,16 @@ async function updateProduct(name, changeName, price, newOreNot, description, sh
     });
     if (response.ok) {
         console.log("Product was updated")
+        vaildateProduct();
+        updateShoppingCartPage();
     }else {
         console.log("Error updateing product")
     }
 }
 
+/**
+ * Saves the changes made to a product.
+ */
 async function saveProductChanges() {
     const nameOfProductToChangeInput = document.getElementById("nameOfProductYouWantToChange");
     const nameChangeInput = document.getElementById("changeName");
@@ -167,3 +123,22 @@ async function saveProductChanges() {
 
     await updateProduct(nameOfProductToChange, nameChange, price, newOrNot, description, shortDescription);
 }
+
+/**
+ * Reload page
+ */
+function updateShoppingCartPage() {
+    location.reload();
+}
+
+/**
+ * response when updating product or role
+ */
+function vaildateProduct() {
+    alert(" product was updated")
+}
+
+function vaildateRole() {
+    alert("User was updated")
+}
+

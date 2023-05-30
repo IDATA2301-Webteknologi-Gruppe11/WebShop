@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * This class represent the orders for the users.
  *
- * @author Ole Kristian
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @ApiModel(description = "Represent a order")

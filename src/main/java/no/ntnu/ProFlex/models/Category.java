@@ -12,7 +12,7 @@ import java.util.Set;
  * It is an entity class for the web shop database.
  * It will be a table in the database.
  *
- * @author Ole Kristian
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @ApiModel(description = "Represents a category that can be assigned to products.")
@@ -100,8 +100,6 @@ public class Category {
     public void setName(String name) {
         this.name = stringChecker(name, "name");
     }
-
-    // TODO: id should perhaps be unchangeable, so double-check if it should have a setId method.
 
     /**
      * Sets the ID for the category.

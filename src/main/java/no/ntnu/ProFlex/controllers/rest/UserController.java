@@ -2,7 +2,6 @@ package no.ntnu.ProFlex.controllers.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.User;
 import no.ntnu.ProFlex.services.UserService;
@@ -17,7 +16,7 @@ import java.util.logging.Logger;
 /**
  * Rest controller for the user.
  *
- * @author Ole Kristian Dvergsdal
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @RestController
@@ -65,6 +64,12 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    /**
+     * Retrieves a user by their email.
+     *
+     * @param email Email of the user to retrieve.
+     * @return ResponseEntity containing the user if found, or an error message with HTTP status code if the user is not found.
+     */
     @GetMapping("/email/{email}")
     public ResponseEntity<User> getUserByEmail(
             @Parameter(name = "email", description = "email of the user that you want to find")

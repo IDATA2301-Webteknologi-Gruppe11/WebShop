@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 /**
  * Rest controller for managing roles.
  *
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
 @RestController
@@ -65,6 +66,13 @@ public class RoleController {
         return ResponseEntity.ok(role);
     }
 
+    /**
+     * Retrieves a role by its name.
+     *
+     * @param name Name of the role to retrieve.
+     * @return ResponseEntity containing the role if found, or an error message with HTTP status code if the role is not found.
+     */
+    @ApiOperation(value = "Get role by role name", notes = "Returns the role form a given name")
     @GetMapping("/name/{name}")
     public ResponseEntity<Role> getByRoleName(
             @Parameter(name = "name", description = "name of the role")

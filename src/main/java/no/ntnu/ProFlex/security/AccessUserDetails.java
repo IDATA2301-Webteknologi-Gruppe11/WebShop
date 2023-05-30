@@ -6,7 +6,6 @@ import no.ntnu.ProFlex.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,11 +13,9 @@ import java.util.Set;
 /**
  * Holds the authentication information that is needed for the UserDetailsService.
  *
- * @author Ole Kristian
+ * @author IDATA2306 Group 11
  * @version 1.0
  */
-
-
 public class AccessUserDetails implements UserDetails {
 
     @Schema(description = "email that the user uses to log in whit.")
