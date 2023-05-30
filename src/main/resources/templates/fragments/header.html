@@ -11,7 +11,7 @@
         <div class="ul2">
             <form th:action="@{/search}" method="get">
                 <div class="search-container" tabindex="1">
-                    <button type="submit" class="search-btn">
+                    <button type="submit" class="search-btn" aria-label="Search for products on the site">
                         <i class="fas fa-search"></i>
                     </button>
                     <input type="text" name="query" placeholder="Search..." class="search-input">
@@ -22,7 +22,7 @@
                 <span class="material-symbols-outlined">shopping_cart</span>
             </a>
             <div class="dropdown">
-                <button class="dropbtn" id="email-button">
+                <button class="dropbtn" id="firstname-button" aria-label="Profile options">
                     <a th:href="${sessionUser != null ? '/profile' : '/login'}" id="login-flex-box">
                         <p th:if="${sessionUser != null}" th:text="${sessionUser.firstName}">Log in</p>
                         <p th:unless="${sessionUser != null}">Log in</p>
