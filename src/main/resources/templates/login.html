@@ -19,7 +19,7 @@
 </head>
 <body>
 <main>
-    <a href="/"><img id="logo-image" src="../static/images/proflexlogo.png"></a>
+    <a href="/" aria-label="Returns to home page"><img id="logo-image" src="../static/images/proflexlogo.png" alt="proflex logo"></a>
     <form method="post" th:action="@{/login}">
         
         <div id="login-flex-container">
@@ -35,7 +35,7 @@
                     <li class="icons"><i class="fa-sharp fa-solid fa-key"></i></li>
                     <li class="loging-text">Password: </li>
                     <li><input type="password" id="password" name="password" placeholder="Password" class="text-bar"></li>
-                    <li><button class="button-eye" id="password-button-eye" onclick="showPassword()" type="button"><i class="fa-regular fa-eye-slash"></i></button></li>
+                    <li><button class="button-eye" id="password-button-eye" onclick="showPassword()" type="button"aria-label="Toggle view password on and off"><i class="fa-regular fa-eye-slash"></i></button></li>
                 </ul>
                 <div class="line"></div>
                 <p th:if="${param.error}" class="alert">Invalid username or password</p>

@@ -13,7 +13,6 @@
     />
     <meta name="author" content="Group 11" />
     <title>signup form</title>
-    <link rel="stylesheet" href="../static/Register.css" />
     <link rel="stylesheet" th:href="@{static/css/register.css}" />
     <script src="../static/js/signup.js"></script>
     <script
@@ -22,7 +21,7 @@
     ></script>
   </head>
   <body>
-    <a href="/"><img id="logo" src="../static/images/proflexlogo.png" /></a>
+    <a href="/" aria-label="returns back to home page"><img id="logo" src="../static/images/proflexlogo.png" alt="proflex logo"/></a>
     <div id="register-flex-conteiner">
       <section id="section">
         <h1>Register</h1>
@@ -34,13 +33,14 @@
         >
           <ul id="email-list">
             <li class="icons"><i class="fa-solid fa-envelope"></i></li>
-            <li class="register-text">Email:</li>
+            <li class="register-text"> Email:</li>
             <li>
               <input
                 type="text"
                 class="text-bar"
                 id="text-email-bar"
                 th:field="*{email}"
+                placeholder="Email"
                 required
               />
             </li>
@@ -55,6 +55,7 @@
                 class="text-bar"
                 id="text-firstname-bar"
                 th:field="*{firstName}"
+                placeholder="First Name"
                 required
               />
             </li>
@@ -69,6 +70,7 @@
                 class="text-bar"
                 id="text-lastname-bar"
                 th:field="*{lastName}"
+                placeholder="Last Name"
                 required
               />
             </li>
@@ -83,6 +85,7 @@
                 class="text-bar"
                 id="password-text-bar"
                 th:field="*{pass}"
+                placeholder="password"
                 required
               />
             </li>
@@ -92,6 +95,7 @@
                 id="password-button-eye"
                 onclick="showPassword()"
                 type="button"
+                aria-label="Toggle view password button on and off"
               >
                 <i class="fa-regular fa-eye-slash"></i>
               </button>
@@ -106,6 +110,7 @@
                 type="password"
                 class="text-bar"
                 id="password-confirm-text-bar"
+                placeholder="password"
               />
             </li>
             <li>
@@ -114,6 +119,7 @@
                 id="password-confirm-button-eye"
                 onclick="showConfirmPassword()"
                 type="button"
+                aria-label="Toggle confirm password on and off"
               >
                 <i class="fa-regular fa-eye-slash"></i>
               </button>

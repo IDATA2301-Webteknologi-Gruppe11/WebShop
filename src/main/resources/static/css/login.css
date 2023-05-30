@@ -8,9 +8,7 @@
     box-sizing: border-box;
 }
 
-#logo-image {
-    width: 20rem;
-}
+
 
 #login-flex-container {
     display: flex;
