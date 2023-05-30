@@ -2,7 +2,6 @@ package no.ntnu.ProFlex.controllers.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import no.ntnu.ProFlex.models.Product;
 import no.ntnu.ProFlex.services.ProductService;

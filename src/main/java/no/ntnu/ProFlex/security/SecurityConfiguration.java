@@ -50,27 +50,71 @@ public class SecurityConfiguration {
         http.csrf().disable()
                 .authorizeRequests()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/admin/**")).hasRole("ADMIN")
-                .requestMatchers(new AntPathRequestMatcher("/profile/**")).hasAnyRole("USER", "ADMIN")
-                .requestMatchers(new AntPathRequestMatcher("/", "GET")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/products", "GET")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/product/{id}")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/about")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/shoppingcart")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/resetpassword")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/forgotpassword")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/signup-form")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/signup-success")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/no-access")).permitAll()
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("/profile/**").hasAnyRole("USER", "ADMIN")
+                .requestMatchers("/", "GET").permitAll()
+                .requestMatchers("/products", "GET").permitAll()
+                .requestMatchers("/product/{id}").permitAll()
+                .requestMatchers("/about").permitAll()
+                .requestMatchers("/shoppingcart").permitAll()
+                .requestMatchers("/resetpassword").permitAll()
+                .requestMatchers("/forgotpassword").permitAll()
+                .requestMatchers("/signup-form").permitAll()
+                .requestMatchers("/signup-success").permitAll()
+                .requestMatchers("/no-access").permitAll()
+
+                .requestMatchers("/api/cartItems/getAll").hasRole("ADMIN")
+                .requestMatchers("/api/cartItems/{id}").hasAnyRole("USER","ADMIN")
+                .requestMatchers("/api/cartItems/add").hasAnyRole("USER","ADMIN")
+                .requestMatchers("/api/cartItems/update({id}").hasAnyRole("USER", "ADMIN")
+                .requestMatchers("/api/cartItems/remove/{id}").hasAnyRole("USER", "ADMIN")
+
+
+                .requestMatchers("/api/category/getAll").permitAll()
+                .requestMatchers("/api/category/{id}").permitAll()
+                .requestMatchers("/api/category/add").hasRole("ADMIN")
+                .requestMatchers("/api/category/update/{id}").hasRole("ADMIN")
+                .requestMatchers("/api/category/remove/{id}").hasRole("ADMIN")
+
+
+                .requestMatchers("/api/order/getAll").hasRole("ADMIN")
+                .requestMatchers("/api/order/{id}").hasAnyRole("USER","ADMIN")
+                .requestMatchers("/api/order/add").hasAnyRole("USER","ADMIN")
+                .requestMatchers("/api/order/update/{id}").hasRole("ADMIN")
+                .requestMatchers("/api/order/remove{id}").hasRole("ADMIN")
+
+                .requestMatchers("/api/orderProduct/getAll").hasRole("ADMIN")
+                .requestMatchers("/api/orderProduct/add").hasAnyRole("USER","ADMIN")
+
+                .requestMatchers("/api/product/getAll").permitAll()
+                .requestMatchers("/api/product/{id}").permitAll()
+                .requestMatchers("/api/product/name{name}").permitAll()
+                .requestMatchers("/api/product/getByCategory{category}").permitAll()
+                .requestMatchers("/api/product/add").hasRole("ADMIN")
+                .requestMatchers("/api/product/update/{id}").hasRole("ADMIN")
+                .requestMatchers("/api/product/remove/{id}").hasAnyRole("ADMIN")
+
+                .requestMatchers("/api/role/getAll").permitAll()
+                .requestMatchers("/api/role/{id}").permitAll()
+                .requestMatchers("/api/role/name{name}").permitAll()
+                .requestMatchers("/api/role/add").hasRole("ADMIN")
+                .requestMatchers("/api/role/update/{id}").hasRole("ADMIN")
+                .requestMatchers("/api/role/remove/{id}").hasRole("ADMIN")
+
+                .requestMatchers("/api/shoppingcart/getAll").hasRole("ADMIN")
+                .requestMatchers("/api/shoppingcart/{id}").hasAnyRole("USER","ADMIN")
+                .requestMatchers("/api/shoppingcart/add").hasRole("ADMIN")
+                .requestMatchers("/api/shoppingcart/update/{id}").hasRole("ADMIN")
+                .requestMatchers("/api/shoppingcart/remove/{id}").hasRole("ADMIN")
+
+                .requestMatchers("/api/user/getAll").hasRole("ADMIN")
+                .requestMatchers("/api/user/{id}").hasAnyRole("USER","ADMIN")
+                .requestMatchers("/api/user/add").permitAll()
+                .requestMatchers("/api/user/update/{id}").hasAnyRole("USER","ADMIN")
+                .requestMatchers("/api/user/remove/{id}").hasRole("ADMIN")
+
                 .and().formLogin().loginPage("/login")
-                .and().logout().logoutSuccessUrl("/")
-        ;
-        http.csrf().disable().formLogin((form) -> form
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/")
-                .permitAll()
-        );
+                .and().logout().logoutSuccessUrl("/");
         return http.build();
     }
 
