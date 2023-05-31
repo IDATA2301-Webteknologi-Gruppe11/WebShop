@@ -14,7 +14,8 @@ To try email service for forgot password; create user witg one of your own email
 
 ### Run locally
 1.  Clone the GitHub repository to your own computer.
-2.  Open the repository and add a "env.properties" file inside the root folder (WebShop). 2.1 Paste the following information inside the file (values provided in the Insperia delivery):
+2.  Open the repository and add a "env.properties" file inside the root folder (WebShop). 
+2.1 Paste the following information inside the file (values provided in the Insperia delivery):
 #DB Config
 - MYSQL_DATABASE_PASSWORD=ChuckDoesNotAskTwice
 - MYSQL_DATABASE_URL=jdbc:mysql://10.212.26.225:3306/proflexwebsite
