@@ -32,7 +32,7 @@ public class CategoryTest {
                     Category category = new Category(" ");
                 }
         );
-        assertEquals("The string cname cant be empty or null.",exception.getMessage());
+        assertEquals("The string name cannot be empty or null.",exception.getMessage());
     }
 
     /**

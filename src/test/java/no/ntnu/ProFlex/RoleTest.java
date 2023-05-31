@@ -32,7 +32,7 @@ public class RoleTest {
                     Role role = new Role("");
                 }
         );
-        assertEquals("The string 'rname' cant be empty or null", exception.getMessage());
+        assertEquals("The string 'name' cannot be empty or null.", exception.getMessage());
     }
 
     /**
